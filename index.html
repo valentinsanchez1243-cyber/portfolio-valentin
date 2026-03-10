@@ -9,7 +9,7 @@
 :root{--r:#CC0000;--rb:#FF2222;--b:#080808;--b2:#0f0f0f;--w:#F0F0F0;--g:#777;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;}
+body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
 
 /* CURSOR */
 #cd,#cr{position:fixed;border-radius:50%;pointer-events:none;z-index:999999;top:0;left:0;will-change:transform;}
@@ -38,7 +38,7 @@ nav.sc{background:rgba(8,8,8,.99);border-bottom:1px solid rgba(204,0,0,.2);}
 
 /* HERO */
 #hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.hg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
+.hg{position:absolute;inset:0;}
 .hg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,transparent 0%,rgba(8,8,8,.9) 100%);}
 .hgl{position:absolute;inset:0;background:radial-gradient(ellipse 45% 38% at 50% 50%,rgba(204,0,0,.1) 0%,transparent 70%);z-index:1;}
 .hc{text-align:center;z-index:2;}
@@ -74,7 +74,7 @@ section{padding:110px 64px;}
 .sbt p{font-size:1.02rem;line-height:1.82;color:rgba(240,240,240,.76);margin-bottom:17px;font-weight:300;}
 .sbt p strong{color:var(--w);font-weight:600;}
 .skw{margin-top:34px;display:flex;flex-direction:column;gap:11px;}
-.skr{display:grid;grid-template-columns:130px 1fr 36px;align-items:center;gap:14px;}
+.skr{display:flex;align-items:center;gap:14px;}
 .skl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--g);}
 .skt{height:3px;background:rgba(255,255,255,.07);position:relative;overflow:hidden;}
 .skf{position:absolute;left:0;top:0;bottom:0;background:var(--r);width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1);box-shadow:0 0 8px rgba(204,0,0,.6);}
@@ -140,7 +140,7 @@ section{padding:110px 64px;}
 .pn{font-family:'Bebas Neue',sans-serif;font-size:clamp(17px,3vw,34px);line-height:1;}
 .pd{font-size:.79rem;color:rgba(240,240,240,.68);margin-top:7px;line-height:1.5;font-weight:300;max-height:0;overflow:hidden;transition:max-height .4s,opacity .4s;opacity:0;}
 .pc:hover .pd{max-height:70px;opacity:1;}
-.pb{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.73rem;letter-spacing:3px;text-transform:uppercase;color:var(--r);margin-top:9px;opacity:0;transform:translateX(-8px);transition:opacity .3s .1s,transform .3s .1s;background:none;border:none;cursor:none;padding:0;}
+.pb{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.73rem;letter-spacing:3px;text-transform:uppercase;color:var(--r);margin-top:9px;opacity:0;transform:translateX(-8px);transition:opacity .3s .1s,transform .3s .1s;background:none;border:none;cursor:pointer;padding:0;text-decoration:none;}
 .pb::after{content:'→';}
 .pc:hover .pb{opacity:1;transform:translateX(0);}
 .ck{background:linear-gradient(135deg,#0d0d0d,#1c1c1c);}
@@ -287,7 +287,7 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <li><a href="#educacion">Educación</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#curriculum">Currículum</a></li>
+    <li><a href="curriculum.html">Currículum</a></li>
     <li><a href="#contacto" class="ncta">Contacto</a></li>
   </ul>
 </nav>
@@ -321,12 +321,12 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <p>Trabajo <strong>desarrollando marcas y contenidos desde cero</strong>, combinando branding, publicidad y producción audiovisual. Lidero procesos creativos completos: concepto, diseño, producción y comunicación — con foco en impacto visual, coherencia de marca y resultados reales.</p>
     <p>Experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de indumentaria deportiva y campañas publicitarias. Trabajo con <strong>clientes locales e internacionales</strong> y en <strong>marcas propias</strong>.</p>
     <div class="skw">
-      <div class="skr"><span class="skl">Photoshop</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><span class="skl">Illustrator</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><span class="skl">CapCut</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><span class="skl">Premiere Pro</span><div class="skt"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
-      <div class="skr"><span class="skl">Notion</span><div class="skt"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
-      <div class="skr"><span class="skl">After Effects</span><div class="skt"><div class="skf" data-pct="20"></div></div><span class="skp">20%</span></div>
+      <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><span class="skp">90%</span></div>
+      <div class="skr"><img src="illustrator.png" alt="Illustrator" style="width:50px;height:50px;"><span class="skl">Illustrator</span><span class="skp">90%</span></div>
+      <div class="skr"><img src="capcut.png" alt="CapCut" style="width:50px;height:50px;"><span class="skl">CapCut</span><span class="skp">90%</span></div>
+      <div class="skr"><img src="premiere.png" alt="Premiere Pro" style="width:50px;height:50px;"><span class="skl">Premiere Pro</span><span class="skp">75%</span></div>
+      <div class="skr"><img src="notion.png" alt="Notion" style="width:50px;height:50px;"><span class="skl">Notion</span><span class="skp">75%</span></div>
+      <div class="skr"><img src="aftereffects.png" alt="After Effects" style="width:50px;height:50px;"><span class="skl">After Effects</span><span class="skp">20%</span></div>
     </div>
   </div>
   <div class="sph rv">
@@ -391,13 +391,13 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
   <div class="sl rv">Portfolio</div>
   <h2 class="st rv">CASOS<br><em>REALES</em></h2>
   <div class="pg">
-    <div class="pc big ck" onclick="openM('kord3')"><div class="pcb"><div class="plo">KORD3</div></div><div class="po"><div class="pt">CEO · Branding · Audiovisual · Indumentaria</div><div class="pn">KORD3</div><div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y lanzamiento.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc ca" onclick="openM('agency')"><div class="pcb"><div class="plo">AGENCY<br>LUXURY</div></div><div class="po"><div class="pt">Edición · Ads · Marketing</div><div class="pn">AGENCY LUXURY</div><div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc ce" onclick="openM('energia')"><div class="pcb"><div class="plo">ENERGÍA<br>FITNESS</div></div><div class="po"><div class="pt">Rebranding · Creativo · Redes</div><div class="pn">ENERGÍA FITNESS</div><div class="pd">Rebranding completo, semana hype y producción audiovisual.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc cm" onclick="openM('mfsports')"><div class="pcb"><div class="plo">MF<br>SPORTS</div></div><div class="po"><div class="pt">Indumentaria Deportiva · Sponsors</div><div class="pn">MF SPORTS</div><div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc cn2" onclick="openM('natan')"><div class="pcb"><div class="plo">NATAN<br>BARBER</div></div><div class="po"><div class="pt">Branding · Lanzamiento · Audiovisual</div><div class="pn">NATAN BARBER ESTUDIO</div><div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc ch" onclick="openM('home')"><div class="pcb"><div class="plo">HOME<br>IMPROVEMENT</div></div><div class="po"><div class="pt">Video Ads · UGC · IA · Florida USA</div><div class="pn">HOME IMPROVEMENT POWER</div><div class="pd">Ads UGC con producción IA para empresa en Florida.</div><button class="pb">Ver proyecto completo</button></div></div>
-    <div class="pc cz" onclick="openM('otros')"><div class="pcb"><div class="plo">ZETTA · PAVAN<br>LEGAL LEADS</div></div><div class="po"><div class="pt">Edición · Seguridad · Farmacia · Legal</div><div class="pn">OTROS CLIENTES</div><div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div><button class="pb">Ver más</button></div></div>
+    <div class="pc big ck"><div class="pcb"><div class="plo">KORD3</div></div><div class="po"><div class="pt">CEO · Branding · Audiovisual · Indumentaria</div><div class="pn">KORD3</div><div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y lanzamiento.</div><a href="kord3.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc ca"><div class="pcb"><div class="plo">AGENCY<br>LUXURY</div></div><div class="po"><div class="pt">Edición · Ads · Marketing</div><div class="pn">AGENCY LUXURY</div><div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div><a href="agency.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc ce"><div class="pcb"><div class="plo">ENERGÍA<br>FITNESS</div></div><div class="po"><div class="pt">Rebranding · Creativo · Redes</div><div class="pn">ENERGÍA FITNESS</div><div class="pd">Rebranding completo, semana hype y producción audiovisual.</div><a href="energia.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc cm"><div class="pcb"><div class="plo">MF<br>SPORTS</div></div><div class="po"><div class="pt">Indumentaria Deportiva · Sponsors</div><div class="pn">MF SPORTS</div><div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div><a href="mfsports.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc cn2"><div class="pcb"><div class="plo">NATAN<br>BARBER</div></div><div class="po"><div class="pt">Branding · Lanzamiento · Audiovisual</div><div class="pn">NATAN BARBER ESTUDIO</div><div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div><a href="natan.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc ch"><div class="pcb"><div class="plo">HOME<br>IMPROVEMENT</div></div><div class="po"><div class="pt">Video Ads · UGC · IA · Florida USA</div><div class="pn">HOME IMPROVEMENT POWER</div><div class="pd">Ads UGC con producción IA para empresa en Florida.</div><a href="home.html" class="pb">Ver proyecto completo</a></div></div>
+    <div class="pc cz"><div class="pcb"><div class="plo">ZETTA · PAVAN<br>LEGAL LEADS</div></div><div class="po"><div class="pt">Edición · Seguridad · Farmacia · Legal</div><div class="pn">OTROS CLIENTES</div><div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div><a href="otros.html" class="pb">Ver más</a></div></div>
   </div>
 </section>
 
@@ -444,48 +444,7 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
   </div>
 </section>
 
-<!-- CURRÍCULUM -->
-<section id="curriculum">
-  <div class="sl rv">Documentación</div>
-  <h2 class="st rv">MI<br><em>CURRÍCULUM</em></h2>
-  <div class="cvw">
-    <div class="rv">
-      <div class="cvb"><div class="cvbt">Educación</div>
-        <div class="cve"><div class="cvet">Ingeniería Electrónica</div><div class="cves">Universidad Tecnológica de Córdoba (UTN)</div><div class="cved">2022 – Presente · 3er año</div><div class="cvedd">Formación técnica en electrónica, sistemas y matemática avanzada.</div></div>
-        <div class="cve"><div class="cvet">Diseño Gráfico</div><div class="cves">Universidad Empresarial Siglo 21</div><div class="cved">2023 – Presente · 2do año</div><div class="cvedd">Teoría del diseño, comunicación visual, tipografía, color y producción gráfica digital.</div></div>
-        <div class="cve"><div class="cvet">Inglés — Nivel B2</div><div class="cves">Academia IICANA</div><div class="cved">En curso · 4to año</div><div class="cvedd">Comunicación fluida en inglés. Permite trabajar con clientes internacionales.</div></div>
-      </div>
-      <div class="cvb"><div class="cvbt">Certificaciones UTN</div>
-        <div class="cve"><div class="cvet">Illustrator — Mención de Honor 🏆</div><div class="cves">UTN Córdoba</div><div class="cved">Nivel Fundamentos · Calificación máxima</div></div>
-        <div class="cve"><div class="cvet">Photoshop · Word · Excel · Dreamweaver · AutoCAD 2D</div><div class="cves">UTN Córdoba</div><div class="cved">Múltiples niveles · 2021–2023</div></div>
-      </div>
-      <div class="cvb"><div class="cvbt">Logros & Actividades</div>
-        <div class="cve"><div class="cvet">Coordinador · Grupito Misionero</div><div class="cves">Colegio Jesús María</div><div class="cved">2020</div><div class="cvedd">Coordinador de chicos del ciclo inicial.</div></div>
-        <div class="cve"><div class="cvet">Mención en Comunicación — RESPIRARTE 2020</div><div class="cves">Instituto de Virología · Jornada Científica</div><div class="cved">2020</div></div>
-        <div class="cve"><div class="cvet">Capacitador & Presidente · Modelo Naciones Unidas</div><div class="cves">Colegio Jesús María · OAJNU 2019</div><div class="cved">2019–2021</div><div class="cvedd">Participación con mención en OAJNU 2019. Presidente del MNU del Colegio 2021.</div></div>
-        <div class="cve"><div class="cvet">Campamento Científico</div><div class="cves">Ministerio de Educación · Córdoba</div><div class="cved">2019</div></div>
-      </div>
-    </div>
-    <div class="cvdb rv">
-      <div class="cvdt">Descargar CV</div>
-      <div class="cvds">Descargá mi currículum completo en PDF — experiencia, educación, certificaciones y datos de contacto.</div>
-      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="cvdl">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descargar CV en PDF
-      </a>
-      <div class="cvpr">
-        <div class="cvprl">Datos de contacto</div>
-        <ul class="cvil">
-          <li>valentinnsanchez5@gmail.com</li>
-          <li>+54 9 351 555 8997</li>
-          <li>@vaalensnchz — Instagram</li>
-          <li>Barrio San Salvador, Cangaye 21 · Córdoba</li>
-          <li>Inglés B2 · Español Nativo</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- LOGROS -->
 <section id="logros">
