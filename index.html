@@ -70,7 +70,9 @@ section{padding:110px 64px;}
 .st em{color:var(--r);font-style:normal;}
 
 /* SOBRE */
-#sobre{background:var(--b2);display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;}
+#sobre{background:var(--b2);display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;position:relative;}
+#sobre::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#sobre > *{position:relative;z-index:1;}
 .sbt p{font-size:1.02rem;line-height:1.82;color:rgba(240,240,240,.76);margin-bottom:17px;font-weight:300;}
 .sbt p strong{color:var(--w);font-weight:600;}
 .skw{margin-top:34px;display:flex;flex-direction:column;gap:11px;}
@@ -152,7 +154,9 @@ section{padding:110px 64px;}
 .cz{background:linear-gradient(135deg,#0f0f0f,#1a1a1a);}
 
 /* SERVICIOS */
-#servicios{background:var(--b2);}
+#servicios{background:var(--b2);position:relative;}
+#servicios::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#servicios > *{position:relative;z-index:1;}
 .svl{border-top:1px solid rgba(255,255,255,.07);}
 .svi{display:grid;grid-template-columns:68px 1fr auto;align-items:center;gap:32px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;transition:padding-left .3s;}
 .svi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(204,0,0,.05);transition:width .4s;}
@@ -166,7 +170,9 @@ section{padding:110px 64px;}
 .svt{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(204,0,0,.26);color:rgba(204,0,0,.78);}
 
 /* PROCESO */
-#proceso{background:var(--b);}
+#proceso{background:var(--b);position:relative;}
+#proceso::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#proceso > *{position:relative;z-index:1;}
 .prg{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
 .prg::after{content:'';position:absolute;top:38px;left:9%;right:9%;height:1px;background:linear-gradient(to right,transparent,var(--r),transparent);z-index:0;}
 .prs{text-align:center;padding:0 12px;position:relative;z-index:1;}
@@ -217,7 +223,9 @@ section{padding:110px 64px;}
 .lgd{font-size:.83rem;line-height:1.65;color:rgba(240,240,240,.64);font-weight:300;}
 
 /* CONTACTO */
-#contacto{background:var(--b2);text-align:center;}
+#contacto{background:var(--b2);text-align:center;position:relative;}
+#contacto::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#contacto > *{position:relative;z-index:1;}
 .cbg{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,148px);line-height:.88;color:rgba(255,255,255,.03);pointer-events:none;margin-bottom:-44px;position:relative;z-index:0;}
 .ci{position:relative;z-index:1;}
 .cem{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,4vw,44px);color:var(--w);text-decoration:none;display:inline-block;border-bottom:2px solid var(--r);padding-bottom:4px;transition:color .2s;letter-spacing:2px;}
@@ -286,8 +294,8 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <li><a href="#sobre">Sobre mí</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">El proceso</a></li>
-    <li><a href="curriculum.html">Curriculum</a></li>
+    <li><a href="#proceso">El Proceso</a></li>
+    <li><a href="curriculum.html">Currículum</a></li>
     <li><a href="#contacto" class="ncta">Contacto</a></li>
   </ul>
 </nav>
@@ -317,8 +325,8 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
   <div class="sbt rv">
     <div class="sl">Sobre mí</div>
     <h2 class="st">INTEGRACIÓN<br><em>CREATIVA</em></h2>
-    <p>Soy estudiante de Diseño Gráfico en la Universidad Siglo 21, Trabajo como diseñador gráfico, creativo audiovisual de Argentina-Córdoba Capital y tengo 22 años.</p>
-    <p>Trabajo desarrollando marcas y contenidos desde cero, combinando branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
+    <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico en la Universidad Empresarial Siglo 21.</p>
+    <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
     <p>Participo tanto en proyectos de clientes como en marcas propias, liderando procesos creativos completos: concepto, diseño, producción y comunicación, con foco en impacto visual, coherencia de marca y resultados.</p>
     <div class="skw">
       <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><span class="skp">90%</span></div>
@@ -356,13 +364,13 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
   <div class="sl rv">Portfolio</div>
   <h2 class="st rv">PROYECTOS</h2>
   <div class="pg">
-    <div class="pc big ck"><div class="pcb"><div class="plo">KORD3</div></div><div class="po"><div class="pt">CEO · Branding · Audiovisual · Indumentaria</div><div class="pn">KORD3</div><div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y lanzamiento.</div><a href="kord3.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc ca"><div class="pcb"><div class="plo">AGENCY<br>LUXURY</div></div><div class="po"><div class="pt">Edición · Ads · Marketing</div><div class="pn">AGENCY LUXURY</div><div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div><a href="agency.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc ce"><div class="pcb"><div class="plo">ENERGÍA<br>FITNESS</div></div><div class="po"><div class="pt">Rebranding · Creativo · Redes</div><div class="pn">ENERGÍA FITNESS</div><div class="pd">Rebranding completo, semana hype y producción audiovisual.</div><a href="energia.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc cm"><div class="pcb"><div class="plo">MF<br>SPORTS</div></div><div class="po"><div class="pt">Indumentaria Deportiva · Sponsors</div><div class="pn">MF SPORTS</div><div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div><a href="mfsports.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc cn2"><div class="pcb"><div class="plo">NATAN<br>BARBER</div></div><div class="po"><div class="pt">Branding · Lanzamiento · Audiovisual</div><div class="pn">NATAN BARBER ESTUDIO</div><div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div><a href="natan.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc ch"><div class="pcb"><div class="plo">HOME<br>IMPROVEMENT</div></div><div class="po"><div class="pt">Video Ads · UGC · IA · Florida USA</div><div class="pn">HOME IMPROVEMENT POWER</div><div class="pd">Ads UGC con producción IA para empresa en Florida.</div><a href="home.html" class="pb">Ver proyecto completo</a></div></div>
-    <div class="pc cz"><div class="pcb"><div class="plo">ZETTA · PAVAN<br>LEGAL LEADS</div></div><div class="po"><div class="pt">Edición · Seguridad · Farmacia · Legal</div><div class="pn">OTROS CLIENTES</div><div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div><a href="otros.html" class="pb">Ver más</a></div></div>
+    <a href="kord3.html"><div class="pc big ck"><div class="pcb"><div class="plo">KORD3</div></div><div class="po"><div class="pt">CEO · Branding · Audiovisual · Indumentaria</div><div class="pn">KORD3</div><div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y lanzamiento.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="agency.html"><div class="pc ca"><div class="pcb"><div class="plo">AGENCY<br>LUXURY</div></div><div class="po"><div class="pt">Edición · Ads · Marketing</div><div class="pn">AGENCY LUXURY</div><div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="energia.html"><div class="pc ce"><div class="pcb"><div class="plo">ENERGÍA<br>FITNESS</div></div><div class="po"><div class="pt">Rebranding · Creativo · Redes</div><div class="pn">ENERGÍA FITNESS</div><div class="pd">Rebranding completo, semana hype y producción audiovisual.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="mfsports.html"><div class="pc cm"><div class="pcb"><div class="plo">MF<br>SPORTS</div></div><div class="po"><div class="pt">Indumentaria Deportiva · Sponsors</div><div class="pn">MF SPORTS</div><div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="natan.html"><div class="pc cn2"><div class="pcb"><div class="plo">NATAN<br>BARBER</div></div><div class="po"><div class="pt">Branding · Lanzamiento · Audiovisual</div><div class="pn">NATAN BARBER ESTUDIO</div><div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="home.html"><div class="pc ch"><div class="pcb"><div class="plo">HOME<br>IMPROVEMENT</div></div><div class="po"><div class="pt">Video Ads · UGC · IA · Florida USA</div><div class="pn">HOME IMPROVEMENT POWER</div><div class="pd">Ads UGC con producción IA para empresa en Florida.</div><div class="pb">Ver proyecto completo</div></div></div></a>
+    <a href="otros.html"><div class="pc cz"><div class="pcb"><div class="plo">ZETTA · PAVAN<br>LEGAL LEADS</div></div><div class="po"><div class="pt">Edición · Seguridad · Farmacia · Legal</div><div class="pn">OTROS CLIENTES</div><div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div><div class="pb">Ver más</div></div></div></a>
   </div>
 </section>
 
@@ -383,7 +391,7 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
 <section id="proceso">
   <div class="sl rv">Metodología</div>
   <h2 class="st rv">EL<br><em>PROCESO</em></h2>
-  <p style="color:var(--g);max-width:600px;margin:0 auto 40px;text-align:center;font-weight:300;">No siempre es el mismo proceso, generalmente ya hay una base que cada proyecto es distinto.</p>
+  <p style="color:var(--g);max-width:600px;margin:0 auto 40px;text-align:center;font-weight:300;">Cada proyecto es único. Este es el proceso general que sigo como base, pero dependiendo del cliente, el rubro y los objetivos, el orden y los pasos pueden variar. Lo importante es siempre el resultado.</p>
   <div class="prg">
     <div class="prs rv"><div class="prn">01</div><div class="prt">Concepto</div><div class="prd">Entiendo el negocio, el público y los objetivos. Defino el universo estético y la dirección creativa.</div></div>
     <div class="prs rv"><div class="prn">02</div><div class="prt">Diseño</div><div class="prd">Desarrollo visual completo: identidad, piezas gráficas, paleta y lineamientos de comunicación.</div></div>

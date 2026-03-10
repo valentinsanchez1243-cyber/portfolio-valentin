@@ -198,60 +198,392 @@ section{padding:110px 64px;}
 .cvdt{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;margin-bottom:10px;}
 .cvds{font-size:.83rem;color:var(--g);line-height:1.65;margin-bottom:22px;font-weight:300;}
 .cvdl{display:flex;align-items:center;gap:12px;background:var(--r);color:var(--w);padding:15px 22px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:4px;text-transform:uppercase;width:100%;justify-content:center;transition:background .2s,transform .2s;}
+.cvdl:hover{background:var(--rb);transform:translateY(-2px);}
+
+/* EDUCACIÓN */
+#educacion{background:var(--b);position:relative;}
+#educacion::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#educacion > *{position:relative;z-index:1;}
+
+/* EXPERIENCIA */
+#experiencia{background:var(--b2);position:relative;}
+#experiencia::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#experiencia > *{position:relative;z-index:1;}
+
+/* LOGROS */
+#logros{background:var(--b);position:relative;}
+#logros::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#logros > *{position:relative;z-index:1;}
+
+/* CONTACTO */
+#contacto{background:var(--b2);text-align:center;position:relative;}
+#contacto::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#contacto > *{position:relative;z-index:1;}
 </style>
 </head>
 <body>
-<a href="index.html" style="position:fixed;top:20px;left:20px;color:var(--w);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;">← VOLVER</a>
-<section id="curriculum">
-  <div class="sl rv">Documentación</div>
-  <h2 class="st rv">MI<br><em>CURRÍCULUM</em></h2>
-  <div class="cvw">
-    <div class="rv">
-      <div class="cvb"><div class="cvbt">Educación</div>
-        <div class="cve"><div class="cvet">Ingeniería Electrónica</div><div class="cves">Universidad Tecnológica de Córdoba (UTN)</div><div class="cved">2022 – Presente · 3er año</div><div class="cvedd">Formación técnica en electrónica, sistemas y matemática avanzada.</div></div>
-        <div class="cve"><div class="cvet">Diseño Gráfico</div><div class="cves">Universidad Empresarial Siglo 21</div><div class="cved">2023 – Presente · 2do año</div><div class="cvedd">Teoría del diseño, comunicación visual, tipografía, color y producción gráfica digital.</div></div>
-        <div class="cve"><div class="cvet">Inglés — Nivel B2</div><div class="cves">Academia IICANA</div><div class="cved">En curso · 4to año</div><div class="cvedd">Comunicación fluida en inglés. Permite trabajar con clientes internacionales.</div></div>
-      </div>
-      <div class="cvb"><div class="cvbt">Certificaciones UTN</div>
-        <div class="cve"><div class="cvet">Illustrator — Mención de Honor 🏆</div><div class="cves">UTN Córdoba</div><div class="cved">Nivel Fundamentos · Calificación máxima</div></div>
-        <div class="cve"><div class="cvet">Photoshop · Word · Excel · Dreamweaver · AutoCAD 2D</div><div class="cves">UTN Córdoba</div><div class="cved">Múltiples niveles · 2021–2023</div></div>
-      </div>
-      <div class="cvb"><div class="cvbt">Logros & Actividades</div>
-        <div class="cve"><div class="cvet">Coordinador · Grupito Misionero</div><div class="cves">Colegio Jesús María</div><div class="cved">2020</div><div class="cvedd">Coordinador de chicos del ciclo inicial.</div></div>
-        <div class="cve"><div class="cvet">Mención en Comunicación — RESPIRARTE 2020</div><div class="cves">Instituto de Virología · Jornada Científica</div><div class="cved">2020</div></div>
-        <div class="cve"><div class="cvet">Capacitador & Presidente · Modelo Naciones Unidas</div><div class="cves">Colegio Jesús María · OAJNU 2019</div><div class="cved">2019–2021</div><div class="cvedd">Participación con mención en OAJNU 2019. Presidente del MNU del Colegio 2021.</div></div>
-        <div class="cve"><div class="cvet">Campamento Científico</div><div class="cves">Ministerio de Educación · Córdoba</div><div class="cved">2019</div></div>
-      </div>
-      <div class="cvb"><div class="cvbt">Experiencia Laboral</div>
-        <div class="cve"><div class="cvet">CEO & Director Creativo</div><div class="cves">KORD3 — Marca de Indumentaria</div><div class="cved">2024 – Presente</div><div class="cvedd">Fundador y director creativo. Desarrollo integral: identidad visual, diseño de indumentaria, producción audiovisual, página web y estrategia de lanzamiento con "Semana Hype 4".</div></div>
-        <div class="cve"><div class="cvet">Editor de Video & Creativos</div><div class="cves">Agency Luxury — Agencia de Marketing · Buenos Aires</div><div class="cved">2024 – Presente</div><div class="cvedd">Edición de VSL y Facebook Ads para agencia especializada en cirujanos plásticos. Diseño de thumbnails. Estándar visual premium alineado al nicho médico.</div></div>
-        <div class="cve"><div class="cvet">Editor de Video para Ads</div><div class="cves">Home Improvement Power — Florida, EE.UU.</div><div class="cved">2024 – Presente</div><div class="cvedd">Videos cortos estilo UGC para Facebook e Instagram Ads. Hooks fuertes y producción con IA (voz en off, recursos audiovisuales) para escalar volumen de contenido.</div></div>
-        <div class="cve"><div class="cvet">Diseñador de Indumentaria Deportiva</div><div class="cves">MF Sports — Córdoba</div><div class="cved">2023 – 2024</div><div class="cvedd">Diseño de conjuntos para fútbol y hockey: camisetas, musculosas, buzos. Presentaciones visuales para sponsors.</div></div>
-        <div class="cve"><div class="cvet">Community Manager & Director Creativo</div><div class="cves">The Natan Barber Estudio · Energía Fitness — Córdoba</div><div class="cved">2023 – 2024</div><div class="cvedd">Branding completo, rebranding y relanzamiento. Semana Hype, producción audiovisual, carruseles y gestión de contenido para redes sociales.</div></div>
-        <div class="cve"><div class="cvet">Editor de Video</div><div class="cves">Zetta Security · Farmacia Pavan · Legal Leads</div><div class="cved">2023 – 2024</div><div class="cvedd">Edición audiovisual para múltiples rubros: seguridad (Córdoba), farmacia (Córdoba) y estudio jurídico (Chile). Piezas adaptadas al objetivo comunicacional de cada cliente.</div></div>
-        <div class="cve"><div class="cvet">Operario de Depósito</div><div class="cves">Librería LibreMas — Córdoba</div><div class="cved">Ene 2022 · Ene 2023</div><div class="cvedd">Armado y organización de bolsones y depósito. Trabajo en equipo, orden y responsabilidad.</div></div>
-        <div class="cve"><div class="cvet">Secretario</div><div class="cves">Estudio Jurídico LupiMorales — Córdoba</div><div class="cved">2022 – 2023</div><div class="cvedd">Funciones administrativas y de secretaría. Organización y manejo de documentación legal.</div></div>
+
+<div id="cd"></div>
+<div id="cr"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nl">VS<span>.</span></div>
+  <ul class="nls">
+    <li><a href="index.html#sobre">Sobre mí</a></li>
+    <li><a href="index.html#proyectos">Proyectos</a></li>
+    <li><a href="index.html#servicios">Servicios</a></li>
+    <li><a href="index.html#proceso">El Proceso</a></li>
+    <li><a href="#educacion">Currículum</a></li>
+    <li><a href="#contacto" class="ncta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hg">
+    <div class="hgl"></div>
+  </div>
+  <div class="hc">
+    <div class="hey">Valentín Sánchez</div>
+    <h1 class="hn">CURRÍCULUM</h1>
+    <p class="hro"><span>DISEÑADOR</span> · EDITOR · PRODUCTOR</p>
+    <p class="hsub">Mi trayectoria profesional y académica en el mundo del diseño y la producción audiovisual.</p>
+    <div class="hbt">
+      <a href="#educacion" class="br">Ver currículum</a>
+      <a href="index.html" class="bo">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCACIÓN Y CERTIFICACIONES -->
+<section id="educacion">
+  <div class="sl rv">Formación</div>
+  <h2 class="st rv">EDUCACIÓN Y<br><em>CERTIFICACIONES</em></h2>
+  <div class="eg">
+    <div class="ec rv">
+      <div class="ei">🎓</div>
+      <div class="ein">UTN Ingeniería Electrónica</div>
+      <div class="ed">3er año</div>
+      <div class="ey">Córdoba, Argentina</div>
+    </div>
+    <div class="ec rv">
+      <div class="ei">🎨</div>
+      <div class="ein">Universidad Siglo 21 Diseño Gráfico</div>
+      <div class="ed">2do año</div>
+      <div class="ey">Córdoba, Argentina</div>
+    </div>
+    <div class="ec rv">
+      <div class="ei">📚</div>
+      <div class="ein">Colegio Jesús María</div>
+      <div class="ed">Bachillerato</div>
+      <div class="ey">Córdoba, Argentina</div>
+    </div>
+    <div class="ec rv">
+      <div class="ei">🌍</div>
+      <div class="ein">Academia IICANA Inglés</div>
+      <div class="ed">B2</div>
+      <div class="ey">Córdoba, Argentina</div>
+    </div>
+  </div>
+  <div class="cg">
+    <div class="cc rv">
+      <div class="cn">Photoshop Avanzado</div>
+      <div class="cl">UTN</div>
+    </div>
+    <div class="cc rv">
+      <div class="cn">Illustrator Fundamentos con Mención de Honor</div>
+      <div class="cl">UTN</div>
+    </div>
+    <div class="cc rv">
+      <div class="cn">Word Avanzado</div>
+      <div class="cl">UTN</div>
+    </div>
+    <div class="cc rv">
+      <div class="cn">Excel Fundamentos</div>
+      <div class="cl">UTN</div>
+    </div>
+    <div class="cc rv">
+      <div class="cn">Dreamweaver Fundamentos</div>
+      <div class="cl">UTN</div>
+    </div>
+    <div class="cc rv">
+      <div class="cn">AutoCAD 2D Fundamentos</div>
+      <div class="cl">UTN</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA LABORAL -->
+<section id="experiencia">
+  <div class="sl rv">Trayectoria</div>
+  <h2 class="st rv">EXPERIENCIA<br><em>LABORAL</em></h2>
+  <div class="exl">
+    <div class="exi rv">
+      <div class="exp">2023 - Presente</div>
+      <div class="exr">
+        <div class="exro">KORD3 CEO</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Fundador y CEO de marca propia de indumentaria. Lidero el proceso creativo completo: branding, diseño de prendas, producción audiovisual, web y lanzamiento.</div>
+        <div class="extg">
+          <span class="extgi">Branding</span>
+          <span class="extgi">Diseño Indumentaria</span>
+          <span class="extgi">Producción Audiovisual</span>
+          <span class="extgi">CEO</span>
+        </div>
       </div>
     </div>
-    <div class="cvdb rv">
-      <div class="cvdt">Descargar CV</div>
-      <div class="cvds">Descargá mi currículum completo en PDF — experiencia, educación, certificaciones y datos de contacto.</div>
-      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="cvdl">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Descargar CV en PDF
-      </a>
-      <div class="cvpr">
-        <div class="cvprl">Datos de contacto</div>
-        <ul class="cvil">
-          <li>valentinnsanchez5@gmail.com</li>
-          <li>+54 9 351 555 8997</li>
-          <li>@vaalensnchz — Instagram</li>
-          <li>Barrio San Salvador, Cangaye 21 · Córdoba</li>
-          <li>Inglés B2 · Español Nativo</li>
-        </ul>
+    <div class="exi rv">
+      <div class="exp">2023 - Presente</div>
+      <div class="exr">
+        <div class="exro">Agency Luxury Editor</div>
+        <div class="exco">Buenos Aires, Argentina</div>
+        <div class="exde">Editor de video para agencia de cirujanos plásticos. Especializado en VSL, Facebook Ads y thumbnails orientados a conversión.</div>
+        <div class="extg">
+          <span class="extgi">Edición Video</span>
+          <span class="extgi">VSL</span>
+          <span class="extgi">Ads</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2022 - 2023</div>
+      <div class="exr">
+        <div class="exro">Home Improvement Power Editor</div>
+        <div class="exco">Florida, USA</div>
+        <div class="exde">Editor de video para empresa de mejoras del hogar. Producción de ads UGC con IA para mercado estadounidense.</div>
+        <div class="extg">
+          <span class="extgi">Edición Video</span>
+          <span class="extgi">UGC</span>
+          <span class="extgi">IA</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2022 - 2023</div>
+      <div class="exr">
+        <div class="exro">MF Sports Diseñador</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Diseñador de indumentaria deportiva para fútbol y hockey. Camisetas, musculosas y buzos con sponsors.</div>
+        <div class="extg">
+          <span class="extgi">Diseño Indumentaria</span>
+          <span class="extgi">Deportiva</span>
+          <span class="extgi">Sponsors</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2021 - 2022</div>
+      <div class="exr">
+        <div class="exro">Natan Barber Community Manager</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Community manager para barbería. Branding desde cero, gestión de redes y producción audiovisual con eje en cuarteto cordobés.</div>
+        <div class="extg">
+          <span class="extgi">Community Management</span>
+          <span class="extgi">Branding</span>
+          <span class="extgi">Producción Audiovisual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2021 - 2022</div>
+      <div class="exr">
+        <div class="exro">Energía Fitness Community Manager</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Rebranding completo y gestión de redes para gimnasio. Semana hype y producción audiovisual.</div>
+        <div class="extg">
+          <span class="extgi">Rebranding</span>
+          <span class="extgi">Community Management</span>
+          <span class="extgi">Producción Audiovisual</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2020 - 2021</div>
+      <div class="exr">
+        <div class="exro">Zetta Security / Pavan / Legal Leads Editor</div>
+        <div class="exco">Córdoba, Argentina / Chile</div>
+        <div class="exde">Edición de video para múltiples clientes: seguridad, farmacia y legal. Adaptación a diferentes rubros y objetivos.</div>
+        <div class="extg">
+          <span class="extgi">Edición Video</span>
+          <span class="extgi">Múltiples Rubros</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2019 - 2020</div>
+      <div class="exr">
+        <div class="exro">Librería LibreMas</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Trabajo en librería independiente. Atención al cliente y gestión de inventario.</div>
+        <div class="extg">
+          <span class="extgi">Atención al Cliente</span>
+          <span class="extgi">Gestión Inventario</span>
+        </div>
+      </div>
+    </div>
+    <div class="exi rv">
+      <div class="exp">2018 - 2019</div>
+      <div class="exr">
+        <div class="exro">Estudio Jurídico LupiMorales</div>
+        <div class="exco">Córdoba, Argentina</div>
+        <div class="exde">Asistente administrativo en estudio jurídico. Gestión de documentación y soporte administrativo.</div>
+        <div class="extg">
+          <span class="extgi">Administrativo</span>
+          <span class="extgi">Gestión Documentación</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- LOGROS Y ACTIVIDADES -->
+<section id="logros">
+  <div class="sl rv">Reconocimientos</div>
+  <h2 class="st rv">LOGROS Y<br><em>ACTIVIDADES</em></h2>
+  <div class="cvw">
+    <div>
+      <div class="cvb">
+        <div class="cvbt">Logros Académicos</div>
+        <div class="cve">
+          <div class="cvet">Mención de Honor Illustrator</div>
+          <div class="cves">UTN</div>
+          <div class="cved">2022</div>
+          <div class="cvedd">Reconocimiento especial por desempeño destacado en el curso de Illustrator Fundamentos.</div>
+        </div>
+      </div>
+      <div class="cvb">
+        <div class="cvbt">Actividades Extracurriculares</div>
+        <div class="cve">
+          <div class="cvet">Presidente Modelo Naciones Unidas</div>
+          <div class="cves">Colegio Jesús María</div>
+          <div class="cved">2021</div>
+          <div class="cvedd">Liderazgo en simulación de Naciones Unidas, representando a países y debatiendo temas globales.</div>
+        </div>
+        <div class="cve">
+          <div class="cvet">OAJNU 2019</div>
+          <div class="cves">Organización Argentina de Jóvenes para las Naciones Unidas</div>
+          <div class="cved">2019</div>
+          <div class="cvedd">Participación en organización juvenil dedicada a promover los objetivos de las Naciones Unidas.</div>
+        </div>
+        <div class="cve">
+          <div class="cvet">Mención RESPIRARTE 2020</div>
+          <div class="cves">Ministerio de Cultura Córdoba</div>
+          <div class="cved">2020</div>
+          <div class="cvedd">Reconocimiento en concurso provincial de arte y cultura por proyecto creativo.</div>
+        </div>
+        <div class="cve">
+          <div class="cvet">Campamento Científico</div>
+          <div class="cves">Ministerio de Ciencia y Tecnología Córdoba</div>
+          <div class="cved">2018</div>
+          <div class="cvedd">Participación en campamento intensivo de ciencias, experimentos y aprendizaje práctico.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cvdb">
+      <div class="cvdt">Descargar CV</div>
+      <div class="cvds">Obtén una versión completa y detallada de mi currículum en formato PDF.</div>
+      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="cvdl">Descargar PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="cbg">CONTACTO</div>
+  <div class="ci rv">
+    <p style="color:var(--g);max-width:600px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
+    <a href="mailto:valentin@example.com" class="br">Enviar email</a>
+  </div>
+</section>
+
+<script>
+// === CURSOR — usa transform con translate(x-50%, y-50%) ===
+const cd = document.getElementById('cd');
+const cr = document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cd.style.transform=`translate(calc(${mx}px - 50%),calc(${my}px - 50%))`;
+});
+
+(function ar(){
+  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
+  cr.style.transform=`translate(calc(${rx}px - 50%),calc(${ry}px - 50%))`;  
+  requestAnimationFrame(ar);
+})();
+
+// Trail
+const TR=7, tp=[];
+for(let i=0;i<TR;i++){
+  const e=document.createElement('div');
+  e.className='trp';
+  const s=8-i;
+  e.style.cssText=`width:${s}px;height:${s}px;background:rgba(204,0,0,${.55-i*.07});box-shadow:0 0 ${s*2}px rgba(204,0,0,${.4-i*.05});`;
+  document.body.appendChild(e);
+  tp.push({e,x:0,y:0});
+}
+(function at(){
+  let px=mx,py=my;
+  for(let i=0;i<TR;i++){
+    const sp=.38-i*.04;
+    tp[i].x+=(px-tp[i].x)*sp; tp[i].y+=(py-tp[i].y)*sp;
+    tp[i].e.style.transform=`translate(calc(${tp[i].x}px - 50%),calc(${tp[i].y}px - 50%))`;  
+    px=tp[i].x; py=tp[i].y;
+  }
+  requestAnimationFrame(at);
+})();
+
+document.querySelectorAll('a,button,.pc,.svi,.ti,.ec,.cc,.lgc,.exi').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cd.classList.add('hov');cr.classList.add('hov');});
+  el.addEventListener('mouseleave',()=>{cd.classList.remove('hov');cr.classList.remove('hov');});
+});
+
+// NAV
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('sc',scrollY>50);
+});
+
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vs');ro.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// COUNTERS
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target,t=+el.dataset.target;
+      let c=0;const st=t/38;
+      const tm=setInterval(()=>{c+=st;if(c>=t){el.textContent=t+'+';clearInterval(tm);}else el.textContent=Math.floor(c);},45);
+      co.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
+
+// SKILL BARS
+const so=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skf').forEach(b=>b.style.width=b.dataset.pct+'%');
+      so.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.skw').forEach(el=>so.observe(el));
+
+// MODALS
+function openM(id){document.getElementById('m-'+id).classList.add('on');document.body.style.overflow='hidden';}
+function closeM(id){document.getElementById('m-'+id).classList.remove('on');document.body.style.overflow='';}
+document.querySelectorAll('.mo').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('on');document.body.style.overflow='';}});
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.mo.on').forEach(o=>{o.classList.remove('on');document.body.style.overflow='';});
+});
+</script>
 </body>
 </html>
