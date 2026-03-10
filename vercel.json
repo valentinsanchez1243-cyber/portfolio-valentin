@@ -1,15 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ]
+  "version": 2
 }
+```
+
+Así de simple. Guardá `Ctrl+S` y luego:
+```
+git add .
+git commit -m "fix vercel config"
+git push
