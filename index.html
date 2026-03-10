@@ -29,25 +29,28 @@ body {
 
 /* CURSOR */
 .cursor {
-  width: 10px; height: 10px;
+  width: 12px; height: 12px;
   background: var(--red);
   border-radius: 50%;
   position: fixed; top:0; left:0;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease;
+  transition: transform 0.08s ease;
+  box-shadow: 0 0 12px rgba(204,0,0,0.8), 0 0 24px rgba(204,0,0,0.4);
+  mix-blend-mode: normal;
 }
 .cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--red);
+  width: 40px; height: 40px;
+  border: 1.5px solid rgba(204,0,0,0.7);
   border-radius: 50%;
   position: fixed; top:0; left:0;
   pointer-events: none;
   z-index: 9998;
   transition: transform 0.15s ease, width 0.2s, height 0.2s, opacity 0.2s;
-  transform: translate(-13px,-13px);
+  transform: translate(-15px,-15px);
+  box-shadow: 0 0 8px rgba(204,0,0,0.3);
 }
-.cursor-ring.hover { width:60px; height:60px; transform:translate(-24px,-24px); opacity:0.5; }
+.cursor-ring.hover { width:64px; height:64px; transform:translate(-26px,-26px); opacity:0.6; }
 
 /* NOISE OVERLAY */
 body::after {
@@ -118,19 +121,23 @@ nav.scrolled { background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(204,0
 }
 .hero-bg {
   position:absolute; inset:0;
-  background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(204,0,0,0.12) 0%, transparent 70%);
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center center;
 }
-.hero-lines {
-  position:absolute; inset:0; overflow:hidden; opacity:0.06;
-}
-.hero-lines::before {
+.hero-bg::after {
   content:'';
-  position:absolute; top:50%; left:0; right:0; height:1px;
-  background: var(--red);
-  box-shadow: 0 -80px 0 var(--red), 0 80px 0 var(--red),
-              0 -160px 0 var(--red), 0 160px 0 var(--red),
-              0 -240px 0 var(--red), 0 240px 0 var(--red);
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(8,8,8,0) 0%, rgba(8,8,8,0.85) 100%);
 }
+.hero-grid-accent {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(204,0,0,0.08) 0%, transparent 70%);
+  z-index:1;
+}
+.hero-lines { display:none; }
 .hero-content {
   text-align: center;
   z-index: 2;
@@ -695,6 +702,7 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-grid-accent"></div>
   <div class="hero-lines"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Córdoba, Argentina · Disponible para proyectos</div>
@@ -1031,7 +1039,7 @@ footer {
     <div class="section-label" style="justify-content:center">Hablemos</div>
     <h2 class="section-title" style="font-size:clamp(32px,5vw,64px); margin-bottom:24px">¿TENÉS UN <em>PROYECTO</em>?</h2>
     <p style="color:var(--gray); max-width:480px; margin:0 auto 40px; line-height:1.7; font-weight:300">Estoy disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Trabajamos juntos desde el concepto hasta la ejecución.</p>
-    <a href="/cdn-cgi/l/email-protection#8ef8efe2ebe0fae7e0e0fdefe0ede6ebf4bbcee9e3efe7e2a0ede1e3" class="contact-email"><span class="__cf_email__" data-cfemail="8afcebe6efe4fee3e4e4f9ebe4e9e2eff0bfcaede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#7c0a1d101912081512120f1d121f141906493c1b111d1510521f1311" class="contact-email"><span class="__cf_email__" data-cfemail="fa8c9b969f948e939494899b9499929f80cfba9d979b9396d4999597">[email&#160;protected]</span></a>
     <div class="contact-meta">
       <div class="contact-item">
         <strong>+54 9 351 555 8997</strong>
