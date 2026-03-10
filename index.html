@@ -6,1210 +6,737 @@
 <title>Valentín Sánchez — Diseñador · Editor · Productor</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --red: #CC0000;
-  --red-bright: #FF1111;
-  --black: #080808;
-  --black2: #111111;
-  --white: #F5F5F5;
-  --gray: #888;
-}
-
-*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Barlow', sans-serif;
-  overflow-x: hidden;
-  cursor: none;
-}
+:root{--r:#CC0000;--rb:#FF2222;--b:#080808;--b2:#0f0f0f;--w:#F0F0F0;--g:#777;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;}
 
 /* CURSOR */
-.cursor {
-  width: 14px; height: 14px;
-  background: var(--red);
-  border-radius: 50%;
-  position: fixed; top:0; left:0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-7px,-7px);
-  box-shadow: 0 0 16px rgba(204,0,0,1), 0 0 32px rgba(204,0,0,0.6), 0 0 64px rgba(204,0,0,0.2);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-}
-.cursor.hover {
-  width: 10px; height: 10px;
-  background: #fff;
-}
-.cursor-ring {
-  width: 44px; height: 44px;
-  border: 2px solid rgba(204,0,0,0.8);
-  border-radius: 50%;
-  position: fixed; top:0; left:0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-22px,-22px);
-  box-shadow: 0 0 10px rgba(204,0,0,0.3), inset 0 0 10px rgba(204,0,0,0.05);
-  transition: width 0.25s cubic-bezier(0.16,1,0.3,1), height 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.2s, opacity 0.2s, transform 0.25s;
-}
-.cursor-ring.hover { width:72px; height:72px; transform:translate(-36px,-36px); border-color: rgba(204,0,0,0.4); }
-.cursor-trail {
-  width: 6px; height: 6px;
-  background: var(--red);
-  border-radius: 50%;
-  position: fixed; top:0; left:0;
-  pointer-events: none;
-  z-index: 9996;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+#cd,#cr{position:fixed;border-radius:50%;pointer-events:none;z-index:999999;top:0;left:0;will-change:transform;}
+#cd{width:10px;height:10px;background:#ff0000;box-shadow:0 0 12px 4px rgba(255,0,0,.9),0 0 30px 8px rgba(204,0,0,.5);transition:width .15s,height .15s,background .15s;}
+#cr{width:38px;height:38px;border:2px solid rgba(204,0,0,.85);box-shadow:0 0 10px rgba(204,0,0,.3);transition:width .25s cubic-bezier(.16,1,.3,1),height .25s cubic-bezier(.16,1,.3,1),border-color .2s;}
+#cd.hov{width:7px;height:7px;background:#fff;box-shadow:0 0 12px 4px rgba(255,255,255,.6);}
+#cr.hov{width:58px;height:58px;border-color:rgba(255,255,255,.35);}
+.trp{position:fixed;border-radius:50%;pointer-events:none;z-index:999990;top:0;left:0;will-change:transform;}
 
-/* NOISE OVERLAY */
-body::after {
-  content:'';
-  position:fixed; inset:0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none; z-index:9997; opacity:0.4;
-}
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:99990;opacity:.28;}
 
 /* NAV */
-nav {
-  position: fixed; top:0; left:0; right:0;
-  z-index: 100;
-  display: flex; align-items:center; justify-content:space-between;
-  padding: 20px 48px;
-  background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
-  transition: background 0.3s;
-}
-nav.scrolled { background: rgba(8,8,8,0.97); border-bottom: 1px solid rgba(204,0,0,0.2); }
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 4px;
-  color: var(--white);
-}
-.nav-logo span { color: var(--red); }
-.nav-links { display:flex; gap:32px; list-style:none; }
-.nav-links a {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gray);
-  text-decoration: none;
-  transition: color 0.2s;
-  position:relative;
-}
-.nav-links a::after {
-  content:'';
-  position:absolute; bottom:-4px; left:0; right:0; height:1px;
-  background: var(--red);
-  transform: scaleX(0); transform-origin:left;
-  transition: transform 0.3s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-cta {
-  background: var(--red);
-  color: var(--white) !important;
-  padding: 8px 20px;
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-size: 0.8rem !important;
-  letter-spacing: 3px !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  display:inline-block;
-}
-.nav-cta:hover { background: var(--red-bright) !important; transform: translateY(-1px); }
-.nav-cta::after { display:none !important; }
+nav{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:linear-gradient(to bottom,rgba(8,8,8,.98),transparent);transition:background .3s;}
+nav.sc{background:rgba(8,8,8,.99);border-bottom:1px solid rgba(204,0,0,.2);}
+.nl{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:4px;}
+.nl span{color:var(--r);}
+.nls{display:flex;gap:28px;list-style:none;}
+.nls a{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);text-decoration:none;transition:color .2s;position:relative;}
+.nls a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--r);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.nls a:hover{color:var(--w);}
+.nls a:hover::after{transform:scaleX(1);}
+.ncta{background:var(--r)!important;color:var(--w)!important;padding:7px 18px;font-family:'Barlow Condensed',sans-serif!important;font-size:.76rem!important;letter-spacing:3px!important;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background .2s;}
+.ncta:hover{background:var(--rb)!important;}
+.ncta::after{display:none!important;}
 
 /* HERO */
-#hero {
-  height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
-  background: var(--black);
-}
-.hero-bg {
-  position:absolute; inset:0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  background-position: center center;
-}
-.hero-bg::after {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(8,8,8,0) 0%, rgba(8,8,8,0.85) 100%);
-}
-.hero-grid-accent {
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(204,0,0,0.08) 0%, transparent 70%);
-  z-index:1;
-}
-.hero-lines { display:none; }
-.hero-content {
-  text-align: center;
-  z-index: 2;
-  animation: heroIn 1.2s cubic-bezier(0.16,1,0.3,1) both;
-}
-@keyframes heroIn {
-  from { opacity:0; transform: translateY(40px); }
-  to   { opacity:1; transform: translateY(0); }
-}
-.hero-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 24px;
-  animation: heroIn 1s 0.2s both;
-}
-.hero-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(72px, 12vw, 180px);
-  line-height: 0.9;
-  color: var(--white);
-  animation: heroIn 1s 0.3s both;
-  letter-spacing: -2px;
-}
-.hero-name .accent { color: var(--red); }
-.hero-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(18px, 3vw, 32px);
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-top: 16px;
-  animation: heroIn 1s 0.5s both;
-}
-.hero-title span { color: var(--white); }
-.hero-subtitle {
-  font-size: 1rem;
-  color: var(--gray);
-  margin-top: 20px;
-  font-weight: 300;
-  animation: heroIn 1s 0.6s both;
-  max-width: 480px;
-  margin-left:auto; margin-right:auto;
-  line-height: 1.7;
-}
-.hero-cta {
-  display: inline-flex; gap: 16px;
-  margin-top: 48px;
-  animation: heroIn 1s 0.8s both;
-}
-.btn-primary {
-  background: var(--red);
-  color: var(--white);
-  padding: 14px 36px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  display:inline-block;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-}
-.btn-primary:hover { background: var(--red-bright); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(204,0,0,0.4); }
-.btn-outline {
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--white);
-  padding: 14px 36px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  display:inline-block;
-  transition: border-color 0.2s, transform 0.2s;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-}
-.btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+#hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
+.hg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,transparent 0%,rgba(8,8,8,.9) 100%);}
+.hgl{position:absolute;inset:0;background:radial-gradient(ellipse 45% 38% at 50% 50%,rgba(204,0,0,.1) 0%,transparent 70%);z-index:1;}
+.hc{text-align:center;z-index:2;}
+@keyframes fu{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.hey{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:7px;text-transform:uppercase;color:var(--r);margin-bottom:20px;animation:fu .9s .15s both;}
+.hn{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,13vw,185px);line-height:.88;letter-spacing:-3px;animation:fu .9s .25s both;}
+.hn .acc{color:var(--r);}
+.hro{font-family:'Barlow Condensed',sans-serif;font-size:clamp(16px,2.8vw,29px);letter-spacing:9px;text-transform:uppercase;color:var(--g);margin-top:14px;animation:fu .9s .4s both;}
+.hro span{color:var(--w);}
+.hsub{font-size:.97rem;color:var(--g);margin:18px auto 0;max-width:455px;line-height:1.75;font-weight:300;animation:fu .9s .55s both;}
+.hbt{display:inline-flex;gap:14px;margin-top:44px;animation:fu .9s .7s both;}
+.br{background:var(--r);color:var(--w);padding:13px 32px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;display:inline-block;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s,transform .2s,box-shadow .2s;}
+.br:hover{background:var(--rb);transform:translateY(-2px);box-shadow:0 8px 28px rgba(204,0,0,.45);}
+.bo{border:1px solid rgba(255,255,255,.22);color:var(--w);padding:13px 32px;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;display:inline-block;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:border-color .2s,color .2s,transform .2s;}
+.bo:hover{border-color:var(--r);color:var(--r);transform:translateY(-2px);}
 
 /* MARQUEE */
-.marquee-wrap {
-  background: var(--red);
-  padding: 14px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-}
-.marquee-track {
-  display: inline-flex; gap: 0;
-  animation: marquee 18s linear infinite;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-item {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 6px;
-  padding: 0 32px;
-  color: var(--white);
-  opacity: 0.9;
-}
-.marquee-item .dot { color: rgba(255,255,255,0.4); }
+.mw{background:var(--r);padding:13px 0;overflow:hidden;white-space:nowrap;}
+.mt{display:inline-flex;animation:mq 20s linear infinite;}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mi{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:6px;padding:0 28px;opacity:.92;}
+.md{color:rgba(255,255,255,.35);}
 
-/* SECTION DEFAULTS */
-section { padding: 120px 48px; }
-.section-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--red);
-  display: flex; align-items:center; gap: 12px;
-  margin-bottom: 16px;
-}
-.section-label::before {
-  content:''; display:inline-block;
-  width:24px; height:1px;
-  background: var(--red);
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.95;
-  color: var(--white);
-  margin-bottom: 64px;
-}
-.section-title em { color: var(--red); font-style:normal; }
+/* SECTION BASE */
+section{padding:110px 64px;}
+.sl{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--r);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.sl::before{content:'';width:22px;height:1px;background:var(--r);}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6.5vw,90px);line-height:.93;margin-bottom:58px;}
+.st em{color:var(--r);font-style:normal;}
 
-/* SOBRE MÍ */
-#sobre {
-  background: var(--black2);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items:center;
-}
-.sobre-text p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: rgba(245,245,245,0.75);
-  margin-bottom: 20px;
-  font-weight: 300;
-}
-.sobre-text p strong { color: var(--white); font-weight: 600; }
-.skills-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-  margin-top: 40px;
-}
-.skill-bar {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 16px 20px;
-  position:relative; overflow:hidden;
-}
-.skill-bar::before {
-  content:'';
-  position:absolute; left:0; top:0; bottom:0;
-  background: var(--red);
-  opacity: 0.18;
-  width: var(--pct);
-  transition: width 1.5s cubic-bezier(0.16,1,0.3,1);
-}
-.skill-bar .sk-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: flex; justify-content:space-between;
-  position:relative; z-index:1;
-}
-.skill-bar .sk-pct { color: var(--red); font-weight: 700; }
-.sobre-right { position:relative; }
-.sobre-img-wrap {
-  position:relative;
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
-  border: 1px solid rgba(204,0,0,0.15);
-}
-.sobre-img-placeholder {
-  width:100%; height:100%;
-  background: linear-gradient(160deg, #1a1a1a 0%, #2a0000 60%, #111 100%);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-.sobre-img-placeholder::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: 
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.sobre-img-placeholder .placeholder-icon {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 7rem;
-  color: rgba(204,0,0,0.2);
-  letter-spacing: 8px;
-  position: relative; z-index:1;
-  line-height: 1;
-}
-.sobre-img-placeholder .placeholder-text {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
-  position: relative; z-index:1;
-}
-.sobre-tag {
-  position:absolute;
-  background: var(--red);
-  padding: 12px 20px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-.sobre-tag-1 { bottom: 32px; right: -20px; }
-.sobre-tag-2 { top: 32px; left: -20px; background: rgba(8,8,8,0.95); border: 1px solid rgba(204,0,0,0.4); color: var(--red); }
+/* SOBRE */
+#sobre{background:var(--b2);display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center;}
+.sbt p{font-size:1.02rem;line-height:1.82;color:rgba(240,240,240,.76);margin-bottom:17px;font-weight:300;}
+.sbt p strong{color:var(--w);font-weight:600;}
+.skw{margin-top:34px;display:flex;flex-direction:column;gap:11px;}
+.skr{display:grid;grid-template-columns:130px 1fr 36px;align-items:center;gap:14px;}
+.skl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--g);}
+.skt{height:3px;background:rgba(255,255,255,.07);position:relative;overflow:hidden;}
+.skf{position:absolute;left:0;top:0;bottom:0;background:var(--r);width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1);box-shadow:0 0 8px rgba(204,0,0,.6);}
+.skp{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--r);text-align:right;}
+.sph{position:relative;}
+.pf{aspect-ratio:3/4;overflow:hidden;position:relative;clip-path:polygon(0 0,100% 0,100% 90%,92% 100%,0 100%);border:1px solid rgba(204,0,0,.18);}
+.pf img{width:100%;height:100%;object-fit:cover;display:block;}
+.pph{width:100%;height:100%;background:linear-gradient(155deg,#181818 0%,#2c0000 55%,#0d0d0d 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden;}
+.pph::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;}
+.phi{font-family:'Bebas Neue',sans-serif;font-size:8rem;color:rgba(204,0,0,.22);letter-spacing:10px;position:relative;z-index:1;line-height:1;}
+.pht{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.18);position:relative;z-index:1;}
+.pbg{position:absolute;font-family:'Barlow Condensed',sans-serif;font-size:.76rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;padding:10px 16px;}
+.pb1{bottom:26px;right:-14px;background:var(--r);color:var(--w);}
+.pb2{top:26px;left:-14px;background:rgba(8,8,8,.95);border:1px solid rgba(204,0,0,.4);color:var(--r);}
 
 /* STATS */
-.stats-strip {
-  background: var(--red);
-  padding: 60px 48px;
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 0;
-}
-.stat-item {
-  text-align:center;
-  padding: 0 24px;
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-.stat-item:last-child { border:none; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px,5vw,72px);
-  line-height: 1;
-  color: var(--white);
-}
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  margin-top: 8px;
-}
+.sb{background:var(--r);padding:56px 64px;display:grid;grid-template-columns:repeat(4,1fr);}
+.si{text-align:center;padding:0 18px;border-right:1px solid rgba(255,255,255,.2);}
+.si:last-child{border:none;}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);line-height:1;}
+.sl2{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:6px;}
+
+/* EDUCACIÓN */
+#educacion{background:var(--b);}
+.eg{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.ec{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);padding:28px 26px 26px 34px;position:relative;overflow:hidden;transition:border-color .3s,background .3s,transform .3s;}
+.ec::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--r);}
+.ec:hover{border-color:rgba(204,0,0,.35);background:rgba(204,0,0,.04);transform:translateX(4px);}
+.ei{font-size:1.8rem;margin-bottom:10px;}
+.ein{font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.ed{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;color:var(--r);letter-spacing:1px;margin-bottom:5px;}
+.ey{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:18px;}
+.cc{background:rgba(204,0,0,.05);border:1px solid rgba(204,0,0,.18);padding:17px;text-align:center;transition:background .2s,transform .2s;}
+.cc:hover{background:rgba(204,0,0,.1);transform:translateY(-3px);}
+.cn{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.cl{font-size:.7rem;color:var(--r);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;}
+
+/* EXPERIENCIA */
+#experiencia{background:var(--b2);}
+.exl{border-top:1px solid rgba(255,255,255,.07);}
+.exi{display:grid;grid-template-columns:180px 1fr;gap:36px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:background .3s;}
+.exi:hover{background:rgba(204,0,0,.03);padding-left:8px;}
+.exp{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);padding-top:4px;}
+.exr{}
+.exro{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.exco{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;color:var(--r);letter-spacing:2px;margin-bottom:9px;}
+.exde{font-size:.88rem;line-height:1.7;color:rgba(240,240,240,.68);font-weight:300;}
+.extg{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.extgi{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border:1px solid rgba(204,0,0,.28);color:rgba(204,0,0,.82);}
 
 /* PROYECTOS */
-#proyectos { background: var(--black); }
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-.project-card {
-  position:relative;
-  aspect-ratio: 4/3;
-  overflow:hidden;
-  cursor: none;
-  background: var(--black2);
-}
-.project-card.featured {
-  grid-column: span 2;
-  aspect-ratio: 16/9;
-}
-.project-card-bg {
-  width:100%; height:100%;
-  background: var(--black2);
-  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
-}
-.project-card:hover .project-card-bg { transform: scale(1.06); }
-.project-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 4vw, 64px);
-  color: rgba(255,255,255,0.06);
-  letter-spacing: 4px;
-  text-align:center; padding: 20px;
-}
-.project-overlay {
-  position:absolute; inset:0;
-  background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.4) 50%, transparent 100%);
-  display:flex; flex-direction:column; justify-content:flex-end;
-  padding: 28px;
-  transform: translateY(20px) ;
-  transition: transform 0.4s ease;
-}
-.project-card:hover .project-overlay { transform: translateY(0); }
-.project-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 8px;
-}
-.project-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(22px, 3vw, 40px);
-  line-height: 1;
-  color: var(--white);
-}
-.project-desc {
-  font-size: 0.82rem;
-  color: rgba(245,245,245,0.65);
-  margin-top: 8px;
-  line-height: 1.5;
-  font-weight: 300;
-  max-height: 0; overflow:hidden;
-  transition: max-height 0.4s ease, opacity 0.4s;
-  opacity:0;
-}
-.project-card:hover .project-desc { max-height: 80px; opacity:1; }
-.project-arrow {
-  display:inline-flex; align-items:center; gap:8px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-top: 12px;
-  opacity:0; transform: translateX(-10px);
-  transition: opacity 0.3s 0.1s, transform 0.3s 0.1s;
-}
-.project-arrow::after { content: '→'; }
-.project-card:hover .project-arrow { opacity:1; transform:translateX(0); }
-
-/* Color accents per project */
-.card-agency { background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%); }
-.card-kord3 { background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%); }
-.card-mfsports { background: linear-gradient(135deg, #0a1020 0%, #102030 100%); }
-.card-energia { background: linear-gradient(135deg, #0a1a0a 0%, #1a2a10 100%); }
-.card-natan { background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2a 100%); }
-.card-home { background: linear-gradient(135deg, #001020 0%, #002040 100%); }
-.card-zetta { background: linear-gradient(135deg, #0a0a0a 0%, #202020 100%); }
+#proyectos{background:var(--b);}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pc{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:none;}
+.pc.big{grid-column:span 2;aspect-ratio:16/9;}
+.pcb{width:100%;height:100%;transition:transform .6s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;justify-content:center;}
+.pc:hover .pcb{transform:scale(1.05);}
+.plo{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,56px);color:rgba(255,255,255,.06);letter-spacing:4px;text-align:center;padding:16px;line-height:1.1;}
+.po{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.97) 0%,rgba(8,8,8,.45) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;transform:translateY(10px);transition:transform .4s;}
+.pc:hover .po{transform:translateY(0);}
+.pc .pt{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;letter-spacing:4px;text-transform:uppercase;color:var(--r);margin-bottom:5px;}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:clamp(17px,3vw,34px);line-height:1;}
+.pd{font-size:.79rem;color:rgba(240,240,240,.68);margin-top:7px;line-height:1.5;font-weight:300;max-height:0;overflow:hidden;transition:max-height .4s,opacity .4s;opacity:0;}
+.pc:hover .pd{max-height:70px;opacity:1;}
+.pb{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.73rem;letter-spacing:3px;text-transform:uppercase;color:var(--r);margin-top:9px;opacity:0;transform:translateX(-8px);transition:opacity .3s .1s,transform .3s .1s;background:none;border:none;cursor:none;padding:0;}
+.pb::after{content:'→';}
+.pc:hover .pb{opacity:1;transform:translateX(0);}
+.ck{background:linear-gradient(135deg,#0d0d0d,#1c1c1c);}
+.ca{background:linear-gradient(135deg,#1a0000,#2d0000);}
+.ce{background:linear-gradient(135deg,#0a1a08,#152410);}
+.cm{background:linear-gradient(135deg,#071020,#0e2035);}
+.cn2{background:linear-gradient(135deg,#0d0d1a,#181828);}
+.ch{background:linear-gradient(135deg,#001525,#002040);}
+.cz{background:linear-gradient(135deg,#0f0f0f,#1a1a1a);}
 
 /* SERVICIOS */
-#servicios { background: var(--black2); }
-.services-list {
-  display:flex; flex-direction:column;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.service-item {
-  display:grid; grid-template-columns: 80px 1fr auto;
-  align-items:center; gap:40px;
-  padding: 32px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  cursor:none;
-  transition: padding-left 0.3s;
-  position:relative; overflow:hidden;
-}
-.service-item::before {
-  content:'';
-  position:absolute; left:0; top:0; bottom:0; width:0;
-  background: rgba(204,0,0,0.06);
-  transition: width 0.4s ease;
-}
-.service-item:hover::before { width:100%; }
-.service-item:hover { padding-left: 16px; }
-.service-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  color: rgba(204,0,0,0.3);
-  line-height:1;
-}
-.service-info { position:relative; }
-.service-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--white);
-  transition: color 0.2s;
-}
-.service-item:hover .service-name { color: var(--red); }
-.service-desc {
-  font-size: 0.85rem;
-  color: var(--gray);
-  font-weight: 300;
-  margin-top: 4px;
-}
-.service-tags {
-  display: flex; flex-wrap:wrap; gap:8px;
-  justify-content:flex-end;
-}
-.service-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border: 1px solid rgba(204,0,0,0.3);
-  color: rgba(204,0,0,0.8);
-}
+#servicios{background:var(--b2);}
+.svl{border-top:1px solid rgba(255,255,255,.07);}
+.svi{display:grid;grid-template-columns:68px 1fr auto;align-items:center;gap:32px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;transition:padding-left .3s;}
+.svi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(204,0,0,.05);transition:width .4s;}
+.svi:hover::before{width:100%;}
+.svi:hover{padding-left:12px;}
+.svnum{font-family:'Bebas Neue',sans-serif;font-size:2.7rem;color:rgba(204,0,0,.27);line-height:1;}
+.svn{font-family:'Barlow Condensed',sans-serif;font-size:clamp(19px,2.7vw,32px);font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:color .2s;}
+.svi:hover .svn{color:var(--r);}
+.svd{font-size:.82rem;color:var(--g);font-weight:300;margin-top:4px;max-width:500px;line-height:1.6;}
+.svtg{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end;}
+.svt{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(204,0,0,.26);color:rgba(204,0,0,.78);}
 
 /* PROCESO */
-#proceso { background: var(--black); }
-.process-grid {
-  display:grid; grid-template-columns: repeat(5,1fr);
-  gap: 0;
-  position:relative;
-}
-.process-grid::after {
-  content:'';
-  position:absolute;
-  top:40px; left:10%; right:10%; height:1px;
-  background: linear-gradient(to right, transparent, var(--red), transparent);
-  z-index:0;
-}
-.process-step {
-  text-align:center; padding: 0 16px;
-  position:relative; z-index:1;
-}
-.step-num {
-  width: 80px; height:80px;
-  border: 1px solid rgba(204,0,0,0.4);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  margin: 0 auto 24px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  color: var(--red);
-  background: var(--black);
-  transition: background 0.3s, border-color 0.3s;
-}
-.process-step:hover .step-num { background: var(--red); color: var(--white); border-color: var(--red); }
-.step-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.step-desc {
-  font-size: 0.78rem;
-  color: var(--gray);
-  font-weight:300;
-  line-height:1.6;
-}
+#proceso{background:var(--b);}
+.prg{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+.prg::after{content:'';position:absolute;top:38px;left:9%;right:9%;height:1px;background:linear-gradient(to right,transparent,var(--r),transparent);z-index:0;}
+.prs{text-align:center;padding:0 12px;position:relative;z-index:1;}
+.prn{width:76px;height:76px;border:1px solid rgba(204,0,0,.36);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--r);background:var(--b);transition:background .3s,border-color .3s,color .3s;}
+.prs:hover .prn{background:var(--r);color:#fff;border-color:var(--r);}
+.prt{font-family:'Barlow Condensed',sans-serif;font-size:.93rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;}
+.prd{font-size:.74rem;color:var(--g);font-weight:300;line-height:1.6;}
+.tb{margin-top:68px;border-top:1px solid rgba(255,255,255,.07);padding-top:52px;}
+.tl{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--g);margin-bottom:26px;}
+.tg{display:grid;grid-template-columns:repeat(6,1fr);gap:13px;}
+.ti{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);padding:17px 13px;text-align:center;transition:background .2s,border-color .2s,transform .2s;}
+.ti:hover{background:rgba(204,0,0,.07);border-color:rgba(204,0,0,.26);transform:translateY(-4px);}
+.tic{font-size:1.4rem;margin-bottom:7px;}
+.tin{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--g);}
 
-/* HERRAMIENTAS */
-.tools-wrap {
-  margin-top: 80px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 64px;
-}
-.tools-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 32px;
-}
-.tools-grid {
-  display: grid; grid-template-columns: repeat(6,1fr); gap:16px;
-}
-.tool-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 20px 16px;
-  text-align:center;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
-}
-.tool-item:hover {
-  background: rgba(204,0,0,0.08);
-  border-color: rgba(204,0,0,0.3);
-  transform: translateY(-4px);
-}
-.tool-icon { font-size: 1.6rem; margin-bottom: 8px; }
-.tool-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gray);
-}
+/* CURRICULUM */
+#curriculum{background:var(--b2);}
+.cvw{display:grid;grid-template-columns:1fr 340px;gap:68px;align-items:start;}
+.cvb{margin-bottom:44px;}
+.cvbt{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--r);display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.cvbt::after{content:'';flex:1;height:1px;background:rgba(204,0,0,.2);}
+.cve{padding:20px 20px 20px 26px;margin-bottom:11px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-left:3px solid var(--r);transition:background .3s;}
+.cve:hover{background:rgba(204,0,0,.04);}
+.cvet{font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.cves{font-family:'Barlow Condensed',sans-serif;font-size:.84rem;color:var(--r);letter-spacing:1px;margin-bottom:3px;}
+.cved{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:7px;}
+.cvedd{font-size:.85rem;line-height:1.66;color:rgba(240,240,240,.64);font-weight:300;}
+.cvdb{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);padding:32px;position:sticky;top:96px;}
+.cvdt{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;margin-bottom:10px;}
+.cvds{font-size:.83rem;color:var(--g);line-height:1.65;margin-bottom:22px;font-weight:300;}
+.cvdl{display:flex;align-items:center;gap:12px;background:var(--r);color:var(--w);padding:15px 22px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:4px;text-transform:uppercase;width:100%;justify-content:center;transition:background .2s,transform .2s;}
+.cvdl:hover{background:var(--rb);transform:translateY(-2px);}
+.cvdl svg{width:17px;height:17px;flex-shrink:0;}
+.cvpr{margin-top:18px;padding:18px;background:rgba(204,0,0,.04);border:1px solid rgba(204,0,0,.14);}
+.cvprl{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;letter-spacing:5px;text-transform:uppercase;color:var(--r);margin-bottom:12px;}
+.cvil{list-style:none;}
+.cvil li{font-size:.83rem;line-height:1.7;color:rgba(240,240,240,.68);font-weight:300;padding:6px 0 6px 15px;border-bottom:1px solid rgba(255,255,255,.05);position:relative;}
+.cvil li::before{content:'▸';position:absolute;left:0;color:var(--r);font-size:.68rem;}
+.cvil li:last-child{border:none;}
+
+/* LOGROS */
+#logros{background:var(--b);}
+.lgg{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.lgc{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);padding:26px;transition:border-color .3s,transform .3s;}
+.lgc:hover{border-color:rgba(204,0,0,.35);transform:translateY(-4px);}
+.lgi{font-size:1.5rem;margin-bottom:11px;}
+.lgt{font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;}
+.lgd{font-size:.83rem;line-height:1.65;color:rgba(240,240,240,.64);font-weight:300;}
 
 /* CONTACTO */
-#contacto {
-  background: var(--black2);
-  text-align: center;
-}
-.contact-big {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 9vw, 140px);
-  line-height: 0.9;
-  color: rgba(255,255,255,0.05);
-  pointer-events: none;
-  margin-bottom: -40px;
-  position:relative; z-index:0;
-}
-.contact-content { position:relative; z-index:1; }
-.contact-email {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(24px, 4vw, 48px);
-  color: var(--white);
-  text-decoration: none;
-  display:inline-block;
-  border-bottom: 2px solid var(--red);
-  padding-bottom: 4px;
-  transition: color 0.2s;
-  letter-spacing: 2px;
-}
-.contact-email:hover { color: var(--red); }
-.contact-meta {
-  display:flex; justify-content:center; gap:48px;
-  margin-top: 48px;
-  flex-wrap:wrap;
-}
-.contact-item {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-.contact-item strong { display:block; color: var(--white); margin-bottom: 4px; font-size:1rem; }
+#contacto{background:var(--b2);text-align:center;}
+.cbg{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,148px);line-height:.88;color:rgba(255,255,255,.03);pointer-events:none;margin-bottom:-44px;position:relative;z-index:0;}
+.ci{position:relative;z-index:1;}
+.cem{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,4vw,44px);color:var(--w);text-decoration:none;display:inline-block;border-bottom:2px solid var(--r);padding-bottom:4px;transition:color .2s;letter-spacing:2px;}
+.cem:hover{color:var(--r);}
+.cm2{display:flex;justify-content:center;gap:42px;margin-top:42px;flex-wrap:wrap;}
+.cmi{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);}
+.cmi strong{display:block;color:var(--w);margin-bottom:4px;font-size:.92rem;}
+.cbt{margin-top:42px;display:flex;gap:13px;justify-content:center;flex-wrap:wrap;}
 
 /* FOOTER */
-footer {
-  background: var(--black);
-  padding: 32px 48px;
-  display:flex; align-items:center; justify-content:space-between;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 4px;
-  color: var(--white);
-}
-.footer-logo span { color: var(--red); }
-.footer-copy {
-  font-size: 0.75rem;
-  color: var(--gray);
-  letter-spacing: 2px;
-}
+footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);}
+.flo{font-family:'Bebas Neue',sans-serif;font-size:1.12rem;letter-spacing:4px;}
+.flo span{color:var(--r);}
+.fco{font-size:.7rem;color:var(--g);letter-spacing:2px;}
 
-/* SCROLL REVEAL */
-.reveal { opacity:0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity:1; transform: translateY(0); }
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px);padding:16px;}
+.mo.on{opacity:1;pointer-events:all;}
+.md2{background:var(--b2);border:1px solid rgba(204,0,0,.22);max-width:860px;width:100%;max-height:92vh;overflow-y:auto;transform:translateY(22px) scale(.97);transition:transform .4s cubic-bezier(.16,1,.3,1);}
+.mo.on .md2{transform:translateY(0) scale(1);}
+.md2::-webkit-scrollbar{width:4px;}
+.md2::-webkit-scrollbar-thumb{background:var(--r);}
+.mh{padding:42px 42px 26px;border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;background:var(--b2);z-index:10;}
+.mx{position:absolute;top:18px;right:18px;background:none;border:1px solid rgba(255,255,255,.15);color:var(--w);width:37px;height:37px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;cursor:none;transition:border-color .2s,background .2s;}
+.mx:hover{border-color:var(--r);background:rgba(204,0,0,.1);}
+.mcat{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--r);margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+.mcat::before{content:'';width:13px;height:1px;background:var(--r);}
+.mttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,58px);line-height:.92;}
+.mb{padding:34px 42px 42px;}
+.mb p{font-size:.95rem;line-height:1.82;color:rgba(240,240,240,.72);margin-bottom:17px;font-weight:300;}
+.mb p strong{color:var(--w);font-weight:600;}
+.ms{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--r);margin:30px 0 13px;display:flex;align-items:center;gap:12px;}
+.ms::after{content:'';flex:1;height:1px;background:rgba(204,0,0,.17);}
+.mch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.mci{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;padding:5px 11px;border:1px solid rgba(204,0,0,.3);color:rgba(204,0,0,.86);}
+.mhl{background:rgba(204,0,0,.06);border-left:3px solid var(--r);padding:17px 20px;margin:18px 0;}
+.mhl p{margin:0;}
+.mli{list-style:none;margin:13px 0 18px;}
+.mli li{font-size:.9rem;line-height:1.7;color:rgba(240,240,240,.7);font-weight:300;padding:6px 0 6px 17px;border-bottom:1px solid rgba(255,255,255,.04);position:relative;}
+.mli li::before{content:'▸';position:absolute;left:0;color:var(--r);}
+.mli li:last-child{border:none;}
+.mlk{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px;}
+.ml1{display:inline-flex;align-items:center;gap:7px;background:var(--r);color:var(--w);padding:12px 22px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:3px;text-transform:uppercase;transition:background .2s;}
+.ml1:hover{background:var(--rb);}
+.ml2{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.2);color:var(--w);padding:12px 22px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:3px;text-transform:uppercase;transition:border-color .2s,color .2s;}
+.ml2:hover{border-color:var(--r);color:var(--r);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.rv.vs{opacity:1;transform:translateY(0);}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  #sobre { grid-template-columns:1fr; }
-  .sobre-right { display:none; }
-  .stats-strip { grid-template-columns: 1fr 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .project-card.featured { grid-column:span 1; aspect-ratio:4/3; }
-  .process-grid { grid-template-columns:1fr; gap:32px; }
-  .process-grid::after { display:none; }
-  .tools-grid { grid-template-columns: repeat(3,1fr); }
-  nav { padding: 16px 24px; }
-  .nav-links { display:none; }
-  section { padding: 80px 24px; }
-}
+@media(max-width:1000px){#sobre{grid-template-columns:1fr;}.sph{display:none;}.cvw{grid-template-columns:1fr;}.cvdb{position:relative;top:0;}}
+@media(max-width:800px){section{padding:76px 22px;}nav{padding:13px 18px;}.nls{display:none;}.sb{grid-template-columns:repeat(2,1fr);}.eg{grid-template-columns:1fr;}.cg{grid-template-columns:repeat(2,1fr);}.pg{grid-template-columns:1fr;}.pc.big{grid-column:span 1;aspect-ratio:4/3;}.prg{grid-template-columns:1fr;gap:26px;}.prg::after{display:none;}.tg{grid-template-columns:repeat(3,1fr);}.lgg{grid-template-columns:1fr;}.svi{grid-template-columns:52px 1fr;}.svtg{display:none;}.exi{grid-template-columns:1fr;gap:7px;}.mh,.mb{padding:22px 18px;}}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div id="cd"></div>
+<div id="cr"></div>
 
 <!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">VS<span>.</span></div>
-  <ul class="nav-links">
+<nav id="nav">
+  <div class="nl">VS<span>.</span></div>
+  <ul class="nls">
     <li><a href="#sobre">Sobre mí</a></li>
+    <li><a href="#educacion">Educación</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    <li><a href="#curriculum">Currículum</a></li>
+    <li><a href="#contacto" class="ncta">Contacto</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-accent"></div>
-  <div class="hero-lines"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Córdoba, Argentina · Disponible para proyectos</div>
-    <h1 class="hero-name">VALENTÍN<br><span class="accent">SÁNCHEZ</span></h1>
-    <div class="hero-title"><span>Diseñador</span> · <span>Editor</span> · <span>Productor</span></div>
-    <p class="hero-subtitle">Integración creativa completa: branding, audiovisual y estrategia digital desde el concepto hasta la ejecución final.</p>
-    <div class="hero-cta">
-      <a href="#proyectos" class="btn-primary">Ver proyectos</a>
-      <a href="#contacto" class="btn-outline">Contactar</a>
+  <div class="hg"></div><div class="hgl"></div>
+  <div class="hc">
+    <div class="hey">Córdoba, Argentina &nbsp;·&nbsp; Disponible para proyectos</div>
+    <h1 class="hn">VALENTÍN<br><span class="acc">SÁNCHEZ</span></h1>
+    <div class="hro"><span>Diseñador</span> · <span>Editor</span> · <span>Productor</span></div>
+    <p class="hsub">Integración creativa completa: branding, audiovisual y estrategia digital desde el concepto hasta la ejecución final.</p>
+    <div class="hbt">
+      <a href="#proyectos" class="br">Ver proyectos</a>
+      <a href="#contacto" class="bo">Contactar</a>
     </div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">DISEÑO GRÁFICO <span class="dot">✦</span></span>
-    <span class="marquee-item">EDICIÓN DE VIDEO <span class="dot">✦</span></span>
-    <span class="marquee-item">BRANDING <span class="dot">✦</span></span>
-    <span class="marquee-item">PRODUCCIÓN AUDIOVISUAL <span class="dot">✦</span></span>
-    <span class="marquee-item">COMMUNITY MANAGER <span class="dot">✦</span></span>
-    <span class="marquee-item">DISEÑO UX/UI <span class="dot">✦</span></span>
-    <span class="marquee-item">INDUMENTARIA DEPORTIVA <span class="dot">✦</span></span>
-    <span class="marquee-item">FACEBOOK ADS <span class="dot">✦</span></span>
-    <span class="marquee-item">DISEÑO GRÁFICO <span class="dot">✦</span></span>
-    <span class="marquee-item">EDICIÓN DE VIDEO <span class="dot">✦</span></span>
-    <span class="marquee-item">BRANDING <span class="dot">✦</span></span>
-    <span class="marquee-item">PRODUCCIÓN AUDIOVISUAL <span class="dot">✦</span></span>
-    <span class="marquee-item">COMMUNITY MANAGER <span class="dot">✦</span></span>
-    <span class="marquee-item">DISEÑO UX/UI <span class="dot">✦</span></span>
-    <span class="marquee-item">INDUMENTARIA DEPORTIVA <span class="dot">✦</span></span>
-    <span class="marquee-item">FACEBOOK ADS <span class="dot">✦</span></span>
-  </div>
-</div>
+<div class="mw"><div class="mt">
+  <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span class="mi">DISEÑO UX/UI <span class="md">✦</span></span><span class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span class="mi">FACEBOOK ADS <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span class="mi">DISEÑO UX/UI <span class="md">✦</span></span><span class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span class="mi">FACEBOOK ADS <span class="md">✦</span></span>
+</div></div>
 
 <!-- SOBRE MÍ -->
 <section id="sobre">
-  <div class="sobre-text reveal">
-    <div class="section-label">Sobre mí</div>
-    <h2 class="section-title">INTEGRACIÓN<br><em>CREATIVA</em></h2>
-    <p>Soy <strong>Valentín Sánchez</strong>, 22 años, diseñador gráfico y creativo audiovisual de <strong>Córdoba, Argentina</strong>. Estudio Diseño Gráfico en la Universidad Siglo 21 e Ingeniería Electrónica en la UTN.</p>
+  <div class="sbt rv">
+    <div class="sl">Sobre mí</div>
+    <h2 class="st">INTEGRACIÓN<br><em>CREATIVA</em></h2>
+    <p>Soy <strong>Valentín Gabriel Sánchez</strong>, 22 años, diseñador gráfico y creativo audiovisual de <strong>Córdoba, Argentina</strong>. Estudio Diseño Gráfico en la Universidad Siglo 21 e Ingeniería Electrónica en la UTN — dos mundos que me dan una mirada técnica y creativa a la vez.</p>
     <p>Trabajo <strong>desarrollando marcas y contenidos desde cero</strong>, combinando branding, publicidad y producción audiovisual. Lidero procesos creativos completos: concepto, diseño, producción y comunicación — con foco en impacto visual, coherencia de marca y resultados reales.</p>
-    <p>Experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias. Trabajo tanto con <strong>clientes</strong> como en <strong>marcas propias</strong>.</p>
-    <div class="skills-grid">
-      <div class="skill-bar" style="--pct:90%"><span class="sk-name">Photoshop <span class="sk-pct">90%</span></span></div>
-      <div class="skill-bar" style="--pct:75%"><span class="sk-name">Premiere Pro <span class="sk-pct">75%</span></span></div>
-      <div class="skill-bar" style="--pct:90%"><span class="sk-name">Illustrator <span class="sk-pct">90%</span></span></div>
-      <div class="skill-bar" style="--pct:90%"><span class="sk-name">CapCut <span class="sk-pct">90%</span></span></div>
-      <div class="skill-bar" style="--pct:75%"><span class="sk-name">Notion <span class="sk-pct">75%</span></span></div>
-      <div class="skill-bar" style="--pct:20%"><span class="sk-name">After Effects <span class="sk-pct">20%</span></span></div>
+    <p>Experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de indumentaria deportiva y campañas publicitarias. Trabajo con <strong>clientes locales e internacionales</strong> y en <strong>marcas propias</strong>.</p>
+    <div class="skw">
+      <div class="skr"><span class="skl">Photoshop</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><span class="skl">Illustrator</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><span class="skl">CapCut</span><div class="skt"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><span class="skl">Premiere Pro</span><div class="skt"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
+      <div class="skr"><span class="skl">Notion</span><div class="skt"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
+      <div class="skr"><span class="skl">After Effects</span><div class="skt"><div class="skf" data-pct="20"></div></div><span class="skp">20%</span></div>
     </div>
   </div>
-  <div class="sobre-right reveal">
-    <div class="sobre-img-wrap">
-      <div class="sobre-img-placeholder">
-        <div class="placeholder-icon">VS</div>
-        <div class="placeholder-text">Tu foto acá</div>
-      </div>
+  <div class="sph rv">
+    <div class="pf">
+      <!-- Para agregar tu foto: borrá el div.pph y poné <img src="foto.jpg" alt="Valentín Sánchez"> -->
+      <div class="pph"><div class="phi">VS</div><div class="pht">Tu foto acá</div></div>
     </div>
-    <div class="sobre-tag sobre-tag-1">Disponible · 2025</div>
-    <div class="sobre-tag sobre-tag-2">B2 · English</div>
+    <div class="pbg pb1">Disponible · 2025</div>
+    <div class="pbg pb2">Inglés B2</div>
   </div>
 </section>
 
 <!-- STATS -->
-<div class="stats-strip">
-  <div class="stat-item reveal">
-    <div class="stat-num" data-target="8">0</div>
-    <div class="stat-label">Clientes activos</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num" data-target="3">0</div>
-    <div class="stat-label">Años de experiencia</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num" data-target="2">0</div>
-    <div class="stat-label">Carreras universitarias</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num" data-target="6">0</div>
-    <div class="stat-label">Certificaciones</div>
-  </div>
+<div class="sb">
+  <div class="si rv"><div class="sn" data-target="8">0</div><div class="sl2">Clientes activos</div></div>
+  <div class="si rv"><div class="sn" data-target="3">0</div><div class="sl2">Años de experiencia</div></div>
+  <div class="si rv"><div class="sn" data-target="2">0</div><div class="sl2">Carreras universitarias</div></div>
+  <div class="si rv"><div class="sn" data-target="6">0</div><div class="sl2">Certificaciones UTN</div></div>
 </div>
+
+<!-- EDUCACIÓN -->
+<section id="educacion">
+  <div class="sl rv">Formación académica</div>
+  <h2 class="st rv">EDUCACIÓN &<br><em>CERTIFICACIONES</em></h2>
+  <div class="eg rv">
+    <div class="ec"><div class="ei">🏛️</div><div class="ein">UTN — Córdoba</div><div class="ed">Ingeniería Electrónica — 3er año</div><div class="ey">En curso</div></div>
+    <div class="ec"><div class="ei">🎨</div><div class="ein">Universidad Siglo 21</div><div class="ed">Diseño Gráfico — 2do año</div><div class="ey">En curso</div></div>
+    <div class="ec"><div class="ei">🏫</div><div class="ein">Colegio Jesús María</div><div class="ed">Primario y Secundario completo</div><div class="ey">Egresado · Córdoba</div></div>
+    <div class="ec"><div class="ei">🌎</div><div class="ein">Academia IICANA</div><div class="ed">Inglés — 4to año · Nivel B2</div><div class="ey">En curso</div></div>
+  </div>
+  <div class="rv" style="margin-top:52px">
+    <div class="sl">Exámenes certificados por la UTN</div>
+    <div class="cg">
+      <div class="cc"><div class="cn">Photoshop</div><div class="cl">Nivel Avanzado</div></div>
+      <div class="cc"><div class="cn">Illustrator</div><div class="cl">Fundamentos · 🏆 Mención de Honor</div></div>
+      <div class="cc"><div class="cn">Word</div><div class="cl">Nivel Avanzado</div></div>
+      <div class="cc"><div class="cn">Excel</div><div class="cl">Nivel Fundamentos</div></div>
+      <div class="cc"><div class="cn">Dreamweaver</div><div class="cl">Nivel Fundamentos</div></div>
+      <div class="cc"><div class="cn">AutoCAD 2D</div><div class="cl">Nivel Fundamentos</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA LABORAL -->
+<section id="experiencia">
+  <div class="sl rv">Trayectoria</div>
+  <h2 class="st rv">EXPERIENCIA<br><em>LABORAL</em></h2>
+  <div class="exl">
+    <div class="exi rv"><div class="exp">2024 – Presente</div><div class="exr"><div class="exro">CEO & Director Creativo</div><div class="exco">KORD3 — Marca de Indumentaria</div><div class="exde">Fundador y director creativo. Desarrollo integral: identidad visual, diseño de indumentaria, producción audiovisual, página web y estrategia de lanzamiento con "Semana Hype 4".</div><div class="extg"><span class="extgi">Branding</span><span class="extgi">Indumentaria</span><span class="extgi">Audiovisual</span><span class="extgi">Web</span></div></div></div>
+    <div class="exi rv"><div class="exp">2024 – Presente</div><div class="exr"><div class="exro">Editor de Video & Creativos</div><div class="exco">Agency Luxury — Agencia de Marketing · Buenos Aires</div><div class="exde">Edición de VSL y Facebook Ads para agencia especializada en cirujanos plásticos. Diseño de thumbnails. Estándar visual premium alineado al nicho médico.</div><div class="extg"><span class="extgi">VSL</span><span class="extgi">Facebook Ads</span><span class="extgi">Thumbnails</span></div></div></div>
+    <div class="exi rv"><div class="exp">2024 – Presente</div><div class="exr"><div class="exro">Editor de Video para Ads</div><div class="exco">Home Improvement Power — Florida, EE.UU.</div><div class="exde">Videos cortos estilo UGC para Facebook e Instagram Ads. Hooks fuertes y producción con IA (voz en off, recursos audiovisuales) para escalar volumen de contenido.</div><div class="extg"><span class="extgi">UGC</span><span class="extgi">IA</span><span class="extgi">Meta Ads</span></div></div></div>
+    <div class="exi rv"><div class="exp">2023 – 2024</div><div class="exr"><div class="exro">Diseñador de Indumentaria Deportiva</div><div class="exco">MF Sports — Córdoba</div><div class="exde">Diseño de conjuntos para fútbol y hockey: camisetas, musculosas, buzos. Presentaciones visuales para sponsors.</div><div class="extg"><span class="extgi">Diseño</span><span class="extgi">Fútbol</span><span class="extgi">Hockey</span></div></div></div>
+    <div class="exi rv"><div class="exp">2023 – 2024</div><div class="exr"><div class="exro">Community Manager & Director Creativo</div><div class="exco">The Natan Barber Estudio · Energía Fitness — Córdoba</div><div class="exde">Branding completo, rebranding y relanzamiento. Semana Hype, producción audiovisual, carruseles y gestión de contenido para redes sociales.</div><div class="extg"><span class="extgi">Branding</span><span class="extgi">Rebranding</span><span class="extgi">Community</span></div></div></div>
+    <div class="exi rv"><div class="exp">2023 – 2024</div><div class="exr"><div class="exro">Editor de Video</div><div class="exco">Zetta Security · Farmacia Pavan · Legal Leads</div><div class="exde">Edición audiovisual para múltiples rubros: seguridad (Córdoba), farmacia (Córdoba) y estudio jurídico (Chile). Piezas adaptadas al objetivo comunicacional de cada cliente.</div><div class="extg"><span class="extgi">Edición</span><span class="extgi">Multirubro</span></div></div></div>
+    <div class="exi rv"><div class="exp">Ene 2022 · Ene 2023</div><div class="exr"><div class="exro">Operario de Depósito</div><div class="exco">Librería LibreMas — Córdoba</div><div class="exde">Armado y organización de bolsones y depósito. Trabajo en equipo, orden y responsabilidad.</div></div></div>
+    <div class="exi rv"><div class="exp">2022 – 2023</div><div class="exr"><div class="exro">Secretario</div><div class="exco">Estudio Jurídico LupiMorales — Córdoba</div><div class="exde">Funciones administrativas y de secretaría. Organización y manejo de documentación legal.</div></div></div>
+  </div>
+</section>
 
 <!-- PROYECTOS -->
 <section id="proyectos">
-  <div class="section-label reveal">Proyectos & Trabajos</div>
-  <h2 class="section-title reveal">CASOS<br><em>REALES</em></h2>
-  <div class="projects-grid">
-    <!-- KORD3 featured -->
-    <div class="project-card featured card-kord3">
-      <div class="project-card-bg">
-        <div class="project-logo">KORD3</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">CEO · Branding · Audiovisual · Indumentaria</div>
-        <div class="project-name">KORD3</div>
-        <div class="project-desc">Fundador y director creativo de KORD3, marca de ropa. Desarrollé identidad visual completa, diseño de indumentaria, producción audiovisual, página web y estrategia de lanzamiento con "Semana Hype 4".</div>
-        <a href="https://www.instagram.com/kord3.ar/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- Agency Luxury -->
-    <div class="project-card card-agency">
-      <div class="project-card-bg">
-        <div class="project-logo">AGENCY<br>LUXURY</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Edición de Video · Ads · Marketing</div>
-        <div class="project-name">AGENCY LUXURY</div>
-        <div class="project-desc">Editor de video para agencia de marketing en Buenos Aires especializada en cirujanos plásticos. VSL, Facebook Ads, thumbnails.</div>
-        <a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- Energia Fitness -->
-    <div class="project-card card-energia">
-      <div class="project-card-bg">
-        <div class="project-logo">ENERGÍA<br>FITNESS</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Rebranding · Dirección Creativa · Redes</div>
-        <div class="project-name">ENERGÍA FITNESS</div>
-        <div class="project-desc">Rebranding completo y relanzamiento. Reconstrucción de cuenta, semana hype, producción audiovisual y gestión de contenido.</div>
-        <a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- MF Sports -->
-    <div class="project-card card-mfsports">
-      <div class="project-card-bg">
-        <div class="project-logo">MF<br>SPORTS</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Diseño de Indumentaria · Sponsors</div>
-        <div class="project-name">MF SPORTS</div>
-        <div class="project-desc">Diseño de indumentaria deportiva para fútbol y hockey: camisetas, musculosas, buzos. Presentaciones visuales para sponsors.</div>
-        <a href="https://www.instagram.com/mfsports.ar/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- Natan Barber -->
-    <div class="project-card card-natan">
-      <div class="project-card-bg">
-        <div class="project-logo">NATAN<br>BARBER</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Branding · Lanzamiento · Audiovisual</div>
-        <div class="project-name">NATAN BARBER ESTUDIO</div>
-        <div class="project-desc">Desarrollo completo de branding y lanzamiento digital. Video de presentación con eje conceptual en el cuarteto cordobés.</div>
-        <a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- Home Improvement -->
-    <div class="project-card card-home">
-      <div class="project-card-bg">
-        <div class="project-logo">HOME<br>IMPROVEMENT</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Video Ads · IA · Florida, USA</div>
-        <div class="project-name">HOME IMPROVEMENT POWER</div>
-        <div class="project-desc">Videos cortos para ads en Facebook/Instagram, estilo UGC. Producción con IA (voz en off, recursos audiovisuales) para escalar contenido.</div>
-        <a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="project-arrow">Ver proyecto</a>
-      </div>
-    </div>
-    <!-- Otros -->
-    <div class="project-card card-zetta">
-      <div class="project-card-bg">
-        <div class="project-logo">ZETTA · PAVAN<br>LEGAL LEADS</div>
-      </div>
-      <div class="project-overlay">
-        <div class="project-tag">Edición de Video · Múltiples rubros</div>
-        <div class="project-name">OTROS CLIENTES</div>
-        <div class="project-desc">Zetta Security (cámaras, Córdoba), Farmacia Pavan, Legal Leads (estudio jurídico, Chile). Contenido adaptado a cada rubro y objetivo.</div>
-        <span class="project-arrow">Ver más</span>
-      </div>
-    </div>
+  <div class="sl rv">Portfolio</div>
+  <h2 class="st rv">CASOS<br><em>REALES</em></h2>
+  <div class="pg">
+    <div class="pc big ck" onclick="openM('kord3')"><div class="pcb"><div class="plo">KORD3</div></div><div class="po"><div class="pt">CEO · Branding · Audiovisual · Indumentaria</div><div class="pn">KORD3</div><div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y lanzamiento.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc ca" onclick="openM('agency')"><div class="pcb"><div class="plo">AGENCY<br>LUXURY</div></div><div class="po"><div class="pt">Edición · Ads · Marketing</div><div class="pn">AGENCY LUXURY</div><div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc ce" onclick="openM('energia')"><div class="pcb"><div class="plo">ENERGÍA<br>FITNESS</div></div><div class="po"><div class="pt">Rebranding · Creativo · Redes</div><div class="pn">ENERGÍA FITNESS</div><div class="pd">Rebranding completo, semana hype y producción audiovisual.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc cm" onclick="openM('mfsports')"><div class="pcb"><div class="plo">MF<br>SPORTS</div></div><div class="po"><div class="pt">Indumentaria Deportiva · Sponsors</div><div class="pn">MF SPORTS</div><div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc cn2" onclick="openM('natan')"><div class="pcb"><div class="plo">NATAN<br>BARBER</div></div><div class="po"><div class="pt">Branding · Lanzamiento · Audiovisual</div><div class="pn">NATAN BARBER ESTUDIO</div><div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc ch" onclick="openM('home')"><div class="pcb"><div class="plo">HOME<br>IMPROVEMENT</div></div><div class="po"><div class="pt">Video Ads · UGC · IA · Florida USA</div><div class="pn">HOME IMPROVEMENT POWER</div><div class="pd">Ads UGC con producción IA para empresa en Florida.</div><button class="pb">Ver proyecto completo</button></div></div>
+    <div class="pc cz" onclick="openM('otros')"><div class="pcb"><div class="plo">ZETTA · PAVAN<br>LEGAL LEADS</div></div><div class="po"><div class="pt">Edición · Seguridad · Farmacia · Legal</div><div class="pn">OTROS CLIENTES</div><div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div><button class="pb">Ver más</button></div></div>
   </div>
 </section>
 
 <!-- SERVICIOS -->
 <section id="servicios">
-  <div class="section-label reveal">Lo que hago</div>
-  <h2 class="section-title reveal">SERVICIOS</h2>
-  <div class="services-list">
-    <div class="service-item reveal">
-      <div class="service-num">01</div>
-      <div class="service-info">
-        <div class="service-name">Branding & Identidad Visual</div>
-        <div class="service-desc">Construcción de marca desde cero: logo, paleta, tipografía, guía de estilo y universo estético completo.</div>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Logo</span>
-        <span class="service-tag">Manual</span>
-        <span class="service-tag">Identidad</span>
-      </div>
-    </div>
-    <div class="service-item reveal">
-      <div class="service-num">02</div>
-      <div class="service-info">
-        <div class="service-name">Edición de Video & Ads</div>
-        <div class="service-desc">VSL, reels, stories, Facebook/Instagram Ads. Hooks fuertes, subtítulos, ritmo visual y llamados a la acción orientados a conversión.</div>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Reels</span>
-        <span class="service-tag">VSL</span>
-        <span class="service-tag">UGC</span>
-        <span class="service-tag">Ads</span>
-      </div>
-    </div>
-    <div class="service-item reveal">
-      <div class="service-num">03</div>
-      <div class="service-info">
-        <div class="service-name">Community Management</div>
-        <div class="service-desc">Gestión integral de redes sociales: planificación de contenido, diseño de piezas, carruseles, historias destacadas y estrategia editorial.</div>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Instagram</span>
-        <span class="service-tag">Contenido</span>
-        <span class="service-tag">Estrategia</span>
-      </div>
-    </div>
-    <div class="service-item reveal">
-      <div class="service-num">04</div>
-      <div class="service-info">
-        <div class="service-name">Dirección Audiovisual</div>
-        <div class="service-desc">Dirección y producción de video desde concepto hasta edición final. Rebranding, lanzamientos, semanas hype, videos de presentación.</div>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Dirección</span>
-        <span class="service-tag">Producción</span>
-        <span class="service-tag">Edición</span>
-      </div>
-    </div>
-    <div class="service-item reveal">
-      <div class="service-num">05</div>
-      <div class="service-info">
-        <div class="service-name">Diseño de Indumentaria</div>
-        <div class="service-desc">Diseño de prendas deportivas y streetwear: concepto, estética, mockups y presentaciones para sponsors o producción.</div>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Deportiva</span>
-        <span class="service-tag">Streetwear</span>
-        <span class="service-tag">Mockups</span>
-      </div>
-    </div>
+  <div class="sl rv">Lo que ofrezco</div>
+  <h2 class="st rv">SERVICIOS</h2>
+  <div class="svl">
+    <div class="svi rv"><div class="svnum">01</div><div><div class="svn">Branding & Identidad Visual</div><div class="svd">Construcción de marca desde cero: logo, paleta, tipografía, guía de estilo y universo estético completo.</div></div><div class="svtg"><span class="svt">Logo</span><span class="svt">Manual</span><span class="svt">Identidad</span></div></div>
+    <div class="svi rv"><div class="svnum">02</div><div><div class="svn">Edición de Video & Ads</div><div class="svd">VSL, reels, stories, Facebook/Instagram Ads. Hooks fuertes, subtítulos y llamados a la acción orientados a conversión.</div></div><div class="svtg"><span class="svt">Reels</span><span class="svt">VSL</span><span class="svt">UGC</span><span class="svt">Ads</span></div></div>
+    <div class="svi rv"><div class="svnum">03</div><div><div class="svn">Community Management</div><div class="svd">Gestión integral de redes: planificación de contenido, diseño de piezas, carruseles, historias y estrategia editorial.</div></div><div class="svtg"><span class="svt">Instagram</span><span class="svt">Contenido</span><span class="svt">Estrategia</span></div></div>
+    <div class="svi rv"><div class="svnum">04</div><div><div class="svn">Dirección Audiovisual</div><div class="svd">Dirección y producción de video desde concepto hasta edición final. Rebranding, lanzamientos y semanas hype.</div></div><div class="svtg"><span class="svt">Dirección</span><span class="svt">Producción</span><span class="svt">Edición</span></div></div>
+    <div class="svi rv"><div class="svnum">05</div><div><div class="svn">Diseño de Indumentaria</div><div class="svd">Diseño de prendas deportivas y streetwear: concepto, estética, mockups y presentaciones para sponsors.</div></div><div class="svtg"><span class="svt">Deportiva</span><span class="svt">Streetwear</span><span class="svt">Mockups</span></div></div>
   </div>
 </section>
 
 <!-- PROCESO -->
 <section id="proceso">
-  <div class="section-label reveal">Cómo trabajo</div>
-  <h2 class="section-title reveal">EL<br><em>PROCESO</em></h2>
-  <div class="process-grid">
-    <div class="process-step reveal">
-      <div class="step-num">01</div>
-      <div class="step-title">Concepto</div>
-      <div class="step-desc">Entiendo el negocio, el público y los objetivos. Defino el universo estético y la dirección creativa.</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">02</div>
-      <div class="step-title">Diseño</div>
-      <div class="step-desc">Desarrollo visual completo: identidad, piezas gráficas, paleta y lineamientos de comunicación.</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">03</div>
-      <div class="step-title">Producción</div>
-      <div class="step-desc">Grabación, dirección y producción audiovisual. Desde el storyboard hasta la toma final.</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">04</div>
-      <div class="step-title">Edición</div>
-      <div class="step-desc">Post-producción, edición de video, motion, subtítulos y optimización para cada plataforma.</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="step-num">05</div>
-      <div class="step-title">Lanzamiento</div>
-      <div class="step-desc">Estrategia de publicación, semana hype, scheduling y análisis de resultados.</div>
+  <div class="sl rv">Metodología</div>
+  <h2 class="st rv">EL<br><em>PROCESO</em></h2>
+  <div class="prg">
+    <div class="prs rv"><div class="prn">01</div><div class="prt">Concepto</div><div class="prd">Entiendo el negocio, el público y los objetivos. Defino el universo estético y la dirección creativa.</div></div>
+    <div class="prs rv"><div class="prn">02</div><div class="prt">Diseño</div><div class="prd">Desarrollo visual completo: identidad, piezas gráficas, paleta y lineamientos de comunicación.</div></div>
+    <div class="prs rv"><div class="prn">03</div><div class="prt">Producción</div><div class="prd">Grabación, dirección y producción audiovisual. Del storyboard a la toma final.</div></div>
+    <div class="prs rv"><div class="prn">04</div><div class="prt">Edición</div><div class="prd">Post-producción, edición de video, subtítulos y optimización para cada plataforma.</div></div>
+    <div class="prs rv"><div class="prn">05</div><div class="prt">Lanzamiento</div><div class="prd">Estrategia de publicación, semana hype, scheduling y análisis de resultados.</div></div>
+  </div>
+  <div class="tb rv">
+    <div class="tl">Herramientas & Software</div>
+    <div class="tg">
+      <div class="ti"><div class="tic">🎨</div><div class="tin">Photoshop</div></div>
+      <div class="ti"><div class="tic">✏️</div><div class="tin">Illustrator</div></div>
+      <div class="ti"><div class="tic">🎬</div><div class="tin">Premiere Pro</div></div>
+      <div class="ti"><div class="tic">⚡</div><div class="tin">CapCut</div></div>
+      <div class="ti"><div class="tic">💫</div><div class="tin">After Effects</div></div>
+      <div class="ti"><div class="tic">📐</div><div class="tin">AutoCAD 2D</div></div>
+      <div class="ti"><div class="tic">📊</div><div class="tin">Excel Avanzado</div></div>
+      <div class="ti"><div class="tic">📝</div><div class="tin">Word Avanzado</div></div>
+      <div class="ti"><div class="tic">🌐</div><div class="tin">Dreamweaver</div></div>
+      <div class="ti"><div class="tic">🤖</div><div class="tin">IA Tools</div></div>
+      <div class="ti"><div class="tic">📱</div><div class="tin">Meta Ads</div></div>
+      <div class="ti"><div class="tic">🎙️</div><div class="tin">AI Voiceover</div></div>
     </div>
   </div>
+</section>
 
-  <div class="tools-wrap reveal">
-    <div class="tools-title">Herramientas & Software</div>
-    <div class="tools-grid">
-      <div class="tool-item">
-        <div class="tool-icon">🎨</div>
-        <div class="tool-name">Photoshop</div>
+<!-- CURRÍCULUM -->
+<section id="curriculum">
+  <div class="sl rv">Documentación</div>
+  <h2 class="st rv">MI<br><em>CURRÍCULUM</em></h2>
+  <div class="cvw">
+    <div class="rv">
+      <div class="cvb"><div class="cvbt">Educación</div>
+        <div class="cve"><div class="cvet">Ingeniería Electrónica</div><div class="cves">Universidad Tecnológica de Córdoba (UTN)</div><div class="cved">2022 – Presente · 3er año</div><div class="cvedd">Formación técnica en electrónica, sistemas y matemática avanzada.</div></div>
+        <div class="cve"><div class="cvet">Diseño Gráfico</div><div class="cves">Universidad Empresarial Siglo 21</div><div class="cved">2023 – Presente · 2do año</div><div class="cvedd">Teoría del diseño, comunicación visual, tipografía, color y producción gráfica digital.</div></div>
+        <div class="cve"><div class="cvet">Inglés — Nivel B2</div><div class="cves">Academia IICANA</div><div class="cved">En curso · 4to año</div><div class="cvedd">Comunicación fluida en inglés. Permite trabajar con clientes internacionales.</div></div>
       </div>
-      <div class="tool-item">
-        <div class="tool-icon">✏️</div>
-        <div class="tool-name">Illustrator</div>
+      <div class="cvb"><div class="cvbt">Certificaciones UTN</div>
+        <div class="cve"><div class="cvet">Illustrator — Mención de Honor 🏆</div><div class="cves">UTN Córdoba</div><div class="cved">Nivel Fundamentos · Calificación máxima</div></div>
+        <div class="cve"><div class="cvet">Photoshop · Word · Excel · Dreamweaver · AutoCAD 2D</div><div class="cves">UTN Córdoba</div><div class="cved">Múltiples niveles · 2021–2023</div></div>
       </div>
-      <div class="tool-item">
-        <div class="tool-icon">🎬</div>
-        <div class="tool-name">Premiere Pro</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">⚡</div>
-        <div class="tool-name">CapCut</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">💫</div>
-        <div class="tool-name">After Effects</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">📐</div>
-        <div class="tool-name">AutoCAD 2D</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">📊</div>
-        <div class="tool-name">Excel Avanzado</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">📝</div>
-        <div class="tool-name">Word Avanzado</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">🌐</div>
-        <div class="tool-name">Dreamweaver</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">🤖</div>
-        <div class="tool-name">IA Tools</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">📱</div>
-        <div class="tool-name">Meta Ads</div>
-      </div>
-      <div class="tool-item">
-        <div class="tool-icon">🎙️</div>
-        <div class="tool-name">AI Voiceover</div>
+      <div class="cvb"><div class="cvbt">Logros & Actividades</div>
+        <div class="cve"><div class="cvet">Coordinador · Grupito Misionero</div><div class="cves">Colegio Jesús María</div><div class="cved">2020</div><div class="cvedd">Coordinador de chicos del ciclo inicial.</div></div>
+        <div class="cve"><div class="cvet">Mención en Comunicación — RESPIRARTE 2020</div><div class="cves">Instituto de Virología · Jornada Científica</div><div class="cved">2020</div></div>
+        <div class="cve"><div class="cvet">Capacitador & Presidente · Modelo Naciones Unidas</div><div class="cves">Colegio Jesús María · OAJNU 2019</div><div class="cved">2019–2021</div><div class="cvedd">Participación con mención en OAJNU 2019. Presidente del MNU del Colegio 2021.</div></div>
+        <div class="cve"><div class="cvet">Campamento Científico</div><div class="cves">Ministerio de Educación · Córdoba</div><div class="cved">2019</div></div>
       </div>
     </div>
+    <div class="cvdb rv">
+      <div class="cvdt">Descargar CV</div>
+      <div class="cvds">Descargá mi currículum completo en PDF — experiencia, educación, certificaciones y datos de contacto.</div>
+      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="cvdl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar CV en PDF
+      </a>
+      <div class="cvpr">
+        <div class="cvprl">Datos de contacto</div>
+        <ul class="cvil">
+          <li>valentinnsanchez5@gmail.com</li>
+          <li>+54 9 351 555 8997</li>
+          <li>@vaalensnchz — Instagram</li>
+          <li>Barrio San Salvador, Cangaye 21 · Córdoba</li>
+          <li>Inglés B2 · Español Nativo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGROS -->
+<section id="logros">
+  <div class="sl rv">Reconocimientos</div>
+  <h2 class="st rv">LOGROS &<br><em>ACTIVIDADES</em></h2>
+  <div class="lgg rv">
+    <div class="lgc"><div class="lgi">🏆</div><div class="lgt">Mención de Honor — Illustrator UTN</div><div class="lgd">Calificación máxima en el examen de Illustrator certificado por la UTN. Mención de honor por el rendimiento.</div></div>
+    <div class="lgc"><div class="lgi">🌍</div><div class="lgt">Presidente — Modelo de Naciones Unidas 2021</div><div class="lgd">Capacitador y presidente del MNU del Colegio Jesús María 2021. Participación previa en OAJNU 2019 con mención.</div></div>
+    <div class="lgc"><div class="lgi">🔬</div><div class="lgt">Mención en Comunicación — RESPIRARTE 2020</div><div class="lgd">Mención especial en la Jornada Científica del Instituto de Virología, concurso RESPIRARTE2020.</div></div>
+    <div class="lgc"><div class="lgi">🚀</div><div class="lgt">Campamento Científico — Ministerio de Córdoba</div><div class="lgd">Participación en el campamento científico organizado por el Ministerio de Educación de la Provincia de Córdoba.</div></div>
   </div>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto">
-  <div class="contact-big">CONTACTO</div>
-  <div class="contact-content reveal">
-    <div class="section-label" style="justify-content:center">Hablemos</div>
-    <h2 class="section-title" style="font-size:clamp(32px,5vw,64px); margin-bottom:24px">¿TENÉS UN <em>PROYECTO</em>?</h2>
-    <p style="color:var(--gray); max-width:480px; margin:0 auto 40px; line-height:1.7; font-weight:300">Estoy disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Trabajamos juntos desde el concepto hasta la ejecución.</p>
-    <a href="/cdn-cgi/l/email-protection#7c0a1d101912081512120f1d121f141906493c1b111d1510521f1311" class="contact-email"><span class="__cf_email__" data-cfemail="fa8c9b969f948e939494899b9499929f80cfba9d979b9396d4999597">[email&#160;protected]</span></a>
-    <div class="contact-meta">
-      <div class="contact-item">
-        <strong>+54 9 351 555 8997</strong>
-        Teléfono / WhatsApp
-      </div>
-      <div class="contact-item">
-        <strong>@vaalensnchz</strong>
-        Instagram
-      </div>
-      <div class="contact-item">
-        <strong>Córdoba, Argentina</strong>
-        Ubicación
-      </div>
+  <div class="cbg">CONTACTO</div>
+  <div class="ci rv">
+    <div class="sl" style="justify-content:center">Hablemos</div>
+    <h2 class="st" style="font-size:clamp(30px,5vw,58px);margin-bottom:18px;text-align:center">¿TENÉS UN <em>PROYECTO</em>?</h2>
+    <p style="color:var(--g);max-width:450px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
+    <a href="mailto:valentinnsanchez5@gmail.com" class="cem">valentinnsanchez5@gmail.com</a>
+    <div class="cm2">
+      <div class="cmi"><strong>+54 9 351 555 8997</strong>Teléfono / WhatsApp</div>
+      <div class="cmi"><strong>@vaalensnchz</strong>Instagram</div>
+      <div class="cmi"><strong>Córdoba, Argentina</strong>Ubicación</div>
     </div>
-    <div style="margin-top:48px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-      <a href="https://wa.me/5493515558997" target="_blank" class="btn-primary">WhatsApp</a>
-      <a href="https://www.instagram.com/vaalensnchz" target="_blank" class="btn-outline">Instagram</a>
+    <div class="cbt">
+      <a href="https://wa.me/5493515558997" target="_blank" class="br">WhatsApp</a>
+      <a href="https://www.instagram.com/vaalensnchz" target="_blank" class="bo">Instagram</a>
+      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="bo">Descargar CV</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">VALENTÍN SÁNCHEZ<span>.</span></div>
-  <div class="footer-copy">© 2025 · Diseñador · Editor · Productor · Córdoba, AR</div>
+  <div class="flo">VALENTÍN SÁNCHEZ<span>.</span></div>
+  <div class="fco">© 2025 · Diseñador · Editor · Productor · Córdoba, AR</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// CURSOR WITH TRAIL
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx=0, my=0, rx=0, ry=0;
+<!-- MODALS -->
+<div class="mo" id="m-kord3"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('kord3')">✕</button><div class="mcat">CEO · Branding · Indumentaria · Audiovisual</div><div class="mttl">KORD3</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Fundador & CEO</span><span class="mci">Branding Completo</span><span class="mci">Diseño de Indumentaria</span><span class="mci">Producción Audiovisual</span><span class="mci">Página Web</span></div>
+    <div class="ms">Descripción</div>
+    <p>Soy <strong>fundador y director creativo de KORD3</strong>, una marca de ropa que desarrollo de manera integral, uniendo identidad de marca, diseño de producto, producción audiovisual y marketing digital. Mi rol abarca todo el proceso creativo y estratégico, desde el concepto inicial hasta la ejecución final.</p>
+    <div class="ms">Branding & Identidad</div>
+    <p>Desarrollé el <strong>branding completo de la marca</strong>: identidad visual, universo estético, tono de comunicación y lineamientos gráficos. También el diseño de remeras y propuestas de indumentaria, definiendo conceptos, estilos y criterios visuales para cada drop.</p>
+    <div class="ms">Producción Audiovisual</div>
+    <p>Lideré la producción audiovisual: <strong>concepto, planificación, grabación, dirección y edición final</strong> de videos de presentación desde cero, cuidando una narrativa coherente con la personalidad de la marca.</p>
+    <div class="ms">Semana Hype 4</div>
+    <div class="mhl"><p>Estrategia de expectativa previa al drop. <strong>Producción y publicación planificada de videos, posts e historias durante varios días</strong> para generar misterio, conversación y anticipación antes del lanzamiento oficial.</p></div>
+    <div class="ms">Página Web</div>
+    <p><strong>Creé y diseñé la página web de KORD3</strong>, pensada como extensión de la identidad de la marca y soporte para la presentación del proyecto, el storytelling y la experiencia visual del usuario.</p>
+    <div class="mlk"><a href="https://www.instagram.com/kord3.ar/" target="_blank" class="ml1">Instagram @kord3.ar</a><a href="https://drive.google.com/drive/u/0/folders/1D40MuxD-dWSL4GAhuxwV2LA7S-4AuEkq" target="_blank" class="ml2">Ver portafolio</a></div>
+  </div>
+</div></div>
 
-// Trail particles
-const trailCount = 8;
-const trails = [];
-for(let i=0; i<trailCount; i++){
-  const t = document.createElement('div');
-  t.style.cssText = `
-    position:fixed; pointer-events:none; z-index:${9995-i};
-    width:${10-i}px; height:${10-i}px;
-    background:rgba(204,0,0,${0.5 - i*0.05});
-    border-radius:50%;
-    transform:translate(-50%,-50%);
-    transition:none;
-    box-shadow:0 0 ${8-i}px rgba(204,0,0,${0.4-i*0.04});
-  `;
-  document.body.appendChild(t);
-  trails.push({el:t, x:0, y:0});
-}
+<div class="mo" id="m-agency"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('agency')">✕</button><div class="mcat">Edición · Ads · Marketing · Buenos Aires</div><div class="mttl">AGENCY LUXURY</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Editor de Video</span><span class="mci">VSL</span><span class="mci">Facebook Ads</span><span class="mci">Thumbnails</span><span class="mci">Nicho Médico Premium</span></div>
+    <div class="ms">Descripción</div>
+    <p>Trabajé como <strong>editor de video para Agency Luxury</strong>, agencia de marketing con base en Buenos Aires especializada en el nicho de cirujanos plásticos. Rol enfocado en la edición de contenido audiovisual orientado a conversión, abordando cada pieza desde lo visual y lo estratégico.</p>
+    <div class="ms">Responsabilidades</div>
+    <ul class="mli">
+      <li>Edición de <strong>VSL (Video Sales Letters)</strong> y anuncios para Facebook Ads optimizando ritmo, estructura, subtítulos y narrativa.</li>
+      <li>Diseño de <strong>portadas (thumbnails y covers)</strong> priorizando impacto visual y claridad del mensaje.</li>
+      <li>Trabajo con el equipo de marketing adaptando contenido a <strong>objetivos comerciales concretos</strong>.</li>
+      <li>Estándar visual alineado al <strong>posicionamiento premium del nicho médico</strong>.</li>
+    </ul>
+    <div class="mlk"><a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="ml1">Instagram @luxury.agency_llc</a><a href="https://drive.google.com/drive/folders/1icuSqJ8Yi4TaQ-THSqP2ZRRzW80LaWNV" target="_blank" class="ml2">Ver portafolio</a></div>
+  </div>
+</div></div>
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
+<div class="mo" id="m-energia"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('energia')">✕</button><div class="mcat">Rebranding · Dirección Creativa · Community</div><div class="mttl">ENERGÍA FITNESS</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Rebranding</span><span class="mci">Dirección Creativa</span><span class="mci">Community Manager</span><span class="mci">Producción Audiovisual</span><span class="mci">Semana Hype</span></div>
+    <div class="ms">Descripción</div>
+    <p>Trabajé en el <strong>rebranding y relanzamiento integral de Energía Fitness</strong>, redefiniendo la identidad visual y la comunicación en redes sociales. El proyecto comenzó con la reconstrucción total de la cuenta: feed, tono visual y presencia digital.</p>
+    <div class="ms">Gestión de contenido</div>
+    <ul class="mli">
+      <li>Edición de <strong>carruseles, videos y piezas gráficas</strong></li>
+      <li>Rediseño de <strong>historias destacadas</strong></li>
+      <li>Planificación de contenidos alineados a la nueva identidad</li>
+      <li>Dirección y producción audiovisual completa: de la idea al producto final</li>
+    </ul>
+    <div class="ms">Semana Hype</div>
+    <div class="mhl"><p>Estrategia previa al relanzamiento: videos, posts e historias diseñados para <strong>construir anticipación y misterio progresivo</strong> antes de la presentación oficial.</p></div>
+    <p>El cierre fue un <strong>video de presentación grabado desde cero</strong>: planificación, grabación, dirección y edición. Pieza principal del relanzamiento consolidando la nueva identidad.</p>
+    <div class="mlk"><a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="ml1">Instagram @energiafitness.cba</a><a href="https://drive.google.com/drive/folders/1WM3IIhyRXuAHTxE2_HuCsibtcSKA26Sx" target="_blank" class="ml2">Ver portafolio</a></div>
+  </div>
+</div></div>
+
+<div class="mo" id="m-mfsports"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('mfsports')">✕</button><div class="mcat">Diseño de Indumentaria Deportiva</div><div class="mttl">MF SPORTS</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Diseñador de Ropa</span><span class="mci">Fútbol</span><span class="mci">Hockey</span><span class="mci">Camisetas</span><span class="mci">Mockups</span><span class="mci">Presentaciones Sponsors</span></div>
+    <div class="ms">Descripción</div>
+    <p>Trabajé en el <strong>diseño de indumentaria deportiva para MF Sports</strong>, desarrollando conjuntos completos para fútbol y hockey. Enfoque en identidad visual, coherencia estética y adaptación del diseño a cada equipo.</p>
+    <div class="ms">Alcance del trabajo</div>
+    <ul class="mli">
+      <li>Diseño de <strong>camisetas de fútbol y hockey</strong> con identidad visual única por equipo</li>
+      <li><strong>Musculosas, buzos y equipamiento completo</strong></li>
+      <li><strong>Mockups profesionales</strong> para presentación de productos</li>
+      <li><strong>Presentaciones visuales para sponsors</strong>: propuesta de marca y valor comercial ante posibles aliados</li>
+    </ul>
+    <div class="mlk"><a href="https://www.instagram.com/mfsports.ar/" target="_blank" class="ml1">Instagram @mfsports.ar</a></div>
+  </div>
+</div></div>
+
+<div class="mo" id="m-natan"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('natan')">✕</button><div class="mcat">Branding · Dirección Creativa · Audiovisual</div><div class="mttl">NATAN BARBER ESTUDIO</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Branding desde cero</span><span class="mci">Community Manager</span><span class="mci">Producción Audiovisual</span><span class="mci">Semana Hype</span><span class="mci">Cuarteto Cordobés</span></div>
+    <div class="ms">Descripción</div>
+    <p>Trabajé en el <strong>desarrollo del branding y lanzamiento completo</strong> de The Natan Barber Studio, construyendo la identidad visual y el estilo de la marca desde cero. Definición del tono, la estética y la presencia en redes sociales.</p>
+    <div class="ms">Video de presentación</div>
+    <div class="mhl"><p>Produje, dirigí y edité el video de presentación. <strong>Eje conceptual: el cuarteto cordobés</strong>, incorporando un elemento cultural fuerte y local para conectar con la identidad de la marca y su público. Proceso completo: idea, producción, grabación, dirección y edición final.</p></div>
+    <div class="ms">Estrategia completa</div>
+    <ul class="mli">
+      <li><strong>Semana Hype</strong>: videos, posts e historias para generar expectativa y misterio progresivo</li>
+      <li>Edición de <strong>carruseles y piezas gráficas</strong> para redes sociales</li>
+      <li>Diseño de <strong>stickers para ceras</strong> — identidad visual al producto físico</li>
+    </ul>
+    <div class="mlk"><a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" class="ml1">Instagram @natan.barber.estudio</a><a href="https://drive.google.com/drive/folders/1aygPRBRxMEnzvTuW6WfJHdH-5xB8MN9Q" target="_blank" class="ml2">Ver portafolio</a></div>
+  </div>
+</div></div>
+
+<div class="mo" id="m-home"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('home')">✕</button><div class="mcat">Video Ads · UGC · IA · Florida, USA</div><div class="mttl">HOME IMPROVEMENT POWER</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Editor de Video</span><span class="mci">Facebook Ads</span><span class="mci">Instagram Ads</span><span class="mci">UGC / Influencer</span><span class="mci">IA Tools</span><span class="mci">Florida, EE.UU.</span></div>
+    <div class="ms">Descripción</div>
+    <p>Trabajo con <strong>HomeImprovementPower</strong>, empresa del sector home improvement en Florida (EE.UU.), creando contenido audiovisual y creativos para campañas publicitarias en redes sociales — incluyendo producción con inteligencia artificial.</p>
+    <div class="ms">Edición para Ads</div>
+    <ul class="mli">
+      <li><strong>Hooks fuertes</strong> en los primeros segundos para captar atención inmediata</li>
+      <li><strong>Subtítulos claros</strong>, buen ritmo visual y CTA orientados a conversión</li>
+      <li>Estilo <strong>UGC/influencer</strong> para mayor autenticidad y performance</li>
+      <li>Variaciones de creativos para <strong>testing continuo y optimización</strong></li>
+    </ul>
+    <div class="ms">Producción con IA</div>
+    <div class="mhl"><p>Producción con <strong>voz en off IA, generación de recursos audiovisuales y adaptaciones creativas</strong>, permitiendo escalar volumen de contenido sin perder efectividad publicitaria.</p></div>
+    <div class="mlk"><a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="ml1">Instagram @homeimprovementpower</a><a href="https://drive.google.com/drive/folders/193IJY2nctxkwi0DD5RpDsDYWeElWX5fFv" target="_blank" class="ml2">Ver portafolio</a></div>
+  </div>
+</div></div>
+
+<div class="mo" id="m-otros"><div class="md2">
+  <div class="mh"><button class="mx" onclick="closeM('otros')">✕</button><div class="mcat">Edición de Video · Múltiples rubros</div><div class="mttl">ZETTA · PAVAN · LEGAL LEADS</div></div>
+  <div class="mb">
+    <div class="mch"><span class="mci">Editor de Video</span><span class="mci">Seguridad</span><span class="mci">Farmacia</span><span class="mci">Legal</span><span class="mci">Córdoba</span><span class="mci">Chile</span></div>
+    <p>Edición de contenido audiovisual para distintas marcas y empresas, adaptando cada pieza a su rubro, público y objetivo comunicacional.</p>
+    <div class="ms">Zetta Security — Córdoba</div>
+    <p>Contenido para <strong>empresa de instalación de cámaras de seguridad</strong>. Piezas enfocadas en servicios, confianza y profesionalismo.</p>
+    <div class="ms">Farmacia Pavan — Córdoba</div>
+    <p>Videos para <strong>farmacia cordobesa</strong> orientados a comunicación comercial y promocional. Claridad del mensaje y estética accesible.</p>
+    <div class="ms">Legal Leads — Chile</div>
+    <p>Videos para <strong>estudio jurídico chileno</strong> orientados a captación de clientes. Tono serio y ordenado alineado al rubro legal.</p>
+    <div class="mlk"><a href="https://www.instagram.com/zettasecurity.ht/" target="_blank" class="ml1">Zetta Security</a><a href="https://www.instagram.com/farmaciapavan/" target="_blank" class="ml2">Farmacia Pavan</a><a href="https://www.instagram.com/legal.leadsmkt/" target="_blank" class="ml2">Legal Leads</a></div>
+  </div>
+</div></div>
+
+<script>
+// === CURSOR — usa transform con translate(x-50%, y-50%) ===
+const cd = document.getElementById('cd');
+const cr = document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  cd.style.transform=`translate(calc(${mx}px - 50%),calc(${my}px - 50%))`;
 });
 
-function animCursor(){
-  // Ring follows with lag
-  rx += (mx - rx) * 0.1;
-  ry += (my - ry) * 0.1;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
+(function ar(){
+  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
+  cr.style.transform=`translate(calc(${rx}px - 50%),calc(${ry}px - 50%))`;
+  requestAnimationFrame(ar);
+})();
 
-  // Trail cascade
-  let px = mx, py = my;
-  for(let i=0; i<trailCount; i++){
-    trails[i].x += (px - trails[i].x) * (0.35 - i*0.03);
-    trails[i].y += (py - trails[i].y) * (0.35 - i*0.03);
-    trails[i].el.style.left = trails[i].x + 'px';
-    trails[i].el.style.top  = trails[i].y + 'px';
-    px = trails[i].x;
-    py = trails[i].y;
+// Trail
+const TR=7, tp=[];
+for(let i=0;i<TR;i++){
+  const e=document.createElement('div');
+  e.className='trp';
+  const s=8-i;
+  e.style.cssText=`width:${s}px;height:${s}px;background:rgba(204,0,0,${.55-i*.07});box-shadow:0 0 ${s*2}px rgba(204,0,0,${.4-i*.05});`;
+  document.body.appendChild(e);
+  tp.push({e,x:0,y:0});
+}
+(function at(){
+  let px=mx,py=my;
+  for(let i=0;i<TR;i++){
+    const sp=.38-i*.04;
+    tp[i].x+=(px-tp[i].x)*sp; tp[i].y+=(py-tp[i].y)*sp;
+    tp[i].e.style.transform=`translate(calc(${tp[i].x}px - 50%),calc(${tp[i].y}px - 50%))`;
+    px=tp[i].x; py=tp[i].y;
   }
-  requestAnimationFrame(animCursor);
-}
-animCursor();
+  requestAnimationFrame(at);
+})();
 
-document.querySelectorAll('a,button,.project-card,.service-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    ring.classList.add('hover');
-    cursor.classList.add('hover');
-  });
-  el.addEventListener('mouseleave',()=>{
-    ring.classList.remove('hover');
-    cursor.classList.remove('hover');
-  });
+document.querySelectorAll('a,button,.pc,.svi,.ti,.ec,.cc,.lgc,.exi').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cd.classList.add('hov');cr.classList.add('hov');});
+  el.addEventListener('mouseleave',()=>{cd.classList.remove('hov');cr.classList.remove('hov');});
 });
 
-// NAV SCROLL
-const navbar = document.getElementById('navbar');
+// NAV
 window.addEventListener('scroll',()=>{
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('nav').classList.toggle('sc',scrollY>50);
 });
 
-// SCROLL REVEAL
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
-  });
-},{threshold:0.1});
-revealEls.forEach(el=>observer.observe(el));
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vs');ro.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
-// COUNTER ANIMATION
-const counters = document.querySelectorAll('[data-target]');
-const countObserver = new IntersectionObserver((entries)=>{
+// COUNTERS
+const co=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      const el=e.target;
-      const target=+el.dataset.target;
-      let current=0;
-      const step=target/40;
-      const timer=setInterval(()=>{
-        current+=step;
-        if(current>=target){ el.textContent=target+'+'; clearInterval(timer); }
-        else { el.textContent=Math.floor(current); }
-      },40);
-      countObserver.unobserve(el);
+      const el=e.target,t=+el.dataset.target;
+      let c=0;const st=t/38;
+      const tm=setInterval(()=>{c+=st;if(c>=t){el.textContent=t+'+';clearInterval(tm);}else el.textContent=Math.floor(c);},45);
+      co.unobserve(el);
     }
   });
-},{threshold:0.5});
-counters.forEach(el=>countObserver.observe(el));
+},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
 
 // SKILL BARS
-const skillBars = document.querySelectorAll('.skill-bar');
-const skillObserver = new IntersectionObserver((entries)=>{
+const so=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      e.target.style.setProperty('--pct', e.target.style.getPropertyValue('--pct'));
-      skillObserver.unobserve(e.target);
+      e.target.querySelectorAll('.skf').forEach(b=>b.style.width=b.dataset.pct+'%');
+      so.unobserve(e.target);
     }
+  });
+},{threshold:.3});
+document.querySelectorAll('.skw').forEach(el=>so.observe(el));
+
+// MODALS
+function openM(id){document.getElementById('m-'+id).classList.add('on');document.body.style.overflow='hidden';}
+function closeM(id){document.getElementById('m-'+id).classList.remove('on');document.body.style.overflow='';}
+document.querySelectorAll('.mo').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('on');document.body.style.overflow='';}});
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.mo.on').forEach(o=>{o.classList.remove('on');document.body.style.overflow='';});
+});
+</script>
+</body>
+</html>
