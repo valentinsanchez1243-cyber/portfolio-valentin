@@ -29,28 +29,42 @@ body {
 
 /* CURSOR */
 .cursor {
-  width: 12px; height: 12px;
+  width: 14px; height: 14px;
   background: var(--red);
   border-radius: 50%;
   position: fixed; top:0; left:0;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.08s ease;
-  box-shadow: 0 0 12px rgba(204,0,0,0.8), 0 0 24px rgba(204,0,0,0.4);
-  mix-blend-mode: normal;
+  transform: translate(-7px,-7px);
+  box-shadow: 0 0 16px rgba(204,0,0,1), 0 0 32px rgba(204,0,0,0.6), 0 0 64px rgba(204,0,0,0.2);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+.cursor.hover {
+  width: 10px; height: 10px;
+  background: #fff;
 }
 .cursor-ring {
-  width: 40px; height: 40px;
-  border: 1.5px solid rgba(204,0,0,0.7);
+  width: 44px; height: 44px;
+  border: 2px solid rgba(204,0,0,0.8);
   border-radius: 50%;
   position: fixed; top:0; left:0;
   pointer-events: none;
   z-index: 9998;
-  transition: transform 0.15s ease, width 0.2s, height 0.2s, opacity 0.2s;
-  transform: translate(-15px,-15px);
-  box-shadow: 0 0 8px rgba(204,0,0,0.3);
+  transform: translate(-22px,-22px);
+  box-shadow: 0 0 10px rgba(204,0,0,0.3), inset 0 0 10px rgba(204,0,0,0.05);
+  transition: width 0.25s cubic-bezier(0.16,1,0.3,1), height 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.2s, opacity 0.2s, transform 0.25s;
 }
-.cursor-ring.hover { width:64px; height:64px; transform:translate(-26px,-26px); opacity:0.6; }
+.cursor-ring.hover { width:72px; height:72px; transform:translate(-36px,-36px); border-color: rgba(204,0,0,0.4); }
+.cursor-trail {
+  width: 6px; height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed; top:0; left:0;
+  pointer-events: none;
+  z-index: 9996;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
 /* NOISE OVERLAY */
 body::after {
@@ -297,7 +311,7 @@ section { padding: 120px 48px; }
   content:'';
   position:absolute; left:0; top:0; bottom:0;
   background: var(--red);
-  opacity: 0.15;
+  opacity: 0.18;
   width: var(--pct);
   transition: width 1.5s cubic-bezier(0.16,1,0.3,1);
 }
@@ -316,15 +330,39 @@ section { padding: 120px 48px; }
   aspect-ratio: 3/4;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
+  border: 1px solid rgba(204,0,0,0.15);
 }
 .sobre-img-placeholder {
   width:100%; height:100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a0000 50%, #111 100%);
-  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(160deg, #1a1a1a 0%, #2a0000 60%, #111 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.sobre-img-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.sobre-img-placeholder .placeholder-icon {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem;
-  color: rgba(204,0,0,0.15);
+  font-size: 7rem;
+  color: rgba(204,0,0,0.2);
   letter-spacing: 8px;
+  position: relative; z-index:1;
+  line-height: 1;
+}
+.sobre-img-placeholder .placeholder-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  position: relative; z-index:1;
 }
 .sobre-tag {
   position:absolute;
@@ -337,7 +375,7 @@ section { padding: 120px 48px; }
   font-weight: 700;
 }
 .sobre-tag-1 { bottom: 32px; right: -20px; }
-.sobre-tag-2 { top: 32px; left: -20px; background: rgba(8,8,8,0.9); border: 1px solid rgba(204,0,0,0.3); }
+.sobre-tag-2 { top: 32px; left: -20px; background: rgba(8,8,8,0.95); border: 1px solid rgba(204,0,0,0.4); color: var(--red); }
 
 /* STATS */
 .stats-strip {
@@ -743,21 +781,24 @@ footer {
   <div class="sobre-text reveal">
     <div class="section-label">Sobre mí</div>
     <h2 class="section-title">INTEGRACIÓN<br><em>CREATIVA</em></h2>
-    <p>Soy <strong>Valentín Sánchez</strong>, diseñador gráfico y creativo audiovisual de Córdoba, Argentina. Con 22 años, estudio Diseño Gráfico en la Universidad Siglo 21 e Ingeniería Electrónica en la UTN — una combinación que me permite pensar creativa <em>y</em> estratégicamente.</p>
-    <p>Trabajo desarrollando <strong>marcas y contenidos desde cero</strong>, combinando branding, publicidad y producción audiovisual. Lidero procesos creativos completos: concepto, diseño, producción y comunicación — con foco en impacto visual, coherencia de marca y resultados reales.</p>
-    <p>Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias, tanto para clientes como en marcas propias.</p>
+    <p>Soy <strong>Valentín Sánchez</strong>, 22 años, diseñador gráfico y creativo audiovisual de <strong>Córdoba, Argentina</strong>. Estudio Diseño Gráfico en la Universidad Siglo 21 e Ingeniería Electrónica en la UTN.</p>
+    <p>Trabajo <strong>desarrollando marcas y contenidos desde cero</strong>, combinando branding, publicidad y producción audiovisual. Lidero procesos creativos completos: concepto, diseño, producción y comunicación — con foco en impacto visual, coherencia de marca y resultados reales.</p>
+    <p>Experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias. Trabajo tanto con <strong>clientes</strong> como en <strong>marcas propias</strong>.</p>
     <div class="skills-grid">
       <div class="skill-bar" style="--pct:90%"><span class="sk-name">Photoshop <span class="sk-pct">90%</span></span></div>
-      <div class="skill-bar" style="--pct:90%"><span class="sk-name">Illustrator <span class="sk-pct">90%</span></span></div>
       <div class="skill-bar" style="--pct:75%"><span class="sk-name">Premiere Pro <span class="sk-pct">75%</span></span></div>
-      <div class="skill-bar" style="--pct:75%"><span class="sk-name">Photoshop <span class="sk-pct">75%</span></span></div>
+      <div class="skill-bar" style="--pct:90%"><span class="sk-name">Illustrator <span class="sk-pct">90%</span></span></div>
       <div class="skill-bar" style="--pct:90%"><span class="sk-name">CapCut <span class="sk-pct">90%</span></span></div>
+      <div class="skill-bar" style="--pct:75%"><span class="sk-name">Notion <span class="sk-pct">75%</span></span></div>
       <div class="skill-bar" style="--pct:20%"><span class="sk-name">After Effects <span class="sk-pct">20%</span></span></div>
     </div>
   </div>
   <div class="sobre-right reveal">
     <div class="sobre-img-wrap">
-      <div class="sobre-img-placeholder">VS</div>
+      <div class="sobre-img-placeholder">
+        <div class="placeholder-icon">VS</div>
+        <div class="placeholder-text">Tu foto acá</div>
+      </div>
     </div>
     <div class="sobre-tag sobre-tag-1">Disponible · 2025</div>
     <div class="sobre-tag sobre-tag-2">B2 · English</div>
@@ -1068,23 +1109,65 @@ footer {
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// CURSOR
+// CURSOR WITH TRAIL
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cursor.style.transform=`translate(${mx-5}px,${my-5}px)`;
-});
-function animRing(){
-  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
-  ring.style.transform=`translate(${rx-18}px,${ry-18}px)`;
-  requestAnimationFrame(animRing);
+let mx=0, my=0, rx=0, ry=0;
+
+// Trail particles
+const trailCount = 8;
+const trails = [];
+for(let i=0; i<trailCount; i++){
+  const t = document.createElement('div');
+  t.style.cssText = `
+    position:fixed; pointer-events:none; z-index:${9995-i};
+    width:${10-i}px; height:${10-i}px;
+    background:rgba(204,0,0,${0.5 - i*0.05});
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    transition:none;
+    box-shadow:0 0 ${8-i}px rgba(204,0,0,${0.4-i*0.04});
+  `;
+  document.body.appendChild(t);
+  trails.push({el:t, x:0, y:0});
 }
-animRing();
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animCursor(){
+  // Ring follows with lag
+  rx += (mx - rx) * 0.1;
+  ry += (my - ry) * 0.1;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+
+  // Trail cascade
+  let px = mx, py = my;
+  for(let i=0; i<trailCount; i++){
+    trails[i].x += (px - trails[i].x) * (0.35 - i*0.03);
+    trails[i].y += (py - trails[i].y) * (0.35 - i*0.03);
+    trails[i].el.style.left = trails[i].x + 'px';
+    trails[i].el.style.top  = trails[i].y + 'px';
+    px = trails[i].x;
+    py = trails[i].y;
+  }
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+
 document.querySelectorAll('a,button,.project-card,.service-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+  el.addEventListener('mouseenter',()=>{
+    ring.classList.add('hover');
+    cursor.classList.add('hover');
+  });
+  el.addEventListener('mouseleave',()=>{
+    ring.classList.remove('hover');
+    cursor.classList.remove('hover');
+  });
 });
 
 // NAV SCROLL
