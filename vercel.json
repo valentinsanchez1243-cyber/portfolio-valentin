@@ -1,10 +1,9 @@
 {
-  "version": 2
+  "version": 2,
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }
 ```
 
-Así de simple. Guardá `Ctrl+S` y luego:
-```
-git add .
-git commit -m "fix vercel config"
-git push
+
