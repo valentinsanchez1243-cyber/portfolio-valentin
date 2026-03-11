@@ -63,6 +63,9 @@ nav.sc{background:rgba(8,8,8,.99);border-bottom:1px solid rgba(204,0,0,.2);}
 .mw{background:var(--r);padding:13px 0;overflow:hidden;white-space:nowrap;}
 .mt{display:inline-flex;animation:mq 20s linear infinite;}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* icon animations */
+@keyframes borderPulse{0%,100%{box-shadow:0 0 5px #e63946;}50%{box-shadow:0 0 18px #e63946,0 0 30px #e63946;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 .mi{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:6px;padding:0 28px;opacity:.92;}
 .md{color:rgba(255,255,255,.35);}
 
@@ -85,7 +88,23 @@ section{padding:110px 64px;}
 .skill-group{display:flex;flex-direction:column;gap:18px;}
 .skill-group .sl{margin:0;}
 .skill-item{display:flex;align-items:center;gap:12px;}
-.skill-icon{width:32px;height:32px;flex-shrink:0;}
+.skill-icon{width:32px;height:32px;flex-shrink:0;
+  background:#111;border:1px solid #e63946;border-radius:12px;padding:8px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s ease;
+  animation:borderPulse 2s infinite, float 2s infinite;
+}
+.skill-icon:hover{
+  transform:scale(1.2) rotate(5deg);
+  box-shadow:0 0 25px #e63946;
+}
+.skill-icon img{width:100%;height:100%;object-fit:contain;display:block;}
+.skill-item:nth-child(1) .skill-icon{animation:borderPulse 2s infinite, float 2s infinite;}
+.skill-item:nth-child(2) .skill-icon{animation:borderPulse 2s infinite, float 2.3s infinite;}
+.skill-item:nth-child(3) .skill-icon{animation:borderPulse 2s infinite, float 2.6s infinite;}
+.skill-item:nth-child(4) .skill-icon{animation:borderPulse 2s infinite, float 2.9s infinite;}
+.skill-item:nth-child(5) .skill-icon{animation:borderPulse 2s infinite, float 3.2s infinite;}
+.skill-item:nth-child(6) .skill-icon{animation:borderPulse 2s infinite, float 3.5s infinite;}
 .skill-name{flex:1;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;text-transform:uppercase;}
 .skill-bar{flex:2;height:6px;background:#333;border-radius:3px;overflow:hidden;}
 .skill-fill{height:100%;background:var(--r);width:0;transition:width 1.2s ease;}
@@ -343,37 +362,37 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
       <div class="skill-group">
         <div class="sl">SOFTWARE QUE MANEJO</div>
         <div class="skill-item">
-          <span class="skill-icon">🎨</span>
+          <span class="skill-icon"><img src="icons/photoshop.svg" alt="Photoshop"></span>
           <span class="skill-name">Photoshop</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
           <span class="skill-pct">90%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">✏️</span>
+          <span class="skill-icon"><img src="icons/illustrator.svg" alt="Illustrator"></span>
           <span class="skill-name">Illustrator</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
           <span class="skill-pct">90%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">⚡</span>
+          <span class="skill-icon"><img src="icons/capcut.svg" alt="CapCut"></span>
           <span class="skill-name">CapCut</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
           <span class="skill-pct">90%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">🎬</span>
+          <span class="skill-icon"><img src="icons/premiere.svg" alt="Premiere Pro"></span>
           <span class="skill-name">Premiere Pro</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
           <span class="skill-pct">75%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">📝</span>
+          <span class="skill-icon"><img src="icons/notion.svg" alt="Notion"></span>
           <span class="skill-name">Notion</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
           <span class="skill-pct">75%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">💫</span>
+          <span class="skill-icon"><img src="icons/aftereffects.svg" alt="After Effects"></span>
           <span class="skill-name">After Effects</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="20"></div></div>
           <span class="skill-pct">20%</span>
@@ -382,19 +401,19 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
       <div class="skill-group">
         <div class="sl">EN APRENDIZAJE</div>
         <div class="skill-item">
-          <span class="skill-icon">💻</span>
+          <span class="skill-icon"><img src="icons/uxui.svg" alt="Diseño UX/UI"></span>
           <span class="skill-name">Diseño UX/UI · Coderhouse</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
           <span class="skill-pct">60%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">💫</span>
+          <span class="skill-icon"><img src="icons/aftereffects.svg" alt="After Effects"></span>
           <span class="skill-name">After Effects</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="40"></div></div>
           <span class="skill-pct">40%</span>
         </div>
         <div class="skill-item">
-          <span class="skill-icon">🛠️</span>
+          <span class="skill-icon"><img src="icons/blender.svg" alt="Blender Modelado 3D"></span>
           <span class="skill-name">Blender Modelado 3D</span>
           <div class="skill-bar"><div class="skill-fill" data-pct="40"></div></div>
           <span class="skill-pct">40%</span>
