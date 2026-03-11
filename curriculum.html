@@ -12,12 +12,9 @@ html{scroll-behavior:smooth;}
 body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
 
 /* CURSOR */
-#cd,#cr{position:fixed;border-radius:50%;pointer-events:none;z-index:999999;top:0;left:0;will-change:transform;}
-#cd{width:10px;height:10px;background:#ff0000;box-shadow:0 0 12px 4px rgba(255,0,0,.9),0 0 30px 8px rgba(204,0,0,.5);transition:width .15s,height .15s,background .15s;}
-#cr{width:38px;height:38px;border:2px solid rgba(204,0,0,.85);box-shadow:0 0 10px rgba(204,0,0,.3);transition:width .25s cubic-bezier(.16,1,.3,1),height .25s cubic-bezier(.16,1,.3,1),border-color .2s;}
-#cd.hov{width:7px;height:7px;background:#fff;box-shadow:0 0 12px 4px rgba(255,255,255,.6);}
-#cr.hov{width:58px;height:58px;border-color:rgba(255,255,255,.35);}
-.trp{position:fixed;border-radius:50%;pointer-events:none;z-index:999990;top:0;left:0;will-change:transform;}
+* { cursor: none !important; }
+#cursor { position: fixed; width: 12px; height: 12px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
+.trail { position: fixed; width: 6px; height: 6px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); opacity: 0.5; }
 
 /* NOISE */
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:99990;opacity:.28;}
@@ -223,8 +220,7 @@ section{padding:110px 64px;}
 </head>
 <body>
 
-<div id="cd"></div>
-<div id="cr"></div>
+<div id="cursor"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -493,97 +489,16 @@ section{padding:110px 64px;}
   <div class="cbg">CONTACTO</div>
   <div class="ci rv">
     <p style="color:var(--g);max-width:600px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
-    <a href="mailto:valentin@example.com" class="br">Enviar email</a>
-  </div>
 </section>
 
 <script>
-// === CURSOR — usa transform con translate(x-50%, y-50%) ===
-const cd = document.getElementById('cd');
-const cr = document.getElementById('cr');
-let mx=0,my=0,rx=0,ry=0;
-
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cd.style.transform=`translate(calc(${mx}px - 50%),calc(${my}px - 50%))`;
-});
-
-(function ar(){
-  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-  cr.style.transform=`translate(calc(${rx}px - 50%),calc(${ry}px - 50%))`;  
-  requestAnimationFrame(ar);
-})();
-
-// Trail
-const TR=7, tp=[];
-for(let i=0;i<TR;i++){
-  const e=document.createElement('div');
-  e.className='trp';
-  const s=8-i;
-  e.style.cssText=`width:${s}px;height:${s}px;background:rgba(204,0,0,${.55-i*.07});box-shadow:0 0 ${s*2}px rgba(204,0,0,${.4-i*.05});`;
-  document.body.appendChild(e);
-  tp.push({e,x:0,y:0});
-}
-(function at(){
-  let px=mx,py=my;
-  for(let i=0;i<TR;i++){
-    const sp=.38-i*.04;
-    tp[i].x+=(px-tp[i].x)*sp; tp[i].y+=(py-tp[i].y)*sp;
-    tp[i].e.style.transform=`translate(calc(${tp[i].x}px - 50%),calc(${tp[i].y}px - 50%))`;  
-    px=tp[i].x; py=tp[i].y;
-  }
-  requestAnimationFrame(at);
-})();
-
-document.querySelectorAll('a,button,.pc,.svi,.ti,.ec,.cc,.lgc,.exi').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cd.classList.add('hov');cr.classList.add('hov');});
-  el.addEventListener('mouseleave',()=>{cd.classList.remove('hov');cr.classList.remove('hov');});
-});
-
-// NAV
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('sc',scrollY>50);
-});
-
-// REVEAL
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vs');ro.unobserve(e.target);}});
-},{threshold:.08});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
-
-// COUNTERS
-const co=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target,t=+el.dataset.target;
-      let c=0;const st=t/38;
-      const tm=setInterval(()=>{c+=st;if(c>=t){el.textContent=t+'+';clearInterval(tm);}else el.textContent=Math.floor(c);},45);
-      co.unobserve(el);
-    }
-  });
-},{threshold:.5});
-document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
-
-// SKILL BARS
-const so=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.skf').forEach(b=>b.style.width=b.dataset.pct+'%');
-      so.unobserve(e.target);
-    }
-  });
-},{threshold:.3});
-document.querySelectorAll('.skw').forEach(el=>so.observe(el));
-
-// MODALS
-function openM(id){document.getElementById('m-'+id).classList.add('on');document.body.style.overflow='hidden';}
-function closeM(id){document.getElementById('m-'+id).classList.remove('on');document.body.style.overflow='';}
-document.querySelectorAll('.mo').forEach(o=>{
-  o.addEventListener('click',e=>{if(e.target===o){o.classList.remove('on');document.body.style.overflow='';}});
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') document.querySelectorAll('.mo.on').forEach(o=>{o.classList.remove('on');document.body.style.overflow='';});
-});
+const cursor = document.getElementById('cursor');
+const trails = [];
+for(let i = 0; i < 7; i++){ const t = document.createElement('div'); t.classList.add('trail'); document.body.appendChild(t); trails.push({el:t, x:0, y:0}); }
+let mx=0, my=0;
+document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+function animateTrail(){ let px=mx,py=my; trails.forEach(t=>{ t.x+=(px-t.x)*0.3; t.y+=(py-t.y)*0.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; }); requestAnimationFrame(animateTrail); }
+animateTrail();
 </script>
 </body>
 </html>
