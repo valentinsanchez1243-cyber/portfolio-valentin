@@ -230,7 +230,7 @@
       height: 100%;
       object-fit: cover;
       object-position: 30% center;
-      z-index: 2;
+      z-index: 3;
       pointer-events: none;
     }
 
@@ -366,7 +366,7 @@
     /* MARQUEE */
     .mw {
       background: var(--r);
-      padding: 13px 0;
+      padding: 22px 0;
       overflow: hidden;
       white-space: nowrap;
     }
@@ -413,9 +413,9 @@
 
     .mi {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .95rem;
+      font-size: 1.3rem;
       letter-spacing: 6px;
-      padding: 0 28px;
+      padding: 0 32px;
       opacity: .92;
     }
 
@@ -2003,19 +2003,23 @@
   <section id="hero">
     <div class="hg"></div>
     <div class="hgl"></div>
+    <!-- Nombre: z-index 2, queda detrás de la foto -->
+    <h1 class="hn" style="position:absolute;z-index:2;text-align:center;width:100%;pointer-events:none;">VALENTÍN<br><span class="acc">SÁNCHEZ</span></h1>
+    <!-- Foto recortada: z-index 3, encima del nombre -->
+    <img src="IMAGENES MIAS/deperfil-recortado.png" alt="Valentín Sánchez" class="hero-cutout">
+    <!-- Texto sobre la foto: z-index 4 -->
     <div class="hc"
-      style="position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;text-align:center;">
-      <div class="hey" style="align-self:flex-start;padding-left:5%;position:relative;z-index:3;">
+      style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;text-align:center;">
+      <div class="hey" style="align-self:flex-start;padding-left:5%;">
         Córdoba, Argentina &nbsp;·&nbsp; Disponible para proyectos</div>
-      <h1 class="hn">VALENTÍN<br><span class="acc">SÁNCHEZ</span></h1>
-      <div class="hro" style="position:relative;z-index:3;"><span>Diseñador</span> · <span>Editor</span> ·
-        <span>Productor</span></div>
-      <div class="hbt" style="position:relative;z-index:3;">
+      <!-- Espacio para el nombre (ocupa el lugar visualmente) -->
+      <div style="height:clamp(120px,24vw,320px);"></div>
+      <div class="hro"><span>Diseñador</span> · <span>Editor</span> · <span>Productor</span></div>
+      <div class="hbt">
         <a href="#proyectos" class="br">Ver proyectos</a>
         <a href="#contacto" class="bo">Contactar</a>
       </div>
     </div>
-    <img src="IMAGENES MIAS/deperfil-recortado.png" alt="Valentín Sánchez" class="hero-cutout">
   </section>
 
   <!-- MARQUEE -->
