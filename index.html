@@ -11,6 +11,10 @@
 html{scroll-behavior:smooth;}
 body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
 
+/* LINKS */
+a{color:inherit;text-decoration:none;}
+a:hover{color:var(--r);}
+
 /* CURSOR */
 #cd,#cr{position:fixed;border-radius:50%;pointer-events:none;z-index:999999;top:0;left:0;will-change:transform;}
 #cd{width:10px;height:10px;background:#ff0000;box-shadow:0 0 12px 4px rgba(255,0,0,.9),0 0 30px 8px rgba(204,0,0,.5);transition:width .15s,height .15s,background .15s;}
@@ -329,12 +333,12 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
     <p>Participo tanto en proyectos de clientes como en marcas propias, liderando procesos creativos completos: concepto, diseño, producción y comunicación, con foco en impacto visual, coherencia de marca y resultados.</p>
     <div class="skw">
-      <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><span class="skp">90%</span></div>
-      <div class="skr"><img src="illustrator.png" alt="Illustrator" style="width:50px;height:50px;"><span class="skl">Illustrator</span><span class="skp">90%</span></div>
-      <div class="skr"><img src="capcut.png" alt="CapCut" style="width:50px;height:50px;"><span class="skl">CapCut</span><span class="skp">90%</span></div>
-      <div class="skr"><img src="premiere.png" alt="Premiere Pro" style="width:50px;height:50px;"><span class="skl">Premiere Pro</span><span class="skp">75%</span></div>
-      <div class="skr"><img src="notion.png" alt="Notion" style="width:50px;height:50px;"><span class="skl">Notion</span><span class="skp">75%</span></div>
-      <div class="skr"><img src="aftereffects.png" alt="After Effects" style="width:50px;height:50px;"><span class="skl">After Effects</span><span class="skp">20%</span></div>
+      <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><img src="premiere.png" alt="Premiere Pro" style="width:50px;height:50px;"><span class="skl">Premiere Pro</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
+      <div class="skr"><img src="aftereffects.png" alt="After Effects" style="width:50px;height:50px;"><span class="skl">After Effects</span><div class="skt" style="flex:1;"><div class="skf" data-pct="20"></div></div><span class="skp">20%</span></div>
+      <div class="skr"><img src="illustrator.png" alt="Illustrator" style="width:50px;height:50px;"><span class="skl">Illustrator</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><img src="capcut.png" alt="CapCut" style="width:50px;height:50px;"><span class="skl">CapCut</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
+      <div class="skr"><img src="notion.png" alt="Notion" style="width:50px;height:50px;"><span class="skl">Notion</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
     </div>
   </div>
   <div class="sph rv">
@@ -416,6 +420,14 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
       <div class="ti"><div class="tic">🎙️</div><div class="tin">AI Voiceover</div></div>
     </div>
   </div>
+  <div class="tb rv" style="margin-top:68px;">
+    <div class="tl">En Aprendizaje</div>
+    <div class="skw" style="margin:0;gap:18px;">
+      <div class="skr"><span class="skl" style="flex:0 0 180px;">Diseño UX/UI · Coderhouse</span><div class="skt" style="flex:1;"><div class="skf" data-pct="60"></div></div><span class="skp">60%</span></div>
+      <div class="skr"><span class="skl" style="flex:0 0 180px;">After Effects</span><div class="skt" style="flex:1;"><div class="skf" data-pct="40"></div></div><span class="skp">40%</span></div>
+      <div class="skr"><span class="skl" style="flex:0 0 180px;">Blender Modelado 3D</span><div class="skt" style="flex:1;"><div class="skf" data-pct="40"></div></div><span class="skp">40%</span></div>
+    </div>
+  </div>
 </section>
 
 
@@ -429,7 +441,7 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <div class="sl" style="justify-content:center">Hablemos</div>
     <h2 class="st" style="font-size:clamp(30px,5vw,58px);margin-bottom:18px;text-align:center">¿TENÉS UN <em>PROYECTO</em>?</h2>
     <p style="color:var(--g);max-width:450px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
-    <a href="mailto:valentinnsanchez5@gmail.com" class="cem">valentinnsanchez5@gmail.com</a>
+    <a href="mailto:valentinsanchez5@gmail.com" class="cem">valentinsanchez5@gmail.com</a>
     <div class="cm2">
       <div class="cmi"><strong>+54 9 351 555 8997</strong>Teléfono / WhatsApp</div>
       <div class="cmi"><strong>@vaalensnchz</strong>Instagram</div>
