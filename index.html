@@ -324,10 +324,6 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
   <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span class="mi">DISEÑO UX/UI <span class="md">✦</span></span><span class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span class="mi">FACEBOOK ADS <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span class="mi">DISEÑO UX/UI <span class="md">✦</span></span><span class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span class="mi">FACEBOOK ADS <span class="md">✦</span></span>
 </div></div>
 
-<!-- SOFTWARE GRID APP -->
-<section id="software-app" style="padding:80px 0; background:#121212;">
-  <div id="software-grid"></div>
-</section>
 
 <!-- SOBRE MÍ -->
 <section id="sobre">
@@ -337,7 +333,15 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico en la Universidad Empresarial Siglo 21.</p>
     <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
     <p>Participo tanto en proyectos de clientes como en marcas propias, liderando procesos creativos completos: concepto, diseño, producción y comunicación, con foco en impacto visual, coherencia de marca y resultados.</p>
-    <div class="skw">
+    <!-- layout: animation + bars -->
+    <div class="skill-layout" style="display:flex;align-items:flex-start;gap:40px;">
+      <div id="software-grid" style="width:300px;height:300px;">
+        <!-- React animation mounts here -->
+        <div style="color:#fff;font-size:0.9rem;margin-top:12px;text-align:center;letter-spacing:1px;">
+          Photoshop · Premiere · Illustrator · After Effects · CapCut · Notion
+        </div>
+      </div>
+      <div class="skw" style="color:#fff;font-size:1.1rem;">
       <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
       <div class="skr"><img src="premiere.png" alt="Premiere Pro" style="width:50px;height:50px;"><span class="skl">Premiere Pro</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
       <div class="skr"><img src="aftereffects.png" alt="After Effects" style="width:50px;height:50px;"><span class="skl">After Effects</span><div class="skt" style="flex:1;"><div class="skf" data-pct="20"></div></div><span class="skp">20%</span></div>
@@ -346,6 +350,7 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
       <div class="skr"><img src="notion.png" alt="Notion" style="width:50px;height:50px;"><span class="skl">Notion</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
     </div>
   </div>
+</div>
   <div class="sph rv">
     <div class="pf">
       <!-- Para agregar tu foto: borrá el div.pph y poné <img src="foto.jpg" alt="Valentín Sánchez"> -->
