@@ -225,10 +225,11 @@
     .hero-cutout {
       position: absolute;
       bottom: 0;
-      right: 5%;
-      height: 95%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
       object-fit: contain;
-      z-index: 1;
+      z-index: 2;
       pointer-events: none;
     }
 
@@ -2001,7 +2002,7 @@
   <section id="hero">
     <div class="hg"></div>
     <div class="hgl"></div>
-    <div class="hc" style="text-align:left;padding-left:clamp(24px,8vw,120px);z-index:2;max-width:600px;">
+    <div class="hc" style="text-align:center;z-index:3;position:relative;">
       <div class="hey">Córdoba, Argentina &nbsp;·&nbsp; Disponible para proyectos</div>
       <h1 class="hn">VALENTÍN<br><span class="acc">SÁNCHEZ</span></h1>
       <div class="hro"><span>Diseñador</span> · <span>Editor</span> · <span>Productor</span></div>
