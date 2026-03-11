@@ -41,7 +41,16 @@ nav.sc{background:rgba(8,8,8,.99);border-bottom:1px solid rgba(204,0,0,.2);}
 .ncta::after{display:none!important;}
 
 /* HERO */
-#hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+#hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  background-image:url('IMAGENES MIAS/DE PERFIL.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+#hero::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+  z-index:0;
+}
 .hg{position:absolute;inset:0;}
 .hg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 50%,transparent 0%,rgba(8,8,8,.9) 100%);}
 .hgl{position:absolute;inset:0;background:radial-gradient(ellipse 45% 38% at 50% 50%,rgba(204,0,0,.1) 0%,transparent 70%);z-index:1;}
@@ -255,8 +264,15 @@ section{padding:110px 64px;}
 .lgd{font-size:.83rem;line-height:1.65;color:rgba(240,240,240,.64);font-weight:300;}
 
 /* CONTACTO */
-#contacto{background:var(--b2);text-align:center;position:relative;}
-#contacto::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+#contacto{background:var(--b2);text-align:center;position:relative;
+  background-image:url('IMAGENES MIAS/DE ARRIBA.jpg');
+  background-size:cover;
+  background-position:center;
+}
+#contacto::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75));
+  z-index:0;
+}
 #contacto > *{position:relative;z-index:1;}
 .cbg{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,148px);line-height:.88;color:rgba(255,255,255,.03);pointer-events:none;margin-bottom:-44px;position:relative;z-index:0;}
 .ci{position:relative;z-index:1;}
@@ -422,8 +438,8 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
 </div>
   <div class="sph rv">
     <div class="pf">
-      <!-- Para agregar tu foto: borrá el div.pph y poné <img src="foto.jpg" alt="Valentín Sánchez"> -->
-      <div class="pph"><div class="phi">VS</div><div class="pht">Tu foto acá</div></div>
+      <!-- Para agregar tu foto: se reemplazó placeholder por imagen real -->
+      <img src="IMAGENES MIAS/DE COSTADO.jpg" alt="Valentín Sánchez" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div class="pbg pb1">Disponible · 2025</div>
     <div class="pbg pb2">Inglés B2</div>
