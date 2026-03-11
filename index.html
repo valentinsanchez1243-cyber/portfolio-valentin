@@ -79,6 +79,16 @@ section{padding:110px 64px;}
 #sobre > *{position:relative;z-index:1;}
 .sbt p{font-size:1.02rem;line-height:1.82;color:rgba(240,240,240,.76);margin-bottom:17px;font-weight:300;}
 .sbt p strong{color:var(--w);font-weight:600;}
+/* unified skill cards */
+#software-grid{background:#121212;color:#fff;padding:20px;display:flex;flex-wrap:wrap;gap:24px;justify-content:center;}
+.skill-card{display:flex;flex-direction:column;align-items:center;gap:12px;color:white;}
+.skill-row{display:flex;flex-direction:row;align-items:center;gap:10px;width:100%;}
+.skill-name{color:white;font-size:13px;white-space:nowrap;min-width:100px;}
+.skill-bar{flex:1;height:4px;background:#333;border-radius:2px;overflow:hidden;}
+.skill-fill{height:100%;background:#cc0000;width:0%;transition:width 1s ease;}
+.skill-pct{color:#cc0000;font-size:13px;min-width:35px;text-align:right;}
+
+/* legacy skill bars (En Aprendizaje) */
 .skw{margin-top:34px;display:flex;flex-direction:column;gap:11px;}
 .skr{display:flex;align-items:center;gap:14px;}
 .skl{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--g);}
@@ -333,23 +343,57 @@ footer{background:var(--b);padding:26px 64px;display:flex;align-items:center;jus
     <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico en la Universidad Empresarial Siglo 21.</p>
     <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas, dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
     <p>Participo tanto en proyectos de clientes como en marcas propias, liderando procesos creativos completos: concepto, diseño, producción y comunicación, con foco en impacto visual, coherencia de marca y resultados.</p>
-    <!-- layout: animation + bars -->
-    <div class="skill-layout" style="display:flex;align-items:flex-start;gap:40px;">
-      <div id="software-grid" style="width:300px;height:300px;">
-        <!-- React animation mounts here -->
-        <div style="color:#fff;font-size:0.9rem;margin-top:12px;text-align:center;letter-spacing:1px;">
-          Photoshop · Premiere · Illustrator · After Effects · CapCut · Notion
+    <!-- unified skills -->
+    <div id="software-grid">
+      <div class="skill-card">
+        <div class="icon-anim"><img src="photoshop.png" alt="Photoshop" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">Photoshop</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          <span class="skill-pct">90%</span>
         </div>
       </div>
-      <div class="skw" style="color:#fff;font-size:1.1rem;">
-      <div class="skr"><img src="photoshop.png" alt="Photoshop" style="width:50px;height:50px;"><span class="skl">Photoshop</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><img src="premiere.png" alt="Premiere Pro" style="width:50px;height:50px;"><span class="skl">Premiere Pro</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
-      <div class="skr"><img src="aftereffects.png" alt="After Effects" style="width:50px;height:50px;"><span class="skl">After Effects</span><div class="skt" style="flex:1;"><div class="skf" data-pct="20"></div></div><span class="skp">20%</span></div>
-      <div class="skr"><img src="illustrator.png" alt="Illustrator" style="width:50px;height:50px;"><span class="skl">Illustrator</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><img src="capcut.png" alt="CapCut" style="width:50px;height:50px;"><span class="skl">CapCut</span><div class="skt" style="flex:1;"><div class="skf" data-pct="90"></div></div><span class="skp">90%</span></div>
-      <div class="skr"><img src="notion.png" alt="Notion" style="width:50px;height:50px;"><span class="skl">Notion</span><div class="skt" style="flex:1;"><div class="skf" data-pct="75"></div></div><span class="skp">75%</span></div>
+      <div class="skill-card">
+        <div class="icon-anim"><img src="premiere.png" alt="Premiere Pro" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">Premiere Pro</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon-anim"><img src="aftereffects.png" alt="After Effects" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">After Effects</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="20"></div></div>
+          <span class="skill-pct">20%</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon-anim"><img src="illustrator.png" alt="Illustrator" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">Illustrator</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon-anim"><img src="capcut.png" alt="CapCut" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">CapCut</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          <span class="skill-pct">90%</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="icon-anim"><img src="notion.png" alt="Notion" style="width:60px;height:60px;"></div>
+        <div class="skill-row">
+          <span class="skill-name">Notion</span>
+          <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+          <span class="skill-pct">75%</span>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
   <div class="sph rv">
     <div class="pf">
@@ -662,16 +706,19 @@ const co=new IntersectionObserver(entries=>{
 },{threshold:.5});
 document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
 
-// SKILL BARS
+// SKILL BARS (old and new selectors)
 const so=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      e.target.querySelectorAll('.skf').forEach(b=>b.style.width=b.dataset.pct+'%');
+      e.target.querySelectorAll('.skf, .skill-fill').forEach(b=>b.style.width=b.dataset.pct+'%');
       so.unobserve(e.target);
     }
   });
 },{threshold:.3});
-document.querySelectorAll('.skw').forEach(el=>so.observe(el));
+// observe any container that might hold bars
+document.querySelectorAll('.skw, #software-grid, #proceso').forEach(el=>so.observe(el));
+// also set widths immediately (fallback/load)
+document.querySelectorAll('.skill-fill').forEach(el=>{el.style.width=el.dataset.pct+'%';});
 
 // MODALS
 function openM(id){document.getElementById('m-'+id).classList.add('on');document.body.style.overflow='hidden';}
@@ -684,262 +731,5 @@ document.addEventListener('keydown',e=>{
 });
 </script>
 
-<!-- React for software grid -->
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
-const { useState } = React;
-
-const softwareIcons = [
-  { name: "Photoshop", abbr: "Ps", color: "#31A8FF", bg: "#001E36", level: 75 },
-  { name: "Premiere Pro", abbr: "Pr", color: "#9999FF", bg: "#00005B", level: 75 },
-  { name: "Illustrator", abbr: "Ai", color: "#FF9A00", bg: "#1C0A00", level: 90 },
-  { name: "After Effects", abbr: "Ae", color: "#9999FF", bg: "#00005B", level: 20 },
-  { name: "CapCut", abbr: "CC", color: "#FFFFFF", bg: "#000000", level: 90 },
-  { name: "Notion", abbr: "N", color: "#FFFFFF", bg: "#1A1A1A", level: 90 },
-];
-
-function SoftwareIcon({ icon }) {
-  const [hovered, setHovered] = useState(false);
-  const orbitIcons = softwareIcons.filter((i) => i.abbr !== icon.abbr);
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: 120,
-        height: 120,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div
-        style={{
-          position: "absolute",
-          width: 110,
-          height: 110,
-          borderRadius: "50%",
-          border: `1px solid rgba(220,20,20,${hovered ? 0.6 : 0})`,
-          boxShadow: hovered ? "0 0 20px rgba(220,20,20,0.3)" : "none",
-          transition: "all 0.4s ease",
-          animation: hovered ? "spin 2s linear infinite" : "none",
-        }}
-      />
-      {orbitIcons.map((orb, i) => {
-        const angle = (360 / orbitIcons.length) * i;
-        const rad = (angle * Math.PI) / 180;
-        const radius = 55;
-        const x = Math.cos(rad) * radius;
-        const y = Math.sin(rad) * radius;
-        return (
-          <div
-            key={orb.abbr}
-            style={{
-              position: "absolute",
-              width: 22,
-              height: 22,
-              borderRadius: 4,
-              background: orb.bg,
-              border: `1px solid ${orb.color}44`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 8,
-              fontWeight: 900,
-              color: orb.color,
-              fontFamily: "monospace",
-              transform: hovered
-                ? `translate(${x}px, ${y}px) scale(1)`
-                : `translate(0px, 0px) scale(0)`,
-              opacity: hovered ? 1 : 0,
-              transition: `all 0.5s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.06}s`,
-              zIndex: 10,
-              boxShadow: hovered ? `0 0 8px ${orb.color}66` : "none",
-            }}
-          >
-            {orb.abbr}
-          </div>
-        );
-      })}
-      <div
-        style={{
-          width: 72,
-          height: 72,
-          borderRadius: 14,
-          background: icon.bg,
-          border: `2px solid ${icon.color}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 22,
-          fontWeight: 900,
-          color: icon.color,
-          fontFamily: "monospace",
-          boxShadow: hovered
-            ? `0 0 30px ${icon.color}88, 0 0 60px ${icon.color}44, inset 0 0 20px ${icon.color}22`
-            : `0 0 15px ${icon.color}44`,
-          transform: hovered ? "scale(1.12)" : "scale(1)",
-          transition: "all 0.35s cubic-bezier(0.34,1.56,0.64,1)",
-          zIndex: 20,
-          position: "relative",
-        }}
-      >
-        {icon.abbr}
-        {[[-1, -1], [1, -1], [-1, 1], [1, 1]].map(([dx, dy], i) => (
-          <div
-            key={i}
-            style={{
-              position: "absolute",
-              width: 4,
-              height: 4,
-              borderRadius: "50%",
-              background: "#cc1111",
-              top: dy === -1 ? -8 : "auto",
-              bottom: dy === 1 ? -8 : "auto",
-              left: dx === -1 ? -8 : "auto",
-              right: dx === 1 ? -8 : "auto",
-              boxShadow: "0 0 6px #cc1111",
-            }}
-          />
-        ))}
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: -18,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 72,
-        }}
-      >
-        <div
-          style={{
-            height: 3,
-            background: "#1a0000",
-            borderRadius: 2,
-            overflow: "hidden",
-            border: "1px solid #cc111133",
-          }}
-        >
-          <div
-            style={{
-              height: "100%",
-              width: `${icon.level}%`,
-              background: `linear-gradient(90deg, #cc1111, #ff4444)`,
-              borderRadius: 2,
-              boxShadow: "0 0 6px #cc1111",
-              transition: "width 1s ease 0.3s",
-            }}
-          />
-        </div>
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: 9,
-            color: "#888",
-            marginTop: 2,
-            fontFamily: "monospace",
-            letterSpacing: 1,
-          }}
-        >
-          {icon.level}%
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SoftwareGrid() {
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#0a0a0a",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 40,
-        fontFamily: "monospace",
-      }}
-    >
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes pulse-red {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 1; }
-        }
-      `}</style>
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          backgroundImage:
-            "radial-gradient(circle, #cc111122 1px, transparent 1px)",
-          backgroundSize: "30px 30px",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          color: "#cc1111",
-          fontSize: 11,
-          letterSpacing: 4,
-          textTransform: "uppercase",
-          marginBottom: 8,
-          animation: "pulse-red 2s ease infinite",
-        }}
-      >
-        ◆ SOFTWARE SKILLS ◆
-      </div>
-      <h1
-        style={{
-          color: "white",
-          fontSize: 28,
-          fontWeight: 900,
-          letterSpacing: 6,
-          marginBottom: 60,
-          textTransform: "uppercase",
-          textShadow: "0 0 30px rgba(220,20,20,0.5)",
-        }}
-      >
-        VALENTIN SANCHEZ
-      </h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 140px)",
-          gap: "60px 40px",
-          justifyItems: "center",
-        }}
-      >
-        {softwareIcons.map((icon) => (
-          <SoftwareIcon key={icon.abbr} icon={icon} />
-        ))}
-      </div>
-      <div
-        style={{
-          marginTop: 80,
-          color: "#444",
-          fontSize: 10,
-          letterSpacing: 3,
-          textTransform: "uppercase",
-        }}
-      >
-        HOVER PARA ACTIVAR ↑
-      </div>
-    </div>
-  );
-}
-
-ReactDOM.render(<SoftwareGrid />, document.getElementById('software-grid'));
-</script>
 </body>
 </html>
