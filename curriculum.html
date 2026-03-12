@@ -116,7 +116,7 @@ section{padding:110px 64px;}
 .exi{display:grid;grid-template-columns:180px 1fr;gap:36px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:background .3s;}
 .exi:hover{background:rgba(204,0,0,.03);padding-left:8px;}
 .exp{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;letter-spacing:3px;text-transform:uppercase;color:var(--g);padding-top:4px;}
-.exr{}
+
 .exro{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
 .exco{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;color:var(--r);letter-spacing:2px;margin-bottom:9px;}
 .exde{font-size:.88rem;line-height:1.7;color:rgba(240,240,240,.68);font-weight:300;}
@@ -208,14 +208,80 @@ section{padding:110px 64px;}
 #experiencia > *{position:relative;z-index:1;}
 
 /* LOGROS */
-#logros{background:var(--b);position:relative;}
-#logros::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
-#logros > *{position:relative;z-index:1;}
+#logros { background: #ffffff; position: relative; }
+#logros::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(230, 57, 70, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(230, 57, 70, 0.15) 1px, transparent 1px); background-size: 52px 52px; pointer-events: none; z-index: 0; }
+#logros > * { position: relative; z-index: 1; }
+#logros .st, #logros .cvdt, #logros .cvet { color: #0a0a0a !important; }
+#logros .sl, #logros .cvbt, #logros .cves { color: #e63946 !important; }
+#logros .cved, #logros .cvedd, #logros .cvds { color: #444 !important; font-weight: 400 !important; }
+#logros .cve { background: transparent !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; border-left: 3px solid #e63946 !important; box-shadow:none; }
+#logros .cve:hover { background: rgba(230, 57, 70, 0.04) !important; }
+#logros .cvdb { background: transparent !important; border: 1px solid rgba(0, 0, 0, 0.1) !important; color:#0a0a0a !important; }
 
 /* CONTACTO */
-#contacto{background:var(--b2);text-align:center;position:relative;}
-#contacto::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
-#contacto > *{position:relative;z-index:1;}
+#contacto {
+  background-image: url('IMAGENES MIAS/dearriba.png');
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  text-align: center;
+}
+#contacto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+#contacto > * { position: relative; z-index: 1; }
+#contacto * { color: #ffffff !important; }
+.cbg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(10rem, 20vw, 25rem);
+  font-family: 'Bebas Neue', sans-serif;
+  color: rgba(255, 255, 255, 0.12) !important;
+  text-shadow: none;
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  filter: blur(4px);
+}
+.ci { margin: 0 auto; max-width: 900px; }
+.cm2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
+.cmi { font-size: 0.82rem; color: var(--g); letter-spacing: 1px; }
+.cmi strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--w); letter-spacing: 3px; font-weight: normal; margin-bottom: 4px; }
+.cem { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 4.5vw, 68px); color: var(--r); text-decoration: none; display: inline-block; transition: color 0.3s, transform 0.3s; line-height: 1; }
+.cem:hover { color: var(--w); transform: scale(1.02); }
+.cbt { display: flex; justify-content: center; gap: 14px; margin-top: 48px; }
+
+/* IMPRESIÓN / DESCARGAR PDF */
+@media print {
+  nav, #cursor, .trail, .br, .bo, .cvdl, .cbt, .hbt, .mw, #contacto .cbg {
+    display: none !important;
+  }
+  body, html, section {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+  }
+  * {
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #hero { height: auto !important; padding: 40px 0 !important; margin-top:0 !important;}
+  .hg, .hgl { display: none !important; }
+  #educacion, #experiencia, #logros, #contacto { background: none !important; page-break-inside: avoid; }
+  #contacto { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -251,6 +317,13 @@ section{padding:110px 64px;}
     </div>
   </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="mw">
+  <div class="mt">
+    <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span class="mi">INDUMENTARIA <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span class="mi">INDUMENTARIA <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span>
+  </div>
+</div>
 
 <!-- EDUCACIÓN Y CERTIFICACIONES -->
 <section id="educacion">
@@ -308,6 +381,9 @@ section{padding:110px 64px;}
       <div class="cl">UTN</div>
     </div>
   </div>
+  <div style="text-align:center; margin-top:40px; position:relative; z-index:2;">
+    <a href="https://drive.google.com/drive/folders/11NROEBVbFhYGVZd2Q0ZRIBmLD6ZXVi78?usp=sharing" target="_blank" class="br">VER TÍTULOS Y CERTIFICACIONES →</a>
+  </div>
 </section>
 
 <!-- EXPERIENCIA LABORAL -->
@@ -316,7 +392,7 @@ section{padding:110px 64px;}
   <h2 class="st rv">EXPERIENCIA<br><em>LABORAL</em></h2>
   <div class="exl">
     <div class="exi rv">
-      <div class="exp">2023 - Presente</div>
+      <div class="exp">2025 — Actualidad</div>
       <div class="exr">
         <div class="exro">KORD3 CEO</div>
         <div class="exco">Córdoba, Argentina</div>
@@ -330,9 +406,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2023 - Presente</div>
+      <div class="exp">2024 — 2025</div>
       <div class="exr">
-        <div class="exro">Agency Luxury Editor</div>
+        <div class="exro">AGENCY LUXURY Editor</div>
         <div class="exco">Buenos Aires, Argentina</div>
         <div class="exde">Editor de video para agencia de cirujanos plásticos. Especializado en VSL, Facebook Ads y thumbnails orientados a conversión.</div>
         <div class="extg">
@@ -343,9 +419,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2022 - 2023</div>
+      <div class="exp">2025 — Actualidad</div>
       <div class="exr">
-        <div class="exro">Home Improvement Power Editor</div>
+        <div class="exro">HOME IMPROVEMENT POWER Editor</div>
         <div class="exco">Florida, USA</div>
         <div class="exde">Editor de video para empresa de mejoras del hogar. Producción de ads UGC con IA para mercado estadounidense.</div>
         <div class="extg">
@@ -356,9 +432,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2022 - 2023</div>
+      <div class="exp">2024 — Actualidad</div>
       <div class="exr">
-        <div class="exro">MF Sports Diseñador</div>
+        <div class="exro">MF SPORTS Diseñador</div>
         <div class="exco">Córdoba, Argentina</div>
         <div class="exde">Diseñador de indumentaria deportiva para fútbol y hockey. Camisetas, musculosas y buzos con sponsors.</div>
         <div class="extg">
@@ -369,9 +445,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2021 - 2022</div>
+      <div class="exp">2024 — 2025</div>
       <div class="exr">
-        <div class="exro">Natan Barber Community Manager</div>
+        <div class="exro">THE NATAN BARBER ESTUDIO Community Manager</div>
         <div class="exco">Córdoba, Argentina</div>
         <div class="exde">Community manager para barbería. Branding desde cero, gestión de redes y producción audiovisual con eje en cuarteto cordobés.</div>
         <div class="extg">
@@ -382,9 +458,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2021 - 2022</div>
+      <div class="exp">2024 — 2025</div>
       <div class="exr">
-        <div class="exro">Energía Fitness Community Manager</div>
+        <div class="exro">ENERGÍA FITNESS Community Manager</div>
         <div class="exco">Córdoba, Argentina</div>
         <div class="exde">Rebranding completo y gestión de redes para gimnasio. Semana hype y producción audiovisual.</div>
         <div class="extg">
@@ -395,9 +471,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2020 - 2021</div>
+      <div class="exp">2024 — Actualidad</div>
       <div class="exr">
-        <div class="exro">Zetta Security / Pavan / Legal Leads Editor</div>
+        <div class="exro">ZETTA SECURITY Editor</div>
         <div class="exco">Córdoba, Argentina / Chile</div>
         <div class="exde">Edición de video para múltiples clientes: seguridad, farmacia y legal. Adaptación a diferentes rubros y objetivos.</div>
         <div class="extg">
@@ -407,9 +483,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2019 - 2020</div>
+      <div class="exp">2023 y 2024</div>
       <div class="exr">
-        <div class="exro">Librería LibreMas</div>
+        <div class="exro">LIBRERÍA LIBREMAS</div>
         <div class="exco">Córdoba, Argentina</div>
         <div class="exde">Trabajo en librería independiente. Atención al cliente y gestión de inventario.</div>
         <div class="extg">
@@ -419,9 +495,9 @@ section{padding:110px 64px;}
       </div>
     </div>
     <div class="exi rv">
-      <div class="exp">2018 - 2019</div>
+      <div class="exp">2022 — 2024</div>
       <div class="exr">
-        <div class="exro">Estudio Jurídico LupiMorales</div>
+        <div class="exro">ESTUDIO JURÍDICO LUPI-MORALES</div>
         <div class="exco">Córdoba, Argentina</div>
         <div class="exde">Asistente administrativo en estudio jurídico. Gestión de documentación y soporte administrativo.</div>
         <div class="extg">
@@ -479,7 +555,7 @@ section{padding:110px 64px;}
     <div class="cvdb">
       <div class="cvdt">Descargar CV</div>
       <div class="cvds">Obtén una versión completa y detallada de mi currículum en formato PDF.</div>
-      <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="cvdl">Descargar PDF</a>
+      <button onclick="window.print()" class="cvdl" style="border:none;cursor:pointer;">Descargar PDF</button>
     </div>
   </div>
 </section>
@@ -488,7 +564,22 @@ section{padding:110px 64px;}
 <section id="contacto">
   <div class="cbg">CONTACTO</div>
   <div class="ci rv">
-    <p style="color:var(--g);max-width:600px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
+    <div class="sl" style="justify-content:center">— HABLEMOS</div>
+    <h2 class="st" style="font-size:clamp(30px,5vw,58px);margin-bottom:18px;text-align:center">¿TENÉS UN<br><em>PROYECTO</em>?</h2>
+    <p style="max-width:450px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">
+      Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.</p>
+    <a href="mailto:vaalentinsanchez5@gmail.com" class="cem">vaalentinsanchez5@gmail.com</a>
+    <div class="cm2">
+      <div class="cmi"><strong>+54 9 351 555 8997</strong>Teléfono / WhatsApp</div>
+      <div class="cmi"><strong>@vaalensnchz</strong>Instagram</div>
+      <div class="cmi"><strong>Córdoba, Argentina</strong>Ubicación</div>
+    </div>
+    <div class="cbt">
+      <a href="https://wa.me/5493515558997" target="_blank" class="br">WhatsApp</a>
+      <a href="https://www.instagram.com/vaalensnchz" target="_blank" class="bo">Instagram</a>
+      <button onclick="window.print()" class="bo" style="background:transparent;cursor:pointer;">Descargar CV</button>
+    </div>
+  </div>
 </section>
 
 <script>
