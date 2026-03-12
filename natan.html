@@ -3,60 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NATAN BARBER ESTUDIO - Valentín Sánchez</title>
+<title>THE NATAN BARBER ESTUDIO - Valentín Sánchez</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--r:#CC0000;--rb:#FF2222;--b:#080808;--b2:#0f0f0f;--w:#F0F0F0;--g:#777;}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
+:root {
+  --r: #CC0000;
+  --rb: #e63946;
+  --b: #080808;
+  --b2: #0f0f0f;
+  --w: #F0F0F0;
+  --g: #777;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--b);
+  color: var(--w);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
 
 /* CURSOR */
 * { cursor: none !important; }
-#cursor { position: fixed; width: 12px; height: 12px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
-.trail { position: fixed; width: 6px; height: 6px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); opacity: 0.5; }
+#cursor { position: fixed; width: 12px; height: 12px; background: var(--rb); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform .15s; }
+.trail { position: fixed; width: 6px; height: 6px; background: var(--rb); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); opacity: 0.5; }
 
 /* NOISE */
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:99990;opacity:.28;}
+body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 99990; opacity: .28; }
 
-/* SECTION BASE */
-section{padding:110px 64px;}
-.sl{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--r);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.sl::before{content:'';width:22px;height:1px;background:var(--r);}
-.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6.5vw,90px);line-height:.93;margin-bottom:58px;}
-.st em{color:var(--r);font-style:normal;}
+/* NAV */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: var(--w);
+  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  z-index: 1000;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(8,8,8,.7);
+  backdrop-filter: blur(8px);
+  transition: border-color .3s, color .3s;
+}
+.back-btn:hover { border-color: var(--rb); color: var(--rb); }
+
+/* HERO BANNER */
+.hero-banner {
+  width: 100%;
+  height: 420px;
+  background-image: url('PORTADA PROYECTOS/PORTADA-NATAN.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 64px;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,.95) 0%, rgba(8,8,8,.4) 60%, rgba(8,8,8,.2) 100%);
+}
+.hero-banner-content { position: relative; z-index: 1; }
+.hero-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rb);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 8vw, 110px);
+  line-height: .9;
+  color: var(--w);
+}
+.hero-title span { color: var(--rb); }
+.hero-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(13px, 1.8vw, 18px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-top: 12px;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rb);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: .95;
+  margin-bottom: 30px;
+}
+.section-title em { color: var(--rb); font-style: normal; }
+
+.section-desc {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(240,240,240,.75);
+  font-weight: 300;
+  max-width: 680px;
+  margin-bottom: 18px;
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,.06);
+}
+
+/* BUTTON */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 14px 32px;
+  background: var(--rb);
+  color: var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .82rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, transform .3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-red::after { content: '→'; margin-left: 6px; }
+.btn-red:hover { background: #a00000; transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 13px 30px;
+  background: transparent;
+  color: var(--rb);
+  border: 1px solid var(--rb);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .82rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s;
+}
+.btn-outline::after { content: '→'; margin-left: 6px; }
+.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+
+/* SEMANA HYPE SECTION */
+.hype-section {
+  background: linear-gradient(135deg, #1a0000, #2c0000);
+  padding: 100px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hype-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hype-section::after {
+  content: 'HYPE';
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(100px, 14vw, 200px);
+  color: rgba(204,0,0,.08);
+  letter-spacing: 20px;
+  pointer-events: none;
+}
+.hype-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* INSTAGRAM SECTION */
+.instagram-section {
+  text-align: center;
+  padding: 80px 64px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* BACK SECTION */
+.back-section {
+  text-align: center;
+  padding: 80px 24px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* SCROLL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+@media(max-width:800px) {
+  section { padding: 72px 24px; }
+  .hero-banner { padding: 32px 24px; height: 320px; }
+  .hype-section { padding: 72px 24px; }
+  .instagram-section { padding: 60px 24px; }
+}
 </style>
 </head>
 <body>
 <div id="cursor"></div>
-<a href="index.html" style="position:fixed;top:20px;left:20px;color:var(--w);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;">← VOLVER</a>
-<div style="width:100%; height:350px; background-image: url('PORTADA PROYECTOS/PORTADA-NATAN.jpg'); background-size:cover; background-position:center; position:relative;"><div style="position:absolute; inset:0; background:rgba(0,0,0,0.4);"></div></div>
-<section id="project">
-  <div class="sl">Proyecto</div>
-  <h2 class="st">THE NATAN BARBER ESTUDIO</h2>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;font-weight:700;">Branding · Dirección Creativa · Producción Audiovisual</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">Trabajé en el desarrollo del branding y el lanzamiento completo de la comunicación digital de The Natan Barber Studio, construyendo la identidad visual y el estilo de la marca desde cero. El proyecto incluyó definir el tono, la estética y la presencia en redes sociales, estableciendo una base clara y coherente para la marca.</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">Produje, dirigí y edité contenido audiovisual desde cero, incluyendo un video de presentación como pieza principal del lanzamiento. Este video tuvo como eje conceptual el cuarteto, incorporando un elemento cultural fuerte y local para conectar con la identidad de la marca y su público. Me encargué de todo el proceso: idea, producción, grabación, dirección y edición final.</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">Además, desarrollé la Semana Hype, una estrategia previa al lanzamiento basada en la producción y publicación planificada de videos, posts e historias, pensada para generar expectativa, misterio y atención progresiva antes de la presentación oficial del estudio y su identidad.</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">También edité carruseles y piezas gráficas para redes sociales y diseñé stickers para ceras, extendiendo la identidad visual de la marca al producto físico y reforzando su reconocimiento fuera del entorno digital.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-    <img src="natan-1.jpg" alt="NATAN BARBER ESTUDIO photo 1" style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-    <img src="natan-2.jpg" alt="NATAN BARBER ESTUDIO photo 2" style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-    <video controls style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-      <source src="natan.mp4" type="video/mp4">
-      Tu navegador no soporta el elemento video.
-    </video>
+<a href="index.html#proyectos" class="back-btn">← Volver</a>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <div class="hero-banner-content">
+    <div class="hero-tag">Proyecto · 2024</div>
+    <div class="hero-title">THE NATAN <span>BARBER</span> ESTUDIO</div>
+    <div class="hero-sub">Branding · Dirección Creativa · Producción Audiovisual</div>
   </div>
-  <p style="margin-top:40px;"><a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" style="color:var(--r);text-decoration:underline;">Instagram @natan.barber.estudio</a></p>
+</div>
+
+<!-- OVERVIEW -->
+<section class="reveal">
+  <div class="section-tag">Overview</div>
+  <h1 class="section-title">THE NATAN <em>BARBER</em> ESTUDIO</h1>
+  <p style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(12px,1.6vw,15px);letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:36px;">Branding · Dirección Creativa · Producción Audiovisual</p>
+  <p class="section-desc">
+    Desarrollo del branding y lanzamiento completo de la comunicación digital del estudio, construyendo la identidad visual desde cero.
+  </p>
 </section>
+
+<div class="divider"></div>
+
+<!-- LOGO & IDENTIDAD -->
+<section class="reveal">
+  <div class="section-tag">Identidad Visual</div>
+  <h2 class="section-title">LOGO &amp; IDENTIDAD <em>VISUAL</em></h2>
+  <p class="section-desc">
+    Definición del tono, la estética y la presencia en redes sociales, estableciendo una base clara y coherente para la marca.
+  </p>
+  <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- STICKERS PARA CERAS -->
+<section class="reveal">
+  <div class="section-tag">Diseño de Producto</div>
+  <h2 class="section-title">STICKERS PARA <em>CERAS</em></h2>
+  <p class="section-desc">
+    Diseño de stickers para los productos de cera del estudio, extendiendo la identidad visual al producto físico.
+  </p>
+  <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=sharing" target="_blank" class="btn-red">VER DISEÑOS</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEO DE PRESENTACIÓN -->
+<section class="reveal">
+  <div class="section-tag">Producción Audiovisual</div>
+  <h2 class="section-title">VIDEO DE <em>PRESENTACIÓN</em></h2>
+  <p class="section-desc">
+    Video de presentación con eje conceptual en el cuarteto, incorporando un elemento cultural fuerte y local. Concepto, producción, grabación, dirección y edición final.
+  </p>
+  <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=sharing" target="_blank" class="btn-red">VER VIDEO</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- SESIONES DE CORTE -->
+<section class="reveal">
+  <div class="section-tag">Contenido Audiovisual</div>
+  <h2 class="section-title">VIDEOS DE SESIONES <em>DE CORTE</em></h2>
+  <p class="section-desc">
+    Contenido audiovisual mostrando el trabajo y habilidades del estudio, generando confianza y atrayendo nuevos clientes.
+  </p>
+  <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=sharing" target="_blank" class="btn-red">VER VIDEOS</a>
+</section>
+
+<!-- SEMANA HYPE -->
+<div class="hype-section reveal">
+  <div class="hype-inner">
+    <div class="section-tag" style="color:#ff4444;">Estrategia de Lanzamiento</div>
+    <h2 class="section-title" style="font-size:clamp(50px,8vw,110px);color:var(--w);">SEMANA <em>HYPE</em></h2>
+    <p class="section-desc" style="max-width:640px;color:rgba(255,255,255,.85);">
+      Estrategia previa al lanzamiento: videos, posts e historias para generar expectativa, misterio y atención progresiva antes de la presentación oficial.
+    </p>
+    <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=sharing" target="_blank" class="btn-red" style="margin-top:36px;">VER CONTENIDO</a>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="instagram-section reveal">
+  <div class="section-tag" style="justify-content:center;">Instagram</div>
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);margin-bottom:24px;">@NATAN.BARBER.ESTUDIO</h2>
+  <a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" class="btn-outline" style="margin-top:0;">VER INSTAGRAM</a>
+</div>
+
+<!-- BOTÓN VOLVER -->
+<div class="back-section reveal">
+  <a href="index.html#proyectos" class="btn-outline" style="margin-top:0;">← VOLVER A PROYECTOS</a>
+</div>
+
 <script>
+// CURSOR
 const cursor = document.getElementById('cursor');
 const trails = [];
-for(let i = 0; i < 7; i++){ const t = document.createElement('div'); t.classList.add('trail'); document.body.appendChild(t); trails.push({el:t, x:0, y:0}); }
+for(let i = 0; i < 7; i++){
+  const t = document.createElement('div');
+  t.classList.add('trail');
+  document.body.appendChild(t);
+  trails.push({el:t, x:0, y:0});
+}
 let mx=0, my=0;
 document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-function animateTrail(){ let px=mx,py=my; trails.forEach(t=>{ t.x+=(px-t.x)*0.3; t.y+=(py-t.y)*0.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; }); requestAnimationFrame(animateTrail); }
+function animateTrail(){
+  let px=mx,py=my;
+  trails.forEach(t=>{ t.x+=(px-t.x)*0.3; t.y+=(py-t.y)*0.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; });
+  requestAnimationFrame(animateTrail);
+}
 animateTrail();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
