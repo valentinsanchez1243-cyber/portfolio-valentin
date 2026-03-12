@@ -1232,6 +1232,18 @@
       color: rgba(0, 0, 0, .7);
     }
 
+    .svbdg {
+      background: #0a0a0a;
+      color: #ffffff;
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     .svd {
       font-size: .82rem;
       color: rgba(0, 0, 0, .75);
@@ -2324,55 +2336,71 @@
     <div class="sl rv" style="color: #0a0a0a;">Lo que ofrezco</div>
     <h2 class="st rv" style="color: #0a0a0a;">SERVICIOS</h2>
     <div class="svl">
+      <!-- 01 -->
       <div class="svi rv">
         <div class="svnum">01</div>
-        <div>
-          <div class="svn">Branding & Identidad Visual</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Branding & Identidad Visual</div>
+            <div class="svbdg">PROYECTO COMPLETO</div>
+          </div>
           <div class="svd">Construcción de marca desde cero: logo, paleta, tipografía, guía de estilo y universo
             estético completo.</div>
         </div>
-        <div class="svtg"><span class="svt">Logo</span><span class="svt">Manual</span><span class="svt">Identidad</span>
+        <div class="svtg"><span class="svt">LOGO</span><span class="svt">MANUAL DE MARCA</span><span class="svt">IDENTIDAD</span><span class="svt">TIPOGRAFÍA</span><span class="svt">PALETA</span>
         </div>
       </div>
+      <!-- 02 -->
       <div class="svi rv">
         <div class="svnum">02</div>
-        <div>
-          <div class="svn">Edición de Video & Ads</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Edición de Video & Ads</div>
+            <div class="svbdg">POR VIDEO / PACK</div>
+          </div>
           <div class="svd">VSL, reels, stories, Facebook/Instagram Ads. Hooks fuertes, subtítulos y llamados a la acción
             orientados a conversión.</div>
         </div>
-        <div class="svtg"><span class="svt">Reels</span><span class="svt">VSL</span><span class="svt">UGC</span><span
-            class="svt">Ads</span></div>
+        <div class="svtg"><span class="svt">REELS</span><span class="svt">VSL</span><span class="svt">UGC</span><span class="svt">ADS</span><span class="svt">SUBTÍTULOS</span></div>
       </div>
+      <!-- 03 -->
       <div class="svi rv">
         <div class="svnum">03</div>
-        <div>
-          <div class="svn">Community Management</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Community Management</div>
+            <div class="svbdg">GESTIÓN MENSUAL</div>
+          </div>
           <div class="svd">Gestión integral de redes: planificación de contenido, diseño de piezas, carruseles,
             historias y estrategia editorial.</div>
         </div>
-        <div class="svtg"><span class="svt">Instagram</span><span class="svt">Contenido</span><span
-            class="svt">Estrategia</span></div>
+        <div class="svtg"><span class="svt">INSTAGRAM</span><span class="svt">FEED</span><span class="svt">HISTORIAS</span><span class="svt">REBRANDING</span></div>
       </div>
+      <!-- 04 -->
       <div class="svi rv">
         <div class="svnum">04</div>
-        <div>
-          <div class="svn">Dirección Audiovisual</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Dirección Audiovisual</div>
+            <div class="svbdg">CONSULTORÍA</div>
+          </div>
           <div class="svd">Dirección y producción de video desde concepto hasta edición final. Rebranding, lanzamientos
             y semanas hype.</div>
         </div>
-        <div class="svtg"><span class="svt">Dirección</span><span class="svt">Producción</span><span
-            class="svt">Edición</span></div>
+        <div class="svtg"><span class="svt">CONCEPTO</span><span class="svt">ESTRATEGIA</span><span class="svt">CONTENIDO</span><span class="svt">STORYTELLING</span></div>
       </div>
+      <!-- 05 -->
       <div class="svi rv">
         <div class="svnum">05</div>
-        <div>
-          <div class="svn">Diseño de Indumentaria</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Diseño de Indumentaria</div>
+            <div class="svbdg">POR PRENDA</div>
+          </div>
           <div class="svd">Diseño de prendas deportivas y streetwear: concepto, estética, mockups y presentaciones para
             sponsors.</div>
         </div>
-        <div class="svtg"><span class="svt">Deportiva</span><span class="svt">Streetwear</span><span
-            class="svt">Mockups</span></div>
+        <div class="svtg"><span class="svt">CAMISETAS</span><span class="svt">BUZOS</span><span class="svt">DEPORTIVA</span><span class="svt">SPONSORS</span></div>
       </div>
     </div>
   </section>
@@ -2440,12 +2468,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.15);
       z-index: 0;
     }
     #contacto > * {
       position: relative;
       z-index: 1;
+    }
+    #contacto .cem, #contacto .cmi {
+      color: #ffffff !important;
+    }
+    #contacto .cmi strong {
+      color: #ffffff !important;
     }
   </style>
   <section id="contacto">
