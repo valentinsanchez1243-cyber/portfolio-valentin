@@ -3,59 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGENCY LUXURY - Valentín Sánchez</title>
+<title>Agency Luxury - Valentín Sánchez</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--r:#CC0000;--rb:#FF2222;--b:#080808;--b2:#0f0f0f;--w:#F0F0F0;--g:#777;}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--b);color:var(--w);font-family:'Barlow',sans-serif;overflow-x:hidden;cursor:none;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;}
+:root {
+  --r: #CC0000;
+  --rb: #e63946;
+  --b: #080808;
+  --b2: #0f0f0f;
+  --w: #F0F0F0;
+  --g: #777;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--b);
+  color: var(--w);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
 
 /* CURSOR */
 * { cursor: none !important; }
-#cursor { position: fixed; width: 12px; height: 12px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
-.trail { position: fixed; width: 6px; height: 6px; background: #e63946; border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); opacity: 0.5; }
+#cursor { position: fixed; width: 12px; height: 12px; background: var(--rb); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform .15s; }
+.trail { position: fixed; width: 6px; height: 6px; background: var(--rb); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); opacity: 0.5; }
 
 /* NOISE */
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:99990;opacity:.28;}
+body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 99990; opacity: .28; }
 
-/* SECTION BASE */
-section{padding:110px 64px;}
-.sl{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:6px;text-transform:uppercase;color:var(--r);display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.sl::before{content:'';width:22px;height:1px;background:var(--r);}
-.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6.5vw,90px);line-height:.93;margin-bottom:58px;}
-.st em{color:var(--r);font-style:normal;}
+/* NAV */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: var(--w);
+  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  z-index: 1000;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(8,8,8,.7);
+  backdrop-filter: blur(8px);
+  transition: border-color .3s, color .3s;
+}
+.back-btn:hover { border-color: var(--rb); color: var(--rb); }
+
+/* HERO BANNER */
+.hero-banner {
+  width: 100%;
+  height: 420px;
+  background-image: url('PORTADA PROYECTOS/PORTADA-AGENCIA.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 64px;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,.95) 0%, rgba(8,8,8,.4) 60%, rgba(8,8,8,.2) 100%);
+}
+.hero-banner-content { position: relative; z-index: 1; }
+.hero-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rb);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 9vw, 120px);
+  line-height: .9;
+  color: var(--w);
+}
+.hero-title span { color: var(--rb); }
+.hero-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(13px, 1.8vw, 18px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-top: 12px;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .7rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--rb);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: .95;
+  margin-bottom: 30px;
+}
+.section-title em { color: var(--rb); font-style: normal; }
+
+.section-desc {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(240,240,240,.75);
+  font-weight: 300;
+  max-width: 680px;
+  margin-bottom: 18px;
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,.06);
+}
+
+/* BUTTON */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 14px 32px;
+  background: var(--rb);
+  color: var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .82rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, transform .3s;
+}
+.btn-red::after { content: '→'; margin-left: 6px; }
+.btn-red:hover { background: #a00000; transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 13px 30px;
+  background: transparent;
+  color: var(--rb);
+  border: 1px solid var(--rb);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .82rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s;
+}
+.btn-outline::after { content: '→'; margin-left: 6px; }
+.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+
+/* INSTAGRAM SECTION */
+.ig-section {
+  background: linear-gradient(135deg, #0a0a0a, #111);
+  padding: 80px 64px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative;
+  overflow: hidden;
+}
+.ig-section::after {
+  content: '@';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(120px, 20vw, 260px);
+  color: rgba(255,255,255,.025);
+  pointer-events: none;
+  letter-spacing: -10px;
+}
+.ig-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* BACK SECTION */
+.back-section {
+  text-align: center;
+  padding: 80px 24px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* SCROLL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* STAT GRID */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 48px;
+}
+.stat-item {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 32px 24px;
+  text-align: center;
+  transition: background .3s, border-color .3s;
+}
+.stat-item:hover { background: rgba(204,0,0,.05); border-color: rgba(204,0,0,.25); }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 58px);
+  color: var(--rb);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-top: 6px;
+}
+
+@media(max-width:800px) {
+  section { padding: 72px 24px; }
+  .hero-banner { padding: 32px 24px; height: 320px; }
+  .ig-section { padding: 60px 24px; }
+  .stat-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 <div id="cursor"></div>
-<a href="index.html" style="position:fixed;top:20px;left:20px;color:var(--w);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;">← VOLVER</a>
-<div style="width:100%; height:350px; background-image: url('PORTADA PROYECTOS/PORTADA-AGENCIA.png'); background-size:cover; background-position:center; position:relative;"><div style="position:absolute; inset:0; background:rgba(0,0,0,0.4);"></div></div>
-<section id="project">
-  <div class="sl">Proyecto</div>
-  <h2 class="st">AGENCY LUXURY</h2>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;font-weight:700;">Editor de Video & Contenido Publicitario</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">Trabajé como editor de video para Agency Luxury, una agencia de marketing con base en Buenos Aires especializada en el nicho de cirujanos plásticos. Mi rol estuvo enfocado en la edición de contenido audiovisual orientado a conversión, abordando cada pieza desde lo visual y lo estratégico.</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:20px;">Realicé la edición de VSL (Video Sales Letters) y anuncios para Facebook Ads, optimizando ritmo, estructura, subtítulos y narrativa para mejorar la retención y el rendimiento de las campañas. Además, diseñé portadas (thumbnails y covers) para videos y anuncios, priorizando impacto visual, claridad del mensaje y coherencia con la identidad de cada marca o profesional.</p>
-  <p style="font-size:1.1rem;line-height:1.8;color:rgba(240,240,240,.8);margin-bottom:40px;">Trabajé en conjunto con el equipo de marketing, adaptando el contenido a objetivos comerciales concretos y manteniendo un estándar visual profesional alineado al posicionamiento premium del nicho médico.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
-    <img src="agency-1.jpg" alt="AGENCY LUXURY photo 1" style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-    <img src="agency-2.jpg" alt="AGENCY LUXURY photo 2" style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-    <video controls style="width:100%;height:auto;border:1px solid rgba(255,255,255,.1);">
-      <source src="agency.mp4" type="video/mp4">
-      Tu navegador no soporta el elemento video.
-    </video>
+<a href="index.html#proyectos" class="back-btn">← Volver</a>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <div class="hero-banner-content">
+    <div class="hero-tag">Trabajo Freelance · 2024</div>
+    <div class="hero-title">AGENCY <span>LUXURY</span></div>
+    <div class="hero-sub">Editor de Video &amp; Contenido Publicitario</div>
   </div>
-  <p style="margin-top:40px;"><a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" style="color:var(--r);text-decoration:underline;">Instagram @luxury.agency_llc</a></p>
+</div>
+
+<!-- OVERVIEW -->
+<section class="reveal">
+  <div class="section-tag">Overview</div>
+  <h1 class="section-title">AGENCY <em>LUXURY</em></h1>
+  <p style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(12px,1.6vw,15px);letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:36px;">Editor de Video &amp; Contenido Publicitario</p>
+  <p class="section-desc">
+    Agencia de marketing con base en Buenos Aires especializada en el nicho de cirujanos plásticos. Mi rol estuvo enfocado en la edición de contenido audiovisual orientado a conversión.
+  </p>
+  <div class="stat-grid reveal reveal-delay-1">
+    <div class="stat-item">
+      <div class="stat-num">VSL</div>
+      <div class="stat-label">Video Sales Letters</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">FB</div>
+      <div class="stat-label">Ads & Pauta</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">IG</div>
+      <div class="stat-label">Reels & Historias</div>
+    </div>
+  </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- VSL & VIDEOS DE PAUTA -->
+<section class="reveal">
+  <div class="section-tag">Producción Audiovisual</div>
+  <h2 class="section-title">VSL &amp; VIDEOS<br>DE <em>PAUTA</em></h2>
+  <p class="section-desc">Edición de Video Sales Letters y anuncios para Facebook Ads, optimizando ritmo, estructura, subtítulos y narrativa para mejorar retención y rendimiento.</p>
+  <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=sharing" target="_blank" class="btn-red">VER VIDEOS</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- PORTADAS & THUMBNAILS -->
+<section class="reveal">
+  <div class="section-tag">Diseño Gráfico</div>
+  <h2 class="section-title">PORTADAS &amp;<br><em>THUMBNAILS</em></h2>
+  <p class="section-desc">Diseño de portadas y thumbnails para videos y anuncios, priorizando impacto visual y coherencia con la identidad de cada marca.</p>
+  <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=sharing" target="_blank" class="btn-red">VER PORTADAS</a>
+</section>
+
+<div class="divider"></div>
+
+<!-- HISTORIAS & REELS -->
+<section class="reveal">
+  <div class="section-tag">Redes Sociales</div>
+  <h2 class="section-title">HISTORIAS &amp;<br><em>REELS</em></h2>
+  <p class="section-desc">Contenido optimizado para Instagram Stories y Reels, adaptado al posicionamiento premium del nicho médico.</p>
+  <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO</a>
+</section>
+
+<!-- INSTAGRAM -->
+<div class="ig-section reveal">
+  <div class="ig-inner">
+    <div class="section-tag" style="color:var(--rb);">Seguí el proyecto</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,90px);line-height:.93;color:var(--w);margin-bottom:16px;">@LUXURY<em style="color:var(--rb);font-style:normal;">.AGENCY_LLC</em></h2>
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:0;">Instagram oficial de la agencia</p>
+    <a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="btn-red" style="margin-top:36px;">VER INSTAGRAM</a>
+  </div>
+</div>
+
+<!-- BOTÓN VOLVER -->
+<div class="back-section reveal">
+  <a href="index.html#proyectos" class="btn-outline" style="margin-top:0;">← VOLVER A PROYECTOS</a>
+</div>
+
 <script>
+// CURSOR
 const cursor = document.getElementById('cursor');
 const trails = [];
-for(let i = 0; i < 7; i++){ const t = document.createElement('div'); t.classList.add('trail'); document.body.appendChild(t); trails.push({el:t, x:0, y:0}); }
+for(let i = 0; i < 7; i++){
+  const t = document.createElement('div');
+  t.classList.add('trail');
+  document.body.appendChild(t);
+  trails.push({el:t, x:0, y:0});
+}
 let mx=0, my=0;
 document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
-function animateTrail(){ let px=mx,py=my; trails.forEach(t=>{ t.x+=(px-t.x)*0.3; t.y+=(py-t.y)*0.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; }); requestAnimationFrame(animateTrail); }
+function animateTrail(){
+  let px=mx,py=my;
+  trails.forEach(t=>{ t.x+=(px-t.x)*0.3; t.y+=(py-t.y)*0.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; });
+  requestAnimationFrame(animateTrail);
+}
 animateTrail();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
