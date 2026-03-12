@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KORD3 - Valentín Sánchez</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --r: #CC0000;
   --rb: #e63946;
-  --b: #080808;
-  --b2: #0f0f0f;
-  --w: #F0F0F0;
-  --g: #777;
+  --b: #0a0a0a;
+  --w: #ffffff;
+  --g: #aaaaaa;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +49,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   z-index: 1000;
   padding: 8px 14px;
   border: 1px solid rgba(255,255,255,.15);
-  background: rgba(8,8,8,.7);
+  background: rgba(10,10,10,.7);
   backdrop-filter: blur(8px);
   transition: border-color .3s, color .3s;
 }
@@ -73,7 +71,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(8,8,8,.95) 0%, rgba(8,8,8,.4) 60%, rgba(8,8,8,.2) 100%);
+  background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, rgba(10,10,10,.2) 100%);
 }
 .hero-banner-content { position: relative; z-index: 1; }
 .hero-tag {
@@ -94,7 +92,6 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   line-height: .9;
   color: var(--w);
 }
-.hero-title span { color: var(--w); }
 .hero-sub {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(13px, 1.8vw, 18px);
@@ -106,178 +103,42 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 40px 64px;
+  padding: 60px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.section-tag {
+.section-subtitle {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .7rem;
-  letter-spacing: 6px;
+  font-size: 11px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--rb);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 12px;
 }
-.section-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
 
 .section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: .95;
-  margin-bottom: 20px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
   color: var(--w);
+  text-transform: uppercase;
 }
-.section-title em { color: var(--rb); font-style: normal; }
 
 .section-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(240,240,240,.75);
-  font-weight: 300;
-  max-width: 680px;
-  margin-bottom: 0px;
-}
-
-/* DIVIDER */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,.06);
-}
-
-/* BUTTON */
-.btn-red {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 12px 28px;
-  background: var(--rb);
-  color: var(--w);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .8rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .3s, transform .3s;
-  position: relative;
-  overflow: hidden;
-}
-.btn-red::after { content: '→'; margin-left: 6px; }
-.btn-red:hover { background: #a00000; transform: translateY(-2px); }
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 12px 28px;
-  background: transparent;
-  color: var(--w);
-  border: 1px solid var(--w);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .8rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .3s, color .3s, transform .3s, border-color .3s;
-}
-.btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
-
-/* SEMANA HYPE SECTION */
-.hype-section {
-  background: linear-gradient(135deg, #1a0000, #2c0000);
-  padding: 100px 64px;
-  position: relative;
-  overflow: hidden;
-}
-.hype-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.hype-section::after {
-  content: 'HYPE';
-  position: absolute;
-  right: -60px;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(100px, 14vw, 200px);
-  color: rgba(204,0,0,.08);
-  letter-spacing: 20px;
-  pointer-events: none;
-}
-.hype-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.hype-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(80px, 14vw, 180px);
-  line-height: .85;
-  color: rgba(255,255,255,.06);
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/* GRID LAYOUT */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-@media(max-width:800px) {
-  .two-col { grid-template-columns: 1fr; }
-  section { padding: 32px 24px; }
-  .hero-banner { padding: 32px 24px; height: 320px; }
-  .hype-section { padding: 40px 24px; }
-}
-
-/* STAT GRID */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 48px;
-}
-.stat-item {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.06);
-  padding: 32px 24px;
-  text-align: center;
-  transition: background .3s, border-color .3s;
-}
-.stat-item:hover { background: rgba(204,0,0,.05); border-color: rgba(204,0,0,.25); }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 58px);
-  color: var(--rb);
-  line-height: 1;
-}
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .72rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
   color: var(--g);
-  margin-top: 6px;
+  font-weight: 400;
+  max-width: 680px;
+  margin-bottom: 24px;
 }
+
+/* LISTA DE TRABAJOS (COMPACT) */
+.work-list { display: flex; flex-direction: column; gap: 32px; }
+.work-item { display: flex; flex-direction: column; align-items: flex-start; }
 
 /* TAGS */
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -292,6 +153,105 @@ section {
   background: transparent;
 }
 
+/* BUTTONS */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: var(--rb);
+  color: var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, transform .3s;
+}
+.btn-red:hover { background: #b32a35; transform: translateY(-2px); }
+
+.btn-outline-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--rb);
+  border: 1px solid var(--rb);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s;
+}
+.btn-outline-red:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--w);
+  border: 1px solid var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
+}
+.btn-outline-white:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
+
+/* SEMANA HYPE SECTION */
+.hype-wrapper {
+  background: #1a0000;
+  width: 100%;
+  position: relative;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+.hype-inner {
+  padding: 60px 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hype-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--rb);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* INSTAGRAM SECTION */
+.instagram-section {
+  text-align: center;
+  padding: 60px 64px;
+}
+.instagram-handle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--w);
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+/* BACK SECTION */
+.back-section {
+  text-align: center;
+  padding: 0 24px 80px 24px;
+}
+
 /* SCROLL ANIMATIONS */
 .reveal {
   opacity: 0;
@@ -304,21 +264,18 @@ section {
 }
 .reveal-delay-1 { transition-delay: .1s; }
 .reveal-delay-2 { transition-delay: .2s; }
-.reveal-delay-3 { transition-delay: .3s; }
 
-/* BACK SECTION */
-.back-section {
-  text-align: center;
-  padding: 80px 24px;
-  border-top: 1px solid rgba(255,255,255,.06);
+@media(max-width:800px) {
+  section, .hype-inner, .instagram-section { padding: 40px 24px; }
+  .hero-banner { padding: 32px 24px; height: 320px; }
 }
 </style>
 </head>
 <body>
 <div id="cursor"></div>
-<a href="index.html#proyectos" class="back-btn">← Volver</a>
+<a href="index.html#proyectos" class="back-btn">← VOLVER A PROYECTOS</a>
 
-<!-- HERO BANNER -->
+<!-- SECCIÓN 1: HERO BANNER -->
 <div class="hero-banner">
   <div class="hero-banner-content">
     <div class="hero-tag">Proyecto Personal · 2024–2025</div>
@@ -327,74 +284,66 @@ section {
   </div>
 </div>
 
-<!-- OVERVIEW -->
+<!-- SECCIÓN 2: DESCRIPCIÓN -->
 <section class="reveal">
-  <div class="section-tag">Overview</div>
-  <div>
-    <p class="section-desc">
-      Soy fundador y director creativo de KORD3, una marca de ropa que desarrollo de manera integral, uniendo identidad de marca, diseño de producto, producción audiovisual y marketing digital.
-    </p>
-    <p class="section-desc">
-      Mi rol abarca todo el proceso creativo y estratégico, desde el concepto inicial hasta la ejecución final: branding, diseño de indumentaria, producción audiovisual y estrategia digital.
-    </p>
-    <div class="tag-list">
-      <span class="tag">Branding</span>
-      <span class="tag">Indumentaria</span>
-      <span class="tag">Audiovisual</span>
-      <span class="tag">Web</span>
-      <span class="tag">Marketing</span>
-      <span class="tag">Dirección Creativa</span>
+  <div class="section-subtitle">— OVERVIEW</div>
+  <p class="section-desc" style="margin-bottom:0;">
+    Soy fundador y director creativo de KORD3, una marca de ropa que desarrollo de manera integral, uniendo identidad de marca, diseño de producto, producción audiovisual y marketing digital.
+  </p>
+  <div class="tag-list">
+    <span class="tag">BRANDING</span>
+    <span class="tag">INDUMENTARIA</span>
+    <span class="tag">AUDIOVISUAL</span>
+    <span class="tag">DIRECCIÓN CREATIVA</span>
+    <span class="tag">WEB</span>
+    <span class="tag">MARKETING</span>
+  </div>
+</section>
+
+<!-- SECCIÓN 3: LISTA DE TRABAJOS -->
+<section class="reveal">
+  <div class="work-list">
+    <div class="work-item">
+      <h2 class="section-title">MANUAL DE MARCA</h2>
+      <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">REMERAS & INDUMENTARIA</h2>
+      <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">PRODUCCIÓN AUDIOVISUAL</h2>
+      <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">PÁGINA WEB</h2>
+      <a href="https://kord3.com" target="_blank" class="btn-red">VER →</a>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- MANUAL DE MARCA -->
-<section class="reveal">
-  <div class="section-tag">Identidad Visual</div>
-  <h2 class="section-title">MANUAL<br>DE <em>MARCA</em></h2>
-  <p class="section-desc">Desarrollé el branding completo: identidad visual, universo estético, tono de comunicación y lineamientos gráficos.</p>
-  <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER MANUAL DE MARCA</a>
-</section>
-
-<div class="divider"></div>
-
-<!-- REMERAS & INDUMENTARIA -->
-<section class="reveal">
-  <div class="section-tag">Diseño de Producto</div>
-  <h2 class="section-title">REMERAS &amp;<br><em>INDUMENTARIA</em></h2>
-  <p class="section-desc">
-    Diseñé remeras y propuestas de indumentaria para KORD3, definiendo conceptos, estilos y criterios visuales para cada drop. Cada pieza es una extensión de la identidad de la marca: coherencia estética, impacto visual y posicionamiento claro en el mercado de streetwear argentino.
-  </p>
-  <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER DISEÑOS</a>
-</section>
-
-<div class="divider"></div>
-
-<!-- ELEMENTOS GRÁFICOS -->
-<section class="reveal">
-  <div class="section-tag">Sistema Visual</div>
-  <h2 class="section-title">ELEMENTOS<br><em>GRÁFICOS</em></h2>
-  <p class="section-desc">Identidad visual, universo estético y lineamientos gráficos de la marca.</p>
-  <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER ELEMENTOS</a>
-</section>
-
-<!-- SEMANA HYPE -->
-<div class="hype-section reveal">
+<!-- SECCIÓN 4: SEMANA HYPE -->
+<div class="hype-wrapper reveal">
   <div class="hype-inner">
-    <div class="section-tag">Estrategia de Lanzamiento</div>
-    <h2 class="section-title" style="font-size:clamp(32px,6vw,80px);">SEMANA<br><em>HYPE 4</em></h2>
-    <p class="section-desc" style="max-width:640px;color:rgba(255,255,255,.85);">
-      Estrategia de expectativa previa al drop: producción y publicación planificada de videos, posts e historias durante varios días para generar misterio, conversación y anticipación antes del lanzamiento oficial.
+    <div class="section-subtitle">— ESTRATEGIA DE LANZAMIENTO</div>
+    <h2 class="hype-title">SEMANA HYPE 4</h2>
+    <p class="section-desc">
+      Estrategia de expectativa previa al drop: producción y publicación planificada de videos, posts e historias para generar misterio, conversación y anticipación antes del lanzamiento oficial.
     </p>
-    <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red" style="margin-top:36px;">VER CONTENIDO</a>
+    <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO →</a>
   </div>
 </div>
 
-<!-- BOTÓN VOLVER -->
+<!-- SECCIÓN 5: INSTAGRAM -->
+<section class="instagram-section reveal">
+  <div class="section-subtitle" style="justify-content: center; display: flex;">— INSTAGRAM</div>
+  <div class="instagram-handle">@KORD3.AR</div>
+  <a href="https://www.instagram.com/kord3.ar/" target="_blank" class="btn-outline-red">VER INSTAGRAM →</a>
+</section>
+
+<!-- SECCIÓN 6: VOLVER -->
 <div class="back-section reveal">
-  <a href="index.html#proyectos" class="btn-outline" style="margin-top:0;">← VOLVER A PROYECTOS</a>
+  <a href="index.html#proyectos" class="btn-outline-white">← VOLVER A PROYECTOS</a>
 </div>
 
 <script>
