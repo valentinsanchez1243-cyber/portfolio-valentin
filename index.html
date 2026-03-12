@@ -1157,7 +1157,7 @@
 
     /* SERVICIOS */
     #servicios {
-      background: var(--b2);
+      background: var(--r);
       position: relative;
     }
 
@@ -1165,7 +1165,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(0, 0, 0, .15) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, .15) 1px, transparent 1px);
       background-size: 52px 52px;
       pointer-events: none;
       z-index: 0;
@@ -1177,7 +1177,7 @@
     }
 
     .svl {
-      border-top: 1px solid rgba(255, 255, 255, .07);
+      border-top: 1px solid rgba(0, 0, 0, .2);
     }
 
     .svi {
@@ -1186,7 +1186,7 @@
       align-items: center;
       gap: 32px;
       padding: 28px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      border-bottom: 1px solid rgba(0, 0, 0, .2);
       position: relative;
       overflow: hidden;
       transition: padding-left .3s;
@@ -1214,7 +1214,7 @@
     .svnum {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2.7rem;
-      color: rgba(204, 0, 0, .27);
+      color: #0a0a0a;
       line-height: 1;
     }
 
@@ -1224,16 +1224,17 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      color: #0a0a0a;
       transition: color .2s;
     }
 
     .svi:hover .svn {
-      color: var(--r);
+      color: rgba(0, 0, 0, .7);
     }
 
     .svd {
       font-size: .82rem;
-      color: var(--g);
+      color: rgba(0, 0, 0, .75);
       font-weight: 300;
       margin-top: 4px;
       max-width: 500px;
@@ -2320,8 +2321,8 @@
 
   <!-- SERVICIOS -->
   <section id="servicios">
-    <div class="sl rv">Lo que ofrezco</div>
-    <h2 class="st rv">SERVICIOS</h2>
+    <div class="sl rv" style="color: #0a0a0a;">Lo que ofrezco</div>
+    <h2 class="st rv" style="color: #0a0a0a;">SERVICIOS</h2>
     <div class="svl">
       <div class="svi rv">
         <div class="svnum">01</div>
@@ -2422,27 +2423,7 @@
     </div>
   </div>
 
-  <!-- BANNER HORIZONTAL (DISPONIBLE PARA TRABAJAR) -->
-  <section id="banner-disponible" style="background-color: #0a0a0a; background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px); background-size: 52px 52px; padding: 80px 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative;">
-    <div class="rv" style="position: relative; z-index: 1;">
-      <div style="color: #e63946; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 3px; margin-bottom: 20px;">— DISPONIBLE PARA TRABAJAR</div>
-      
-      <div style="margin-bottom: 25px;">
-        <h2 class="st rv" style="font-size: clamp(32px, 6vw, 4rem); font-weight: bold; line-height: 1; margin: 0;">
-          CONVERTIMOS IDEAS<br>
-          <span style="color: #e63946;">EN RESULTADOS.</span>
-        </h2>
-      </div>
 
-      <div style="width: 60px; height: 2px; background-color: #e63946; margin: 0 auto 30px;"></div>
-      
-      <div style="color: #888; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px;">
-        Branding · Edición de Video · Dirección Creativa · Indumentaria · Contenido Digital
-      </div>
-      
-      <a href="#contacto" class="bo" style="background-color: #e63946; color: white; border: none; font-size: 1rem; padding: 16px 40px;">HABLEMOS →</a>
-    </div>
-  </section>
 
   <!-- CONTACTO -->
   <style>
