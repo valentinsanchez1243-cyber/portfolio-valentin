@@ -106,7 +106,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 60px 64px;
+  padding: 40px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -126,20 +126,20 @@ section {
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: clamp(32px, 4vw, 56px);
   line-height: .95;
-  margin-bottom: 30px;
-  color: var(--rb);
+  margin-bottom: 20px;
+  color: var(--w);
 }
 .section-title em { color: var(--rb); font-style: normal; }
 
 .section-desc {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(240,240,240,.75);
   font-weight: 300;
   max-width: 680px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
 /* DIVIDER */
@@ -154,12 +154,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 14px 32px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: var(--rb);
   color: var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
@@ -172,47 +172,32 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 13px 30px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: transparent;
-  color: var(--rb);
-  border: 1px solid var(--rb);
+  color: var(--w);
+  border: 1px solid var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background .3s, color .3s, transform .3s;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
 }
 .btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
 
-/* INSTAGRAM SECTION */
-.ig-section {
-  background: linear-gradient(135deg, #0a0a0a, #111);
-  padding: 80px 64px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  position: relative;
-  overflow: hidden;
-}
-.ig-section::after {
-  content: '@';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(120px, 20vw, 260px);
-  color: rgba(255,255,255,.025);
-  pointer-events: none;
-  letter-spacing: -10px;
-}
-.ig-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+/* TAGS */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--rb);
+  color: var(--rb);
+  background: transparent;
 }
 
 /* BACK SECTION */
@@ -236,41 +221,11 @@ section {
 .reveal-delay-2 { transition-delay: .2s; }
 .reveal-delay-3 { transition-delay: .3s; }
 
-/* STAT GRID */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 48px;
-}
-.stat-item {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.06);
-  padding: 32px 24px;
-  text-align: center;
-  transition: background .3s, border-color .3s;
-}
-.stat-item:hover { background: rgba(204,0,0,.05); border-color: rgba(204,0,0,.25); }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 58px);
-  color: var(--rb);
-  line-height: 1;
-}
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .72rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--g);
-  margin-top: 6px;
-}
+
 
 @media(max-width:800px) {
-  section { padding: 40px 24px; }
+  section { padding: 32px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
-  .ig-section { padding: 60px 24px; }
-  .stat-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -312,6 +267,11 @@ section {
   <div class="section-tag">Diseño Gráfico</div>
   <h2 class="section-title">PORTADAS &amp;<br><em>THUMBNAILS</em></h2>
   <p class="section-desc">Diseño de portadas y thumbnails para videos y anuncios, priorizando impacto visual y coherencia con la identidad de cada marca.</p>
+  <div class="tag-list">
+    <span class="tag">Portadas</span>
+    <span class="tag">Thumbnails</span>
+    <span class="tag">Diseño</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=sharing" target="_blank" class="btn-red">VER PORTADAS</a>
 </section>
 
@@ -322,18 +282,21 @@ section {
   <div class="section-tag">Redes Sociales</div>
   <h2 class="section-title">HISTORIAS &amp;<br><em>REELS</em></h2>
   <p class="section-desc">Contenido optimizado para Instagram Stories y Reels, adaptado al posicionamiento premium del nicho médico.</p>
+  <div class="tag-list">
+    <span class="tag">Instagram</span>
+    <span class="tag">Stories</span>
+    <span class="tag">Reels</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO</a>
 </section>
 
-<!-- INSTAGRAM -->
-<div class="ig-section reveal">
-  <div class="ig-inner">
-    <div class="section-tag" style="color:var(--rb);">Seguí el proyecto</div>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,90px);line-height:.93;color:var(--w);margin-bottom:16px;">@LUXURY<em style="color:var(--rb);font-style:normal;">.AGENCY_LLC</em></h2>
-    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--g);margin-bottom:0;">Instagram oficial de la agencia</p>
-    <a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="btn-red" style="margin-top:36px;">VER INSTAGRAM</a>
-  </div>
-</div>
+<div class="divider"></div>
+
+<section class="reveal">
+  <div class="section-tag" style="justify-content:flex-start;">Instagram</div>
+  <h2 class="section-title">AGENCY <em>LUXURY</em></h2>
+  <a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="btn-red">VER INSTAGRAM</a>
+</section>
 
 <!-- BOTÓN VOLVER -->
 <div class="back-section reveal">

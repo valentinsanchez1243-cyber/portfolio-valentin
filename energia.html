@@ -106,7 +106,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 60px 64px;
+  padding: 40px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -126,20 +126,20 @@ section {
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: clamp(32px, 4vw, 56px);
   line-height: .95;
-  margin-bottom: 30px;
-  color: var(--rb);
+  margin-bottom: 20px;
+  color: var(--w);
 }
 .section-title em { color: var(--rb); font-style: normal; }
 
 .section-desc {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(240,240,240,.75);
   font-weight: 300;
   max-width: 680px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
 /* DIVIDER */
@@ -154,12 +154,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 14px 32px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: var(--rb);
   color: var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
@@ -174,20 +174,33 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 13px 30px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: transparent;
-  color: var(--rb);
-  border: 1px solid var(--rb);
+  color: var(--w);
+  border: 1px solid var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background .3s, color .3s, transform .3s;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
 }
 .btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
+
+/* TAGS */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--rb);
+  color: var(--rb);
+  background: transparent;
+}
 
 /* SEMANA HYPE SECTION */
 .hype-section {
@@ -224,13 +237,7 @@ section {
   z-index: 1;
 }
 
-/* INSTAGRAM SECTION */
-.instagram-section {
-  text-align: center;
-  padding: 80px 64px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
+
 
 /* BACK SECTION */
 .back-section {
@@ -254,10 +261,9 @@ section {
 .reveal-delay-3 { transition-delay: .3s; }
 
 @media(max-width:800px) {
-  section { padding: 40px 24px; }
+  section { padding: 32px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
-  .hype-section { padding: 72px 24px; }
-  .instagram-section { padding: 60px 24px; }
+  .hype-section { padding: 40px 24px; }
 }
 </style>
 </head>
@@ -291,6 +297,11 @@ section {
   <p class="section-desc">
     Reconstrucción total de la cuenta, reorganizando la presentación, el feed y el tono visual para darle una imagen clara, profesional y coherente.
   </p>
+  <div class="tag-list">
+    <span class="tag">Feed</span>
+    <span class="tag">Grillas</span>
+    <span class="tag">Estilo</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO</a>
 </section>
 
@@ -303,6 +314,11 @@ section {
   <p class="section-desc">
     Producción audiovisual completa desde cero: concepto, planificación, grabación, dirección y edición final como pieza principal del relanzamiento.
   </p>
+  <div class="tag-list">
+    <span class="tag">Video Hero</span>
+    <span class="tag">Filmación</span>
+    <span class="tag">Edición</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER VIDEO</a>
 </section>
 
@@ -310,7 +326,7 @@ section {
 <div class="hype-section reveal">
   <div class="hype-inner">
     <div class="section-tag">Estrategia de Lanzamiento</div>
-    <h2 class="section-title" style="font-size:clamp(50px,8vw,110px);">SEMANA <em>HYPE</em></h2>
+    <h2 class="section-title" style="font-size:clamp(32px,6vw,80px);">SEMANA <em>HYPE</em></h2>
     <p class="section-desc" style="max-width:640px;color:rgba(255,255,255,.85);">
       Estrategia de contenido previa para generar expectativa antes del lanzamiento oficial. Videos, posts e historias diseñados para despertar curiosidad y construir anticipación de forma progresiva.
     </p>
@@ -327,6 +343,10 @@ section {
   <p class="section-desc">
     Posts, historias, carruseles y plantillas de historias destacadas. Antes y después de la cuenta.
   </p>
+  <div class="tag-list">
+    <span class="tag">Posts</span>
+    <span class="tag">Carruseles</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER INSTAGRAM CONTENT</a>
 </section>
 
@@ -339,15 +359,18 @@ section {
   <p class="section-desc">
     Rediseño completo de historias destacadas como parte de la nueva identidad visual.
   </p>
+  <div class="tag-list">
+    <span class="tag">Plantillas</span>
+    <span class="tag">Highlights</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER PLANTILLAS</a>
 </section>
 
-<!-- INSTAGRAM -->
-<div class="instagram-section reveal">
-  <div class="section-tag" style="justify-content:center;">Instagram</div>
-  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);margin-bottom:24px;">@ENERGIAFITNESS.CBA</h2>
-  <a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="btn-outline" style="margin-top:0;">VER INSTAGRAM</a>
-</div>
+<section class="reveal">
+  <div class="section-tag" style="justify-content:flex-start;">Instagram</div>
+  <h2 class="section-title">ENERGÍA <em>FITNESS</em></h2>
+  <a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="btn-red">VER INSTAGRAM</a>
+</section>
 
 <!-- BOTÓN VOLVER -->
 <div class="back-section reveal">

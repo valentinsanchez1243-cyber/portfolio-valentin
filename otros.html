@@ -106,7 +106,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 60px 64px;
+  padding: 40px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -126,10 +126,10 @@ section {
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: clamp(32px, 4vw, 56px);
   line-height: .95;
-  margin-bottom: 10px;
-  color: var(--rb);
+  margin-bottom: 20px;
+  color: var(--w);
 }
 .section-title em { color: var(--rb); font-style: normal; }
 
@@ -143,12 +143,12 @@ section {
 }
 
 .section-desc {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(240,240,240,.75);
   font-weight: 300;
   max-width: 680px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
 /* DIVIDER */
@@ -163,12 +163,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 14px 32px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: var(--rb);
   color: var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
@@ -189,20 +189,33 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 13px 30px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: transparent;
-  color: var(--rb);
-  border: 1px solid var(--rb);
+  color: var(--w);
+  border: 1px solid var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background .3s, color .3s, transform .3s;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
 }
 .btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
+
+/* TAGS */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--rb);
+  color: var(--rb);
+  background: transparent;
+}
 
 /* DRIVE SECTION */
 .drive-section {
@@ -233,7 +246,7 @@ section {
 .reveal-delay-3 { transition-delay: .3s; }
 
 @media(max-width:800px) {
-  section, .drive-section { padding: 40px 24px; }
+  section, .drive-section { padding: 32px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
 }
 </style>
@@ -269,6 +282,10 @@ section {
   <p class="section-desc">
     Edición de contenido audiovisual enfocado en mostrar servicios, confianza y profesionalismo, con piezas claras y directas para comunicación digital.
   </p>
+  <div class="tag-list">
+    <span class="tag">Cámaras</span>
+    <span class="tag">Confianza</span>
+  </div>
   <a href="https://www.instagram.com/zettasecurity.ht/" target="_blank" class="btn-red">VER INSTAGRAM</a>
 </section>
 
@@ -282,7 +299,11 @@ section {
   <p class="section-desc">
     Edición de videos orientados a comunicación comercial y promocional, cuidando claridad del mensaje, ritmo y estética accesible para redes sociales.
   </p>
-  <a href="https://www.instagram.com/farmaciapavan/" target="_blank" class="btn-outline">VER INSTAGRAM</a>
+  <div class="tag-list">
+    <span class="tag">Comercial</span>
+    <span class="tag">Accesible</span>
+  </div>
+  <a href="https://www.instagram.com/farmaciapavan/" target="_blank" class="btn-red">VER INSTAGRAM</a>
 </section>
 
 <div class="divider"></div>
@@ -295,13 +316,17 @@ section {
   <p class="section-desc">
     Edición de videos orientados a comunicación profesional y captación de clientes, manteniendo un tono serio, ordenado y alineado al rubro legal.
   </p>
-  <a href="https://www.instagram.com/legal.leadsmkt/" target="_blank" class="btn-outline">VER INSTAGRAM</a>
+  <div class="tag-list">
+    <span class="tag">Serio</span>
+    <span class="tag">Profesional</span>
+  </div>
+  <a href="https://www.instagram.com/legal.leadsmkt/" target="_blank" class="btn-red">VER INSTAGRAM</a>
 </section>
 
 <!-- DRIVE LINK (TODOS LOS VIDEOS) -->
 <div class="drive-section reveal">
-  <div class="section-tag" style="justify-content:center;margin-bottom:24px;">Portfolio Completo</div>
-  <h2 class="section-title" style="margin-bottom:40px;">EXPLORAR TODO EL<br><em>CONTENIDO AUDIOVISUAL</em></h2>
+  <div class="section-tag" style="justify-content:flex-start;margin-bottom:24px;">Portfolio Completo</div>
+  <h2 class="section-title" style="margin-bottom:20px;">EXPLORAR TODO EL<br><em>CONTENIDO AUDIOVISUAL</em></h2>
   <a href="https://drive.google.com/drive/folders/1pS9hHRjSssUQIilfyibPq_kYH52Ov9ru?usp=sharing" target="_blank" class="btn-red btn-large">VER TODOS LOS TRABAJOS</a>
 </div>
 

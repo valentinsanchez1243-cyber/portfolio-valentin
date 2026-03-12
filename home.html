@@ -106,7 +106,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 60px 64px;
+  padding: 40px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -126,20 +126,20 @@ section {
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: clamp(32px, 4vw, 56px);
   line-height: .95;
-  margin-bottom: 30px;
-  color: var(--rb);
+  margin-bottom: 20px;
+  color: var(--w);
 }
 .section-title em { color: var(--rb); font-style: normal; }
 
 .section-desc {
-  font-size: 1.05rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(240,240,240,.75);
   font-weight: 300;
   max-width: 680px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 
 /* DIVIDER */
@@ -154,12 +154,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 14px 32px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: var(--rb);
   color: var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
@@ -174,28 +174,35 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 32px;
-  padding: 13px 30px;
+  margin-top: 16px;
+  padding: 12px 28px;
   background: transparent;
-  color: var(--rb);
-  border: 1px solid var(--rb);
+  color: var(--w);
+  border: 1px solid var(--w);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .82rem;
+  font-size: .8rem;
   letter-spacing: 4px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background .3s, color .3s, transform .3s;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
 }
 .btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
 
-/* INSTAGRAM SECTION */
-.instagram-section {
-  text-align: center;
-  padding: 80px 64px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+/* TAGS */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--rb);
+  color: var(--rb);
+  background: transparent;
 }
+
+
 
 /* BACK SECTION */
 .back-section {
@@ -219,9 +226,8 @@ section {
 .reveal-delay-3 { transition-delay: .3s; }
 
 @media(max-width:800px) {
-  section { padding: 40px 24px; }
+  section { padding: 32px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
-  .instagram-section { padding: 60px 24px; }
 }
 </style>
 </head>
@@ -255,6 +261,11 @@ section {
   <p class="section-desc">
     Edición de videos cortos para Ads en Facebook e Instagram con enfoque estilo UGC/influencer. Ganchos fuertes en los primeros segundos, subtítulos claros y llamados a la acción orientados a conversión.
   </p>
+  <div class="tag-list">
+    <span class="tag">UGC</span>
+    <span class="tag">Facebook Ads</span>
+    <span class="tag">Conversión</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/193iJy2NcTXkWi0dD5RpDsDyWeLwX5fFV?usp=sharing" target="_blank" class="btn-red">VER VIDEOS</a>
 </section>
 
@@ -267,6 +278,10 @@ section {
   <p class="section-desc">
     Videos apoyados por IA: voz en off con inteligencia artificial, generación de recursos audiovisuales y adaptaciones creativas para escalar volumen de contenido sin perder efectividad publicitaria.
   </p>
+  <div class="tag-list">
+    <span class="tag">Inteligencia Artificial</span>
+    <span class="tag">Escalabilidad</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/193iJy2NcTXkWi0dD5RpDsDyWeLwX5fFV?usp=sharing" target="_blank" class="btn-red">VER VIDEOS IA</a>
 </section>
 
@@ -279,15 +294,18 @@ section {
   <p class="section-desc">
     Desarrollo de flyers y creativos estáticos para campañas publicitarias, asegurando coherencia visual entre distintos formatos. Variaciones de creativos para testing continuo.
   </p>
+  <div class="tag-list">
+    <span class="tag">Diseño</span>
+    <span class="tag">Testing</span>
+  </div>
   <a href="https://drive.google.com/drive/folders/193iJy2NcTXkWi0dD5RpDsDyWeLwX5fFV?usp=sharing" target="_blank" class="btn-red">VER CREATIVOS</a>
 </section>
 
-<!-- INSTAGRAM -->
-<div class="instagram-section reveal">
-  <div class="section-tag" style="justify-content:center;">Instagram</div>
-  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);margin-bottom:24px;">@HOMEIMPROVEMENTPOWER</h2>
-  <a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="btn-outline" style="margin-top:0;">VER INSTAGRAM</a>
-</div>
+<section class="reveal">
+  <div class="section-tag" style="justify-content:flex-start;">Instagram</div>
+  <h2 class="section-title">HOME IMPROVEMENT <em>POWER</em></h2>
+  <a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="btn-red">VER INSTAGRAM</a>
+</section>
 
 <!-- BOTÓN VOLVER -->
 <div class="back-section reveal">
