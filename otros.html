@@ -94,7 +94,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   line-height: .9;
   color: var(--w);
 }
-.hero-title span { color: var(--rb); }
+.hero-title span { color: var(--w); }
 .hero-sub {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(13px, 1.8vw, 18px);
@@ -106,7 +106,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 100px 64px;
+  padding: 60px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -129,6 +129,7 @@ section {
   font-size: clamp(38px, 5.5vw, 72px);
   line-height: .95;
   margin-bottom: 10px;
+  color: var(--rb);
 }
 .section-title em { color: var(--rb); font-style: normal; }
 
@@ -137,7 +138,7 @@ section {
   font-size: clamp(14px, 2vw, 18px);
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--g);
+  color: var(--rb);
   margin-bottom: 30px;
 }
 
@@ -232,7 +233,7 @@ section {
 .reveal-delay-3 { transition-delay: .3s; }
 
 @media(max-width:800px) {
-  section, .drive-section { padding: 72px 24px; }
+  section, .drive-section { padding: 40px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
 }
 </style>
@@ -253,8 +254,6 @@ section {
 <!-- OVERVIEW -->
 <section class="reveal">
   <div class="section-tag">Overview</div>
-  <h1 class="section-title">OTROS <em>PROYECTOS</em></h1>
-  <div class="section-subtitle">Zetta · Pavan · Legal Leads</div>
   <p class="section-desc">
     Edición de contenido audiovisual para distintas marcas y empresas, adaptando cada pieza a su rubro, público y objetivo comunicacional.
   </p>
