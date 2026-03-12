@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENERGÍA FITNESS - Valentín Sánchez</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Energía Fitness - Valentín Sánchez</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --r: #CC0000;
   --rb: #e63946;
-  --b: #080808;
-  --b2: #0f0f0f;
-  --w: #F0F0F0;
-  --g: #777;
+  --b: #0a0a0a;
+  --w: #ffffff;
+  --g: #aaaaaa;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +49,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   z-index: 1000;
   padding: 8px 14px;
   border: 1px solid rgba(255,255,255,.15);
-  background: rgba(8,8,8,.7);
+  background: rgba(10,10,10,.7);
   backdrop-filter: blur(8px);
   transition: border-color .3s, color .3s;
 }
@@ -61,7 +59,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 .hero-banner {
   width: 100%;
   height: 420px;
-  background-image: url('PORTADA PROYECTOS/PORTADA-ENERGIA.jpg');
+  background-image: url('PORTADA PROYECTOS/PORTADA-KORD3.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -73,7 +71,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(8,8,8,.95) 0%, rgba(8,8,8,.4) 60%, rgba(8,8,8,.2) 100%);
+  background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, rgba(10,10,10,.2) 100%);
 }
 .hero-banner-content { position: relative; z-index: 1; }
 .hero-tag {
@@ -94,7 +92,6 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   line-height: .9;
   color: var(--w);
 }
-.hero-title span { color: var(--w); }
 .hero-sub {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(13px, 1.8vw, 18px);
@@ -106,88 +103,42 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
 
 /* SECTIONS */
 section {
-  padding: 40px 64px;
+  padding: 60px 64px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.section-tag {
+.section-subtitle {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .7rem;
-  letter-spacing: 6px;
+  font-size: 11px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--rb);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 12px;
 }
-.section-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
 
 .section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: .95;
-  margin-bottom: 20px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
   color: var(--w);
+  text-transform: uppercase;
 }
-.section-title em { color: var(--rb); font-style: normal; }
 
 .section-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(240,240,240,.75);
-  font-weight: 300;
+  color: var(--g);
+  font-weight: 400;
   max-width: 680px;
-  margin-bottom: 0px;
+  margin-bottom: 24px;
 }
 
-/* DIVIDER */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255,255,255,.06);
-}
-
-/* BUTTON */
-.btn-red {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 12px 28px;
-  background: var(--rb);
-  color: var(--w);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .8rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .3s, transform .3s;
-  position: relative;
-  overflow: hidden;
-}
-.btn-red::after { content: '→'; margin-left: 6px; }
-.btn-red:hover { background: #a00000; transform: translateY(-2px); }
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 12px 28px;
-  background: transparent;
-  color: var(--w);
-  border: 1px solid var(--w);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: .8rem;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background .3s, color .3s, transform .3s, border-color .3s;
-}
-.btn-outline::after { content: '→'; margin-left: 6px; }
-.btn-outline:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
+/* LISTA DE TRABAJOS (COMPACT) */
+.work-list { display: flex; flex-direction: column; gap: 32px; }
+.work-item { display: flex; flex-direction: column; align-items: flex-start; }
 
 /* TAGS */
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -202,48 +153,103 @@ section {
   background: transparent;
 }
 
+/* BUTTONS */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: var(--rb);
+  color: var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, transform .3s;
+}
+.btn-red:hover { background: #b32a35; transform: translateY(-2px); }
+
+.btn-outline-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--rb);
+  border: 1px solid var(--rb);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s;
+}
+.btn-outline-red:hover { background: var(--rb); color: var(--w); transform: translateY(-2px); }
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--w);
+  border: 1px solid var(--w);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s, color .3s, transform .3s, border-color .3s;
+}
+.btn-outline-white:hover { background: var(--w); color: var(--b); transform: translateY(-2px); border-color: var(--w); }
+
 /* SEMANA HYPE SECTION */
-.hype-section {
-  background: linear-gradient(135deg, #1a0000, #2c0000);
-  padding: 100px 64px;
+.hype-wrapper {
+  background: #1a0000;
+  width: 100%;
   position: relative;
-  overflow: hidden;
-}
-.hype-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 52px 52px;
 }
-.hype-section::after {
-  content: 'HYPE';
-  position: absolute;
-  right: -60px;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(100px, 14vw, 200px);
-  color: rgba(204,0,0,.08);
-  letter-spacing: 20px;
-  pointer-events: none;
-}
+
 .hype-inner {
+  padding: 60px 64px;
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
+.hype-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--rb);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
 
+/* INSTAGRAM SECTION */
+.instagram-section {
+  text-align: center;
+  padding: 60px 64px;
+}
+.instagram-handle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--w);
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
 
 /* BACK SECTION */
 .back-section {
   text-align: center;
-  padding: 80px 24px;
-  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 0 24px 80px 24px;
 }
 
 /* SCROLL ANIMATIONS */
@@ -258,20 +264,18 @@ section {
 }
 .reveal-delay-1 { transition-delay: .1s; }
 .reveal-delay-2 { transition-delay: .2s; }
-.reveal-delay-3 { transition-delay: .3s; }
 
 @media(max-width:800px) {
-  section { padding: 32px 24px; }
+  section, .hype-inner, .instagram-section { padding: 40px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
-  .hype-section { padding: 40px 24px; }
 }
 </style>
 </head>
 <body>
 <div id="cursor"></div>
-<a href="index.html#proyectos" class="back-btn">← Volver</a>
+<a href="index.html#proyectos" class="back-btn">← VOLVER A PROYECTOS</a>
 
-<!-- HERO BANNER -->
+<!-- SECCIÓN 1: HERO BANNER -->
 <div class="hero-banner">
   <div class="hero-banner-content">
     <div class="hero-tag">Proyecto · 2024</div>
@@ -280,101 +284,65 @@ section {
   </div>
 </div>
 
-<!-- OVERVIEW -->
+<!-- SECCIÓN 2: DESCRIPCIÓN -->
 <section class="reveal">
-  <div class="section-tag">Overview</div>
-  <p class="section-desc">
-    Rebranding y relanzamiento integral de Energía Fitness, redefiniendo la identidad visual y la comunicación de la marca en redes sociales.
-  </p>
-</section>
-
-<div class="divider"></div>
-
-<!-- LOGO & IDENTIDAD -->
-<section class="reveal">
-  <div class="section-tag">Identidad Visual</div>
-  <h2 class="section-title">LOGO &amp; IDENTIDAD <em>VISUAL</em></h2>
-  <p class="section-desc">
-    Reconstrucción total de la cuenta, reorganizando la presentación, el feed y el tono visual para darle una imagen clara, profesional y coherente.
+  <div class="section-subtitle">— OVERVIEW</div>
+  <p class="section-desc" style="margin-bottom:0;">
+    Trabajé en el rebranding y relanzamiento integral de Energía Fitness, redefiniendo la identidad visual y la comunicación de la marca en redes sociales. El proyecto comenzó con la reconstrucción total de la cuenta, reorganizando la presentación, el feed y el tono visual para darle una imagen clara, profesional y coherente. Me encargué de la edición de carruseles, videos y piezas gráficas, del rediseño de historias destacadas, y de la planificación de contenidos alineados a la nueva identidad. Además, llevé adelante la dirección y producción audiovisual completa, desde la idea y el concepto hasta la grabación y edición final.
   </p>
   <div class="tag-list">
-    <span class="tag">Feed</span>
-    <span class="tag">Grillas</span>
-    <span class="tag">Estilo</span>
+    <span class="tag">REBRANDING</span>
+    <span class="tag">DIRECCIÓN CREATIVA</span>
+    <span class="tag">AUDIOVISUAL</span>
+    <span class="tag">REDES SOCIALES</span>
+    <span class="tag">CONTENIDO</span>
   </div>
-  <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO</a>
 </section>
 
-<div class="divider"></div>
-
-<!-- VIDEO DE PRESENTACIÓN -->
+<!-- SECCIÓN 3: LISTA DE TRABAJOS -->
 <section class="reveal">
-  <div class="section-tag">Producción Audiovisual</div>
-  <h2 class="section-title">VIDEO DE PRESENTACIÓN <em>AUDIOVISUAL</em></h2>
-  <p class="section-desc">
-    Producción audiovisual completa desde cero: concepto, planificación, grabación, dirección y edición final como pieza principal del relanzamiento.
-  </p>
-  <div class="tag-list">
-    <span class="tag">Video Hero</span>
-    <span class="tag">Filmación</span>
-    <span class="tag">Edición</span>
+  <div class="work-list">
+    <div class="work-item">
+      <h2 class="section-title">IDENTIDAD VISUAL & REBRANDING</h2>
+      <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">VIDEO DE PRESENTACIÓN</h2>
+      <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">CONTENIDO DE INSTAGRAM</h2>
+      <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
+    <div class="work-item">
+      <h2 class="section-title">PLANTILLAS HISTORIAS DESTACADAS</h2>
+      <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER →</a>
+    </div>
   </div>
-  <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER VIDEO</a>
 </section>
 
-<!-- SEMANA HYPE -->
-<div class="hype-section reveal">
+<!-- SECCIÓN 4: SEMANA HYPE -->
+<div class="hype-wrapper reveal">
   <div class="hype-inner">
-    <div class="section-tag">Estrategia de Lanzamiento</div>
-    <h2 class="section-title" style="font-size:clamp(32px,6vw,80px);">SEMANA <em>HYPE</em></h2>
-    <p class="section-desc" style="max-width:640px;color:rgba(255,255,255,.85);">
-      Estrategia de contenido previa para generar expectativa antes del lanzamiento oficial. Videos, posts e historias diseñados para despertar curiosidad y construir anticipación de forma progresiva.
+    <div class="section-subtitle">— ESTRATEGIA DE LANZAMIENTO</div>
+    <h2 class="hype-title">SEMANA HYPE</h2>
+    <p class="section-desc">
+      Estrategia de contenido previa pensada para generar expectativa y atención antes de la presentación oficial. Produjimos y publicamos videos, posts e historias diseñados para despertar curiosidad y preparar a la audiencia, construyendo misterio y anticipación de forma progresiva. El cierre fue un video de presentación grabado desde cero que funcionó como pieza principal del relanzamiento.
     </p>
-    <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red" style="margin-top:36px;">VER CONTENIDO</a>
+    <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER CONTENIDO →</a>
   </div>
 </div>
 
-<div class="divider"></div>
-
-<!-- CONTENIDO INSTAGRAM -->
-<section class="reveal">
-  <div class="section-tag">Redes Sociales</div>
-  <h2 class="section-title">CONTENIDO DE <em>INSTAGRAM</em></h2>
-  <p class="section-desc">
-    Posts, historias, carruseles y plantillas de historias destacadas. Antes y después de la cuenta.
-  </p>
-  <div class="tag-list">
-    <span class="tag">Posts</span>
-    <span class="tag">Carruseles</span>
-  </div>
-  <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER INSTAGRAM CONTENT</a>
+<!-- SECCIÓN 5: INSTAGRAM -->
+<section class="instagram-section reveal">
+  <div class="section-subtitle" style="justify-content: center; display: flex;">— INSTAGRAM</div>
+  <div class="instagram-handle">@ENERGIAFITNESS.CBA</div>
+  <a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="btn-outline-red">VER INSTAGRAM →</a>
 </section>
 
-<div class="divider"></div>
-
-<!-- PLANTILLAS DESTACADAS -->
-<section class="reveal">
-  <div class="section-tag">Diseño Gráfico</div>
-  <h2 class="section-title">PLANTILLAS DE HISTORIAS <em>DESTACADAS</em></h2>
-  <p class="section-desc">
-    Rediseño completo de historias destacadas como parte de la nueva identidad visual.
-  </p>
-  <div class="tag-list">
-    <span class="tag">Plantillas</span>
-    <span class="tag">Highlights</span>
-  </div>
-  <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=sharing" target="_blank" class="btn-red">VER PLANTILLAS</a>
-</section>
-
-<section class="reveal">
-  <div class="section-tag" style="justify-content:flex-start;">Instagram</div>
-  <h2 class="section-title">ENERGÍA <em>FITNESS</em></h2>
-  <a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="btn-red">VER INSTAGRAM</a>
-</section>
-
-<!-- BOTÓN VOLVER -->
+<!-- SECCIÓN 6: VOLVER -->
 <div class="back-section reveal">
-  <a href="index.html#proyectos" class="btn-outline" style="margin-top:0;">← VOLVER A PROYECTOS</a>
+  <a href="index.html#proyectos" class="btn-outline-white">← VOLVER A PROYECTOS</a>
 </div>
 
 <script>
