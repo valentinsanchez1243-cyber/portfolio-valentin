@@ -56,7 +56,7 @@
       position: fixed;
       border-radius: 50%;
       pointer-events: none;
-      z-index: 999999;
+      z-index: 9999;
       top: 0;
       left: 0;
       will-change: transform;
@@ -73,7 +73,7 @@
     #cr {
       width: 38px;
       height: 38px;
-      border: 2px solid rgba(204, 0, 0, .85);
+      border: 2px solid rgba(255, 0, 0, 0.85);
       box-shadow: 0 0 10px rgba(204, 0, 0, .3);
       transition: width .25s cubic-bezier(.16, 1, .3, 1), height .25s cubic-bezier(.16, 1, .3, 1), border-color .2s;
     }
@@ -95,7 +95,7 @@
       position: fixed;
       border-radius: 50%;
       pointer-events: none;
-      z-index: 999990;
+      z-index: 9999;
       top: 0;
       left: 0;
       will-change: transform;
@@ -399,11 +399,11 @@
 
       0%,
       100% {
-        box-shadow: 0 0 5px #e63946;
+        box-shadow: 0 0 5px #ff0015;
       }
 
       50% {
-        box-shadow: 0 0 18px #e63946, 0 0 30px #e63946;
+        box-shadow: 0 0 18px #ff0015, 0 0 30px #ff0015;
       }
     }
 
@@ -1165,7 +1165,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(230, 57, 70, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(230, 57, 70, 0.2) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(230, 57, 70, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(230, 57, 70, 0.12) 1px, transparent 1px);
       background-size: 52px 52px;
       pointer-events: none;
       z-index: 0;
@@ -1177,7 +1177,7 @@
     }
 
     .svl {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(230, 57, 70, 0.15);
     }
 
     .svi {
@@ -1186,7 +1186,7 @@
       align-items: center;
       gap: 32px;
       padding: 28px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(230, 57, 70, 0.15);
       position: relative;
       overflow: hidden;
       transition: padding-left .3s;
@@ -1214,7 +1214,7 @@
     .svnum {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2.7rem;
-      color: #e63946;
+      color: #ff0015;
       font-weight: bold;
       line-height: 1;
     }
@@ -1225,16 +1225,16 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #0a0a0a;
+      color: #e63946;
       transition: color .2s;
     }
 
     .svi:hover .svn {
-      color: #e63946;
+      color: #ff0015;
     }
 
     .svbdg {
-      background: #e63946;
+      background: #ff0015;
       color: #ffffff;
       border-radius: 4px;
       padding: 4px 12px;
@@ -1267,7 +1267,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       padding: 3px 8px;
-      border: 1px solid #e63946;
+      border: 1px solid #ff0015;
       color: #e63946;
       background: transparent;
     }
@@ -2344,7 +2344,6 @@
         <div style="width: 100%;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <div class="svn">Branding & Identidad Visual</div>
-            <div class="svbdg">PROYECTO COMPLETO</div>
           </div>
           <div class="svd">Construcción de marca desde cero: logo, paleta, tipografía, guía de estilo y universo
             estético completo.</div>
@@ -2359,7 +2358,6 @@
         <div style="width: 100%;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <div class="svn">Edición de Video & Ads</div>
-            <div class="svbdg">POR VIDEO / PACK</div>
           </div>
           <div class="svd">VSL, reels, stories, Facebook/Instagram Ads. Hooks fuertes, subtítulos y llamados a la acción
             orientados a conversión.</div>
@@ -2373,7 +2371,6 @@
         <div style="width: 100%;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <div class="svn">Community Management</div>
-            <div class="svbdg">GESTIÓN MENSUAL</div>
           </div>
           <div class="svd">Gestión integral de redes: planificación de contenido, diseño de piezas, carruseles,
             historias y estrategia editorial.</div>
@@ -2387,7 +2384,6 @@
         <div style="width: 100%;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <div class="svn">Dirección Audiovisual</div>
-            <div class="svbdg">CONSULTORÍA</div>
           </div>
           <div class="svd">Dirección y producción de video desde concepto hasta edición final. Rebranding, lanzamientos
             y semanas hype.</div>
@@ -2401,7 +2397,6 @@
         <div style="width: 100%;">
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <div class="svn">Diseño de Indumentaria</div>
-            <div class="svbdg">POR PRENDA</div>
           </div>
           <div class="svd">Diseño de prendas deportivas y streetwear: concepto, estética, mockups y presentaciones para
             sponsors.</div>
