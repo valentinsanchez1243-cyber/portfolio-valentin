@@ -46,9 +46,6 @@
     }
 
     /* CURSOR */
-    * {
-      cursor: none !important;
-    }
 
     #cursor {
       position: fixed;
@@ -1624,7 +1621,18 @@
       <li><a href="#educacion">Currículum</a></li>
       <li><a href="#contacto" class="ncta">Contacto</a></li>
     </ul>
+    <button class="mtog" id="mtog">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="movl" id="movl">
+    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#experiencia" onclick="toggleMenu()">Experiencia</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="#contacto" onclick="toggleMenu()" style="color:var(--r)">Contacto</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
