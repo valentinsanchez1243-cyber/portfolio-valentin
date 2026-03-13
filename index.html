@@ -374,7 +374,7 @@
     /* MARQUEE */
     .mw {
       background: var(--r);
-      padding: 32px 0;
+      padding: 18px 0;
       overflow: hidden;
       white-space: nowrap;
     }
@@ -421,10 +421,11 @@
 
     .mi {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 6px;
+      font-size: 1.4rem;
+      letter-spacing: 3px;
       padding: 0 32px;
       opacity: .92;
+      text-transform: uppercase;
     }
 
     .md {
@@ -2470,70 +2471,25 @@
 
 
   <!-- CONTACTO -->
-  <style>
-    #contacto {
-      background-image: url('IMAGENES MIAS/dearriba.png');
-      background-size: cover;
-      background-position: center top;
-      position: relative;
-    }
-
-    #contacto::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 0;
-    }
-
-    #contacto>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    #contacto * {
-      color: #ffffff !important;
-    }
-
-    #contacto .cbg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(10rem, 20vw, 25rem);
-      font-family: 'Bebas Neue', sans-serif;
-      color: rgba(255, 255, 255, 0.12) !important;
-      text-shadow: none;
-      z-index: 0;
-      pointer-events: none;
-      white-space: nowrap;
-      filter: blur(4px);
-    }
-  </style>
-  <section id="contacto">
-    <div class="cbg">CONTACTO</div>
-    <div class="ci rv">
-      <div class="sl" style="justify-content:center">— HABLEMOS</div>
-      <h2 class="st" style="font-size:clamp(30px,5vw,58px);margin-bottom:18px;text-align:center">¿TENÉS UN
-        <em>PROYECTO</em>?
-      </h2>
-      <p style="max-width:450px;margin:0 auto 34px;line-height:1.75;font-weight:300;text-align:center">
-        Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la
-        ejecución.</p>
-      <a href="mailto:vaalentinsanchez5@gmail.com" class="cem">vaalentinsanchez5@gmail.com</a>
-      <div class="cm2">
-        <div class="cmi"><strong>+54 9 351 555 8997</strong>Teléfono / WhatsApp</div>
-        <div class="cmi"><strong>@vaalensnchz</strong>Instagram</div>
-        <div class="cmi"><strong>Córdoba, Argentina</strong>Ubicación</div>
+  <section id="contacto" style="background-image: url('IMAGENES MIAS/dearriba.png'); background-size: cover; background-position: center top; position: relative; text-align: center; padding: 100px 20px; overflow: hidden;">
+    <div style="content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55); z-index: 0;"></div>
+    <div class="cbg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12rem; font-family: 'Bebas Neue', sans-serif; color: rgba(255, 255, 255, 0.06); text-shadow: none; z-index: 0; pointer-events: none; white-space: nowrap; filter: blur(4px);">CONTACTO</div>
+    <div class="ci rv" style="position: relative; z-index: 1; margin: 0 auto; max-width: 900px;">
+      <div class="sl" style="justify-content: center; color: #e63946; font-size: 11px; letter-spacing: 3px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; margin-bottom: 20px;">— HABLEMOS</div>
+      <h2 class="st" style="font-size: 3.5rem; margin-bottom: 18px; text-align: center; font-weight: bold; color: #ffffff; font-family: 'Bebas Neue', sans-serif;">¿TENÉS UN<br><em>PROYECTO</em>?</h2>
+      <p style="color: rgba(255, 255, 255, 0.85); max-width: 450px; margin: 0 auto 34px; line-height: 1.75; font-weight: 300; text-align: center;">
+        Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.
+      </p>
+      <a href="mailto:vaalentinsanchez5@gmail.com" class="cem" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 4.5vw, 68px); color: #ffffff; font-weight: bold; position: relative; display: inline-block; border-bottom: 4px solid #e63946; padding-bottom: 4px; text-decoration: none;">VAALENTINSANCHEZ5@GMAIL.COM</a>
+      <div class="cm2" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 40px; margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div class="cmi" style="color: #ffffff; font-size: 0.82rem; letter-spacing: 1px;">+54 9 351 555 8997 · TELÉFONO / WHATSAPP</div>
+        <div class="cmi" style="color: #ffffff; font-size: 0.82rem; letter-spacing: 1px;">@VAALENSNCHZ · INSTAGRAM</div>
+        <div class="cmi" style="color: #ffffff; font-size: 0.82rem; letter-spacing: 1px;">CÓRDOBA, ARGENTINA · UBICACIÓN</div>
       </div>
-      <div class="cbt">
-        <a href="https://wa.me/5493515558997" target="_blank" class="br">WhatsApp</a>
-        <a href="https://www.instagram.com/vaalensnchz" target="_blank" class="bo">Instagram</a>
-        <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank"
-          class="bo">Descargar CV</a>
+      <div class="cbt" style="display: flex; justify-content: center; gap: 14px; margin-top: 48px;">
+        <a href="https://wa.me/5493515558997" target="_blank" class="br" style="background: #e63946; border: none; padding: 13px 32px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);">WhatsApp</a>
+        <a href="https://www.instagram.com/vaalensnchz" target="_blank" class="bo" style="border: 1px solid #ffffff; background: transparent; padding: 13px 32px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);">Instagram</a>
+        <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" class="bo" style="border: 1px solid #ffffff; background: transparent; padding: 13px 32px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);">Descargar CV</a>
       </div>
     </div>
   </section>
