@@ -269,6 +269,34 @@ section {
   section, .hype-inner, .instagram-section { padding: 40px 24px; }
   .hero-banner { padding: 32px 24px; height: 320px; }
 }
+
+/* MARQUEE */
+.mw {
+  background: var(--rb);
+  padding: 24px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+.mi {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  padding: 0 32px;
+  opacity: .92;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.mt {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.md { color: rgba(255,255,255,.3); margin: 0 10px; }
 </style>
 </head>
 <body>
@@ -321,16 +349,38 @@ section {
 </section>
 
 <!-- SECCIÓN 5: INSTAGRAM -->
-<section class="instagram-section reveal">
-  <div class="section-subtitle" style="justify-content: center; display: flex;">— INSTAGRAM</div>
-  <div class="instagram-handle">@VAALENSNCHZ</div>
-  <a href="https://www.instagram.com/vaalensnchz/" target="_blank" class="btn-outline-red">VER INSTAGRAM →</a>
-</section>
-
-<!-- SECCIÓN 6: VOLVER -->
-<div class="back-section reveal">
-  <a href="index.html#proyectos" class="btn-outline-white">← VOLVER A PROYECTOS</a>
+<!-- MARQUEE -->
+<div class="mw">
+  <div class="mt">
+    <span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span class="mi">INDUMENTARIA <span class="md">✦</span></span><span class="mi">CONTENIDO DIGITAL <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">UX/UI <span class="md">✦</span></span><span class="mi">MARKETING <span class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span class="mi">INDUMENTARIA <span class="md">✦</span></span><span class="mi">CONTENIDO DIGITAL <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">UX/UI <span class="md">✦</span></span><span class="mi">MARKETING <span class="md">✦</span></span>
+  </div>
 </div>
+
+<!-- CONTACTO -->
+<section id="contacto" style="background-image: url('IMAGENES MIAS/dearriba.png'); background-size: cover; background-position: center top; position: relative; text-align: center; padding: 120px 20px; overflow: hidden; max-width: none; margin: 0;">
+  <div style="content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55); z-index: 0;"></div>
+  <div class="cbg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12rem; font-family: 'Bebas Neue', sans-serif; color: rgba(255, 255, 255, 0.06); text-shadow: none; z-index: 0; pointer-events: none; white-space: nowrap; filter: blur(4px);">CONTACTO</div>
+  <div class="ci" style="position: relative; z-index: 1; margin: 0 auto; max-width: 1100px;">
+    <div style="justify-content: center; color: #e63946; font-size: 11px; letter-spacing: 3px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; margin-bottom: 20px; display: flex;">— HABLEMOS</div>
+    <h2 style="font-size: 3.5rem; margin-bottom: 24px; text-align: center; font-weight: bold; color: #ffffff; font-family: 'Bebas Neue', sans-serif; line-height: 1.1;">¿TENÉS UN<br><em>PROYECTO</em>?</h2>
+    <p style="color: rgba(255, 255, 255, 0.85); max-width: 500px; margin: 0 auto 40px; line-height: 1.8; font-weight: 300; text-align: center; font-size: 1rem;">
+      Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.
+    </p>
+    <a href="mailto:vaalentinsanchez5@gmail.com" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5vw, 76px); color: #ffffff; font-weight: bold; position: relative; display: inline-block; border-bottom: 5px solid #e63946; padding-bottom: 4px; text-decoration: none; margin-bottom: 60px; letter-spacing: 1px;">VAALENTINSANCHEZ5@GMAIL.COM</a>
+    
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 40px 0; margin-bottom: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <div style="color: #ffffff; font-size: 0.85rem; letter-spacing: 1px; font-family: 'Barlow Condensed', sans-serif; font-weight: 500;">+54 9 351 555 8997 · TELÉFONO / WHATSAPP</div>
+      <div style="color: #ffffff; font-size: 0.85rem; letter-spacing: 1px; font-family: 'Barlow Condensed', sans-serif; font-weight: 500;">@VAALENSNCHZ · INSTAGRAM</div>
+      <div style="color: #ffffff; font-size: 0.85rem; letter-spacing: 1px; font-family: 'Barlow Condensed', sans-serif; font-weight: 500;">CÓRDOBA, ARGENTINA · UBICACIÓN</div>
+    </div>
+    
+    <div style="display: flex; justify-content: center; gap: 16px;">
+      <a href="https://wa.me/5493515558997" target="_blank" style="background: #e63946; border: none; padding: 14px 36px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); font-weight: 600;">WhatsApp</a>
+      <a href="https://www.instagram.com/vaalensnchz" target="_blank" style="border: 1px solid #ffffff; background: transparent; padding: 14px 36px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); font-weight: 600;">Instagram</a>
+      <a href="index.html#proyectos" style="border: 1px solid #ffffff; background: transparent; padding: 14px 36px; color: #ffffff; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; display: inline-block; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); font-weight: 600;">VOLVER</a>
+    </div>
+  </div>
+</section>
 
 <script>
 // CURSOR
