@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rb: #FF0000;
+  --rb: #22C55E;
   --b: #0a0a0a;
   --w: #ffffff;
   --g: #aaaaaa;
@@ -81,7 +81,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 35px;
   opacity: 0;
   visibility: hidden;
@@ -121,7 +121,135 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   color: var(--rb);
 }
 
-/* NAV */
+
+/* NAV RESTORATION */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 64px;
+  background: linear-gradient(to bottom, rgba(8, 8, 8, .98), transparent);
+  transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  color: var(--w);
+}
+
+.nl span { color: var(--rb); }
+
+.nls {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nls a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .95rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  text-decoration: none;
+  transition: color .2s;
+  position: relative;
+}
+
+.nls a:hover { color: var(--w); }
+
+.ncta {
+  background: var(--rb) !important;
+  color: var(--w) !important;
+  padding: 7px 18px;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: .76rem !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* MOBILE MENU TRIGGER */
+.mtog {
+  display: none;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  z-index: 6000;
+  cursor: pointer;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.mtog span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--w);
+  position: absolute;
+  left: 10px;
+  transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mtog span:nth-child(1) { top: 15px; }
+.mtog span:nth-child(2) { top: 21px; }
+.mtog span:nth-child(3) { top: 27px; }
+
+.mtog.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.mtog.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.mtog.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* MOBILE OVERLAY */
+.movl {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  z-index: 5500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.movl.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.movl a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  color: var(--w);
+  transition: .3s;
+}
+
+.movl a:hover { color: var(--rb); }
+
+@media (max-width: 768px) {
+  nav { padding: 15px 20px !important; background: rgba(8, 8, 8, .98) !important; }
+  .nls { display: none !important; }
+  .mtog { display: block; }
+}
+
 .back-btn {
   position: fixed;
   top: 20px;
@@ -129,7 +257,7 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   color: var(--w);
   text-decoration: none;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: .8rem;
+  font-size: .95rem;
   letter-spacing: 3px;
   text-transform: uppercase;
   z-index: 1000;
@@ -243,7 +371,7 @@ section {
 .btn-red {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 24px;
   background: var(--rb);
   color: var(--w);
@@ -260,7 +388,7 @@ section {
 .btn-outline-red {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 24px;
   background: transparent;
   color: var(--rb);
@@ -278,7 +406,7 @@ section {
 .btn-outline-white {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 24px;
   background: transparent;
   color: var(--w);
@@ -425,7 +553,7 @@ section {
     #contacto div[style*="font-size: 12rem"], .c-w { font-size: 3.8rem !important; letter-spacing: 4px !important; opacity: 0.1 !important; }
     #contacto h2, .c-t { font-size: 2.2rem !important; }
     #contacto a[href^="mailto:"], .c-e { font-size: 1.15rem !important; word-break: break-all !important; border-bottom-width: 2px !important; }
-    #contacto div[style*="display: flex; justify-content: center; gap: 20px"] { flex-direction: column !important; width: 100% !important; max-width: 320px !important; margin: 0 auto !important; gap: 12px !important; }
+    #contacto div[style*="display: flex; justify-content: space-between; gap: 20px"] { flex-direction: column !important; width: 100% !important; max-width: 320px !important; margin: 0 auto !important; gap: 12px !important; }
     #contacto a[style*="padding: 14px 32px"] { width: 100% !important; display: block !important; padding: 12px !important; font-size: 0.8rem !important; }
     .work-item { padding: 25px 0 !important; }
     .work-item .section-title { font-size: 1.5rem !important; }
@@ -439,7 +567,28 @@ section {
 </head>
 <body>
 <div id="cursor"></div>
-<a href="index.html#proyectos" class="back-btn">← VOLVER</a>
+
+  <nav id="nav">
+    <div class="nl">VALENTÍN<span>SÁNCHEZ</span></div>
+    <ul class="nls">
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#experiencia">Experiencia</a></li>
+      <li><a href="curriculum.html">Currículum</a></li>
+      <li><a href="#contacto" class="ncta">Contacto</a></li>
+    </ul>
+    <button class="mtog" id="mtog">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="movl" id="movl">
+    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#experiencia" onclick="toggleMenu()">Experiencia</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  </div>
+
 
 <button class="mtog" id="mtog">
   <span></span><span></span><span></span>
@@ -526,14 +675,14 @@ section {
       <div style="margin-bottom: 50px;">
         <a href="mailto:vaalentinsanchez5@gmail.com" class="c-e" style="display: inline-block; color: #ffffff; font-size: 2.2rem; font-weight: 900; font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; text-decoration: none; letter-spacing: 2px; border-bottom: 3px solid #FF0000; padding-bottom: 8px;">VAALENTINSANCHEZ5@GMAIL.COM</a>
       </div>
-      <div class="c-i" style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-bottom: 50px; color: #ffffff; font-size: 0.85rem; letter-spacing: 1.5px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;">
+      <div class="c-i" style="display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; margin-bottom: 50px; color: #ffffff; font-size: 0.85rem; letter-spacing: 1.5px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase;">
         <span>+54 9 351 555 8997 · TELÉFONO / WHATSAPP</span>
-        <span>@VAALENSNCHZ · INSTAGRAM</span>
+        <span>@KORD3.AR · INSTAGRAM</span>
         <span>CÓRDOBA, ARGENTINA · UBICACIÓN</span>
       </div>
-      <div class="c-b" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div class="c-b" style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
         <a href="https://wa.me/5493515558997" target="_blank" style="background: #FF0000; color: #ffffff; padding: 14px 32px; font-size: 0.85rem; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 2px solid #FF0000;">WHATSAPP</a>
-        <a href="https://instagram.com/vaalensnchz" target="_blank" style="background: transparent; color: #ffffff; padding: 14px 32px; font-size: 0.85rem; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 2px solid #ffffff;">INSTAGRAM</a>
+        <a href="https://www.instagram.com/kord3.ar/" target="_blank" style="background: transparent; color: #ffffff; padding: 14px 32px; font-size: 0.85rem; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 2px solid #ffffff;">INSTAGRAM</a>
         <a href="https://drive.google.com/file/d/1IFJ14ORA0Bx63gSytOimdtCGJsHbDbLd/view?usp=sharing" target="_blank" style="background: transparent; color: #ffffff; padding: 14px 32px; font-size: 0.85rem; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 2px solid #ffffff;">DESCARGAR CV</a>
       </div>
     </div>
