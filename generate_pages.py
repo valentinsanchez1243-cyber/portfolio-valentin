@@ -6,7 +6,7 @@ base_dir = r"c:\Users\valen\Documents\PROYECTOS\PORTAFOLIO"
 projects = {
     'agency.html': {
         'title': 'Agency Luxury - Valentín Sánchez',
-        'hero_img': '../PORTADA PROYECTOS/PORTADA-AGENCY.png',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-AGENCIA.png',
         'desc': 'Trabajé como editor de video para Agency Luxury, una agencia de marketing con base en Buenos Aires especializada en el nicho de cirujanos plásticos. Mi rol estuvo enfocado en la edición de contenido audiovisual orientado a conversión, abordando cada pieza desde lo visual y lo estratégico. Realicé la edición de VSL (Video Sales Letters) y anuncios para Facebook Ads, optimizando ritmo, estructura, subtítulos y narrativa para mejorar la retención y el rendimiento de las campañas. Además, diseñé portadas (thumbnails y covers) para videos y anuncios, priorizando impacto visual, claridad del mensaje y coherencia con la identidad de cada marca. Trabajé en conjunto con el equipo de marketing, adaptando el contenido a objetivos comerciales concretos y manteniendo un estándar visual profesional alineado al posicionamiento premium del nicho médico.',
         'tags': ['EDICIÓN DE VIDEO', 'FACEBOOK ADS', 'VSL', 'THUMBNAILS', 'CONTENIDO PUBLICITARIO'],
         'list': [
