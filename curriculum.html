@@ -16,6 +16,11 @@
       --b2: #0f0f0f;
       --w: #F0F0F0;
       --g: #777;
+      
+      /* Typography System */
+      --fs-h1: clamp(3.2rem, 10vw, 7rem);
+      --fs-h2: clamp(2rem, 5vw, 3.8rem);
+      --fs-body: clamp(0.9rem, 1.8vw, 1.05rem);
     }
 
     *,
@@ -146,6 +151,57 @@
     .nls a:hover::after {
       transform: scaleX(1);
     }
+
+    /* MOBILE MENU TRIGGER */
+    .mtog {
+      display: none;
+      background: none;
+      border: none;
+      padding: 10px;
+      z-index: 6000;
+      cursor: pointer;
+    }
+
+    .mtog span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--w);
+      margin: 5px 0;
+      transition: .3s;
+    }
+
+    /* MOBILE OVERLAY */
+    .movl {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,0.98);
+      backdrop-filter: blur(10px);
+      z-index: 5500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .movl.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .movl a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      color: var(--w);
+      transition: .3s;
+    }
+
+    .movl a:hover { color: var(--r); }
 
     .ncta {
       background: var(--r) !important;
@@ -1901,6 +1957,16 @@
   </section>
 
   <script>
+    // === MOBILE MENU ===
+    const mtog = document.getElementById('mtog');
+    const movl = document.getElementById('movl');
+    function toggleMenu() {
+      movl.classList.toggle('active');
+      mtog.classList.toggle('active');
+      document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : '';
+    }
+    mtog.addEventListener('click', toggleMenu);
+
     const cursor = document.getElementById('cursor');
     const trails = [];
     for (let i = 0; i < 7; i++) { const t = document.createElement('div'); t.classList.add('trail'); document.body.appendChild(t); trails.push({ el: t, x: 0, y: 0 }); }

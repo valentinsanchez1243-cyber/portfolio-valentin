@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rb: #FF0000;
+  --rb: #A855F7; /* Purple accent */
   --b: #0a0a0a;
   --w: #ffffff;
   --g: #aaaaaa;
@@ -46,14 +46,100 @@ body::after { content: ''; position: fixed; inset: 0; background-image: url("dat
   font-size: .8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  z-index: 1000;
-  padding: 8px 14px;
+  z-index: 5000;
+  padding: 10px 18px;
+  border-radius: 4px;
   border: 1px solid rgba(255,255,255,.15);
-  background: rgba(10,10,10,.7);
-  backdrop-filter: blur(8px);
-  transition: border-color .3s, color .3s;
+  background: rgba(10,10,10,.8);
+  backdrop-filter: blur(12px);
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.back-btn:hover { border-color: var(--rb); color: var(--rb); }
+.back-btn:hover { border-color: var(--rb); color: var(--rb); transform: translateX(-5px); }
+
+/* MOBILE MENU TRIGGER */
+.mtog {
+  display: none;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  z-index: 6000;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.mtog span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--w);
+  position: absolute;
+  left: 10px;
+  transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mtog span:nth-child(1) { top: 15px; }
+.mtog span:nth-child(2) { top: 21px; }
+.mtog span:nth-child(3) { top: 27px; }
+
+.mtog.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.mtog.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.mtog.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* MOBILE OVERLAY */
+.movl {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  z-index: 5500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.movl::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  background: var(--rb);
+  filter: blur(150px);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.movl.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.movl a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  color: var(--w);
+  transition: .3s;
+}
+
+.movl a:hover {
+  color: var(--rb);
+}
 
 /* HERO BANNER */
 .hero-banner {
@@ -209,7 +295,7 @@ section {
 
 /* SEMANA HYPE SECTION */
 .hype-wrapper {
-  background: #1a0000;
+  background: #0d001a; /* Dark purple background */
   width: 100%;
   position: relative;
   background-image:
@@ -300,6 +386,8 @@ section {
 
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
+  .mtog { display: block; }
+  .back-btn { top: 75px; left: 20px; width: auto; z-index: 4999; } /* Moved down to avoid overlap with menu trigger if needed, or keeping it separate */
   nav { padding: 15px 20px !important; }
   .nls { display: none !important; }
   section { padding: 60px 20px !important; }
@@ -354,8 +442,19 @@ section {
 </style>
 </head>
 <body>
-<div id="cursor"></div>
-<a href="index.html#proyectos" class="back-btn">← VOLVER A PROYECTOS</a>
+<a href="index.html#proyectos" class="back-btn">← VOLVER</a>
+
+<button class="mtog" id="mtog">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- MOBILE OVERLAY -->
+<div class="movl" id="movl">
+  <a href="index.html#proyectos">Proyectos</a>
+  <a href="index.html#experiencia">Experiencia</a>
+  <a href="curriculum.html">Currículum</a>
+  <a href="#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+</div>
 
 <!-- SECCIÓN 1: HERO BANNER -->
 <div class="hero-banner">
@@ -460,6 +559,17 @@ section {
   </section>
 
 <script>
+// MOBILE MENU
+const movl = document.getElementById('movl');
+const mtog = document.getElementById('mtog');
+
+function toggleMenu() {
+  movl.classList.toggle('active');
+  mtog.classList.toggle('active');
+  document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : '';
+}
+mtog.addEventListener('click', toggleMenu);
+
 // CURSOR
 const cursor = document.getElementById('cursor');
 const trails = [];
