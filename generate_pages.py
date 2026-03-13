@@ -6,6 +6,7 @@ base_dir = r"c:\Users\valen\Documents\PROYECTOS\PORTAFOLIO"
 projects = {
     'agency.html': {
         'title': 'Agency Luxury - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-AGENCY.png',
         'desc': 'Trabajé como editor de video para Agency Luxury, una agencia de marketing con base en Buenos Aires especializada en el nicho de cirujanos plásticos. Mi rol estuvo enfocado en la edición de contenido audiovisual orientado a conversión, abordando cada pieza desde lo visual y lo estratégico. Realicé la edición de VSL (Video Sales Letters) y anuncios para Facebook Ads, optimizando ritmo, estructura, subtítulos y narrativa para mejorar la retención y el rendimiento de las campañas. Además, diseñé portadas (thumbnails y covers) para videos y anuncios, priorizando impacto visual, claridad del mensaje y coherencia con la identidad de cada marca. Trabajé en conjunto con el equipo de marketing, adaptando el contenido a objetivos comerciales concretos y manteniendo un estándar visual profesional alineado al posicionamiento premium del nicho médico.',
         'tags': ['EDICIÓN DE VIDEO', 'FACEBOOK ADS', 'VSL', 'THUMBNAILS', 'CONTENIDO PUBLICITARIO'],
         'list': [
@@ -19,6 +20,7 @@ projects = {
     },
     'energia.html': {
         'title': 'Energía Fitness - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-ENERGIA.jpg',
         'desc': 'Trabajé en el rebranding y relanzamiento integral de Energía Fitness, redefiniendo la identidad visual y la comunicación de la marca en redes sociales. El proyecto comenzó con la reconstrucción total de la cuenta, reorganizando la presentación, el feed y el tono visual para darle una imagen clara, profesional y coherente. Me encargué de la edición de carruseles, videos y piezas gráficas, del rediseño de historias destacadas, y de la planificación de contenidos alineados a la nueva identidad. Además, llevé adelante la dirección y producción audiovisual completa, desde la idea y el concepto hasta la grabación y edición final.',
         'tags': ['REBRANDING', 'DIRECCIÓN CREATIVA', 'AUDIOVISUAL', 'REDES SOCIALES', 'CONTENIDO'],
         'list': [
@@ -37,6 +39,7 @@ projects = {
     },
     'mfsports.html': {
         'title': 'MF Sports - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-MFSPORTS.png',
         'desc': 'Trabajé en el diseño de indumentaria deportiva para MF Sports, desarrollando conjuntos completos para fútbol y hockey, incluyendo camisetas, musculosas, buzos y equipamiento. El enfoque estuvo puesto en la identidad visual, la coherencia estética y la adaptación del diseño a cada equipo y necesidad específica. Además, realicé presentaciones visuales para sponsors, diseñadas para comunicar de forma clara y profesional la propuesta de la marca, sus productos y su valor comercial, facilitando su presentación ante posibles aliados y patrocinadores.',
         'tags': ['DISEÑO DE INDUMENTARIA', 'FÚTBOL', 'HOCKEY', 'SPONSORS', 'IDENTIDAD VISUAL'],
         'list': [
@@ -49,6 +52,7 @@ projects = {
     },
     'home.html': {
         'title': 'Home Improvement Power - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-HOME.jpg',
         'desc': 'Actualmente trabajo con HomeImprovementPower, empresa del sector home improvement con base en Florida (EE. UU.), colaborando en la creación de contenido audiovisual y piezas creativas para campañas publicitarias en redes sociales. Mi rol se centra en la edición de videos cortos para ads en Facebook e Instagram, con un enfoque estilo UGC/influencer, priorizando contenido dinámico y cercano. El objetivo principal es generar videos con ganchos fuertes en los primeros segundos, subtítulos claros, buen ritmo visual y llamados a la acción orientados a conversión. También trabajo en la creación de videos apoyados por IA, incluyendo voz en off con inteligencia artificial y generación de recursos audiovisuales para escalar volumen de contenido sin perder efectividad publicitaria.',
         'tags': ['EDICIÓN DE VIDEO', 'FACEBOOK ADS', 'INSTAGRAM ADS', 'UGC', 'IA', 'CREATIVOS'],
         'list': [
@@ -62,6 +66,7 @@ projects = {
     },
     'natan.html': {
         'title': 'The Natan Barber Estudio - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-NATAN.jpg',
         'desc': 'Trabajé en el desarrollo del branding y el lanzamiento completo de la comunicación digital de The Natan Barber Studio, construyendo la identidad visual y el estilo de la marca desde cero. El proyecto incluyó definir el tono, la estética y la presencia en redes sociales. Produje, dirigí y edité contenido audiovisual desde cero, incluyendo un video de presentación con eje conceptual en el cuarteto, incorporando un elemento cultural fuerte y local para conectar con la identidad de la marca y su público. También edité carruseles, piezas gráficas y diseñé stickers para ceras, extendiendo la identidad visual al producto físico.',
         'tags': ['BRANDING', 'DIRECCIÓN CREATIVA', 'AUDIOVISUAL', 'REDES SOCIALES', 'DISEÑO GRÁFICO'],
         'list': [
@@ -79,6 +84,7 @@ projects = {
     },
     'otros.html': {
         'title': 'Otros Proyectos - Valentín Sánchez',
+        'hero_img': '../PORTADA PROYECTOS/PORTADA-OTROS.jpg',
         'desc': 'Además de los proyectos principales, trabajé en la edición de contenido audiovisual para distintas marcas y empresas, adaptando cada pieza a su rubro, público y objetivo comunicacional.',
         'tags': ['EDICIÓN DE VIDEO', 'COMUNICACIÓN DIGITAL', 'REDES SOCIALES', 'ADS'],
         'list': [
@@ -121,6 +127,10 @@ def generate_html(filename, data):
         original_content = f.read()
 
     new_content = re.sub(r'<title>[^<]*</title>', f'<title>{data["title"]}</title>', template)
+
+    # Update hero banner background image in style tag (specifically the one with the background image)
+    hero_pattern = r"(\.hero-banner\s*\{[^}]*?background-image:\s*url\(')[^']*('\);)"
+    new_content = re.sub(hero_pattern, r"\1" + data['hero_img'] + r"\2", new_content)
 
     hero_banner = extract_hero_banner(original_content)
     if hero_banner:
