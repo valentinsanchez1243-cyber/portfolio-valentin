@@ -142,6 +142,10 @@ def generate_html(filename, data):
     tags_html = '\n    '.join([f'<span class="tag">{tag}</span>' for tag in data['tags']])
     new_content = re.sub(r'<div class="tag-list">.*?</div>', f'<div class="tag-list">\n    {tags_html}\n  </div>', new_content, count=1, flags=re.DOTALL)
 
+    # Ensure marquee style in style tag is correct (just in case)
+    new_content = re.sub(r'\.mw\s*\{[^}]*?padding:\s*[^;]*;', '.mw { background: var(--rb); padding: 25px 0;', new_content)
+    new_content = re.sub(r'\.mi\s*\{[^}]*?font-size:\s*[^;]*;', '.mi { font-family: \'Bebas Neue\', sans-serif; font-size: 2.2rem;', new_content)
+
     items_html = ""
     for title, link in data['list']:
         items_html += f'''    <div class="work-item">
