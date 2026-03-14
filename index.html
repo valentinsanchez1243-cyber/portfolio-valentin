@@ -2538,15 +2538,13 @@
 
 <body>
 
-  <div id="cd"></div>
-  <div id="cr"></div>
-
-  <!-- NAV -->
   <nav id="nav">
-    <div class="nl">VALENTÍN<span>SÁNCHEZ</span></div>
+    <a href="index.html" class="nl" style="text-decoration:none;cursor:pointer;color:#ffffff;">VS<span>.</span></a>
     <ul class="nls">
+      <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">El Proceso</a></li>
       <li><a href="curriculum.html">Currículum</a></li>
       <li><a href="#contacto" class="ncta">Contacto</a></li>
     </ul>
@@ -2557,11 +2555,22 @@
 
   <!-- MOBILE OVERLAY -->
   <div class="movl" id="movl">
+    <a href="#sobre" onclick="toggleMenu()">Sobre mí</a>
     <a href="#proyectos" onclick="toggleMenu()">Proyectos</a>
-    <a href="#experiencia" onclick="toggleMenu()">Experiencia</a>
+    <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-    <a href="#contacto" onclick="toggleMenu()" style="color:var(--r)">Contacto</a>
+    <a href="#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
+
+
+  <div id="cd"></div>
+  <div id="cr"></div>
+
+  <!-- NAV -->
+  
+
+  
 
   <!-- HERO -->
   <section id="hero">
