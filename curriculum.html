@@ -101,6 +101,27 @@
       border-bottom: 1px solid rgba(255, 0, 0, .2);
     }
 
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5000;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 28px;
+      padding: 30px 64px;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, .98), transparent);
+      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav.sc {
+      background: rgba(8, 8, 8, .99);
+      border-bottom: 1px solid rgba(255, 0, 0, .2);
+    }
+
     .nl {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
@@ -119,7 +140,7 @@
 
     .nls a {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
+      font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--g);
@@ -154,9 +175,12 @@
       display: none;
       background: none;
       border: none;
-      padding: 10px;
+      padding: 5px;
       z-index: 6000;
       cursor: pointer;
+      position: relative;
+      width: 32px;
+      height: 24px;
     }
 
     .mtog span {
@@ -1889,20 +1913,19 @@
   <div id="cursor"></div>
 
   <nav id="nav">
-  <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
-  <ul class="nls" style="margin-left:auto;">
-    <li><a href="index.html#sobre">Sobre mí</a></li>
-    <li><a href="index.html#proyectos">Proyectos</a></li>
-    <li><a href="index.html#servicios">Servicios</a></li>
-    <li><a href="index.html#proceso">El Proceso</a></li>
-    <li><a href="curriculum.html">Currículum</a></li>
-    <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
-  </ul>
-  <button class="mtog" id="mtog">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
+    <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
+    <ul class="nls" style="margin-left:auto;">
+      <li><a href="index.html#sobre">Sobre mí</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">El Proceso</a></li>
+      <li><a href="curriculum.html">Currículum</a></li>
+      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
+    </ul>
+    <button class="mtog" id="mtog">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
   <!-- MOBILE OVERLAY -->
   <div class="movl" id="movl">
@@ -1910,12 +1933,9 @@
     <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
-    <a href="#educacion" onclick="toggleMenu()">Currículum</a>
-    <a href="#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
-
-
-  <!-- NAV -->
 
 
 
@@ -2262,6 +2282,12 @@
       document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : '';
     }
     mtog.addEventListener('click', toggleMenu);
+
+    // NAV SCROLL
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('sc', window.scrollY > 50);
+    });
+
 
     const cursor = document.getElementById('cursor');
     const trails = [];
