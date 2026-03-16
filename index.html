@@ -216,227 +216,109 @@
 
     .ncta:hover {
       background: var(--rb) !important;
+    }
 
-      .ncta::after {
-        display: none !important;
-      }
+    .ncta::after {
+      display: none !important;
+    }
 
-      /* MOBILE MENU TRIGGER */
-      .mtog {
-        display: none;
-        background: none;
-        border: none;
-        padding: 5px;
-        z-index: 6000;
-        cursor: pointer;
-        position: relative;
-        width: 32px;
-        height: 24px;
-      }
+    /* MOBILE MENU TRIGGER */
+    .mtog {
+      display: none;
+      background: none;
+      border: none;
+      padding: 5px;
+      z-index: 6000;
+      cursor: pointer;
+      position: relative;
+      width: 32px;
+      height: 24px;
+    }
 
-      .mtog span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background: var(--w);
-        position: absolute;
-        left: 0;
-        transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
-      }
+    .mtog span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--w);
+      position: absolute;
+      left: 0;
+      transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-      .mtog span:nth-child(1) {
-        top: 0;
-      }
+    .mtog span:nth-child(1) {
+      top: 0;
+    }
 
-      .mtog span:nth-child(2) {
-        top: 10px;
-      }
+    .mtog span:nth-child(2) {
+      top: 10px;
+    }
 
-      .mtog span:nth-child(3) {
-        top: 20px;
-      }
+    .mtog span:nth-child(3) {
+      top: 20px;
+    }
 
-      .mtog.active span:nth-child(1) {
-        transform: translateY(10px) rotate(45deg);
-      }
+    .mtog.active span:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
 
-      .mtog.active span:nth-child(2) {
-        opacity: 0;
-        transform: translateX(-10px);
-      }
+    .mtog.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
 
-      .mtog.active span:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg);
-      }
+    .mtog.active span:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
 
-      /* MOBILE OVERLAY */
-      .movl {
-        position: fixed;
-        inset: 0;
-        background: rgba(8, 8, 8, 0.85);
-        backdrop-filter: blur(20px) saturate(180%);
-        z-index: 5500;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 35px;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
+    /* MOBILE OVERLAY */
+    .movl {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      z-index: 5500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-      /* Kord3-style purple glow in the menu */
-      .movl::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 250px;
-        height: 250px;
-        background: var(--kord);
-        filter: blur(150px);
-        opacity: 0.15;
-        z-index: -1;
-      }
+    /* Kord3-style purple glow in the menu */
+    .movl::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 250px;
+      background: var(--kord);
+      filter: blur(150px);
+      opacity: 0.15;
+      z-index: -1;
+    }
 
-      .movl.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
+    .movl.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
-      .movl a {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 2.5rem;
-        letter-spacing: 4px;
-        color: var(--w);
-        transition: .3s;
-      }
+    .movl a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      color: var(--w);
+      transition: .3s;
+    }
 
-      .movl a:hover {
-        color: var(--r);
-      }
-
-      /* --- MOBILE SYSTEM --- */
-      @media (max-width: 768px) {
-        body {
-          background-size: 30px 30px;
-          cursor: default !important;
-        }
-
-        #cd,
-        #cr,
-        .trp {
-          display: none !important;
-        }
-
-        nav {
-          padding: 15px 25px !important;
-          background: rgba(8, 8, 8, .98) !important;
-        }
-
-        .nls {
-          display: none !important;
-        }
-
-        .mtog {
-          display: block;
-        }
-
-        .hero-title,
-        .ht,
-        h1,
-        .hero-banner-content .hero-title {
-          font-size: 3.5rem !important;
-          line-height: 1 !important;
-        }
-
-        .hero-sub,
-        .hs {
-          font-size: 13px !important;
-          letter-spacing: 2px !important;
-        }
-
-        .hero-banner {
-          height: 350px !important;
-          padding: 40px 20px !important;
-        }
-
-        .mi {
-          font-size: 1.4rem !important;
-          padding: 0 15px !important;
-        }
-
-        .mw {
-          padding: 15px 0 !important;
-        }
-
-        section,
-        .hype-inner,
-        .instagram-section {
-          padding: 60px 25px !important;
-        }
-
-        .section-title,
-        h2,
-        .hype-title {
-          font-size: 2.5rem !important;
-        }
-
-        .section-desc {
-          font-size: 16px !important;
-          line-height: 1.6 !important;
-        }
-
-        #skills-section {
-          grid-template-columns: 1fr !important;
-          gap: 20px !important;
-        }
-
-        .c-i,
-        div[style*="gap: 60px"] {
-          gap: 20px !important;
-          flex-direction: column !important;
-        }
-
-        #contacto {
-          padding: 80px 25px 60px !important;
-        }
-
-        #contacto div[style*="font-size: 12rem"],
-        .c-w {
-          font-size: 4rem !important;
-          letter-spacing: 5px !important;
-          opacity: 0.1 !important;
-        }
-
-        #contacto a[href^="mailto:"],
-        .c-e {
-          font-size: 1.25rem !important;
-          word-break: break-all !important;
-          border-bottom-width: 2px !important;
-        }
-
-        #contacto div[style*="display: flex; justify-content: center; gap: 20px"] {
-          flex-direction: column !important;
-          gap: 12px !important;
-        }
-
-        #contacto a[style*="padding: 14px 32px"] {
-          width: 100% !important;
-          padding: 14px !important;
-          backdrop-filter: blur(5px);
-          background: rgba(255, 0, 0, 0.15);
-          border-color: #FF0000;
-        }
-
-        #contacto a[style*="background: #FF0000"] {
-          background: #FF0000 !important;
-        }
-      }
+    .movl a:hover {
+      color: var(--r);
     }
 
     /* HERO */
