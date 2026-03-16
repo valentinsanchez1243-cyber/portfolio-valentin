@@ -1,4 +1,4 @@
-# Valentín Sánchez — Portafolio
+# Valentín Sánchez — Portfolio
 
 Portafolio personal de Valentín Sánchez — Diseñador · Editor · Productor
 
