@@ -1912,26 +1912,14 @@
       }
 
       .cv-item {
-        display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 8px !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-        padding-bottom: 24px !important;
+        gap: 10px !important;
       }
 
       .cv-date {
-        width: 100% !important;
-        min-width: unset !important;
-        font-size: 0.7rem !important;
-        color: #777 !important;
-        margin-bottom: 4px !important;
-      }
-
-      .cv-content {
-        width: 100% !important;
-        padding-left: 0 !important;
-        border-left: none !important;
+        width: auto !important;
+        margin-bottom: 5px !important;
       }
     }
     /* --- MOBILE OPTIMIZATION (MAX 768PX) --- */
@@ -2380,7 +2368,8 @@
         Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la
         ejecución.</p>
       <div style="margin-bottom:40px;">
-        <a href="/cdn-cgi/l/email-protection#4c3a2d2d2029223825223f2d222f242936790c2b212d2520622f2321" style="display:inline-block;color:#ffffff;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;font-family:'Bebas Neue',sans-serif;text-transform:uppercase;text-decoration:none;letter-spacing:2px;border-bottom:3px solid #FF0000;padding-bottom:8px;"><span class="__cf_email__" data-cfemail="d88e9999949d968c91968b99969b909d82ed989f95999194f69b9795">[email&#160;protected]</span></a>
+        <a href="mailto:vaalentinsanchez5@gmail.com"
+          style="display:inline-block;color:#ffffff;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;font-family:'Bebas Neue',sans-serif;text-transform:uppercase;text-decoration:none;letter-spacing:2px;border-bottom:3px solid #FF0000;padding-bottom:8px;">VAALENTINSANCHEZ5@GMAIL.COM</a>
       </div>
       <div
         style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto 40px;padding:0 20px;color:#ffffff;font-size:0.82rem;letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;flex-wrap:wrap;gap:16px;">
@@ -2397,7 +2386,7 @@
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // === MOBILE MENU ===
     const mtog = document.getElementById('mtog');
     const movl = document.getElementById('movl');
@@ -2419,4 +2408,9 @@
     for (let i = 0; i < 7; i++) { const t = document.createElement('div'); t.classList.add('trail'); document.body.appendChild(t); trails.push({ el: t, x: 0, y: 0 }); }
     let mx = 0, my = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-    function animateTrail() { let px = mx, py = my;
+    function animateTrail() { let px = mx, py = my; trails.forEach(t => { t.x += (px - t.x) * 0.3; t.y += (py - t.y) * 0.3; t.el.style.left = t.x + 'px'; t.el.style.top = t.y + 'px'; px = t.x; py = t.y; }); requestAnimationFrame(animateTrail); }
+    animateTrail();
+  </script>
+</body>
+
+</html>
