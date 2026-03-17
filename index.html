@@ -2726,36 +2726,60 @@
       }
 
       #hero {
-        background-image: url('IMAGENES MIAS/deperfil.png') !important;
-        background-size: cover !important;
-        background-position: center bottom !important;
         height: 100vh !important;
         position: relative !important;
+        overflow: hidden !important;
+        background: var(--b) !important;
       }
 
-      /* Background opacity overlay to match desktop */
+      /* Background Layer: deperfil.png */
       #hero::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: rgba(8, 8, 8, 0.85) !important;
+        background-image: url('IMAGENES MIAS/deperfil.png') !important;
+        background-size: cover !important;
+        background-position: center bottom !important;
+        opacity: 0.15 !important;
         z-index: 1 !important;
       }
 
+      /* Foreground Layer: deperfil-recortada.png */
       .hero-cutout {
+        content: url('IMAGENES MIAS/deperfil-recortada.png') !important;
         width: 100% !important;
         height: 100% !important;
-        object-fit: contain !important; /* Better for mobile scaling */
+        object-fit: contain !important;
         object-position: center bottom !important;
         opacity: 1 !important;
-        z-index: 3 !important;
-        position: relative !important;
+        z-index: 2 !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
       }
-      
+
       .hn {
-        bottom: 180px !important; /* Adjusted for better visibility */
+        font-size: 3.2rem !important;
+        line-height: 0.9 !important;
+        text-align: center !important;
+        width: 100% !important;
+        position: absolute !important;
+        bottom: 220px !important;
+        left: 0 !important;
+        text-shadow: 0 4px 25px rgba(0, 0, 0, 1) !important;
+        z-index: 4 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
       }
-    }
+
+      .hn .acc {
+        font-size: 3.2rem !important;
+        color: var(--r) !important;
+        display: block !important;
+        margin-top: 5px !important;
+        line-height: 1 !important;
+      }
 
       .hro {
         font-size: 0.65rem !important;
@@ -2765,6 +2789,7 @@
         margin-top: 10px !important;
         margin-bottom: 25px !important;
         z-index: 5 !important;
+        position: relative !important;
       }
 
       .hc {
@@ -2773,7 +2798,7 @@
         left: 0 !important;
         width: 100% !important;
         padding: 0 20px !important;
-        z-index: 4 !important;
+        z-index: 5 !important;
       }
     }
   </style>
