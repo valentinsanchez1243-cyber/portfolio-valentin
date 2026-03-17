@@ -371,7 +371,7 @@
 
     }
 
-    /* --- PREMIUM MOBILE CURRICULUM --- */
+    /* --- ULTIMATE PREMIUM MOBILE CURRICULUM --- */
     @media (max-width: 768px) {
       body {
         cursor: auto !important;
@@ -385,78 +385,101 @@
         background: rgba(8, 8, 8, .98) !important;
       }
 
-      .cv-title {
-        font-size: 3.5rem !important;
-        line-height: 1 !important;
+      .cv-title, .st {
+        font-size: 3.2rem !important;
+        line-height: 0.9 !important;
         text-align: left !important;
         margin-bottom: 40px !important;
       }
 
-      .cv-grid {
-        grid-template-columns: 1fr !important;
-        gap: 50px !important;
-        padding: 0 5px !important;
-      }
-
-      .cv-item {
+      /* Timeline items */
+      .exi {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px !important;
         position: relative !important;
-        padding-left: 15px !important;
-        border-left: 2px solid rgba(255, 0, 0, 0.3) !important;
-        padding-bottom: 10px !important;
+        padding-left: 18px !important;
+        border-left: 2px solid var(--r) !important;
+        padding-bottom: 40px !important;
+        margin-left: 5px !important;
       }
 
-      .cv-date {
+      .exp {
         font-family: 'Barlow Condensed', sans-serif !important;
-        font-size: 0.8rem !important;
+        font-size: 0.85rem !important;
         letter-spacing: 2px !important;
         color: var(--r) !important;
         font-weight: 700 !important;
         text-transform: uppercase !important;
         margin-bottom: 0 !important;
+        min-width: unset !important;
       }
 
-      .cv-content h3 {
-        font-size: 1.5rem !important;
+      .exro {
+        font-size: 1.6rem !important;
         font-weight: 700 !important;
         line-height: 1.1 !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 5px !important;
         text-transform: uppercase !important;
+        color: #fff !important;
       }
 
-      .cv-loc {
+      .exco {
         font-size: 0.75rem !important;
-        color: #999 !important;
-        margin-bottom: 15px !important;
+        color: #777 !important;
+        margin-bottom: 12px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
       }
 
-      .cv-content p {
-        font-size: 0.9rem !important;
+      .exde {
+        font-size: 0.95rem !important;
         line-height: 1.6 !important;
-        color: #aaa !important;
+        color: #bbb !important;
+        margin-bottom: 15px !important;
       }
       
       .extg {
-        margin-top: 15px !important;
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 6px !important;
+        gap: 8px !important;
       }
 
       .extgi {
-        font-size: 0.6rem !important;
-        padding: 4px 10px !important;
+        font-size: 0.65rem !important;
+        padding: 5px 12px !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        color: #fff !important;
       }
+
+      /* Logros section tweaks */
+      .cvb {
+        margin-bottom: 40px !important;
+      }
+      
+      .cvbt {
+        font-size: 0.75rem !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 20px !important;
+      }
+
+      .cve {
+        margin-bottom: 30px !important;
+        padding-left: 15px !important;
+        border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .cvet { font-size: 1.3rem !important; margin-bottom: 5px !important; }
+      .cvedd { font-size: 0.9rem !important; color: #888 !important; }
 
       #contacto {
         padding: 100px 20px !important;
       }
       
-      .c-t {
-        font-size: 3.2rem !important;
+      .st {
+        font-size: 2.8rem !important;
+        margin-top: 60px !important;
       }
     }
 
