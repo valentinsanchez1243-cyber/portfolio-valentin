@@ -454,24 +454,65 @@
       }
 
       /* Logros section tweaks */
+      .cvw {
+        grid-template-columns: 1fr !important;
+      }
+
       .cvb {
         margin-bottom: 40px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
       }
       
       .cvbt {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         letter-spacing: 2px !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
+        color: var(--r) !important;
+        font-weight: 700 !important;
+        border-bottom: 1px solid rgba(255, 0, 0, 0.2) !important;
+        padding-bottom: 8px !important;
+        width: fit-content !important;
       }
 
       .cve {
-        margin-bottom: 30px !important;
+        margin-bottom: 0 !important;
         padding-left: 15px !important;
         border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5px !important;
       }
 
-      .cvet { font-size: 1.3rem !important; margin-bottom: 5px !important; }
-      .cvedd { font-size: 0.9rem !important; color: #888 !important; }
+      .cvet { 
+        font-size: 1.3rem !important; 
+        margin-bottom: 2px !important; 
+        color: #fff !important;
+      }
+
+      .cves {
+        font-size: 0.75rem !important;
+        color: #777 !important;
+        text-transform: uppercase !important;
+      }
+
+      .cved {
+        font-size: 0.7rem !important;
+        color: var(--r) !important;
+        font-weight: 600 !important;
+      }
+
+      .cvedd { 
+        font-size: 0.9rem !important; 
+        color: #999 !important; 
+        line-height: 1.5 !important;
+        margin-top: 5px !important;
+      }
+
+      .cvdb {
+        display: none !important; /* Removed download section */
+      }
 
       #contacto {
         padding: 100px 20px !important;
