@@ -2745,12 +2745,17 @@
       .hero-cutout {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important; /* Better for mobile scaling */
         object-position: center bottom !important;
-        opacity: 0.9 !important;
+        opacity: 1 !important;
         z-index: 3 !important;
         position: relative !important;
       }
+      
+      .hn {
+        bottom: 180px !important; /* Adjusted for better visibility */
+      }
+    }
 
       .hro {
         font-size: 0.65rem !important;
