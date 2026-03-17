@@ -2726,19 +2726,30 @@
       }
 
       #hero {
-        background-image: url('IMAGENES MIAS/dearriba.png') !important;
+        background-image: url('IMAGENES MIAS/deperfil.png') !important;
         background-size: cover !important;
-        background-position: center 15% !important;
+        background-position: center bottom !important;
         height: 100vh !important;
+        position: relative !important;
+      }
+
+      /* Background opacity overlay to match desktop */
+      #hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 8, 8, 0.85) !important;
+        z-index: 1 !important;
       }
 
       .hero-cutout {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
-        object-position: center 10% !important;
+        object-position: center bottom !important;
         opacity: 0.9 !important;
         z-index: 3 !important;
+        position: relative !important;
       }
 
       .hro {
