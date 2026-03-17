@@ -374,23 +374,31 @@
       }
 
       .cv-item {
+        display: flex !important;
         flex-direction: column !important;
+        align-items: flex-start !important;
         gap: 8px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        padding-bottom: 24px !important;
       }
 
       .cv-date {
         width: 100% !important;
+        min-width: unset !important;
         font-size: 0.7rem !important;
+        color: #777 !important;
         margin-bottom: 4px !important;
       }
 
       .cv-content {
         width: 100% !important;
         padding-left: 0 !important;
+        border-left: none !important;
       }
 
       .cv-grid {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 24px !important;
       }
 
