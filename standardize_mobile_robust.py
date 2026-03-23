@@ -140,9 +140,39 @@ mobile_css = """
         flex-direction: column !important;
         gap: 15px !important;
         text-align: center !important;
+      /* Footer */
+      footer {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
         padding: 30px 20px !important;
       }
     }
+
+    /* --- GLOBAL PARTICLES --- */
+    #bg-particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Above body background, below content */
+      pointer-events: none;
+    }
+
+    /* Standard content sections should be ABOVE particles */
+    section, .sb, .mw, .mo, #hero, .hero-banner {
+      position: relative;
+      z-index: 2; 
+    }
+    
+    /* Hero specific layers for Index and Projects */
+    .hg, .hgl { z-index: 1; }
+    .hero-cutout { z-index: 5 !important; position: absolute !important; }
+    .hc, .hero-banner-content { z-index: 6 !important; position: relative !important; }
+
+    /* Custom Cursor & Nav MUST maintain their original position/z-index */
+    nav { z-index: 5000 !important; }
+    #cd, #cr, #cursor, .trail, .trp { z-index: 9999 !important; }
 """
 
 for filename in files:
@@ -176,10 +206,49 @@ for filename in files:
         # 2. Append our new robust CSS before the closing </style> tag
         if '</style>' in temp_content:
             parts = temp_content.split('</style>')
-            # Take the last closing style tag
+            # Take the last closing style tag to catch the main block
             final_parts = ['</style>'.join(parts[:-1]), parts[-1]]
-            new_content = final_parts[0] + "\n" + mobile_css + "\n</style>" + final_parts[1]
-            
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            print(f"Purged and updated {filename}")
+            temp_content = final_parts[0] + "\n" + mobile_css + "\n</style>" + final_parts[1]
+
+        # 3. Inject Global Particles JS before closing </body>
+        particles_js = """
+  <script>
+    (function initGlobalParticles() {
+      if (document.getElementById('bg-particles')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      document.body.prepend(canvas);
+      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      resize(); window.addEventListener('resize', resize);
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({ length: 80 }, () => ({
+        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.4 + 0.1),
+        r: Math.random() * 1.5 + 0.5, op: Math.random() * 0.3 + 0.1, life: Math.random()
+      }));
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.002;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = 1; }
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,0,0,${(p.op * p.life).toFixed(3)})`; ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+"""
+        # If already has initGlobalParticles, remove it and re-inject (or just don't re-inject if preferred)
+        # To be safe, we'll replace the existing block or append if missing
+        if 'initGlobalParticles' in temp_content:
+            # Simple way: find the script block and replace it
+            temp_content = re.sub(r'\n\s*<script>\s*\(function initGlobalParticles\(\).*?<\/script>', '', temp_content, flags=re.DOTALL)
+        
+        if '</body>' in temp_content:
+            temp_content = temp_content.replace('</body>', particles_js + '\n</body>')
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(temp_content)
+        print(f"Updated {filename}")
