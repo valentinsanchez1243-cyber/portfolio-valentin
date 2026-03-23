@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:localhost)",
+      "Bash(npx playwright:)",
+      "Bash(node -e \":*)",
+      "Bash(npx playwright:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}

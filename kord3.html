@@ -357,13 +357,15 @@
     .hero-banner {
       width: 100%;
       height: 420px;
-      background-image: url('../PORTADA PROYECTOS/PORTADA-KORD3.jpg');
+      background-image: url('PORTADA PROYECTOS/PORTADA-KORD3.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 50%;
       position: relative;
       display: flex;
       align-items: flex-end;
       padding: 60px 64px;
+      animation: heroBannerFloat 10s ease-in-out infinite;
+      box-shadow: 0 0 60px rgba(255,0,0,0.25), inset 0 0 0 2px rgba(255,0,0,0.15);
     }
 
     .hero-banner::before {
@@ -674,11 +676,198 @@
 
 
     /* --- ROBUST MOBILE OVERHAUL --- */
+    /* OLD MOBILE BLOCKED */ 
+
+    /* ======= VIDEO CAROUSEL ======= */
+    .vid-carousel-section {
+      padding: 80px 64px;
+      background: #0a0a0a;
+    }
+    .vid-carousel-section .vid-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+    .vid-carousel-section .vid-heading em {
+      color: #ff0000;
+      font-style: normal;
+    }
+    .vid-carousel-section .vid-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #ff0000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .vid-carousel-section .vid-sub::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: #ff0000;
+    }
+    .vid-carousel {
+      position: relative;
+      max-width: 960px;
+      margin: 40px auto 0;
+      overflow: hidden;
+    }
+    .vid-track {
+      display: flex;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .vid-slide {
+      min-width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .vid-slide.active {
+      opacity: 1;
+    }
+    .vid-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      border: 2px solid rgba(255, 0, 0, 0.35);
+      box-shadow: 0 0 22px rgba(255, 0, 0, 0.18), 0 0 60px rgba(255, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .vid-placeholder:hover {
+      border-color: rgba(255, 0, 0, 0.65);
+      box-shadow: 0 0 35px rgba(255, 0, 0, 0.35), 0 0 80px rgba(255, 0, 0, 0.1);
+    }
+    .vid-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .vid-placeholder video,
+    .vid-placeholder iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+    .vid-ph-icon {
+      font-size: 2.8rem;
+      color: rgba(255, 0, 0, 0.45);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 14px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .vid-placeholder:hover .vid-ph-icon {
+      color: rgba(255, 0, 0, 0.75);
+      transform: scale(1.1);
+    }
+    .vid-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(255, 0, 0, 0.65);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 6px;
+    }
+    .vid-desc {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.55);
+      position: relative;
+      z-index: 1;
+    }
+    .vid-pending-tag {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
+      z-index: 1;
+    }
+    /* Custom controls */
+    .vid-btn {
+      position: absolute;
+      top: calc(50% - 24px);
+      background: rgba(8, 8, 8, 0.88);
+      border: 1px solid rgba(255, 0, 0, 0.45);
+      color: #ff0000;
+      width: 48px;
+      height: 48px;
+      font-size: 1.1rem;
+      z-index: 10;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+      cursor: pointer;
+    }
+    .vid-btn:hover {
+      background: rgba(255, 0, 0, 0.14);
+      box-shadow: 0 0 16px rgba(255, 0, 0, 0.4);
+      transform: scale(1.06);
+    }
+    .vid-prev { left: -20px; }
+    .vid-next { right: -20px; }
+    .vid-dots {
+      display: flex;
+      gap: 9px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .vid-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .vid-dot.active {
+      background: #ff0000;
+      transform: scale(1.5);
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.65);
+    }
+    /* OLD MOBILE BLOCKED */ 
+
+    @keyframes heroBannerFloat {
+      0%, 100% { background-position: center 50%; }
+      50% { background-position: center 53%; }
+    }
+
+
+    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
     @media (max-width: 768px) {
       body {
         cursor: auto !important;
+        overflow-x: hidden !important;
       }
-      #cursor, .trail, .trp, #cd, #cr {
+      #cursor, .trail, .trp, #cd, #cr, #hero-dust, .nav-p {
         display: none !important;
       }
 
@@ -690,6 +879,7 @@
         position: fixed !important;
         top: 0 !important;
         width: 100% !important;
+        z-index: 5000 !important;
       }
 
       .nls {
@@ -714,48 +904,89 @@
         z-index: 4999 !important;
       }
 
-      .hero-banner {
-        height: 380px !important;
-        padding: 40px 20px !important;
-        background-position: center !important;
+      /* Hero Sections (Both Index and Project Pages) */
+      #hero, .hero-banner {
+        height: auto !important;
+        min-height: 400px !important;
+        padding: 100px 20px 40px !important;
         display: flex !important;
-        align-items: flex-end !important;
-        justify-content: flex-start !important;
-        text-align: left !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
       }
 
-      .hero-banner-content {
+      .hero-cutout {
+        display: none !important; /* Hide complex cutout on mobile */
+      }
+
+      .hero-banner-content, .hc {
         position: relative !important;
         width: 100% !important;
         bottom: 0 !important;
         left: 0 !important;
         transform: none !important;
+        display: block !important;
       }
 
-      .hero-banner::before {
-        background: linear-gradient(to top, rgba(10, 10, 10, 1) 15%, rgba(10, 10, 10, 0.4) 100%) !important;
-      }
-
-      .hero-title {
-        font-size: 3.1rem !important;
+      .hero-title, .hn, .cv-title, .hero-banner .hero-title {
+        font-size: 3.2rem !important;
         line-height: 1 !important;
         margin-top: 10px !important;
         display: block !important;
       }
 
-      .hero-sub {
-        font-size: 0.82rem !important;
-        margin-top: 10px !important;
+      .hero-sub, .hro, .hsub, .hs {
+        font-size: 0.85rem !important;
+        margin-top: 12px !important;
         display: block !important;
         color: #ddd !important;
+        max-width: 100% !important;
       }
 
+      /* Sections and Titles */
       section {
         padding: 60px 20px !important;
       }
 
-      .section-title {
-        font-size: 1.8rem !important;
+      .section-title, .st, .ht {
+        font-size: 2rem !important;
+        line-height: 1.1 !important;
+      }
+
+      /* Grids and Layouts */
+      .sb { grid-template-columns: repeat(2, 1fr) !important; padding: 40px 20px !important; }
+      .eg, .pg, .cg, .cv-grid, .cvw, .prg, .lgg { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+      /* Timeline / Experience for Index and CV */
+      .exi {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 24px 0 !important;
+        padding-left: 15px !important;
+        border-left: 2px solid var(--r) !important;
+      }
+
+      .exp {
+        font-size: 0.8rem !important;
+        margin-bottom: 5px !important;
+      }
+
+      .exro { font-size: 1.4rem !important; }
+
+      /* Modals */
+      .md2 {
+        max-width: 95% !important;
+        padding: 0 !important;
+      }
+      .mh, .mb { padding: 25px 20px !important; }
+      
+      /* Footer */
+      footer {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
       }
     }
 
@@ -840,18 +1071,18 @@
     <div class="work-list">
       <div class="work-item">
         <h2 class="section-title">MANUAL DE MARCA</h2>
-        <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=sharing" target="_blank"
-          class="btn-red">VER →</a>
+        <!-- DRIVE_URL: Carpeta Manual de Marca Kord3 -->
+        <a href="#" target="_blank" class="btn-red" data-pending="DRIVE_URL">VER →</a>
       </div>
       <div class="work-item">
         <h2 class="section-title">REMERAS & INDUMENTARIA</h2>
-        <a href="https://drive.google.com/drive/folders/1ly87LmFk6pps-RF6W_E8Y8V2Lz5xOqOF?usp=sharing" target="_blank"
-          class="btn-red">VER →</a>
+        <!-- DRIVE_URL: Carpeta Remeras e Indumentaria Kord3 -->
+        <a href="#" target="_blank" class="btn-red" data-pending="DRIVE_URL">VER →</a>
       </div>
       <div class="work-item">
         <h2 class="section-title">PRODUCCIÓN AUDIOVISUAL</h2>
-        <a href="https://drive.google.com/drive/folders/1V8voUplreFuEApAHiCUdROz1_Y95d66C?usp=sharing" target="_blank"
-          class="btn-red">VER →</a>
+        <!-- DRIVE_URL: Carpeta Producción Audiovisual Kord3 -->
+        <a href="#" target="_blank" class="btn-red" data-pending="DRIVE_URL">VER →</a>
       </div>
       <div class="work-item">
         <h2 class="section-title">PÁGINA WEB</h2>
@@ -872,6 +1103,54 @@
       <a href="https://www.instagram.com/kord3.ar/" target="_blank" class="btn-red">VER CONTENIDO →</a>
     </div>
   </div>
+
+  <!-- CARRUSEL DE VIDEOS -->
+  <section class="vid-carousel-section reveal">
+    <div class="vid-sub">Contenido audiovisual</div>
+    <h2 class="vid-heading">VIDEOS<br><em>KORD3</em></h2>
+    <div class="vid-carousel" id="vid-carousel-kord3">
+      <div class="vid-track">
+
+        <div class="vid-slide active">
+          <div class="vid-placeholder">
+            <!-- VIDEO_URL: Video presentación Drop 4 Kord3 — reemplazar con <video src="ruta/video.mp4" autoplay muted loop playsinline> o <iframe src="..."> -->
+            <div class="vid-label">VIDEO 01</div>
+            <div class="vid-ph-icon">▶</div>
+            <div class="vid-desc">PRESENTACIÓN DROP 4</div>
+            <span class="vid-pending-tag">VIDEO PENDIENTE</span>
+          </div>
+        </div>
+
+        <div class="vid-slide">
+          <div class="vid-placeholder">
+            <!-- VIDEO_URL: Video Semana Hype 4 Kord3 -->
+            <div class="vid-label">VIDEO 02</div>
+            <div class="vid-ph-icon">▶</div>
+            <div class="vid-desc">SEMANA HYPE 4</div>
+            <span class="vid-pending-tag">VIDEO PENDIENTE</span>
+          </div>
+        </div>
+
+        <div class="vid-slide">
+          <div class="vid-placeholder">
+            <!-- VIDEO_URL: Video promo indumentaria Kord3 -->
+            <div class="vid-label">VIDEO 03</div>
+            <div class="vid-ph-icon">▶</div>
+            <div class="vid-desc">PROMO INDUMENTARIA</div>
+            <span class="vid-pending-tag">VIDEO PENDIENTE</span>
+          </div>
+        </div>
+
+      </div>
+      <button class="vid-btn vid-prev" aria-label="Anterior">&#8592;</button>
+      <button class="vid-btn vid-next" aria-label="Siguiente">&#8594;</button>
+      <div class="vid-dots">
+        <span class="vid-dot active"></span>
+        <span class="vid-dot"></span>
+        <span class="vid-dot"></span>
+      </div>
+    </div>
+  </section>
 
   <!-- SECCIÓN 5: INSTAGRAM -->
   <section class="instagram-section reveal">
@@ -921,6 +1200,57 @@
       });
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
+
+    // === VIDEO CAROUSEL ===
+    function initCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      if (!carousel) return;
+      const track  = carousel.querySelector('.vid-track');
+      const slides = Array.from(carousel.querySelectorAll('.vid-slide'));
+      const dots   = Array.from(carousel.querySelectorAll('.vid-dot'));
+      const prevBtn = carousel.querySelector('.vid-prev');
+      const nextBtn = carousel.querySelector('.vid-next');
+      let current = 0;
+      let timer = null;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current] && dots[current].classList.remove('active');
+        const prevVid = slides[current].querySelector('video');
+        if (prevVid) prevVid.pause();
+
+        current = ((index % slides.length) + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        slides[current].classList.add('active');
+        dots[current] && dots[current].classList.add('active');
+
+        const vid = slides[current].querySelector('video');
+        if (vid) { vid.currentTime = 0; vid.play().catch(() => {}); }
+      }
+
+      prevBtn && prevBtn.addEventListener('click', () => { goTo(current - 1); reset(); });
+      nextBtn && nextBtn.addEventListener('click', () => { goTo(current + 1); reset(); });
+      dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); reset(); }));
+
+      function start() { timer = setInterval(() => goTo(current + 1), 5500); }
+      function reset() { clearInterval(timer); start(); }
+
+      // Touch / swipe
+      let sx = 0;
+      carousel.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend',   e => {
+        const diff = sx - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 45) { goTo(diff > 0 ? current + 1 : current - 1); reset(); }
+      }, { passive: true });
+
+      // Autoplay only when visible
+      const vio = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) { start(); } else { clearInterval(timer); }
+      }, { threshold: 0.3 });
+      vio.observe(carousel);
+    }
+
+    initCarousel('vid-carousel-kord3');
   </script>
 </body>
 
