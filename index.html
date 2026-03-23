@@ -2220,26 +2220,15 @@
                   0 12px 40px rgba(0, 0, 0, 0.6);
     }
 
-    /* --- GLOBAL PARTICLES CANVAS --- */
-    #bg-particles {
-      position: fixed;
+    /* --- HERO DUST CANVAS --- */
+    #hero-dust {
+      position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      z-index: 0; /* Above body background, below content */
+      z-index: 2;
       pointer-events: none;
     }
-
-    /* Ensure sections and content have a relative z-index */
-    nav, section, .sb, .mw, .mo, #cd, #cr, .trp {
-      position: relative;
-      z-index: 10; 
-    }
-    
-    /* Hero sections specifically */
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5; }
-    .hc { z-index: 6; }
 
     /* --- SPLIT TEXT CHARS --- */
     .hro-char {
@@ -2266,36 +2255,6 @@
     }
 
   
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */ 
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */ 
-
-    /* --- GLOBAL PARTICLES CANVAS --- */
-    #bg-particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Ensure sections and content have a relative z-index to stay ABOVE particles */
-    nav, section, .sb, .mw, .mo, #cd, #cr, .trp, #hero, .hero-banner {
-      position: relative;
-      z-index: 10; 
-    }
-    
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5; }
-    .hc, .hero-banner-content { z-index: 6; }
-
-
 
     /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
     @media (max-width: 768px) {
@@ -2425,26 +2384,6 @@
         padding: 30px 20px !important;
       }
     }
-
-    /* --- GLOBAL PARTICLES CANVAS --- */
-    #bg-particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Ensure sections and content have a relative z-index to stay ABOVE particles */
-    nav, section, .sb, .mw, .mo, #cd, #cr, .trp, #hero, .hero-banner {
-      position: relative;
-      z-index: 10; 
-    }
-    
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5; }
-    .hc, .hero-banner-content { z-index: 6; }
 
 </style>
 </head>
@@ -3357,10 +3296,10 @@
     })();
 
     // ===================================================
-    // 3. CINEMATIC HERO TEXT + GLOBAL PARTICLES
+    // 3. HERO CINEMATIC: split text .hro + dust particles
     // ===================================================
-    (function cinematicEffects() {
-      // 3.1 Split text .hro char by char
+    (function heroCinematic() {
+      // Split text .hro char by char con stagger
       const hro = document.querySelector('.hro');
       if (hro) {
         const nodes = Array.from(hro.childNodes);
@@ -3368,9 +3307,11 @@
         let delay = 0.75;
         nodes.forEach(node => {
           if (node.nodeType === 3) {
+            // plain text
             [...node.textContent].forEach(ch => {
-              if (ch === ' ') hro.appendChild(document.createTextNode(' '));
-              else {
+              if (ch === ' ') {
+                hro.appendChild(document.createTextNode(' '));
+              } else {
                 const s = document.createElement('span');
                 s.className = 'hro-char';
                 s.textContent = ch;
@@ -3380,11 +3321,13 @@
               }
             });
           } else if (node.nodeType === 1) {
+            // element node (los <span> de Diseñador, Editor, Productor)
             const clone = node.cloneNode(false);
             clone.innerHTML = '';
             [...node.textContent].forEach(ch => {
-              if (ch === ' ') clone.appendChild(document.createTextNode(' '));
-              else {
+              if (ch === ' ') {
+                clone.appendChild(document.createTextNode(' '));
+              } else {
                 const s = document.createElement('span');
                 s.className = 'hro-char';
                 s.textContent = ch;
@@ -3397,87 +3340,56 @@
           }
         });
         hro.style.opacity = '1';
+        hro.style.animation = 'none';
       }
 
-      // 3.2 Global Particles Canvas
+      // Dust particles canvas en el hero
+      const hero = document.getElementById('hero');
+      if (!hero) return;
       const canvas = document.createElement('canvas');
-      canvas.id = 'bg-particles';
-      document.body.prepend(canvas);
+      canvas.id = 'hero-dust';
+      hero.insertBefore(canvas, hero.firstChild);
 
-      function resize() {
-        canvas.width  = window.innerWidth;
-        canvas.height = window.innerHeight;
+      function resizeCanvas() {
+        canvas.width  = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
       }
-      resize();
-      window.addEventListener('resize', resize);
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
 
       const ctx = canvas.getContext('2d');
-      const COUNT = 75; // More particles for the whole page
-      const particles = Array.from({ length: COUNT }, () => ({
+      const DUST = 55;
+      const dust = Array.from({ length: DUST }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: -(Math.random() * 0.45 + 0.1),
-        r:  Math.random() * 1.8 + 0.5,
-        op: Math.random() * 0.35 + 0.1,
-        life: Math.random() * 0.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: -(Math.random() * 0.38 + 0.08),
+        r:  Math.random() * 1.6 + 0.4,
+        op: Math.random() * 0.3 + 0.07,
+        life: Math.random(),
       }));
 
-      function draw() {
+      (function drawDust() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
+        dust.forEach(p => {
           p.x    += p.vx;
           p.y    += p.vy;
-          p.life -= 0.0015;
-          
-          if (p.y < -10 || p.life <= 0) {
+          p.life -= 0.002;
+          if (p.y < -5 || p.life <= 0) {
             p.x    = Math.random() * canvas.width;
-            p.y    = canvas.height + 10;
-            p.life = 1.0;
+            p.y    = canvas.height + 5;
+            p.life = Math.random() * 0.6 + 0.4;
           }
-          if (p.x < -10) p.x = canvas.width + 10;
-          if (p.x > canvas.width + 10) p.x = -10;
-
           const alpha = Math.max(0, p.op * p.life);
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(255,0,0,${alpha.toFixed(3)})`;
           ctx.fill();
         });
-        requestAnimationFrame(draw);
-      }
-      draw();
+        requestAnimationFrame(drawDust);
+      })();
     })();
 
-  </script>
-
-
-  <script>
-    (function initGlobalParticles() {
-      if (document.getElementById('bg-particles')) return;
-      const canvas = document.createElement('canvas');
-      canvas.id = 'bg-particles';
-      document.body.prepend(canvas);
-      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-      resize(); window.addEventListener('resize', resize);
-      const ctx = canvas.getContext('2d');
-      const particles = Array.from({ length: 80 }, () => ({
-        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.4 + 0.1),
-        r: Math.random() * 1.5 + 0.5, op: Math.random() * 0.3 + 0.1, life: Math.random()
-      }));
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy; p.life -= 0.002;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = 1; }
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,0,0,${(p.op * p.life).toFixed(3)})`; ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
   </script>
 
 </body>

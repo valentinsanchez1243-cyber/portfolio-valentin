@@ -682,36 +682,6 @@
 
 
     /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */ 
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */ 
-
-    /* --- GLOBAL PARTICLES CANVAS --- */
-    #bg-particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Ensure sections and content have a relative z-index to stay ABOVE particles */
-    nav, section, .sb, .mw, .mo, #cd, #cr, .trp, #hero, .hero-banner {
-      position: relative;
-      z-index: 10; 
-    }
-    
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5; }
-    .hc, .hero-banner-content { z-index: 6; }
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
     @media (max-width: 768px) {
       body {
         cursor: auto !important;
@@ -839,26 +809,6 @@
         padding: 30px 20px !important;
       }
     }
-
-    /* --- GLOBAL PARTICLES CANVAS --- */
-    #bg-particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Ensure sections and content have a relative z-index to stay ABOVE particles */
-    nav, section, .sb, .mw, .mo, #cd, #cr, .trp, #hero, .hero-banner {
-      position: relative;
-      z-index: 10; 
-    }
-    
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5; }
-    .hc, .hero-banner-content { z-index: 6; }
 
 </style>
 </head>
@@ -1055,35 +1005,6 @@
     function initCarousel(id){const c=document.getElementById(id);if(!c)return;const track=c.querySelector('.vid-track'),slides=Array.from(c.querySelectorAll('.vid-slide')),dots=Array.from(c.querySelectorAll('.vid-dot')),prev=c.querySelector('.vid-prev'),next=c.querySelector('.vid-next');let cur=0,timer=null;function goTo(i){slides[cur].classList.remove('active');dots[cur]&&dots[cur].classList.remove('active');const pv=slides[cur].querySelector('video');pv&&pv.pause();cur=((i%slides.length)+slides.length)%slides.length;track.style.transform=`translateX(-${cur*100}%)`;slides[cur].classList.add('active');dots[cur]&&dots[cur].classList.add('active');const v=slides[cur].querySelector('video');v&&(v.currentTime=0,v.play().catch(()=>{}))}prev&&prev.addEventListener('click',()=>{goTo(cur-1);reset()});next&&next.addEventListener('click',()=>{goTo(cur+1);reset()});dots.forEach((d,i)=>d.addEventListener('click',()=>{goTo(i);reset()}));function start(){timer=setInterval(()=>goTo(cur+1),5500)}function reset(){clearInterval(timer);start()}let sx=0;c.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});c.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;Math.abs(d)>45&&(goTo(d>0?cur+1:cur-1),reset())},{passive:true});const vio=new IntersectionObserver(([e])=>{e.isIntersecting?start():clearInterval(timer)},{threshold:.3});vio.observe(c)}
     initCarousel('vid-carousel-agency');
   </script>
-
-  <script>
-    (function initGlobalParticles() {
-      if (document.getElementById('bg-particles')) return;
-      const canvas = document.createElement('canvas');
-      canvas.id = 'bg-particles';
-      document.body.prepend(canvas);
-      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-      resize(); window.addEventListener('resize', resize);
-      const ctx = canvas.getContext('2d');
-      const particles = Array.from({ length: 80 }, () => ({
-        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.4 + 0.1),
-        r: Math.random() * 1.5 + 0.5, op: Math.random() * 0.3 + 0.1, life: Math.random()
-      }));
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy; p.life -= 0.002;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = 1; }
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,0,0,${(p.op * p.life).toFixed(3)})`; ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-  </script>
-
 </body>
 
 </html>
