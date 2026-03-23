@@ -143,6 +143,26 @@ mobile_css = """
         padding: 30px 20px !important;
       }
     }
+
+    /* --- GLOBAL PARTICLES CANVAS --- */
+    #bg-particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Ensure sections and content have a relative z-index to stay ABOVE particles */
+    nav, section, .sb, .mw, .mo, #cd, #cr, .trp, #hero, .hero-banner {
+      position: relative;
+      z-index: 10; 
+    }
+    
+    .hg, .hgl { z-index: 1; }
+    .hero-cutout { z-index: 5; }
+    .hc, .hero-banner-content { z-index: 6; }
 """
 
 for filename in files:
@@ -178,8 +198,42 @@ for filename in files:
             parts = temp_content.split('</style>')
             # Take the last closing style tag
             final_parts = ['</style>'.join(parts[:-1]), parts[-1]]
-            new_content = final_parts[0] + "\n" + mobile_css + "\n</style>" + final_parts[1]
-            
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            print(f"Purged and updated {filename}")
+            temp_content = final_parts[0] + "\n" + mobile_css + "\n</style>" + final_parts[1]
+
+        # 3. Inject Global Particles JS before closing </body>
+        # We check if it's already there to avoid duplicates
+        particles_js = """
+  <script>
+    (function initGlobalParticles() {
+      if (document.getElementById('bg-particles')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      document.body.prepend(canvas);
+      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      resize(); window.addEventListener('resize', resize);
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({ length: 80 }, () => ({
+        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.4 + 0.1),
+        r: Math.random() * 1.5 + 0.5, op: Math.random() * 0.3 + 0.1, life: Math.random()
+      }));
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.002;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = 1; }
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,0,0,${(p.op * p.life).toFixed(3)})`; ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+"""
+        if '</body>' in temp_content and 'initGlobalParticles' not in temp_content:
+            temp_content = temp_content.replace('</body>', particles_js + '\n</body>')
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(temp_content)
+        print(f"Updated {filename} with Global Particles")
