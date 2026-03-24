@@ -2286,64 +2286,127 @@
       animation: charIn 0.35s ease both;
     }
 
-    /* --- MOBILE FIXES --- */
-    /* OLD MOBILE BLOCKED */
-
-    @media (max-width: 480px) {
-
-      /* Email contacto no overflow */
-      .cem,
-      a[href^="mailto:"] {
-        font-size: 0.95rem !important;
-        word-break: break-all !important;
-        letter-spacing: 0 !important;
-      }
-
-      /* Proceso: steps más compactos */
-      .prn {
-        width: 56px !important;
-        height: 56px !important;
-        font-size: 1.2rem !important;
-      }
-    }
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
+    /* ===================================================
+       VS PORTFOLIO — CONSOLIDATED MOBILE LAYOUT (MAX 768PX)
+       =================================================== */
     @media (max-width: 768px) {
-      body {
-        cursor: auto !important;
+
+      /* General Layout Fixes */
+      html, body {
         overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
+        cursor: auto !important;
       }
 
+      /* HERO MOBILE — DEFINITIVE RULES */
+      #hero {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+          url('IMAGENES MIAS/deperfil-mobile.png') !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
+        position: relative !important;
+        overflow: hidden !important;
+        background-position: right center !important;
+        background-size: cover !important;
+        display: block !important;
+      }
+
+      #hero::after {
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, 
+          rgba(0,0,0,0.2) 60%, transparent 100%) !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+      }
+
+      .hero-cutout {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        width: auto !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: right top !important;
+        z-index: 3 !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
+
+      .hn {
+        position: absolute !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        text-align: center !important;
+        top: 30% !important;
+        left: 0 !important;
+        font-size: 3.2rem !important;
+        line-height: 1 !important;
+        color: white !important;
+      }
+
+      #hero .hc {
+        position: absolute !important;
+        z-index: 5 !important;
+        bottom: 60px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 20px !important;
+        display: block !important;
+        transform: none !important;
+      }
+
+      .hro {
+        font-size: 0.85rem !important;
+        color: #ddd !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        display: block !important;
+        letter-spacing: 1px !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        width: 100% !important;
+      }
+
+      .hbt {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .hbt a {
+        width: 80% !important;
+        text-align: center !important;
+        max-width: 280px !important;
+        margin: 0 !important;
+        padding: 14px !important;
+        justify-content: center !important;
+        display: flex !important;
+      }
+
+      /* Global Elements Cleanup */
       #bg-particles {
         display: block !important;
         opacity: 1 !important;
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 9 !important;
+        pointer-events: none !important;
+        transition: opacity 0.6s !important;
       }
 
-      #bg-particles {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        pointer-events: none;
-        opacity: 1;
-        transition: opacity 0.6s;
-      }
-
-      #cursor,
-      .trail,
-      .trp,
-      #cd,
-      #cr,
-      #hero-dust,
-      .nav-p {
+      #cursor, .trail, .trp, #cd, #cr, #hero-dust, .nav-p, .nls {
         display: none !important;
       }
 
@@ -2358,10 +2421,6 @@
         z-index: 5000 !important;
       }
 
-      .nls {
-        display: none !important;
-      }
-
       .mtog {
         display: block !important;
         position: fixed !important;
@@ -2370,765 +2429,104 @@
         z-index: 6000 !important;
       }
 
-      .back-btn {
-        position: fixed !important;
-        top: 80px !important;
-        left: 20px !important;
-        padding: 8px 14px !important;
-        font-size: 0.8rem !important;
-        display: inline-block !important;
-        z-index: 4999 !important;
-      }
-
-      /* Hero Sections (Both Index and Project Pages) */
-      #hero,
-      .hero-banner {
-        height: 100vh !important;
-        min-height: 100vh !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-      }
-
-      .hero-cutout {
-        display: block !important;
-        /* Hide complex cutout on mobile */
-      }
-
-      .hero-banner-content,
-      .hc {
-        position: relative !important;
-        width: 100% !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        display: block !important;
-      }
-
-      .hero-title,
-      .hn,
-      .cv-title,
-      .hero-banner .hero-title {
-        font-size: 3.2rem !important;
-        line-height: 1 !important;
-        margin-top: 10px !important;
-        display: block !important;
-      }
-
-      .hero-sub,
-      .hro,
-      .hsub,
-      .hs {
-        font-size: 0.85rem !important;
-        margin-top: 12px !important;
-        display: block !important;
-        color: #ddd !important;
-        max-width: 100% !important;
-      }
-
-      /* Sections and Titles */
+      /* Sections & Typography */
       section {
         padding: 60px 20px !important;
       }
 
-      .section-title,
-      .st,
-      .ht {
-        font-size: 2rem !important;
+      .st, .ht, .section-title {
+        font-size: 2.5rem !important;
         line-height: 1.1 !important;
       }
 
-      /* Grids and Layouts */
+      /* SOBRE MÍ — FULL COLUMN */
+      #sobre {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 60px 20px !important;
+        overflow: hidden !important;
+      }
+      #sobre .sph { display: none !important; }
+      #sobre .sbt { width: 100% !important; max-width: 100% !important; padding: 0 !important; }
+      #sobre p { width: 100% !important; word-break: break-word !important; font-size: 0.95rem !important; }
+      #skills-section { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 30px !important; margin-top: 40px !important; }
+
+      /* STATS */
       .sb {
         grid-template-columns: repeat(2, 1fr) !important;
         padding: 40px 20px !important;
       }
 
-      .eg,
-      .pg,
-      .cg,
-      .cv-grid,
-      .cvw,
-      .prg,
-      .lgg {
+      /* PROYECTOS GRID */
+      .pg {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
       }
 
-      /* Timeline / Experience for Index and CV */
-      .exi {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-        padding: 24px 0 !important;
-        padding-left: 15px !important;
-        border-left: 2px solid var(--r) !important;
-      }
-
-      .exp {
-        font-size: 0.8rem !important;
-        margin-bottom: 5px !important;
-      }
-
-      .exro {
-        font-size: 1.4rem !important;
-      }
-
-      /* Modals */
-      .md2 {
-        max-width: 95% !important;
-        padding: 0 !important;
-      }
-
-      .mh,
-      .mb {
-        padding: 25px 20px !important;
-      }
-
-      /* Footer */
-      footer {
-        flex-direction: column !important;
-        gap: 15px !important;
-        text-align: center !important;
-
-        /* Footer */
-        footer {
-          flex-direction: column !important;
-          gap: 15px !important;
-          text-align: center !important;
-          padding: 30px 20px !important;
-        }
-      }
-
-      /* --- GLOBAL PARTICLES --- */
-      /* --- GLOBAL PARTICLES --- */
-      /* --- GLOBAL PARTICLES --- */
-      #bg-particles {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        pointer-events: none;
-        opacity: 1;
-        transition: opacity 0.6s;
-      }
-
-      /* Standard content sections should be ABOVE particles */
-      section,
-      .sb,
-      .mw,
-      .mo,
-      #hero,
-      .hero-banner {
-        position: relative;
-        z-index: 2;
-      }
-
-      /* Hero specific layers for Index and Projects */
-      .hg,
-      .hgl {
-        z-index: 1;
-      }
-
-      .hero-cutout {
-        z-index: 5 !important;
-        position: absolute !important;
-      }
-
-      .hc,
-      .hero-banner-content {
-        z-index: 6 !important;
+      /* SERVICIOS — CARDS WITH NUMBERS & BORDERS */
+      #servicios { padding: 40px 16px !important; background: #fff !important; }
+      .svl { display: flex !important; flex-direction: column !important; gap: 0 !important; }
+      .svi {
         position: relative !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        margin-bottom: 24px !important;
+        padding: 24px 20px 20px !important;
+        border-left: 4px solid #e00000 !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+        background: #f9f9f9 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
       }
-
-      /* Custom Cursor & Nav MUST maintain their original position/z-index */
-      nav {
-        z-index: 5000 !important;
+      .svnum {
+        font-size: 6rem !important;
+        opacity: 0.08 !important;
+        position: absolute !important;
+        top: 10px !important;
+        right: 16px !important;
+        z-index: 0 !important;
+        color: #e00000 !important;
+        pointer-events: none !important;
+        line-height: 0.8 !important;
       }
+      .svn { position: relative !important; z-index: 1 !important; font-size: 1.2rem !important; text-transform: uppercase !important; margin-bottom: 12px !important; color: #0a0a0a !important; font-weight: 800 !important; }
+      .svn::after { content: '' !important; display: block !important; width: 40px !important; height: 2px !important; background: #e00000 !important; margin-top: 8px !important; }
+      .svd { position: relative !important; z-index: 1 !important; display: block !important; font-size: 0.9rem !important; line-height: 1.6 !important; color: #333 !important; margin-bottom: 16px !important; }
+      .svtg { position: relative !important; z-index: 1 !important; display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
+      .svt { background: transparent !important; border: 1px solid #e00000 !important; color: #e00000 !important; border-radius: 2px !important; padding: 4px 10px !important; font-size: 0.7rem !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; }
 
-      #cd,
-      #cr,
-      #cursor,
-      .trail,
-      .trp {
-        z-index: 9999 !important;
+      /* EL PROCESO (TIMELINE) */
+      #proceso { padding: 60px 20px !important; }
+      .prg { display: flex !important; flex-direction: column !important; position: relative !important; padding-left: 20px !important; }
+      .prg::after { display: none !important; }
+      .prg::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px; background: rgba(204, 0, 0, 0.2); z-index: 1; }
+      .prs { width: 100% !important; text-align: left !important; padding: 0 0 40px 40px !important; margin: 0 !important; position: relative !important; }
+      .prn { position: absolute !important; left: -32px; top: 0; margin: 0 !important; z-index: 5 !important; width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
+      .prt { font-size: 1rem !important; margin-bottom: 10px !important; color: #fff !important; }
+      .prd { font-size: 0.85rem !important; line-height: 1.6 !important; }
+
+      /* SECCIÓN CONTACTO — VERTICAL FLOW */
+      #contacto { padding: 80px 20px !important; }
+      #contacto div[style*="z-index:2"] { padding: 0 !important; width: 100% !important; }
+      #contacto h2 { font-size: 2.8rem !important; margin-bottom: 25px !important; }
+      #contacto p { font-size: 0.95rem !important; margin-bottom: 30px !important; }
+      #contacto a[href^="mailto"] { font-size: 1.1rem !important; word-break: break-all !important; border-bottom-width: 2px !important; }
+      #contacto div[style*="justify-content:space-between"] { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 20px !important; margin-top: 40px !important; }
+      #contacto span { font-size: 0.75rem !important; display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; }
+      #contacto div[style*="justify-content:center;gap:16px"] { flex-direction: column !important; gap: 12px !important; margin-top: 40px !important; width: 100% !important; align-items: center !important; }
+      #contacto div[style*="justify-content:center;gap:16px"] a { width: 100% !important; max-width: 300px !important; padding: 14px !important; display: flex !important; justify-content: center !important; }
+      
+      /* Footer */
+      footer { flex-direction: column !important; gap: 15px !important; text-align: center !important; padding: 30px 20px !important; }
+
+      /* Specific Small Screen Fix */
+      @media (max-width: 480px) {
+        .cem, a[href^="mailto:"] { font-size: 0.95rem !important; }
+        .prn { width: 56px !important; height: 56px !important; font-size: 1.2rem !important; }
       }
-
-
-
-      /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-      @media (max-width: 768px) {
-        body {
-          cursor: auto !important;
-          overflow-x: hidden !important;
-        }
-
-        #cursor,
-        .trail,
-        .trp,
-        #cd,
-        #cr,
-        #hero-dust,
-        .nav-p {
-          display: none !important;
-        }
-
-        nav {
-          display: flex !important;
-          justify-content: space-between !important;
-          padding: 15px 20px !important;
-          background: rgba(8, 8, 8, .98) !important;
-          position: fixed !important;
-          top: 0 !important;
-          width: 100% !important;
-          z-index: 5000 !important;
-        }
-
-        .nls {
-          display: none !important;
-        }
-
-        .mtog {
-          display: block !important;
-          position: fixed !important;
-          top: 20px !important;
-          right: 20px !important;
-          z-index: 6000 !important;
-        }
-
-        .back-btn {
-          position: fixed !important;
-          top: 80px !important;
-          left: 20px !important;
-          padding: 8px 14px !important;
-          font-size: 0.8rem !important;
-          display: inline-block !important;
-          z-index: 4999 !important;
-        }
-
-        /* Hero Sections (Both Index and Project Pages) */
-        #hero,
-        .hero-banner {
-          height: auto !important;
-          min-height: 400px !important;
-          padding: 100px 20px 40px !important;
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: center !important;
-          align-items: center !important;
-          text-align: center !important;
-        }
-
-        .hero-cutout {
-          display: block !important;
-          /* Hide complex cutout on mobile */
-        }
-
-        .hero-banner-content,
-        .hc {
-          position: relative !important;
-          width: 100% !important;
-          bottom: 0 !important;
-          left: 0 !important;
-          transform: none !important;
-          display: block !important;
-        }
-
-        .hero-title,
-        .hn,
-        .cv-title,
-        .hero-banner .hero-title {
-          font-size: 3.2rem !important;
-          line-height: 1 !important;
-          margin-top: 10px !important;
-          display: block !important;
-        }
-
-        .hero-sub,
-        .hro,
-        .hsub,
-        .hs {
-          font-size: 0.85rem !important;
-          margin-top: 12px !important;
-          display: block !important;
-          color: #ddd !important;
-          max-width: 100% !important;
-        }
-
-        /* Sections and Titles */
-        section {
-          padding: 60px 20px !important;
-        }
-
-        .section-title,
-        .st,
-        .ht {
-          font-size: 2rem !important;
-          line-height: 1.1 !important;
-        }
-
-        /* Grids and Layouts */
-        .sb {
-          grid-template-columns: repeat(2, 1fr) !important;
-          padding: 40px 20px !important;
-        }
-
-        .eg,
-        .pg,
-        .cg,
-        .cv-grid,
-        .cvw,
-        .prg,
-        .lgg {
-          grid-template-columns: 1fr !important;
-          gap: 20px !important;
-        }
-
-        /* Timeline / Experience for Index and CV */
-        .exi {
-          grid-template-columns: 1fr !important;
-          gap: 12px !important;
-          padding: 24px 0 !important;
-          padding-left: 15px !important;
-          border-left: 2px solid var(--r) !important;
-        }
-
-        .exp {
-          font-size: 0.8rem !important;
-          margin-bottom: 5px !important;
-        }
-
-        .exro {
-          font-size: 1.4rem !important;
-        }
-
-        /* Modals */
-        .md2 {
-          max-width: 95% !important;
-          padding: 0 !important;
-        }
-
-        .mh,
-        .mb {
-          padding: 25px 20px !important;
-        }
-
-        /* Footer */
-        /* Footer */
-        footer {
-          flex-direction: column !important;
-          gap: 15px !important;
-          text-align: center !important;
-          padding: 30px 20px !important;
-        }
-
-        /* --- GLOBAL PARTICLES --- */
-        /* --- GLOBAL PARTICLES --- */
-        /* --- GLOBAL PARTICLES --- */
-        #bg-particles {
-          position: fixed;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 9;
-          pointer-events: none;
-          opacity: 1;
-          transition: opacity 0.6s;
-        }
-
-        /* Standard content sections should be ABOVE particles */
-        section,
-        .sb,
-        .mw,
-        .mo,
-        #hero,
-        .hero-banner {
-          position: relative;
-          z-index: 2;
-        }
-
-        /* Hero specific layers for Index and Projects */
-        .hg,
-        .hgl {
-          z-index: 1;
-        }
-
-        .hero-cutout {
-          z-index: 5 !important;
-          position: absolute !important;
-        }
-
-        .hc,
-        .hero-banner-content {
-          z-index: 6 !important;
-          position: relative !important;
-        }
-
-        /* Custom Cursor & Nav MUST maintain their original position/z-index */
-        nav {
-          z-index: 5000 !important;
-        }
-
-        #cd,
-        #cr,
-        #cursor,
-        .trail,
-        .trp {
-          z-index: 9999 !important;
-        }
-
-        /* ===================================================
-       VS PORTFOLIO — FINAL MOBILE CORRECTIONS (MAX 768PX)
-       =================================================== */
-        /* ===================================================
-       VS PORTFOLIO — FINAL MOBILE LAYOUT (MAX 768PX)
-       =================================================== */
-        /* ===================================================
-           VS PORTFOLIO — DEFINITIVE MOBILE LAYOUT
-           =================================================== */
-        @media (max-width: 768px) {
-
-          /* General Layout Fixes */
-          html,
-          body {
-            overflow-x: hidden !important;
-            width: 100% !important;
-            position: relative !important;
-          }
-
-          /* HERO MOBILE — DEFINITIVE RULES */
-          #hero {
-            height: 100vh !important;
-            min-height: 100vh !important;
-            padding: 0 !important;
-            position: relative !important;
-            overflow: hidden !important;
-            background-position: right center !important;
-            background-size: cover !important;
-          }
-
-          /* Global overlay for readability */
-          #hero::after {
-            content: '' !important;
-            position: absolute !important;
-            inset: 0 !important;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%) !important;
-            z-index: 2 !important;
-            pointer-events: none !important;
-          }
-
-          .hero-cutout {
-            display: block !important;
-            position: absolute !important;
-            top: 0 !important;
-            right: 0 !important;
-            left: auto !important;
-            width: auto !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            object-position: right top !important;
-            z-index: 3 !important;
-            margin: 0 !important;
-            transform: none !important;
-          }
-
-          .hn {
-            position: absolute !important;
-            z-index: 1 !important;
-            width: 100% !important;
-            text-align: center !important;
-            top: 35% !important;
-            left: 0 !important;
-            font-size: 3.2rem !important;
-            line-height: 1 !important;
-            color: white !important;
-          }
-
-          #hero .hc {
-            position: absolute !important;
-            z-index: 5 !important;
-            bottom: 60px !important;
-            left: 0 !important;
-            right: 0 !important;
-            width: 100% !important;
-            text-align: center !important;
-            padding: 0 20px !important;
-            display: block !important;
-            transform: none !important;
-          }
-
-          .hro {
-            font-size: 0.85rem !important;
-            color: #ddd !important;
-            text-align: center !important;
-            margin-bottom: 20px !important;
-            display: block !important;
-            letter-spacing: 1px !important;
-            background: none !important;
-            backdrop-filter: none !important;
-            width: 100% !important;
-          }
-
-          .hbt {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 12px !important;
-            width: 100% !important;
-          }
-
-          .hbt a {
-            width: 80% !important;
-            text-align: center !important;
-            max-width: 280px !important;
-            margin: 0 !important;
-            padding: 14px !important;
-            justify-content: center !important;
-            display: flex !important;
-          }
-
-          /* SOBRE MÍ — FULL COLUMN */
-          #sobre {
-            display: flex !important;
-            flex-direction: column !important;
-            width: 100% !important;
-            padding: 60px 20px !important;
-            overflow: hidden !important;
-          }
-
-          #sobre .sph {
-            display: none !important;
-          }
-
-          #sobre .sbt {
-            width: 100% !important;
-            max-width: 100% !important;
-            padding: 0 !important;
-          }
-
-          #sobre .st {
-            font-size: 2.5rem !important;
-            line-height: 1.1 !important;
-          }
-
-          #sobre p {
-            width: 100% !important;
-            word-break: break-word !important;
-            font-size: 0.95rem !important;
-          }
-
-          #skills-section {
-            display: flex !important;
-            flex-direction: column !important;
-            width: 100% !important;
-            gap: 30px !important;
-            margin-top: 40px !important;
-          }
-
-          /* SERVICIOS — CARDS WITH NUMBERS & BORDERS */
-          #servicios {
-            padding: 40px 16px !important;
-            background: #fff !important;
-          }
-
-          .svl {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 0 !important;
-          }
-
-          .svi {
-            position: relative !important;
-            overflow: hidden !important;
-            width: 100% !important;
-            margin-bottom: 24px !important;
-            padding: 24px 20px 20px !important;
-            border-left: 4px solid #e00000 !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-            background: #f9f9f9 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-          }
-
-          .svnum {
-            font-size: 6rem !important;
-            opacity: 0.08 !important;
-            position: absolute !important;
-            top: 10px !important;
-            right: 16px !important;
-            z-index: 0 !important;
-            color: #e00000 !important;
-            pointer-events: none !important;
-            line-height: 0.8 !important;
-          }
-
-          .svn {
-            position: relative !important;
-            z-index: 1 !important;
-            font-size: 1.2rem !important;
-            text-transform: uppercase !important;
-            margin-bottom: 12px !important;
-            color: #0a0a0a !important;
-            font-weight: 800 !important;
-          }
-
-          .svn::after {
-            content: '' !important;
-            display: block !important;
-            width: 40px !important;
-            height: 2px !important;
-            background: #e00000 !important;
-            margin-top: 8px !important;
-          }
-
-          .svd {
-            position: relative !important;
-            z-index: 1 !important;
-            display: block !important;
-            font-size: 0.9rem !important;
-            line-height: 1.6 !important;
-            color: #333 !important;
-            margin-bottom: 16px !important;
-          }
-
-          .svtg {
-            position: relative !important;
-            z-index: 1 !important;
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 8px !important;
-          }
-
-          .svt {
-            background: transparent !important;
-            border: 1px solid #e00000 !important;
-            color: #e00000 !important;
-            border-radius: 2px !important;
-            padding: 4px 10px !important;
-            font-size: 0.7rem !important;
-            letter-spacing: 0.1em !important;
-            text-transform: uppercase !important;
-          }
-
-          /* EL PROCESO (TIMELINE) */
-          #proceso {
-            padding: 60px 20px !important;
-          }
-
-          .prg {
-            display: flex !important;
-            flex-direction: column !important;
-            position: relative !important;
-            padding-left: 20px !important;
-          }
-
-          .prg::after {
-            display: none !important;
-          }
-
-          .prg::before {
-            content: '';
-            position: absolute;
-            left: 35px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(204, 0, 0, 0.2);
-            z-index: 1;
-          }
-
-          .prs {
-            width: 100% !important;
-            text-align: left !important;
-            padding: 0 0 40px 40px !important;
-            margin: 0 !important;
-            position: relative !important;
-          }
-
-          .prn {
-            position: absolute !important;
-            left: -32px;
-            top: 0;
-            margin: 0 !important;
-            z-index: 5 !important;
-            width: 60px !important;
-            height: 60px !important;
-            font-size: 1.3rem !important;
-          }
-
-          .prt {
-            font-size: 1rem !important;
-            margin-bottom: 10px !important;
-            color: #fff !important;
-          }
-
-          .prd {
-            font-size: 0.85rem !important;
-            line-height: 1.6 !important;
-          }
-
-          /* SECCIÓN CONTACTO — VERTICAL FLOW */
-          #contacto {
-            padding: 80px 20px !important;
-          }
-
-          #contacto div[style*="z-index:2"] {
-            padding: 0 !important;
-            width: 100% !important;
-          }
-
-          #contacto h2 {
-            font-size: 2.8rem !important;
-            margin-bottom: 25px !important;
-          }
-
-          #contacto p {
-            font-size: 0.95rem !important;
-            margin-bottom: 30px !important;
-          }
-
-          #contacto a[href^="mailto"] {
-            font-size: 1.1rem !important;
-            word-break: break-all !important;
-            border-bottom-width: 2px !important;
-          }
-
-          #contacto div[style*="justify-content:space-between"] {
-            flex-direction: column !important;
-            align-items: center !important;
-            text-align: center !important;
-            gap: 20px !important;
-            margin-top: 40px !important;
-          }
-
-          #contacto span {
-            font-size: 0.75rem !important;
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: 8px !important;
-          }
-
-          #contacto div[style*="justify-content:center;gap:16px"] {
-            flex-direction: column !important;
-            gap: 12px !important;
-            margin-top: 40px !important;
-            width: 100% !important;
-            align-items: center !important;
-          }
-
-          #contacto div[style*="justify-content:center;gap:16px"] a {
-            width: 100% !important;
-            max-width: 300px !important;
-            padding: 14px !important;
-            display: flex !important;
-            justify-content: center !important;
-          }
-        }
+    }
   </style>
 </head>
 
