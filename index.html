@@ -2794,47 +2794,70 @@
       /* CORRECCIÓN 1 — PORTADA (HERO) */
       #hero {
         width: 100% !important;
-        height: auto !important;
-        min-height: 100vh !important;
+        height: 100vh !important;
+        min-height: 600px !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
-        align-items: center !important;
-        padding: 80px 20px !important;
-        text-align: center !important;
+        align-items: flex-start !important; /* Texto a la izquierda */
+        padding: 0 25px !important;
+        text-align: left !important;
+        position: relative !important;
+        overflow: hidden !important;
       }
       #hero .hero-cutout {
-        display: none !important; /* Ocultar foto de costado en mobile */
+        display: block !important;
+        position: absolute !important;
+        right: -10% !important; /* Alineada a la derecha */
+        bottom: 0 !important;
+        width: 65% !important; /* Entre 50-60% del viewport aprox */
+        height: 80% !important;
+        object-fit: contain !important;
+        object-position: right bottom !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+        mask-image: linear-gradient(to top, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
       }
       #hero .hn {
-        font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
+        font-size: clamp(2.6rem, 12vw, 3.8rem) !important;
         position: relative !important;
         width: 100% !important;
+        max-width: 250px !important; /* Limitar ancho para no tapar cara */
         left: 0 !important;
         transform: none !important;
         margin-bottom: 20px !important;
-        line-height: 1 !important;
-        text-align: center !important;
+        line-height: 0.9 !important;
+        text-align: left !important;
+        z-index: 5 !important;
       }
       #hero .hro {
-        font-size: 0.85rem !important;
-        letter-spacing: 1px !important;
-        margin-top: 15px !important;
-        opacity: 1 !important;
-        width: 100% !important;
-        text-align: center !important;
+        font-size: 0.8rem !important;
+        letter-spacing: 1.5px !important;
+        margin-top: 10px !important;
+        width: fit-content !important;
+        text-align: left !important;
+        background: rgba(0,0,0,0.4) !important;
+        padding: 4px 8px !important;
+        backdrop-filter: blur(4px) !important;
+        z-index: 5 !important;
       }
       #hero .hbt {
         flex-direction: column !important;
         gap: 12px !important;
         width: 100% !important;
-        max-width: 280px !important;
-        margin-top: 30px !important;
+        max-width: 200px !important;
+        margin-top: 25px !important;
+        z-index: 5 !important;
       }
       #hero .hbt a {
         width: 100% !important;
         margin: 0 !important;
         justify-content: center !important;
+        font-size: 0.75rem !important;
+      }
+      #hero::before {
+        background: linear-gradient(to right, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.2) 100%) !important;
+        z-index: 1 !important;
       }
 
       /* CORRECCIÓN 2 — SOBRE MÍ (INTEGRACIÓN CREATIVA) */
@@ -2870,44 +2893,56 @@
         margin-top: 40px !important;
       }
 
-      /* CORRECCIÓN 3 — SERVICIOS */
+      /* CORRECCIÓN 3 — SERVICIOS (RESTAURADA) */
       #servicios {
         padding: 60px 20px !important;
+        background: #fff !important; /* Mantener fondo claro original */
       }
       .svl {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 25px !important;
       }
       .svi {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        padding: 24px !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
-        background: rgba(255, 255, 255, 0.02) !important;
+        padding: 20px !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        background: #f9f9f9 !important;
+        align-items: flex-start !important;
       }
       .svnum {
         font-size: 3rem !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 10px !important;
+        color: #e63946 !important;
       }
       .svn {
-        font-size: 1.4rem !important;
-        margin-bottom: 10px !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 12px !important;
+        color: #0a0a0a !important;
+        font-weight: 800 !important;
       }
       .svd {
+        display: block !important; /* Asegurar visibilidad */
         font-size: 0.9rem !important;
         line-height: 1.6 !important;
-        color: rgba(255, 255, 255, 0.7) !important;
+        color: #333 !important; /* Texto oscuro para legibilidad */
+        margin-bottom: 15px !important;
+        max-width: 100% !important;
       }
       .svtg {
+        display: flex !important;
         flex-wrap: wrap !important;
         gap: 6px !important;
-        margin-top: 15px !important;
+        margin-top: 5px !important;
+        width: 100% !important;
       }
       .svt {
         font-size: 0.65rem !important;
-        padding: 4px 8px !important;
+        padding: 4px 10px !important;
+        border: 1px solid #ddd !important;
+        color: #666 !important;
       }
 
       /* CORRECCIÓN 4 — EL PROCESO (TIMELINE) */
@@ -2922,9 +2957,8 @@
         padding-left: 20px !important;
       }
       .prg::after {
-        display: none !important; /* Quitar línea horizontal */
+        display: none !important;
       }
-      /* Crear línea vertical */
       .prg::before {
         content: '';
         position: absolute;
@@ -2963,6 +2997,58 @@
       .prd {
         font-size: 0.85rem !important;
         line-height: 1.6 !important;
+      }
+
+      /* CORRECCIÓN 5 — SECCIÓN CONTACTO */
+      #contacto {
+        padding: 80px 20px !important;
+        overflow-x: hidden !important;
+      }
+      #contacto div[style*="z-index:2"] {
+        padding: 0 !important;
+        width: 100% !important;
+      }
+      #contacto h2 {
+        font-size: 2.8rem !important;
+        margin-bottom: 25px !important;
+      }
+      #contacto p {
+        font-size: 0.95rem !important;
+        margin-bottom: 30px !important;
+      }
+      #contacto a[href^="mailto"] {
+        font-size: 1.1rem !important;
+        word-break: break-all !important;
+        border-bottom-width: 2px !important;
+      }
+      #contacto div[style*="justify-content:space-between"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+        margin-top: 40px !important;
+      }
+      #contacto span {
+        font-size: 0.75rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      #contacto div[style*="justify-content:center;gap:16px"] {
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-top: 40px !important;
+        width: 100% !important;
+        align-items: center !important;
+      }
+      #contacto div[style*="justify-content:center;gap:16px"] a {
+        width: 100% !important;
+        max-width: 300px !important;
+        padding: 14px !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
       }
     }
   </style>
