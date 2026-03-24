@@ -331,7 +331,7 @@
       overflow: hidden;
       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMAGENES MIAS/deperfil.png');
       background-size: cover;
-      background-position: right;
+      background-position: right center;
       background-attachment: fixed;
     }
 
@@ -349,7 +349,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: right;
+      object-position: right center;
       z-index: 3;
       pointer-events: none;
       animation: photoFade 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
@@ -2383,9 +2383,9 @@
       /* Hero Sections (Both Index and Project Pages) */
       #hero,
       .hero-banner {
-        height: auto !important;
-        min-height: 400px !important;
-        padding: 100px 20px 40px !important;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        padding: 0 !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -2394,7 +2394,7 @@
       }
 
       .hero-cutout {
-        display: none !important;
+        display: block !important;
         /* Hide complex cutout on mobile */
       }
 
@@ -2623,7 +2623,7 @@
         }
 
         .hero-cutout {
-          display: none !important;
+          display: block !important;
           /* Hide complex cutout on mobile */
         }
 
@@ -2792,7 +2792,8 @@
         @media (max-width: 768px) {
 
           /* General Layout Fixes */
-          html, body {
+          html,
+          body {
             overflow-x: hidden !important;
             width: 100% !important;
             position: relative !important;
@@ -2805,7 +2806,6 @@
             padding: 0 !important;
             position: relative !important;
             overflow: hidden !important;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMAGENES MIAS/deperfil-mobile.png') !important;
             background-position: right center !important;
             background-size: cover !important;
           }
@@ -2815,7 +2815,7 @@
             content: '' !important;
             position: absolute !important;
             inset: 0 !important;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%) !important;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%) !important;
             z-index: 2 !important;
             pointer-events: none !important;
           }
@@ -2827,7 +2827,6 @@
             right: 0 !important;
             left: auto !important;
             width: auto !important;
-            content: url('IMAGENES MIAS/deperfil-recortado-mobile.png') !important;
             height: 100% !important;
             object-fit: cover !important;
             object-position: right top !important;
@@ -2899,22 +2898,48 @@
             padding: 60px 20px !important;
             overflow: hidden !important;
           }
-          #sobre .sph { display: none !important; }
-          #sobre .sbt { width: 100% !important; max-width: 100% !important; padding: 0 !important; }
-          #sobre .st { font-size: 2.5rem !important; line-height: 1.1 !important; }
-          #sobre p { width: 100% !important; word-break: break-word !important; font-size: 0.95rem !important; }
-          #skills-section { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 30px !important; margin-top: 40px !important; }
+
+          #sobre .sph {
+            display: none !important;
+          }
+
+          #sobre .sbt {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+          }
+
+          #sobre .st {
+            font-size: 2.5rem !important;
+            line-height: 1.1 !important;
+          }
+
+          #sobre p {
+            width: 100% !important;
+            word-break: break-word !important;
+            font-size: 0.95rem !important;
+          }
+
+          #skills-section {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 30px !important;
+            margin-top: 40px !important;
+          }
 
           /* SERVICIOS — CARDS WITH NUMBERS & BORDERS */
           #servicios {
             padding: 40px 16px !important;
             background: #fff !important;
           }
+
           .svl {
             display: flex !important;
             flex-direction: column !important;
             gap: 0 !important;
           }
+
           .svi {
             position: relative !important;
             overflow: hidden !important;
@@ -2928,6 +2953,7 @@
             flex-direction: column !important;
             align-items: flex-start !important;
           }
+
           .svnum {
             font-size: 6rem !important;
             opacity: 0.08 !important;
@@ -2939,6 +2965,7 @@
             pointer-events: none !important;
             line-height: 0.8 !important;
           }
+
           .svn {
             position: relative !important;
             z-index: 1 !important;
@@ -2948,6 +2975,7 @@
             color: #0a0a0a !important;
             font-weight: 800 !important;
           }
+
           .svn::after {
             content: '' !important;
             display: block !important;
@@ -2956,6 +2984,7 @@
             background: #e00000 !important;
             margin-top: 8px !important;
           }
+
           .svd {
             position: relative !important;
             z-index: 1 !important;
@@ -2965,6 +2994,7 @@
             color: #333 !important;
             margin-bottom: 16px !important;
           }
+
           .svtg {
             position: relative !important;
             z-index: 1 !important;
@@ -2972,6 +3002,7 @@
             flex-wrap: wrap !important;
             gap: 8px !important;
           }
+
           .svt {
             background: transparent !important;
             border: 1px solid #e00000 !important;
@@ -2984,25 +3015,119 @@
           }
 
           /* EL PROCESO (TIMELINE) */
-          #proceso { padding: 60px 20px !important; }
-          .prg { display: flex !important; flex-direction: column !important; position: relative !important; padding-left: 20px !important; }
-          .prg::after { display: none !important; }
-          .prg::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px; background: rgba(204, 0, 0, 0.2); z-index: 1; }
-          .prs { width: 100% !important; text-align: left !important; padding: 0 0 40px 40px !important; margin: 0 !important; position: relative !important; }
-          .prn { position: absolute !important; left: -32px; top: 0; margin: 0 !important; z-index: 5 !important; width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
-          .prt { font-size: 1rem !important; margin-bottom: 10px !important; color: #fff !important; }
-          .prd { font-size: 0.85rem !important; line-height: 1.6 !important; }
+          #proceso {
+            padding: 60px 20px !important;
+          }
+
+          .prg {
+            display: flex !important;
+            flex-direction: column !important;
+            position: relative !important;
+            padding-left: 20px !important;
+          }
+
+          .prg::after {
+            display: none !important;
+          }
+
+          .prg::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(204, 0, 0, 0.2);
+            z-index: 1;
+          }
+
+          .prs {
+            width: 100% !important;
+            text-align: left !important;
+            padding: 0 0 40px 40px !important;
+            margin: 0 !important;
+            position: relative !important;
+          }
+
+          .prn {
+            position: absolute !important;
+            left: -32px;
+            top: 0;
+            margin: 0 !important;
+            z-index: 5 !important;
+            width: 60px !important;
+            height: 60px !important;
+            font-size: 1.3rem !important;
+          }
+
+          .prt {
+            font-size: 1rem !important;
+            margin-bottom: 10px !important;
+            color: #fff !important;
+          }
+
+          .prd {
+            font-size: 0.85rem !important;
+            line-height: 1.6 !important;
+          }
 
           /* SECCIÓN CONTACTO — VERTICAL FLOW */
-          #contacto { padding: 80px 20px !important; }
-          #contacto div[style*="z-index:2"] { padding: 0 !important; width: 100% !important; }
-          #contacto h2 { font-size: 2.8rem !important; margin-bottom: 25px !important; }
-          #contacto p { font-size: 0.95rem !important; margin-bottom: 30px !important; }
-          #contacto a[href^="mailto"] { font-size: 1.1rem !important; word-break: break-all !important; border-bottom-width: 2px !important; }
-          #contacto div[style*="justify-content:space-between"] { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 20px !important; margin-top: 40px !important; }
-          #contacto span { font-size: 0.75rem !important; display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; }
-          #contacto div[style*="justify-content:center;gap:16px"] { flex-direction: column !important; gap: 12px !important; margin-top: 40px !important; width: 100% !important; align-items: center !important; }
-          #contacto div[style*="justify-content:center;gap:16px"] a { width: 100% !important; max-width: 300px !important; padding: 14px !important; display: flex !important; justify-content: center !important; }
+          #contacto {
+            padding: 80px 20px !important;
+          }
+
+          #contacto div[style*="z-index:2"] {
+            padding: 0 !important;
+            width: 100% !important;
+          }
+
+          #contacto h2 {
+            font-size: 2.8rem !important;
+            margin-bottom: 25px !important;
+          }
+
+          #contacto p {
+            font-size: 0.95rem !important;
+            margin-bottom: 30px !important;
+          }
+
+          #contacto a[href^="mailto"] {
+            font-size: 1.1rem !important;
+            word-break: break-all !important;
+            border-bottom-width: 2px !important;
+          }
+
+          #contacto div[style*="justify-content:space-between"] {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 20px !important;
+            margin-top: 40px !important;
+          }
+
+          #contacto span {
+            font-size: 0.75rem !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 8px !important;
+          }
+
+          #contacto div[style*="justify-content:center;gap:16px"] {
+            flex-direction: column !important;
+            gap: 12px !important;
+            margin-top: 40px !important;
+            width: 100% !important;
+            align-items: center !important;
+          }
+
+          #contacto div[style*="justify-content:center;gap:16px"] a {
+            width: 100% !important;
+            max-width: 300px !important;
+            padding: 14px !important;
+            display: flex !important;
+            justify-content: center !important;
+          }
         }
   </style>
 </head>
@@ -4044,6 +4169,4 @@
 
 </body>
 
-</html>< ! - -   f i x :   f o r c e   r e d e p l o y   v 4   - - > 
- 
- 
+</html>
