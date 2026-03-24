@@ -639,7 +639,7 @@
       gap: 32px;
     }
 
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
     .skill-group {
       display: flex;
@@ -2137,61 +2137,103 @@
       transform: translateY(32px);
       filter: blur(8px);
       transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                  filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .rv.vs, .rv.vi {
+    .rv.vs,
+    .rv.vi {
       opacity: 1;
       transform: translateY(0);
       filter: blur(0);
     }
 
     /* RESPONSIVE */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
     /* MOBILE OPTIMIZATION */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
 
     /* --- MOBILE SYSTEM --- */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
     /* REVEAL ANIMATIONS — unificado arriba */
 
     /* --- MOBILE OPTIMIZATION (MAX 768PX) --- */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
     /* ======= VS PORTFOLIO ENHANCEMENTS ======= */
 
     /* --- KEYFRAMES NUEVOS --- */
     @keyframes nameReveal {
-      from { clip-path: inset(0 100% 0 0); }
-      to   { clip-path: inset(0 0% 0 0); }
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+
+      to {
+        clip-path: inset(0 0% 0 0);
+      }
     }
 
     @keyframes photoFade {
-      from { opacity: 0; transform: scale(1.07) translateZ(0); }
-      to   { opacity: 1; transform: scale(1) translateZ(0); }
+      from {
+        opacity: 0;
+        transform: scale(1.07) translateZ(0);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+      }
     }
 
     @keyframes charIn {
-      from { opacity: 0; transform: translateY(7px); filter: blur(4px); }
-      to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+        filter: blur(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
     }
 
     @keyframes cardFloat {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-9px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
     }
 
     @keyframes navPOrbit {
-      0%   { transform: translate(0, 0)   scale(1);   opacity: 0; }
-      15%  { opacity: 1; }
-      85%  { opacity: 0.6; }
-      100% { transform: translate(var(--pdx), var(--pdy)) scale(0.5); opacity: 0; }
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      85% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translate(var(--pdx), var(--pdy)) scale(0.5);
+        opacity: 0;
+      }
     }
 
     /* --- NAV PARTICLES --- */
@@ -2203,21 +2245,29 @@
       pointer-events: none;
       z-index: 0;
     }
-    nav .nl, nav ul, nav button { position: relative; z-index: 1; }
+
+    nav .nl,
+    nav ul,
+    nav button {
+      position: relative;
+      z-index: 1;
+    }
 
     /* --- PROJECT CARDS — float + glow border --- */
     #proyectos .pc {
       box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.22),
-                  0 6px 24px rgba(0, 0, 0, 0.45);
+        0 6px 24px rgba(0, 0, 0, 0.45);
       will-change: transform, box-shadow;
     }
+
     #proyectos .pc.floating {
       animation: cardFloat 3.2s ease-in-out infinite;
     }
+
     #proyectos .pc:hover {
       box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.7),
-                  0 0 22px rgba(255, 0, 0, 0.35),
-                  0 12px 40px rgba(0, 0, 0, 0.6);
+        0 0 22px rgba(255, 0, 0, 0.35),
+        0 12px 40px rgba(0, 0, 0, 0.6);
     }
 
     /* --- HERO DUST CANVAS --- */
@@ -2237,15 +2287,18 @@
     }
 
     /* --- MOBILE FIXES --- */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
     @media (max-width: 480px) {
+
       /* Email contacto no overflow */
-      .cem, a[href^="mailto:"] {
+      .cem,
+      a[href^="mailto:"] {
         font-size: 0.95rem !important;
         word-break: break-all !important;
         letter-spacing: 0 !important;
       }
+
       /* Proceso: steps más compactos */
       .prn {
         width: 56px !important;
@@ -2254,10 +2307,10 @@
       }
     }
 
-  
+
 
     /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    /* OLD MOBILE BLOCKED */ 
+    /* OLD MOBILE BLOCKED */
 
 
 
@@ -2267,9 +2320,30 @@
         cursor: auto !important;
         overflow-x: hidden !important;
       }
-      #bg-particles { display: block !important; opacity: 1 !important; }
-      #bg-particles { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; opacity: 1; transition: opacity 0.6s; }
-      #cursor, .trail, .trp, #cd, #cr, #hero-dust, .nav-p {
+
+      #bg-particles {
+        display: block !important;
+        opacity: 1 !important;
+      }
+
+      #bg-particles {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.6s;
+      }
+
+      #cursor,
+      .trail,
+      .trp,
+      #cd,
+      #cr,
+      #hero-dust,
+      .nav-p {
         display: none !important;
       }
 
@@ -2307,7 +2381,8 @@
       }
 
       /* Hero Sections (Both Index and Project Pages) */
-      #hero, .hero-banner {
+      #hero,
+      .hero-banner {
         height: auto !important;
         min-height: 400px !important;
         padding: 100px 20px 40px !important;
@@ -2319,10 +2394,12 @@
       }
 
       .hero-cutout {
-        display: none !important; /* Hide complex cutout on mobile */
+        display: none !important;
+        /* Hide complex cutout on mobile */
       }
 
-      .hero-banner-content, .hc {
+      .hero-banner-content,
+      .hc {
         position: relative !important;
         width: 100% !important;
         bottom: 0 !important;
@@ -2331,14 +2408,20 @@
         display: block !important;
       }
 
-      .hero-title, .hn, .cv-title, .hero-banner .hero-title {
+      .hero-title,
+      .hn,
+      .cv-title,
+      .hero-banner .hero-title {
         font-size: 3.2rem !important;
         line-height: 1 !important;
         margin-top: 10px !important;
         display: block !important;
       }
 
-      .hero-sub, .hro, .hsub, .hs {
+      .hero-sub,
+      .hro,
+      .hsub,
+      .hs {
         font-size: 0.85rem !important;
         margin-top: 12px !important;
         display: block !important;
@@ -2351,14 +2434,29 @@
         padding: 60px 20px !important;
       }
 
-      .section-title, .st, .ht {
+      .section-title,
+      .st,
+      .ht {
         font-size: 2rem !important;
         line-height: 1.1 !important;
       }
 
       /* Grids and Layouts */
-      .sb { grid-template-columns: repeat(2, 1fr) !important; padding: 40px 20px !important; }
-      .eg, .pg, .cg, .cv-grid, .cvw, .prg, .lgg { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .sb {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 40px 20px !important;
+      }
+
+      .eg,
+      .pg,
+      .cg,
+      .cv-grid,
+      .cvw,
+      .prg,
+      .lgg {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
 
       /* Timeline / Experience for Index and CV */
       .exi {
@@ -2374,206 +2472,500 @@
         margin-bottom: 5px !important;
       }
 
-      .exro { font-size: 1.4rem !important; }
+      .exro {
+        font-size: 1.4rem !important;
+      }
 
       /* Modals */
       .md2 {
         max-width: 95% !important;
         padding: 0 !important;
       }
-      .mh, .mb { padding: 25px 20px !important; }
-      
+
+      .mh,
+      .mb {
+        padding: 25px 20px !important;
+      }
+
       /* Footer */
       footer {
         flex-direction: column !important;
         gap: 15px !important;
         text-align: center !important;
-      /* Footer */
-      footer {
-        flex-direction: column !important;
-        gap: 15px !important;
-        text-align: center !important;
-        padding: 30px 20px !important;
-      }
-    }
 
-    /* --- GLOBAL PARTICLES --- */
-    /* --- GLOBAL PARTICLES --- */
-    /* --- GLOBAL PARTICLES --- */
-    #bg-particles { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; opacity: 1; transition: opacity 0.6s; }
-
-    /* Standard content sections should be ABOVE particles */
-    section, .sb, .mw, .mo, #hero, .hero-banner {
-      position: relative;
-      z-index: 2; 
-    }
-    
-    /* Hero specific layers for Index and Projects */
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5 !important; position: absolute !important; }
-    .hc, .hero-banner-content { z-index: 6 !important; position: relative !important; }
-
-    /* Custom Cursor & Nav MUST maintain their original position/z-index */
-    nav { z-index: 5000 !important; }
-    #cd, #cr, #cursor, .trail, .trp { z-index: 9999 !important; }
-
-
-
-    /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
-    @media (max-width: 768px) {
-      body {
-        cursor: auto !important;
-        overflow-x: hidden !important;
-      }
-      #cursor, .trail, .trp, #cd, #cr, #hero-dust, .nav-p {
-        display: none !important;
+        /* Footer */
+        footer {
+          flex-direction: column !important;
+          gap: 15px !important;
+          text-align: center !important;
+          padding: 30px 20px !important;
+        }
       }
 
+      /* --- GLOBAL PARTICLES --- */
+      /* --- GLOBAL PARTICLES --- */
+      /* --- GLOBAL PARTICLES --- */
+      #bg-particles {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.6s;
+      }
+
+      /* Standard content sections should be ABOVE particles */
+      section,
+      .sb,
+      .mw,
+      .mo,
+      #hero,
+      .hero-banner {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Hero specific layers for Index and Projects */
+      .hg,
+      .hgl {
+        z-index: 1;
+      }
+
+      .hero-cutout {
+        z-index: 5 !important;
+        position: absolute !important;
+      }
+
+      .hc,
+      .hero-banner-content {
+        z-index: 6 !important;
+        position: relative !important;
+      }
+
+      /* Custom Cursor & Nav MUST maintain their original position/z-index */
       nav {
-        display: flex !important;
-        justify-content: space-between !important;
-        padding: 15px 20px !important;
-        background: rgba(8, 8, 8, .98) !important;
-        position: fixed !important;
-        top: 0 !important;
-        width: 100% !important;
         z-index: 5000 !important;
       }
 
-      .nls {
-        display: none !important;
+      #cd,
+      #cr,
+      #cursor,
+      .trail,
+      .trp {
+        z-index: 9999 !important;
       }
 
-      .mtog {
-        display: block !important;
-        position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        z-index: 6000 !important;
+
+
+      /* --- ULTIMATE ROBUST MOBILE OVERHAUL --- */
+      @media (max-width: 768px) {
+        body {
+          cursor: auto !important;
+          overflow-x: hidden !important;
+        }
+
+        #cursor,
+        .trail,
+        .trp,
+        #cd,
+        #cr,
+        #hero-dust,
+        .nav-p {
+          display: none !important;
+        }
+
+        nav {
+          display: flex !important;
+          justify-content: space-between !important;
+          padding: 15px 20px !important;
+          background: rgba(8, 8, 8, .98) !important;
+          position: fixed !important;
+          top: 0 !important;
+          width: 100% !important;
+          z-index: 5000 !important;
+        }
+
+        .nls {
+          display: none !important;
+        }
+
+        .mtog {
+          display: block !important;
+          position: fixed !important;
+          top: 20px !important;
+          right: 20px !important;
+          z-index: 6000 !important;
+        }
+
+        .back-btn {
+          position: fixed !important;
+          top: 80px !important;
+          left: 20px !important;
+          padding: 8px 14px !important;
+          font-size: 0.8rem !important;
+          display: inline-block !important;
+          z-index: 4999 !important;
+        }
+
+        /* Hero Sections (Both Index and Project Pages) */
+        #hero,
+        .hero-banner {
+          height: auto !important;
+          min-height: 400px !important;
+          padding: 100px 20px 40px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          text-align: center !important;
+        }
+
+        .hero-cutout {
+          display: none !important;
+          /* Hide complex cutout on mobile */
+        }
+
+        .hero-banner-content,
+        .hc {
+          position: relative !important;
+          width: 100% !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+          display: block !important;
+        }
+
+        .hero-title,
+        .hn,
+        .cv-title,
+        .hero-banner .hero-title {
+          font-size: 3.2rem !important;
+          line-height: 1 !important;
+          margin-top: 10px !important;
+          display: block !important;
+        }
+
+        .hero-sub,
+        .hro,
+        .hsub,
+        .hs {
+          font-size: 0.85rem !important;
+          margin-top: 12px !important;
+          display: block !important;
+          color: #ddd !important;
+          max-width: 100% !important;
+        }
+
+        /* Sections and Titles */
+        section {
+          padding: 60px 20px !important;
+        }
+
+        .section-title,
+        .st,
+        .ht {
+          font-size: 2rem !important;
+          line-height: 1.1 !important;
+        }
+
+        /* Grids and Layouts */
+        .sb {
+          grid-template-columns: repeat(2, 1fr) !important;
+          padding: 40px 20px !important;
+        }
+
+        .eg,
+        .pg,
+        .cg,
+        .cv-grid,
+        .cvw,
+        .prg,
+        .lgg {
+          grid-template-columns: 1fr !important;
+          gap: 20px !important;
+        }
+
+        /* Timeline / Experience for Index and CV */
+        .exi {
+          grid-template-columns: 1fr !important;
+          gap: 12px !important;
+          padding: 24px 0 !important;
+          padding-left: 15px !important;
+          border-left: 2px solid var(--r) !important;
+        }
+
+        .exp {
+          font-size: 0.8rem !important;
+          margin-bottom: 5px !important;
+        }
+
+        .exro {
+          font-size: 1.4rem !important;
+        }
+
+        /* Modals */
+        .md2 {
+          max-width: 95% !important;
+          padding: 0 !important;
+        }
+
+        .mh,
+        .mb {
+          padding: 25px 20px !important;
+        }
+
+        /* Footer */
+        /* Footer */
+        footer {
+          flex-direction: column !important;
+          gap: 15px !important;
+          text-align: center !important;
+          padding: 30px 20px !important;
+        }
+
+        /* --- GLOBAL PARTICLES --- */
+        /* --- GLOBAL PARTICLES --- */
+        /* --- GLOBAL PARTICLES --- */
+        #bg-particles {
+          position: fixed;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9;
+          pointer-events: none;
+          opacity: 1;
+          transition: opacity 0.6s;
+        }
+
+        /* Standard content sections should be ABOVE particles */
+        section,
+        .sb,
+        .mw,
+        .mo,
+        #hero,
+        .hero-banner {
+          position: relative;
+          z-index: 2;
+        }
+
+        /* Hero specific layers for Index and Projects */
+        .hg,
+        .hgl {
+          z-index: 1;
+        }
+
+        .hero-cutout {
+          z-index: 5 !important;
+          position: absolute !important;
+        }
+
+        .hc,
+        .hero-banner-content {
+          z-index: 6 !important;
+          position: relative !important;
+        }
+
+        /* Custom Cursor & Nav MUST maintain their original position/z-index */
+        nav {
+          z-index: 5000 !important;
+        }
+
+        #cd,
+        #cr,
+        #cursor,
+        .trail,
+        .trp {
+          z-index: 9999 !important;
+        }
+
+    /* ===================================================
+       VS PORTFOLIO — FINAL MOBILE CORRECTIONS (MAX 768PX)
+       =================================================== */
+    @media (max-width: 768px) {
+      /* General Layout Fixes */
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
       }
 
-      .back-btn {
-        position: fixed !important;
-        top: 80px !important;
-        left: 20px !important;
-        padding: 8px 14px !important;
-        font-size: 0.8rem !important;
-        display: inline-block !important;
-        z-index: 4999 !important;
-      }
-
-      /* Hero Sections (Both Index and Project Pages) */
-      #hero, .hero-banner {
+      /* CORRECCIÓN 1 — PORTADA (HERO) */
+      #hero {
+        width: 100% !important;
         height: auto !important;
-        min-height: 400px !important;
-        padding: 100px 20px 40px !important;
+        min-height: 100vh !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
+        padding: 80px 20px !important;
         text-align: center !important;
       }
-
-      .hero-cutout {
-        display: none !important; /* Hide complex cutout on mobile */
+      #hero .hero-cutout {
+        display: none !important; /* Ocultar foto de costado en mobile */
       }
-
-      .hero-banner-content, .hc {
+      #hero .hn {
+        font-size: clamp(2.5rem, 12vw, 3.5rem) !important;
         position: relative !important;
         width: 100% !important;
-        bottom: 0 !important;
         left: 0 !important;
         transform: none !important;
-        display: block !important;
-      }
-
-      .hero-title, .hn, .cv-title, .hero-banner .hero-title {
-        font-size: 3.2rem !important;
+        margin-bottom: 20px !important;
         line-height: 1 !important;
-        margin-top: 10px !important;
-        display: block !important;
+        text-align: center !important;
       }
-
-      .hero-sub, .hro, .hsub, .hs {
+      #hero .hro {
         font-size: 0.85rem !important;
-        margin-top: 12px !important;
-        display: block !important;
-        color: #ddd !important;
-        max-width: 100% !important;
+        letter-spacing: 1px !important;
+        margin-top: 15px !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        text-align: center !important;
       }
-
-      /* Sections and Titles */
-      section {
-        padding: 60px 20px !important;
-      }
-
-      .section-title, .st, .ht {
-        font-size: 2rem !important;
-        line-height: 1.1 !important;
-      }
-
-      /* Grids and Layouts */
-      .sb { grid-template-columns: repeat(2, 1fr) !important; padding: 40px 20px !important; }
-      .eg, .pg, .cg, .cv-grid, .cvw, .prg, .lgg { grid-template-columns: 1fr !important; gap: 20px !important; }
-
-      /* Timeline / Experience for Index and CV */
-      .exi {
-        grid-template-columns: 1fr !important;
+      #hero .hbt {
+        flex-direction: column !important;
         gap: 12px !important;
-        padding: 24px 0 !important;
-        padding-left: 15px !important;
-        border-left: 2px solid var(--r) !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin-top: 30px !important;
+      }
+      #hero .hbt a {
+        width: 100% !important;
+        margin: 0 !important;
+        justify-content: center !important;
       }
 
-      .exp {
-        font-size: 0.8rem !important;
-        margin-bottom: 5px !important;
+      /* CORRECCIÓN 2 — SOBRE MÍ (INTEGRACIÓN CREATIVA) */
+      #sobre {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 60px 20px !important;
+        overflow: hidden !important;
       }
-
-      .exro { font-size: 1.4rem !important; }
-
-      /* Modals */
-      .md2 {
-        max-width: 95% !important;
+      #sobre .sph {
+        display: none !important; /* Ocultar foto de costado */
+      }
+      #sobre .sbt {
+        width: 100% !important;
+        max-width: 100% !important;
         padding: 0 !important;
       }
-      .mh, .mb { padding: 25px 20px !important; }
-      
-      /* Footer */
-      footer {
+      #sobre .st {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+      }
+      #sobre p {
+        width: 100% !important;
+        word-break: break-word !important;
+        font-size: 0.95rem !important;
+      }
+      #skills-section {
+        display: flex !important;
         flex-direction: column !important;
-        gap: 15px !important;
-        text-align: center !important;
-      /* Footer */
-      footer {
+        width: 100% !important;
+        gap: 30px !important;
+        margin-top: 40px !important;
+      }
+
+      /* CORRECCIÓN 3 — SERVICIOS */
+      #servicios {
+        padding: 60px 20px !important;
+      }
+      .svl {
+        display: flex !important;
         flex-direction: column !important;
-        gap: 15px !important;
-        text-align: center !important;
-        padding: 30px 20px !important;
+        gap: 20px !important;
+      }
+      .svi {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 24px !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+      }
+      .svnum {
+        font-size: 3rem !important;
+        margin-bottom: 5px !important;
+      }
+      .svn {
+        font-size: 1.4rem !important;
+        margin-bottom: 10px !important;
+      }
+      .svd {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+      .svtg {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        margin-top: 15px !important;
+      }
+      .svt {
+        font-size: 0.65rem !important;
+        padding: 4px 8px !important;
+      }
+
+      /* CORRECCIÓN 4 — EL PROCESO (TIMELINE) */
+      #proceso {
+        padding: 60px 20px !important;
+      }
+      .prg {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        position: relative !important;
+        padding-left: 20px !important;
+      }
+      .prg::after {
+        display: none !important; /* Quitar línea horizontal */
+      }
+      /* Crear línea vertical */
+      .prg::before {
+        content: '';
+        position: absolute;
+        left: 35px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(204, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .prs {
+        width: 100% !important;
+        text-align: left !important;
+        padding: 0 0 40px 40px !important;
+        margin: 0 !important;
+        position: relative !important;
+      }
+      .prs:last-child {
+        padding-bottom: 0 !important;
+      }
+      .prn {
+        position: absolute !important;
+        left: -32px;
+        top: 0;
+        margin: 0 !important;
+        z-index: 5 !important;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.3rem !important;
+      }
+      .prt {
+        font-size: 1rem !important;
+        margin-bottom: 10px !important;
+        color: #fff !important;
+      }
+      .prd {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
       }
     }
-
-    /* --- GLOBAL PARTICLES --- */
-    /* --- GLOBAL PARTICLES --- */
-    /* --- GLOBAL PARTICLES --- */
-    #bg-particles { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; opacity: 1; transition: opacity 0.6s; }
-
-    /* Standard content sections should be ABOVE particles */
-    section, .sb, .mw, .mo, #hero, .hero-banner {
-      position: relative;
-      z-index: 2; 
-    }
-    
-    /* Hero specific layers for Index and Projects */
-    .hg, .hgl { z-index: 1; }
-    .hero-cutout { z-index: 5 !important; position: absolute !important; }
-    .hc, .hero-banner-content { z-index: 6 !important; position: relative !important; }
-
-    /* Custom Cursor & Nav MUST maintain their original position/z-index */
-    nav { z-index: 5000 !important; }
-    #cd, #cr, #cursor, .trail, .trp { z-index: 9999 !important; }
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -2653,7 +3045,8 @@
       <h2 class="st">INTEGRACIÓN<br><em>CREATIVA</em></h2>
       <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería
         Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el
-        diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico en la Universidad Empresarial Siglo 21.
+        diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico y Publicidad en la Universidad Empresarial
+        Siglo 21.
       </p>
       <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando
         branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas,
@@ -3060,7 +3453,8 @@
           soporte para la presentación del proyecto, el storytelling y la experiencia visual del usuario.</p>
         <div class="mlk"><a href="https://www.instagram.com/kord3.ar/" target="_blank" class="ml1">Instagram
             @kord3.ar</a><!-- DRIVE_URL: Portafolio completo Kord3 -->
-<a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a></div>
+          <a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3094,7 +3488,8 @@
         </ul>
         <div class="mlk"><a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="ml1">Instagram
             @luxury.agency_llc</a><!-- DRIVE_URL: Portafolio completo Agency Luxury -->
-<a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a></div>
+          <a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3131,7 +3526,8 @@
           dirección y edición. Pieza principal del relanzamiento consolidando la nueva identidad.</p>
         <div class="mlk"><a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="ml1">Instagram
             @energiafitness.cba</a><!-- DRIVE_URL: Portafolio completo Energía Fitness -->
-<a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a></div>
+          <a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3201,7 +3597,8 @@
         </ul>
         <div class="mlk"><a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" class="ml1">Instagram
             @natan.barber.estudio</a><!-- DRIVE_URL: Portafolio completo Natan Barber -->
-<a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a></div>
+          <a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3236,7 +3633,8 @@
         </div>
         <div class="mlk"><a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="ml1">Instagram
             @homeimprovementpower</a><!-- DRIVE_URL: Portafolio completo Home Improvement Power -->
-<a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a></div>
+          <a href="#" target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
+        </div>
       </div>
     </div>
   </div>
@@ -3432,7 +3830,7 @@
           p.x += p.vx;
           p.y += p.vy;
           const progress = p.age / p.maxLife;
-          const fadeIn  = Math.min(progress * 6, 1);
+          const fadeIn = Math.min(progress * 6, 1);
           const fadeOut = Math.max(0, 1 - Math.max(0, progress - 0.65) / 0.35);
           const op = p.baseOp * fadeIn * fadeOut;
           if (p.age >= p.maxLife || p.x < -4 || p.x > nw + 4) {
@@ -3457,28 +3855,28 @@
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
       document.querySelectorAll('#proyectos .pc').forEach((card, i) => {
         const delay = (i * 0.35).toFixed(2);
-        const dur   = (3.0 + i * 0.28).toFixed(2);
+        const dur = (3.0 + i * 0.28).toFixed(2);
         card.classList.add('floating');
-        card.style.animationDelay    = `${delay}s`;
+        card.style.animationDelay = `${delay}s`;
         card.style.animationDuration = `${dur}s`;
 
         if (isMobile) return; // no 3D en mobile
 
         card.addEventListener('mousemove', e => {
           const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width  - 0.5;
-          const y = (e.clientY - r.top)  / r.height - 0.5;
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
           card.style.animationPlayState = 'paused';
           card.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
-          card.style.transform  = `perspective(900px) rotateX(${(-y * 11).toFixed(1)}deg) rotateY(${(x * 11).toFixed(1)}deg) scale(1.025) translateY(-5px)`;
-          card.style.boxShadow  = `${(-x * 20).toFixed(0)}px ${(-y * 20).toFixed(0)}px 40px rgba(255,0,0,0.32), 0 0 28px rgba(255,0,0,0.18), 0 0 0 1px rgba(255,0,0,0.6)`;
+          card.style.transform = `perspective(900px) rotateX(${(-y * 11).toFixed(1)}deg) rotateY(${(x * 11).toFixed(1)}deg) scale(1.025) translateY(-5px)`;
+          card.style.boxShadow = `${(-x * 20).toFixed(0)}px ${(-y * 20).toFixed(0)}px 40px rgba(255,0,0,0.32), 0 0 28px rgba(255,0,0,0.18), 0 0 0 1px rgba(255,0,0,0.6)`;
         });
 
         card.addEventListener('mouseleave', () => {
           card.style.animationPlayState = 'running';
           card.style.transition = 'transform 0.65s cubic-bezier(0.16,1,0.3,1), box-shadow 0.65s ease';
-          card.style.transform  = '';
-          card.style.boxShadow  = '';
+          card.style.transform = '';
+          card.style.boxShadow = '';
         });
       });
     })();
@@ -3529,13 +3927,13 @@
   </script>
 
 
-  
+
   <script>
     (function initGlobalParticles() {
       if (document.getElementById('bg-particles')) return;
       const canvas = document.createElement('canvas');
       canvas.id = 'bg-particles';
-      
+
       // Estilos del canvas - fixed para cubrir TODA la página incluyendo el hero
       canvas.style.cssText = `
         position: fixed;
