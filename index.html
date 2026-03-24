@@ -2292,7 +2292,8 @@
     @media (max-width: 768px) {
 
       /* General Layout Fixes */
-      html, body {
+      html,
+      body {
         overflow-x: hidden !important;
         width: 100% !important;
         position: relative !important;
@@ -2301,7 +2302,7 @@
 
       /* HERO MOBILE — DEFINITIVE RULES */
       #hero {
-        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
           url('IMAGENES MIAS/deperfil-mobile.png') !important;
         height: 100vh !important;
         min-height: 100vh !important;
@@ -2317,8 +2318,8 @@
         content: '' !important;
         position: absolute !important;
         inset: 0 !important;
-        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, 
-          rgba(0,0,0,0.2) 60%, transparent 100%) !important;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.2) 60%, transparent 100%) !important;
         z-index: 2 !important;
         pointer-events: none !important;
       }
@@ -2406,7 +2407,14 @@
         transition: opacity 0.6s !important;
       }
 
-      #cursor, .trail, .trp, #cd, #cr, #hero-dust, .nav-p, .nls {
+      #cursor,
+      .trail,
+      .trp,
+      #cd,
+      #cr,
+      #hero-dust,
+      .nav-p,
+      .nls {
         display: none !important;
       }
 
@@ -2434,7 +2442,9 @@
         padding: 60px 20px !important;
       }
 
-      .st, .ht, .section-title {
+      .st,
+      .ht,
+      .section-title {
         font-size: 2.5rem !important;
         line-height: 1.1 !important;
       }
@@ -2447,10 +2457,30 @@
         padding: 60px 20px !important;
         overflow: hidden !important;
       }
-      #sobre .sph { display: none !important; }
-      #sobre .sbt { width: 100% !important; max-width: 100% !important; padding: 0 !important; }
-      #sobre p { width: 100% !important; word-break: break-word !important; font-size: 0.95rem !important; }
-      #skills-section { display: flex !important; flex-direction: column !important; width: 100% !important; gap: 30px !important; margin-top: 40px !important; }
+
+      #sobre .sph {
+        display: none !important;
+      }
+
+      #sobre .sbt {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      #sobre p {
+        width: 100% !important;
+        word-break: break-word !important;
+        font-size: 0.95rem !important;
+      }
+
+      #skills-section {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 30px !important;
+        margin-top: 40px !important;
+      }
 
       /* STATS */
       .sb {
@@ -2465,8 +2495,17 @@
       }
 
       /* SERVICIOS — CARDS WITH NUMBERS & BORDERS */
-      #servicios { padding: 40px 16px !important; background: #fff !important; }
-      .svl { display: flex !important; flex-direction: column !important; gap: 0 !important; }
+      #servicios {
+        padding: 40px 16px !important;
+        background: #fff !important;
+      }
+
+      .svl {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+      }
+
       .svi {
         position: relative !important;
         overflow: hidden !important;
@@ -2480,6 +2519,7 @@
         flex-direction: column !important;
         align-items: flex-start !important;
       }
+
       .svnum {
         font-size: 6rem !important;
         opacity: 0.08 !important;
@@ -2491,40 +2531,191 @@
         pointer-events: none !important;
         line-height: 0.8 !important;
       }
-      .svn { position: relative !important; z-index: 1 !important; font-size: 1.2rem !important; text-transform: uppercase !important; margin-bottom: 12px !important; color: #0a0a0a !important; font-weight: 800 !important; }
-      .svn::after { content: '' !important; display: block !important; width: 40px !important; height: 2px !important; background: #e00000 !important; margin-top: 8px !important; }
-      .svd { position: relative !important; z-index: 1 !important; display: block !important; font-size: 0.9rem !important; line-height: 1.6 !important; color: #333 !important; margin-bottom: 16px !important; }
-      .svtg { position: relative !important; z-index: 1 !important; display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
-      .svt { background: transparent !important; border: 1px solid #e00000 !important; color: #e00000 !important; border-radius: 2px !important; padding: 4px 10px !important; font-size: 0.7rem !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; }
+
+      .svn {
+        position: relative !important;
+        z-index: 1 !important;
+        font-size: 1.2rem !important;
+        text-transform: uppercase !important;
+        margin-bottom: 12px !important;
+        color: #0a0a0a !important;
+        font-weight: 800 !important;
+      }
+
+      .svn::after {
+        content: '' !important;
+        display: block !important;
+        width: 40px !important;
+        height: 2px !important;
+        background: #e00000 !important;
+        margin-top: 8px !important;
+      }
+
+      .svd {
+        position: relative !important;
+        z-index: 1 !important;
+        display: block !important;
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        color: #333 !important;
+        margin-bottom: 16px !important;
+      }
+
+      .svtg {
+        position: relative !important;
+        z-index: 1 !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+
+      .svt {
+        background: transparent !important;
+        border: 1px solid #e00000 !important;
+        color: #e00000 !important;
+        border-radius: 2px !important;
+        padding: 4px 10px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase !important;
+      }
 
       /* EL PROCESO (TIMELINE) */
-      #proceso { padding: 60px 20px !important; }
-      .prg { display: flex !important; flex-direction: column !important; position: relative !important; padding-left: 20px !important; }
-      .prg::after { display: none !important; }
-      .prg::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px; background: rgba(204, 0, 0, 0.2); z-index: 1; }
-      .prs { width: 100% !important; text-align: left !important; padding: 0 0 40px 40px !important; margin: 0 !important; position: relative !important; }
-      .prn { position: absolute !important; left: -32px; top: 0; margin: 0 !important; z-index: 5 !important; width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
-      .prt { font-size: 1rem !important; margin-bottom: 10px !important; color: #fff !important; }
-      .prd { font-size: 0.85rem !important; line-height: 1.6 !important; }
+      #proceso {
+        padding: 60px 20px !important;
+      }
+
+      .prg {
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        padding-left: 20px !important;
+      }
+
+      .prg::after {
+        display: none !important;
+      }
+
+      .prg::before {
+        content: '';
+        position: absolute;
+        left: 35px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(204, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .prs {
+        width: 100% !important;
+        text-align: left !important;
+        padding: 0 0 40px 40px !important;
+        margin: 0 !important;
+        position: relative !important;
+      }
+
+      .prn {
+        position: absolute !important;
+        left: -32px;
+        top: 0;
+        margin: 0 !important;
+        z-index: 5 !important;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 1.3rem !important;
+      }
+
+      .prt {
+        font-size: 1rem !important;
+        margin-bottom: 10px !important;
+        color: #fff !important;
+      }
+
+      .prd {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+      }
 
       /* SECCIÓN CONTACTO — VERTICAL FLOW */
-      #contacto { padding: 80px 20px !important; }
-      #contacto div[style*="z-index:2"] { padding: 0 !important; width: 100% !important; }
-      #contacto h2 { font-size: 2.8rem !important; margin-bottom: 25px !important; }
-      #contacto p { font-size: 0.95rem !important; margin-bottom: 30px !important; }
-      #contacto a[href^="mailto"] { font-size: 1.1rem !important; word-break: break-all !important; border-bottom-width: 2px !important; }
-      #contacto div[style*="justify-content:space-between"] { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 20px !important; margin-top: 40px !important; }
-      #contacto span { font-size: 0.75rem !important; display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; }
-      #contacto div[style*="justify-content:center;gap:16px"] { flex-direction: column !important; gap: 12px !important; margin-top: 40px !important; width: 100% !important; align-items: center !important; }
-      #contacto div[style*="justify-content:center;gap:16px"] a { width: 100% !important; max-width: 300px !important; padding: 14px !important; display: flex !important; justify-content: center !important; }
-      
+      #contacto {
+        padding: 80px 20px !important;
+      }
+
+      #contacto div[style*="z-index:2"] {
+        padding: 0 !important;
+        width: 100% !important;
+      }
+
+      #contacto h2 {
+        font-size: 2.8rem !important;
+        margin-bottom: 25px !important;
+      }
+
+      #contacto p {
+        font-size: 0.95rem !important;
+        margin-bottom: 30px !important;
+      }
+
+      #contacto a[href^="mailto"] {
+        font-size: 1.1rem !important;
+        word-break: break-all !important;
+        border-bottom-width: 2px !important;
+      }
+
+      #contacto div[style*="justify-content:space-between"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 20px !important;
+        margin-top: 40px !important;
+      }
+
+      #contacto span {
+        font-size: 0.75rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+
+      #contacto div[style*="justify-content:center;gap:16px"] {
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-top: 40px !important;
+        width: 100% !important;
+        align-items: center !important;
+      }
+
+      #contacto div[style*="justify-content:center;gap:16px"] a {
+        width: 100% !important;
+        max-width: 300px !important;
+        padding: 14px !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+
       /* Footer */
-      footer { flex-direction: column !important; gap: 15px !important; text-align: center !important; padding: 30px 20px !important; }
+      footer {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
+      }
 
       /* Specific Small Screen Fix */
       @media (max-width: 480px) {
-        .cem, a[href^="mailto:"] { font-size: 0.95rem !important; }
-        .prn { width: 56px !important; height: 56px !important; font-size: 1.2rem !important; }
+
+        .cem,
+        a[href^="mailto:"] {
+          font-size: 0.95rem !important;
+        }
+
+        .prn {
+          width: 56px !important;
+          height: 56px !important;
+          font-size: 1.2rem !important;
+        }
       }
     }
   </style>
@@ -2532,7 +2723,7 @@
 
 <body>
 
-  <nav id="nav">
+    <nav id="nav">
     <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
     <ul class="nls" style="margin-left:auto;">
       <li><a href="#sobre">Sobre mí</a></li>
@@ -2547,7 +2738,8 @@
     </button>
   </nav>
 
-  <!-- MOBILE OVERLAY -->
+    <!-- MOBILE OVERLAY -->
+    <!-- MOBILE OVERLAY -->
   <div class="movl" id="movl">
     <a href="#sobre" onclick="toggleMenu()">Sobre mí</a>
     <a href="#proyectos" onclick="toggleMenu()">Proyectos</a>
