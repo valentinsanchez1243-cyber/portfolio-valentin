@@ -985,13 +985,105 @@
     nav { z-index: 5000 !important; }
     #cd, #cr, #cursor, .trail, .trp { z-index: 9999 !important; }
 
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5000;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 28px;
+      padding: 30px 64px;
+      background: linear-gradient(to bottom, rgba(8, 8, 8, .98), transparent);
+      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav.sc {
+      background: rgba(8, 8, 8, .99);
+      border-bottom: 1px solid rgba(255, 0, 0, .2);
+    }
+
+    .nl {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 4px;
+    }
+
+    .nl span {
+      color: var(--r);
+    }
+
+    .nls {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nls a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      text-decoration: none;
+      position: relative;
+      padding: 6px 16px;
+      border-radius: 22px;
+      border: 1px solid transparent;
+      transition: color .25s, border-color .3s, box-shadow .3s, background .3s;
+    }
+
+    .nls a:not(.ncta):hover {
+      color: var(--w);
+      border-color: rgba(255, 0, 0, 0.45);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 0 24px rgba(255, 0, 0, 0.1), inset 0 0 8px rgba(255, 0, 0, 0.04);
+      background: rgba(255, 0, 0, 0.05);
+    }
+
+    .ncta {
+      background: var(--r) !important;
+      color: var(--w) !important;
+      padding: 7px 18px;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: .76rem !important;
+      letter-spacing: 3px !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s;
+      border-radius: 4px !important;
+      border: none !important;
+    }
+
+    .ncta:hover {
+      background: var(--rb) !important;
+    }
+
+    .nav-p {
+      position: absolute;
+      border-radius: 50%;
+      background: #ff0000;
+      box-shadow: 0 0 5px 2px rgba(255, 0, 0, 0.65);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav .nl, nav ul, nav button {
+      position: relative;
+      z-index: 1;
+    }
+
 </style>
 </head>
 
 <body>
   <div id="cursor"></div>
 
-    <nav id="nav">
+    
+  <nav id="nav">
     <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
     <ul class="nls" style="margin-left:auto;">
       <li><a href="index.html#sobre">Sobre mí</a></li>
@@ -1006,16 +1098,12 @@
     </button>
   </nav>
 
+  
+
+
     <!-- MOBILE OVERLAY -->
     <!-- MOBILE OVERLAY -->
-  <div class="movl" id="movl">
-    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
-    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
-    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
-    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
-    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
-  </div>
+  
 
 
 
@@ -1248,6 +1336,123 @@
   </script>
 
 
+<script>
+
+    // ===================================================
+    // 1. NAV PARTICLES
+    // ===================================================
+    (function navParticles() {
+      const nav = document.getElementById('nav');
+      if (!nav) return;
+      const COUNT = 16;
+      const particles = [];
+      for (let i = 0; i < COUNT; i++) {
+        const p = document.createElement('div');
+        p.className = 'nav-p';
+        const size = Math.random() * 2.4 + 0.8;
+        p.style.cssText = `width:${size}px;height:${size}px;position:absolute;opacity:0;top:0;left:0;`;
+        nav.appendChild(p);
+        const nw = window.innerWidth;
+        const nh = 70;
+        particles.push({
+          el: p,
+          x: Math.random() * nw,
+          y: Math.random() * nh,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.3,
+          baseOp: Math.random() * 0.5 + 0.2,
+          age: Math.floor(Math.random() * 180),
+          maxLife: Math.random() * 200 + 120,
+        });
+      }
+      function tickParticles() {
+        const nw = nav.offsetWidth;
+        const nh = nav.offsetHeight;
+        particles.forEach(p => {
+          p.age++;
+          p.x += p.vx;
+          p.y += p.vy;
+          const progress = p.age / p.maxLife;
+          const fadeIn = Math.min(progress * 6, 1);
+          const fadeOut = Math.max(0, 1 - Math.max(0, progress - 0.65) / 0.35);
+          const op = p.baseOp * fadeIn * fadeOut;
+          if (p.age >= p.maxLife || p.x < -4 || p.x > nw + 4) {
+            p.x = Math.random() * nw;
+            p.y = Math.random() * nh;
+            p.age = 0;
+            p.vx = (Math.random() - 0.5) * 0.45;
+            p.vy = (Math.random() - 0.5) * 0.3;
+          }
+          p.el.style.transform = `translate(${p.x}px,${p.y}px)`;
+          p.el.style.opacity = op.toFixed(3);
+        });
+        requestAnimationFrame(tickParticles);
+      }
+      tickParticles();
+    })();
+
+    // ===================================================
+    // GLOBAL PARTICLES (Site-wide)
+    // ===================================================
+    (function initGlobalParticles() {
+      if (document.getElementById('bg-particles')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      canvas.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        pointer-events: none;
+        opacity: 1;
+      `;
+      document.body.appendChild(canvas);
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({ length: 180 }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: -(Math.random() * 0.5 + 0.15),
+        r: Math.random() * 2.5 + 0.8,
+        op: Math.random() * 0.55 + 0.2,
+        life: Math.random()
+      }));
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= 0.0018;
+          if (p.y < -10 || p.life <= 0) {
+            p.y = canvas.height + 10;
+            p.x = Math.random() * canvas.width;
+            p.life = Math.random() * 0.5 + 0.5;
+          }
+          if (p.x < -10) p.x = canvas.width + 10;
+          if (p.x > canvas.width + 10) p.x = -10;
+          const alpha = Math.max(0, p.op * p.life);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 0, 0, ${alpha.toFixed(3)})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+</script>
 </body>
 
 </html>
