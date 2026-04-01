@@ -4,2718 +4,1163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentín Sánchez — Diseñador · Editor · Productor</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <title>Valentín Sánchez — Portafolio</title>
   <style>
-    :root {
-      --r: #FF0000;
-      --rb: #FF0000;
-      --kord: #8B5CF6;
-      /* Purple accent for Kord3 */
-      --energia: #FFD700;
-      /* Energia Gold */
-      --agency: #22C55E;
-      /* Agency Green */
-      --natan: #3B82F6;
-      /* Natan Blue */
-      --mfsports: #FA8072;
-      /* MF Sports Salmon */
-      --home: #0EA5E9;
-      /* Home Celeste */
-      --zetta: #FFFFFF;
-      /* Zetta White */
-      --b: #080808;
-      --b2: #0f0f0f;
-      --w: #F0F0F0;
-      --g: #777;
+    /* ===========================
+       WINDOWS 2000 DESIGN SYSTEM
+       =========================== */
 
-      /* Typography System */
-      --fs-h1: clamp(3.5rem, 12vw, 8.5rem);
-      --fs-h2: clamp(2.2rem, 6vw, 4.5rem);
-      --fs-h3: clamp(1.5rem, 4vw, 2.5rem);
-      --fs-body: clamp(0.9rem, 2vw, 1.1rem);
-    }
-
-    *,
-    *::before,
-    *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      /* Win2K Colors */
+      --win-bg: #d4d0c8;
+      --win-dark: #808080;
+      --win-darker: #404040;
+      --win-light: #ffffff;
+      --win-face: #d4d0c8;
+      --win-titlebar: #0a246a;
+      --win-titlebar2: #a6caf0;
+      --win-titlebar-inactive: #7f9db9;
+      --win-shadow: #0a0a0a;
+      --win-text: #000000;
+      --win-blue-link: #0000ff;
+      --win-visited: #800080;
+      --win-highlight: #0a246a;
+      --win-highlight-text: #ffffff;
+      --win-taskbar: #d4d0c8;
+      --win-start: #008000;
+      --win-red: #ff0000;
+      --win-border-light: #ffffff;
+      --win-border-dark: #808080;
+      --win-border-darker: #404040;
+      --win-sunken-border: #808080;
+    }
+
     html {
-      scroll-behavior: smooth;
+      height: 100%;
     }
 
     body {
-      background: var(--b);
-      color: var(--w);
-      font-family: 'Barlow', sans-serif;
-      overflow-x: hidden;
-      cursor: none;
-      background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
-      background-size: 52px 52px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      background-color: #008080;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.03) 0px,
+        rgba(0,0,0,0.03) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+      color: var(--win-text);
+      min-height: 100vh;
+      padding-bottom: 50px;
+      cursor: default;
     }
 
-    /* LINKS */
     a {
-      color: inherit;
-      text-decoration: none;
+      color: var(--win-blue-link);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    a:visited {
+      color: var(--win-visited);
     }
 
     a:hover {
-      color: var(--r);
+      color: var(--win-red);
     }
 
-    /* CURSOR */
-    #cd,
-    #cr {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      will-change: transform;
+    /* ===========================
+       RAISED / SUNKEN BORDERS
+       =========================== */
+    .raised {
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
     }
 
-    #cd {
-      width: 10px;
-      height: 10px;
-      background: #ff0000;
-      box-shadow: 0 0 12px 4px rgba(255, 0, 0, .9), 0 0 30px 8px rgba(255, 0, 0, .5);
-      transition: width .15s, height .15s, background .15s;
+    .raised-inner {
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-dark);
+      border-bottom: 1px solid var(--win-border-dark);
     }
 
-    #cr {
-      width: 38px;
-      height: 38px;
-      border: 2px solid rgba(255, 0, 0, 0.85);
-      box-shadow: 0 0 10px rgba(255, 0, 0, .3);
-      transition: width .25s cubic-bezier(.16, 1, .3, 1), height .25s cubic-bezier(.16, 1, .3, 1), border-color .2s;
+    .sunken {
+      border-top: 2px solid var(--win-border-darker);
+      border-left: 2px solid var(--win-border-darker);
+      border-right: 2px solid var(--win-border-light);
+      border-bottom: 2px solid var(--win-border-light);
     }
 
-    #cd.hov {
-      width: 7px;
-      height: 7px;
-      background: #fff;
-      box-shadow: 0 0 12px 4px rgba(255, 255, 255, .6);
+    .sunken-inner {
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
     }
 
-    #cr.hov {
-      width: 58px;
-      height: 58px;
-      border-color: rgba(255, 255, 255, .35);
+    /* ===========================
+       WINDOW CHROME
+       =========================== */
+    .window {
+      background: var(--win-face);
+      margin: 8px auto;
+      max-width: 900px;
     }
 
-    .trp {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      top: 0;
-      left: 0;
-      will-change: transform;
-    }
-
-    /* NOISE */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 99990;
-      opacity: 0.28;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 5000;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 28px;
-      padding: 30px 64px;
-      background: linear-gradient(to bottom, rgba(8, 8, 8, .98), transparent);
-      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    nav.sc {
-      background: rgba(8, 8, 8, .99);
-      border-bottom: 1px solid rgba(255, 0, 0, .2);
-    }
-
-    .nl {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 4px;
-    }
-
-    .nl span {
-      color: var(--r);
-    }
-
-    .nls {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nls a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .95rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--g);
-      text-decoration: none;
-      position: relative;
-      /* pill + glow base */
-      padding: 6px 16px;
-      border-radius: 22px;
-      border: 1px solid transparent;
-      transition: color .25s, border-color .3s, box-shadow .3s, background .3s;
-    }
-
-    .nls a::after {
-      display: none;
-    }
-
-    .nls a:not(.ncta):hover {
-      color: var(--w);
-      border-color: rgba(255, 0, 0, 0.45);
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 0 24px rgba(255, 0, 0, 0.1), inset 0 0 8px rgba(255, 0, 0, 0.04);
-      background: rgba(255, 0, 0, 0.05);
-    }
-
-    /* Keep ncta button looking solid */
-    .ncta {
-      border-radius: 4px !important;
-      border: none !important;
-    }
-
-    .ncta {
-      background: var(--r) !important;
-      color: var(--w) !important;
-      padding: 7px 18px;
-      font-family: 'Barlow Condensed', sans-serif !important;
-      font-size: .76rem !important;
-      letter-spacing: 3px !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      transition: background .2s;
-    }
-
-    .ncta:hover {
-      background: var(--rb) !important;
-    }
-
-    .ncta::after {
-      display: none !important;
-    }
-
-    /* MOBILE MENU TRIGGER */
-    .mtog {
-      display: none;
-      background: none;
-      border: none;
-      padding: 5px;
-      z-index: 6000;
-      cursor: pointer;
-      position: relative;
-      width: 32px;
-      height: 24px;
-    }
-
-    .mtog span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: var(--w);
-      position: absolute;
-      left: 0;
-      transition: .4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .mtog span:nth-child(1) {
-      top: 0;
-    }
-
-    .mtog span:nth-child(2) {
-      top: 10px;
-    }
-
-    .mtog span:nth-child(3) {
-      top: 20px;
-    }
-
-    .mtog.active span:nth-child(1) {
-      transform: translateY(10px) rotate(45deg);
-    }
-
-    .mtog.active span:nth-child(2) {
-      opacity: 0;
-      transform: translateX(-10px);
-    }
-
-    .mtog.active span:nth-child(3) {
-      transform: translateY(-10px) rotate(-45deg);
-    }
-
-    /* MOBILE OVERLAY */
-    .movl {
-      position: fixed;
-      inset: 0;
-      background: rgba(8, 8, 8, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      z-index: 5500;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 35px;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: all .5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Kord3-style purple glow in the menu */
-    .movl::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 250px;
-      height: 250px;
-      background: var(--kord);
-      filter: blur(150px);
-      opacity: 0.15;
-      z-index: -1;
-    }
-
-    .movl.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .movl a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
-      letter-spacing: 4px;
-      color: var(--w);
-      transition: .3s;
-    }
-
-    .movl a:hover {
-      color: var(--r);
-    }
-
-    /* HERO */
-    #hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      overflow: hidden;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('IMAGENES MIAS/deperfil.png');
-      background-size: cover;
-      background-position: right center;
-      background-attachment: fixed;
-    }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-cutout {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right center;
-      z-index: 3;
-      pointer-events: none;
-      animation: photoFade 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-      transform-origin: center bottom;
-    }
-
-    .hg {
-      position: absolute;
-      inset: 0;
-    }
-
-    .hg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 0%, rgba(8, 8, 8, .9) 100%);
-    }
-
-    .hgl {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 45% 38% at 50% 50%, rgba(204, 0, 0, .1) 0%, transparent 70%);
-      z-index: 1;
-    }
-
-    .hc {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 100%;
-      position: absolute;
-      bottom: 80px;
-      left: 0;
-      z-index: 3;
-    }
-
-    @keyframes fu {
-      from {
-        opacity: 0;
-        transform: translateY(36px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    .hey {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
-      letter-spacing: 7px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin-bottom: 20px;
-      animation: fu .9s .15s both;
-    }
-
-    .hn {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(68px, 13vw, 185px);
-      line-height: .88;
-      letter-spacing: -3px;
-      animation: nameReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
-      clip-path: inset(0 100% 0 0);
-    }
-
-    .hn .acc {
-      color: var(--r);
-    }
-
-    .hro {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(14px, 2.2vw, 26px);
-      letter-spacing: clamp(3px, 1.2vw, 9px);
-      text-transform: uppercase;
-      color: var(--g);
-      margin-top: 14px;
-      animation: fu .9s .4s both;
-    }
-
-    .hro span {
-      color: var(--w);
-    }
-
-    .hsub {
-      font-size: .97rem;
-      color: var(--g);
-      margin: 18px auto 0;
-      max-width: 455px;
-      line-height: 1.75;
-      font-weight: 300;
-      animation: fu .9s .55s both;
-    }
-
-    .hbt {
-      display: inline-flex;
-      gap: 14px;
-      margin-top: 44px;
-      animation: fu .9s .7s both;
-    }
-
-    .br {
-      background: var(--r);
-      color: var(--w);
-      padding: 13px 32px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .82rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-
-    .br:hover {
-      background: var(--rb);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(255, 0, 0, .45);
-    }
-
-    .bo {
-      border: 1px solid rgba(255, 255, 255, .22);
-      color: var(--w);
-      padding: 13px 32px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .82rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: border-color .2s, color .2s, transform .2s;
-    }
-
-    .bo:hover {
-      border-color: var(--r);
-      color: var(--r);
-      transform: translateY(-2px);
-    }
-
-    /* MARQUEE */
-    .mw {
-      background: var(--r);
-      padding: 25px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .mt {
-      display: inline-flex;
-      animation: mq 20s linear infinite;
-    }
-
-    @keyframes mq {
-      from {
-        transform: translateX(0)
-      }
-
-      to {
-        transform: translateX(-50%)
-      }
-    }
-
-    /* icon animations */
-    @keyframes borderPulse {
-
-      0%,
-      100% {
-        box-shadow: 0 0 5px #ff0015;
-      }
-
-      50% {
-        box-shadow: 0 0 18px #ff0015, 0 0 30px #ff0015;
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-    }
-
-    .mi {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      letter-spacing: 3px;
-      padding: 0 32px;
-      opacity: .92;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    .md {
-      color: rgba(255, 255, 255, .35);
-    }
-
-    /* SECTION BASE */
-    section {
-      padding: 110px 64px;
-    }
-
-    .sl {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--r);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .sl::before {
-      content: '';
-      width: 22px;
-      height: 1px;
-      background: var(--r);
-    }
-
-    .st {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(44px, 6.5vw, 90px);
-      line-height: .93;
-      margin-bottom: 58px;
-    }
-
-    .st em {
-      color: var(--r);
-      font-style: normal;
-    }
-
-    /* SOBRE */
-    #sobre {
-      background: var(--b2);
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 72px;
-      align-items: center;
-      position: relative;
-    }
-
-    #sobre::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
-      background-size: 52px 52px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    #sobre>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .sbt p {
-      font-size: 1.02rem;
-      line-height: 1.82;
-      color: rgba(240, 240, 240, .76);
-      margin-bottom: 17px;
-      font-weight: 300;
-    }
-
-    .sbt p strong {
-      color: var(--w);
-      font-weight: 600;
-    }
-
-    /* skills layout */
-    #skills-section {
-      background: #0f0f0f;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    /* OLD MOBILE BLOCKED */
-
-    .skill-group {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .skill-group .sl {
-      margin: 0;
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .skill-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      background: #111;
-      border: 1px solid #ff0015;
-      border-radius: 12px;
-      padding: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .3s ease;
-      animation: borderPulse 2s infinite, float 2s infinite;
-    }
-
-    .skill-icon:hover {
-      transform: scale(1.2) rotate(5deg);
-      box-shadow: 0 0 25px #ff0015;
-    }
-
-    .skill-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .skill-item:nth-child(1) .skill-icon {
-      animation: borderPulse 2s infinite, float 2s infinite;
-    }
-
-    .skill-item:nth-child(2) .skill-icon {
-      animation: borderPulse 2s infinite, float 2.3s infinite;
-    }
-
-    .skill-item:nth-child(3) .skill-icon {
-      animation: borderPulse 2s infinite, float 2.6s infinite;
-    }
-
-    .skill-item:nth-child(4) .skill-icon {
-      animation: borderPulse 2s infinite, float 2.9s infinite;
-    }
-
-    .skill-item:nth-child(5) .skill-icon {
-      animation: borderPulse 2s infinite, float 3.2s infinite;
-    }
-
-    .skill-item:nth-child(6) .skill-icon {
-      animation: borderPulse 2s infinite, float 3.5s infinite;
-    }
-
-    .skill-name {
-      flex: 1;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .9rem;
-      text-transform: uppercase;
-    }
-
-    .skill-bar {
-      flex: 2;
-      height: 6px;
-      background: #333;
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .skill-fill {
-      height: 100%;
-      background: var(--r);
-      width: 0;
-      transition: width 1.2s ease;
-    }
-
-    .skill-pct {
-      min-width: 35px;
-      text-align: right;
-      color: var(--r);
-      font-size: .8rem;
-    }
-
-    .sph {
-      position: relative;
-    }
-
-    .pf {
-      aspect-ratio: 3/4;
-      overflow: hidden;
-      position: relative;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 92% 100%, 0 100%);
-      border: 1px solid rgba(204, 0, 0, .18);
-    }
-
-    .pf img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .pph {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(155deg, #181818 0%, #2c0000 55%, #0d0d0d 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pph::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-
-    .phi {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 8rem;
-      color: rgba(204, 0, 0, .22);
-      letter-spacing: 10px;
-      position: relative;
-      z-index: 1;
-      line-height: 1;
-    }
-
-    .pht {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .68rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .18);
-      position: relative;
-      z-index: 1;
-    }
-
-    .pbg {
-      position: absolute;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .76rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 10px 16px;
-    }
-
-    .pb1 {
-      bottom: 26px;
-      right: -14px;
-      background: var(--r);
-      color: var(--w);
-    }
-
-    .pb2 {
-      top: 26px;
-      left: -14px;
-      background: rgba(8, 8, 8, .95);
-      border: 1px solid rgba(204, 0, 0, .4);
-      color: var(--r);
-    }
-
-    /* STATS */
-    .sb {
-      background: var(--r);
-      padding: 56px 64px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .si {
-      text-align: center;
-      padding: 0 18px;
-      border-right: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    .si:last-child {
-      border: none;
-    }
-
-    .sn {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(44px, 5vw, 68px);
-      line-height: 1;
-    }
-
-    .sl2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .74rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .72);
-      margin-top: 6px;
-    }
-
-    /* EDUCACIÓN */
-    #educacion {
-      background: var(--b);
-    }
-
-    .eg {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .ec {
-      background: rgba(255, 255, 255, .025);
-      border: 1px solid rgba(255, 255, 255, .07);
-      padding: 28px 26px 26px 34px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .3s, background .3s, transform .3s;
-    }
-
-    .ec::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--r);
-    }
-
-    .ec:hover {
-      border-color: rgba(204, 0, 0, .35);
-      background: rgba(204, 0, 0, .04);
-      transform: translateX(4px);
-    }
-
-    .ei {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .ein {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .98rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .ed {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .88rem;
-      color: var(--r);
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-
-    .ey {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--g);
-    }
-
-    .cg {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 13px;
-      margin-top: 18px;
-    }
-
-    .cc {
-      background: rgba(204, 0, 0, .05);
-      border: 1px solid rgba(204, 0, 0, .18);
-      padding: 17px;
-      text-align: center;
-      transition: background .2s, transform .2s;
-    }
-
-    .cc:hover {
-      background: rgba(204, 0, 0, .1);
-      transform: translateY(-3px);
-    }
-
-    .cn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .cl {
-      font-size: .7rem;
-      color: var(--r);
-      font-family: 'Barlow Condensed', sans-serif;
-      letter-spacing: 1px;
-    }
-
-    /* EXPERIENCIA */
-    #experiencia {
-      background: var(--b2);
-    }
-
-    .exl {
-      border-top: 1px solid rgba(255, 255, 255, .07);
-    }
-
-    .exi {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 36px;
-      padding: 32px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
-      transition: background .3s;
-    }
-
-    .exi:hover {
-      background: rgba(204, 0, 0, .03);
-      padding-left: 8px;
-    }
-
-    .exp {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .76rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--g);
-      padding-top: 4px;
-    }
-
-
-
-    .exro {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .exco {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .88rem;
-      color: var(--r);
-      letter-spacing: 2px;
-      margin-bottom: 9px;
-    }
-
-    .exde {
-      font-size: .88rem;
-      line-height: 1.7;
-      color: rgba(240, 240, 240, .68);
-      font-weight: 300;
-    }
-
-    .extg {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 10px;
-    }
-
-    .extgi {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .63rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border: 1px solid rgba(204, 0, 0, .28);
-      color: rgba(204, 0, 0, .82);
-    }
-
-    /* PROYECTOS */
-    #proyectos {
-      background: var(--b);
-    }
-
-    #proyectos .pg>a {
-      height: 420px;
+    .window-full {
       max-width: 100%;
       margin: 0;
     }
 
-    #proyectos .pg>a:last-child {
-      grid-column: 1/-1;
-    }
-
-    .pg {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .pc {
-      position: relative;
-      /*aspect-ratio:4/3;*/
-      overflow: hidden;
-      cursor: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      height: 420px;
-      min-height: 400px;
-      width: 100%;
-    }
-
-    .pc.big {
-      grid-column: span 2;
-      aspect-ratio: 16/9;
-    }
-
-    .pcb {
-      width: 100%;
-      height: 100%;
-      transition: transform .6s cubic-bezier(.16, 1, .3, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pc:hover .pcb {
-      transform: scale(1.05);
-    }
-
-    .plo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(26px, 4vw, 56px);
-      color: rgba(255, 255, 255, .06);
-      letter-spacing: 4px;
-      text-align: center;
-      padding: 16px;
-      line-height: 1.1;
-    }
-
-    .pc .po,
-    .po {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8, 8, 8, .97) 0%, rgba(8, 8, 8, .45) 55%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
-      transform: translateY(10px);
-      transition: transform .4s;
-    }
-
-    .po .pt,
-    .po .pn,
-    .po .pd,
-    .po .pb {
-      margin: 0 0 8px;
-    }
-
-    .pc:hover .po {
-      transform: translateY(0);
-    }
-
-    .pc .pt {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .66rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin-bottom: 5px;
-    }
-
-    .pn {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(17px, 3vw, 34px);
-      line-height: 1;
-    }
-
-    .pd {
-      font-size: .79rem;
-      color: rgba(240, 240, 240, .68);
-      margin-top: 7px;
-      line-height: 1.5;
-      font-weight: 300;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .4s, opacity .4s;
-      opacity: 0;
-    }
-
-    .pc:hover .pd {
-      max-height: 70px;
-      opacity: 1;
-    }
-
-    .pb {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .73rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin-top: 9px;
-      opacity: 0;
-      transform: translateX(-8px);
-      transition: opacity .3s .1s, transform .3s .1s;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      text-decoration: none;
-    }
-
-    .pb::after {
-      content: '→';
-    }
-
-    .pc:hover .pb {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .ck {
-      background-image: url('PORTADA PROYECTOS/PORTADA-KORD3.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .ck .pt {
-      color: var(--kord);
-    }
-
-    .ck .pb {
-      color: var(--kord);
-    }
-
-    .ck::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .ca .pt,
-    .ca .pb {
-      color: var(--agency);
-    }
-
-    .ce .pt,
-    .ce .pb {
-      color: var(--energia);
-    }
-
-    .cm .pt,
-    .cm .pb {
-      color: var(--mfsports);
-    }
-
-    .cn2 .pt,
-    .cn2 .pb {
-      color: var(--natan);
-    }
-
-    .ch .pt,
-    .ch .pb {
-      color: var(--home);
-    }
-
-    .cz .pt,
-    .cz .pb {
-      color: var(--zetta);
-    }
-
-    .ca {
-      background-image: url('PORTADA PROYECTOS/PORTADA-AGENCIA.png');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .ca::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .ce {
-      background-image: url('PORTADA PROYECTOS/PORTADA-ENERGIA.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .ce::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .cm {
-      background-image: url('PORTADA PROYECTOS/PORTADA-MFSPORTS.png');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .cm::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .cn2 {
-      background-image: url('PORTADA PROYECTOS/PORTADA-NATAN.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .cn2::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .ch {
-      background-image: url('PORTADA PROYECTOS/PORTADA-HOME.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .ch::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    .cz {
-      background-image: url('PORTADA PROYECTOS/PORTADA-OTROS.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    .cz::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 0;
-    }
-
-    /* SERVICIOS */
-    #servicios {
-      background: #ffffff;
-      position: relative;
-    }
-
-    #servicios::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(230, 57, 70, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(230, 57, 70, 0.12) 1px, transparent 1px);
-      background-size: 52px 52px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    #servicios>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .svl {
-      border-top: 1px solid rgba(230, 57, 70, 0.15);
-    }
-
-    .svi {
-      display: grid;
-      grid-template-columns: 68px 1fr auto;
-      align-items: center;
-      gap: 32px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(230, 57, 70, 0.15);
-      position: relative;
-      overflow: hidden;
-      transition: padding-left .3s;
-    }
-
-    .svi::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 0;
-      background: rgba(204, 0, 0, .05);
-      transition: width .4s;
-    }
-
-    .svi:hover::before {
-      width: 100%;
-    }
-
-    .svi:hover {
-      padding-left: 12px;
-    }
-
-    .svnum {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.7rem;
-      color: #ff0015;
+    .titlebar {
+      background: linear-gradient(to right, var(--win-titlebar), var(--win-titlebar2));
+      color: white;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
       font-weight: bold;
-      line-height: 1;
-    }
-
-    .svn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(19px, 2.7vw, 32px);
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #ff0015;
-      transition: color .2s;
-    }
-
-    .svi:hover .svn {
-      color: #ff0015;
-    }
-
-    .svbdg {
-      background: #ff0015;
-      color: #ffffff;
-      border-radius: 4px;
-      padding: 4px 12px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .svd {
-      font-size: .82rem;
-      color: #ffffff;
-      font-weight: 300;
-      margin-top: 4px;
-      max-width: 500px;
-      line-height: 1.6;
-    }
-
-    .svtg {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      justify-content: flex-end;
-    }
-
-    .svt {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border: 1px solid #ff0015;
-      color: #ff0015;
-      background: transparent;
-    }
-
-    /* PROCESO */
-    #proceso {
-      background: var(--b);
-      position: relative;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    #proceso::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
-      background-size: 52px 52px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    #proceso>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .prg {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
-      position: relative;
-    }
-
-    .prg::after {
-      content: '';
-      position: absolute;
-      top: 38px;
-      left: 9%;
-      right: 9%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--r), transparent);
-      z-index: 0;
-    }
-
-    .prs {
-      text-align: center;
-      padding: 0 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .prn {
-      width: 76px;
-      height: 76px;
-      border: 1px solid rgba(204, 0, 0, .36);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      color: var(--r);
-      background: var(--b);
-      transition: background .3s, border-color .3s, color .3s;
-    }
-
-    .prs:hover .prn {
-      background: var(--r);
-      color: #fff;
-      border-color: var(--r);
-    }
-
-    .prt {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .93rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 7px;
-      color: #ffffff;
-    }
-
-    .prd {
-      font-size: .74rem;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    .tb {
-      margin-top: 68px;
-      border-top: 1px solid rgba(255, 255, 255, .07);
-      padding-top: 52px;
-    }
-
-    .tl {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 26px;
-    }
-
-    .tg {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 13px;
-    }
-
-    .ti {
-      background: rgba(255, 255, 255, .025);
-      border: 1px solid rgba(255, 255, 255, .055);
-      padding: 17px 13px;
-      text-align: center;
-      transition: background .2s, border-color .2s, transform .2s;
-    }
-
-    .ti:hover {
-      background: rgba(204, 0, 0, .07);
-      border-color: rgba(204, 0, 0, .26);
-      transform: translateY(-4px);
-    }
-
-    .tic {
-      font-size: 1.4rem;
-      margin-bottom: 7px;
-    }
-
-    .tin {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--g);
-    }
-
-    /* CURRICULUM */
-    #curriculum {
-      background: var(--b2);
-    }
-
-    .cvw {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 68px;
-      align-items: start;
-    }
-
-    .cvb {
-      margin-bottom: 44px;
-    }
-
-    .cvbt {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--r);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .cvbt::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(204, 0, 0, .2);
-    }
-
-    .cve {
-      padding: 20px 20px 20px 26px;
-      margin-bottom: 11px;
-      background: rgba(255, 255, 255, .02);
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-left: 3px solid var(--r);
-      transition: background .3s;
-    }
-
-    .cve:hover {
-      background: rgba(204, 0, 0, .04);
-    }
-
-    .cvet {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.02rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .cves {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .84rem;
-      color: var(--r);
-      letter-spacing: 1px;
-      margin-bottom: 3px;
-    }
-
-    .cved {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .68rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 7px;
-    }
-
-    .cvedd {
-      font-size: .85rem;
-      line-height: 1.66;
-      color: rgba(240, 240, 240, .64);
-      font-weight: 300;
-    }
-
-    .cvdb {
-      background: rgba(255, 255, 255, .02);
-      border: 1px solid rgba(255, 255, 255, .07);
-      padding: 32px;
-      position: sticky;
-      top: 96px;
-    }
-
-    .cvdt {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.75rem;
-      margin-bottom: 10px;
-    }
-
-    .cvds {
-      font-size: .83rem;
-      color: var(--g);
-      line-height: 1.65;
-      margin-bottom: 22px;
-      font-weight: 300;
-    }
-
-    .cvdl {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--r);
-      color: var(--w);
-      padding: 15px 22px;
-      text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .82rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      width: 100%;
-      justify-content: center;
-      transition: background .2s, transform .2s;
-    }
-
-    .cvdl:hover {
-      background: var(--rb);
-      transform: translateY(-2px);
-    }
-
-    .cvdl svg {
-      width: 17px;
-      height: 17px;
-      flex-shrink: 0;
-    }
-
-    .cvpr {
-      margin-top: 18px;
-      padding: 18px;
-      background: rgba(204, 0, 0, .04);
-      border: 1px solid rgba(204, 0, 0, .14);
-    }
-
-    .cvprl {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .63rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin-bottom: 12px;
-    }
-
-    .cvil {
-      list-style: none;
-    }
-
-    .cvil li {
-      font-size: .83rem;
-      line-height: 1.7;
-      color: rgba(240, 240, 240, .68);
-      font-weight: 300;
-      padding: 6px 0 6px 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, .05);
-      position: relative;
-    }
-
-    .cvil li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--r);
-      font-size: .68rem;
-    }
-
-    .cvil li:last-child {
-      border: none;
-    }
-
-    /* LOGROS */
-    #logros {
-      background: var(--b);
-    }
-
-    .lgg {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .lgc {
-      background: rgba(255, 255, 255, .025);
-      border: 1px solid rgba(255, 255, 255, .07);
-      padding: 26px;
-      transition: border-color .3s, transform .3s;
-    }
-
-    .lgc:hover {
-      border-color: rgba(204, 0, 0, .35);
-      transform: translateY(-4px);
-    }
-
-    .lgi {
-      font-size: 1.5rem;
-      margin-bottom: 11px;
-    }
-
-    .lgt {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .98rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 7px;
-    }
-
-    .lgd {
-      font-size: .83rem;
-      line-height: 1.65;
-      color: rgba(240, 240, 240, .64);
-      font-weight: 300;
-    }
-
-    /* CONTACTO */
-    #contacto {
-      background: var(--b2);
-      text-align: center;
-      position: relative;
-      background-image: url('IMAGENES MIAS/DE ARRIBA.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    #contacto::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-      z-index: 0;
-    }
-
-    #contacto>* {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cbg {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(48px, 10vw, 148px);
-      line-height: .88;
-      color: rgba(255, 255, 255, .03);
-      pointer-events: none;
-      margin-bottom: -44px;
-      position: relative;
-      z-index: 0;
-    }
-
-    .ci {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cem {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(22px, 4vw, 44px);
-      color: var(--w);
-      text-decoration: none;
-      display: inline-block;
-      border-bottom: 2px solid var(--r);
-      padding-bottom: 4px;
-      transition: color .2s;
-      letter-spacing: 2px;
-    }
-
-    .cem:hover {
-      color: var(--r);
-    }
-
-    .cm2 {
-      display: flex;
-      justify-content: center;
-      gap: 42px;
-      margin-top: 42px;
-      flex-wrap: wrap;
-    }
-
-    .cmi {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--g);
-    }
-
-    .cmi strong {
-      display: block;
-      color: var(--w);
-      margin-bottom: 4px;
-      font-size: .92rem;
-    }
-
-    .cbt {
-      margin-top: 42px;
-      display: flex;
-      gap: 13px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--b);
-      padding: 26px 64px;
+      padding: 3px 4px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(255, 255, 255, .06);
+      user-select: none;
+      height: 22px;
     }
 
-    .flo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.12rem;
-      letter-spacing: 4px;
+    .titlebar-inactive {
+      background: linear-gradient(to right, var(--win-titlebar-inactive), #c0d4e8);
     }
 
-    .flo span {
-      color: var(--r);
+    .titlebar-title {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .fco {
-      font-size: .7rem;
-      color: var(--g);
-      letter-spacing: 2px;
-    }
-
-    /* MODAL */
-    .mo {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .92);
-      z-index: 100000;
+    .titlebar-icon {
+      width: 14px;
+      height: 14px;
+      font-size: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s;
-      backdrop-filter: blur(10px);
-      padding: 16px;
     }
 
-    .mo.on {
-      opacity: 1;
-      pointer-events: all;
+    .titlebar-buttons {
+      display: flex;
+      gap: 2px;
     }
 
-    .md2 {
-      background: var(--b2);
-      border: 1px solid rgba(204, 0, 0, .22);
-      max-width: 860px;
-      width: 100%;
-      max-height: 92vh;
-      overflow-y: auto;
-      transform: translateY(22px) scale(.97);
-      transition: transform .4s cubic-bezier(.16, 1, .3, 1);
-    }
-
-    .mo.on .md2 {
-      transform: translateY(0) scale(1);
-    }
-
-    .md2::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .md2::-webkit-scrollbar-thumb {
-      background: var(--r);
-    }
-
-    .mh {
-      padding: 42px 42px 26px;
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-      position: sticky;
-      top: 0;
-      background: var(--b2);
-      z-index: 10;
-    }
-
-    .mx {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: none;
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: var(--w);
-      width: 37px;
-      height: 37px;
+    .win-btn {
+      width: 16px;
+      height: 14px;
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.05rem;
-      cursor: none;
-      transition: border-color .2s, background .2s;
-    }
-
-    .mx:hover {
-      border-color: var(--r);
-      background: rgba(204, 0, 0, .1);
-    }
-
-    .mcat {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .68rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin-bottom: 9px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .mcat::before {
-      content: '';
-      width: 13px;
-      height: 1px;
-      background: var(--r);
-    }
-
-    .mttl {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(30px, 5vw, 58px);
-      line-height: .92;
-    }
-
-    .mb {
-      padding: 34px 42px 42px;
-    }
-
-    .mb p {
-      font-size: .95rem;
-      line-height: 1.82;
-      color: rgba(240, 240, 240, .72);
-      margin-bottom: 17px;
-      font-weight: 300;
-    }
-
-    .mb p strong {
-      color: var(--w);
-      font-weight: 600;
-    }
-
-    .ms {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--r);
-      margin: 30px 0 13px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ms::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(204, 0, 0, .17);
-    }
-
-    .mch {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .mci {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .68rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 11px;
-      border: 1px solid rgba(204, 0, 0, .3);
-      color: rgba(204, 0, 0, .86);
-    }
-
-    .mhl {
-      background: rgba(204, 0, 0, .06);
-      border-left: 3px solid var(--r);
-      padding: 17px 20px;
-      margin: 18px 0;
-    }
-
-    .mhl p {
-      margin: 0;
-    }
-
-    .mli {
-      list-style: none;
-      margin: 13px 0 18px;
-    }
-
-    .mli li {
-      font-size: .9rem;
-      line-height: 1.7;
-      color: rgba(240, 240, 240, .7);
-      font-weight: 300;
-      padding: 6px 0 6px 17px;
-      border-bottom: 1px solid rgba(255, 255, 255, .04);
-      position: relative;
-    }
-
-    .mli li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--r);
-    }
-
-    .mli li:last-child {
-      border: none;
-    }
-
-    .mlk {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .ml1 {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--r);
-      color: var(--w);
-      padding: 12px 22px;
+      font-family: Marlett, Tahoma, Arial, sans-serif;
+      font-size: 9px;
+      cursor: pointer;
+      color: black;
       text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .78rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      transition: background .2s;
+      font-weight: bold;
     }
 
-    .ml1:hover {
-      background: var(--rb);
-    }
-
-    .ml2 {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(255, 255, 255, .2);
-      color: var(--w);
-      padding: 12px 22px;
+    .win-btn:hover {
+      background: #e8e4de;
+      color: black;
       text-decoration: none;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .78rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      transition: border-color .2s, color .2s;
     }
 
-    .ml2:hover {
-      border-color: var(--r);
-      color: var(--r);
+    .win-btn:active {
+      border-top: 1px solid var(--win-border-darker);
+      border-left: 1px solid var(--win-border-darker);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
     }
 
-    /* REVEAL — blur-fade unificado */
-    .rv {
-      opacity: 0;
-      transform: translateY(32px);
-      filter: blur(8px);
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    .win-btn.close:hover {
+      background: #cc0000;
+      color: white;
     }
 
-    .rv.vs,
-    .rv.vi {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
+    .window-content {
+      padding: 8px;
+      background: var(--win-face);
     }
 
-    /* RESPONSIVE */
-    /* OLD MOBILE BLOCKED */
-
-    /* OLD MOBILE BLOCKED */
-
-    /* MOBILE OPTIMIZATION */
-    /* OLD MOBILE BLOCKED */
-
-
-    /* --- MOBILE SYSTEM --- */
-    /* OLD MOBILE BLOCKED */
-
-    /* REVEAL ANIMATIONS — unificado arriba */
-
-    /* --- MOBILE OPTIMIZATION (MAX 768PX) --- */
-    /* OLD MOBILE BLOCKED */
-
-    /* ======= VS PORTFOLIO ENHANCEMENTS ======= */
-
-    /* --- KEYFRAMES NUEVOS --- */
-    @keyframes nameReveal {
-      from {
-        clip-path: inset(0 100% 0 0);
-      }
-
-      to {
-        clip-path: inset(0 0% 0 0);
-      }
+    /* ===========================
+       MENU BAR
+       =========================== */
+    .menubar {
+      background: var(--win-face);
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1px solid var(--win-border-dark);
     }
 
-    @keyframes photoFade {
-      from {
-        opacity: 0;
-        transform: scale(1.07) translateZ(0);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1) translateZ(0);
-      }
-    }
-
-    @keyframes charIn {
-      from {
-        opacity: 0;
-        transform: translateY(7px);
-        filter: blur(4px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes cardFloat {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-9px);
-      }
-    }
-
-    @keyframes navPOrbit {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-      }
-
-      85% {
-        opacity: 0.6;
-      }
-
-      100% {
-        transform: translate(var(--pdx), var(--pdy)) scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    /* --- NAV PARTICLES --- */
-    .nav-p {
-      position: absolute;
-      border-radius: 50%;
-      background: #ff0000;
-      box-shadow: 0 0 5px 2px rgba(255, 0, 0, 0.65);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    nav .nl,
-    nav ul,
-    nav button {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* --- PROJECT CARDS — float + glow border --- */
-    #proyectos .pc {
-      box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.22),
-        0 6px 24px rgba(0, 0, 0, 0.45);
-      will-change: transform, box-shadow;
-    }
-
-    #proyectos .pc.floating {
-      animation: cardFloat 3.2s ease-in-out infinite;
-    }
-
-    #proyectos .pc:hover {
-      box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.7),
-        0 0 22px rgba(255, 0, 0, 0.35),
-        0 12px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    /* --- HERO DUST CANVAS --- */
-    #hero-dust {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* --- SPLIT TEXT CHARS --- */
-    .hro-char {
+    .menubar a {
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      color: black;
+      text-decoration: none;
+      padding: 2px 8px;
       display: inline-block;
-      animation: charIn 0.35s ease both;
     }
 
-    /* ===================================================
-       VS PORTFOLIO — CONSOLIDATED MOBILE LAYOUT (MAX 768PX)
-       =================================================== */
-    @media (max-width: 768px) {
+    .menubar a:hover {
+      background: var(--win-highlight);
+      color: white;
+    }
 
-      /* General Layout Fixes */
-      html,
-      body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        position: relative !important;
-        cursor: auto !important;
+    /* ===========================
+       TOOLBAR
+       =========================== */
+    .toolbar {
+      background: var(--win-face);
+      padding: 2px 4px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      border-bottom: 1px solid var(--win-border-dark);
+    }
+
+    .toolbar-btn {
+      background: var(--win-face);
+      border: 1px solid transparent;
+      padding: 3px 8px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .toolbar-btn:hover {
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
+      background: #e8e4de;
+      color: black;
+      text-decoration: none;
+    }
+
+    .toolbar-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--win-border-dark);
+      margin: 0 3px;
+    }
+
+    /* ===========================
+       PUSH BUTTONS
+       =========================== */
+    .push-btn {
+      background: var(--win-face);
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
+      padding: 4px 16px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+      color: black;
+      text-decoration: none;
+      display: inline-block;
+      min-width: 75px;
+      text-align: center;
+    }
+
+    .push-btn:hover {
+      background: #e0dcd4;
+      color: black;
+      text-decoration: none;
+    }
+
+    .push-btn:active,
+    .push-btn.active {
+      border-top: 2px solid var(--win-border-darker);
+      border-left: 2px solid var(--win-border-darker);
+      border-right: 2px solid var(--win-border-light);
+      border-bottom: 2px solid var(--win-border-light);
+    }
+
+    .push-btn.primary {
+      background: var(--win-face);
+      outline: 2px solid black;
+      outline-offset: -2px;
+    }
+
+    /* ===========================
+       STATUS BAR
+       =========================== */
+    .statusbar {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-dark);
+      padding: 2px 8px;
+      font-size: 11px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .status-panel {
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      padding: 1px 8px;
+      font-size: 11px;
+      flex: 1;
+    }
+
+    /* ===========================
+       TASKBAR
+       =========================== */
+    #taskbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: var(--win-taskbar);
+      border-top: 2px solid var(--win-border-light);
+      display: flex;
+      align-items: center;
+      padding: 0 2px;
+      z-index: 9999;
+      gap: 4px;
+    }
+
+    #start-btn {
+      background: var(--win-face);
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
+      padding: 2px 8px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 24px;
+      color: black;
+      text-decoration: none;
+    }
+
+    #start-btn:hover {
+      background: #c8c4bc;
+      color: black;
+      text-decoration: none;
+    }
+
+    .start-icon {
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, #ff0000, #00ff00, #0000ff);
+      border-radius: 1px;
+    }
+
+    .taskbar-window-btn {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
+      padding: 2px 8px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 120px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .taskbar-window-btn:hover {
+      background: #e0dcd4;
+      color: black;
+      text-decoration: none;
+    }
+
+    .taskbar-sep {
+      width: 2px;
+      height: 20px;
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+    }
+
+    #tray {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      padding: 2px 8px;
+      gap: 8px;
+      height: 24px;
+      font-size: 10px;
+    }
+
+    /* ===========================
+       DESKTOP LAYOUT
+       =========================== */
+    #desktop {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ===========================
+       PROGRESS BAR
+       =========================== */
+    .progress-wrap {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      height: 16px;
+      overflow: hidden;
+      margin: 4px 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--win-titlebar);
+      display: flex;
+      align-items: center;
+    }
+
+    .progress-chunks {
+      height: 100%;
+      display: flex;
+      gap: 2px;
+      padding: 2px;
+    }
+
+    .progress-chunk {
+      width: 8px;
+      height: 100%;
+      background: var(--win-titlebar);
+    }
+
+    /* ===========================
+       TABS
+       =========================== */
+    .tab-row {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      padding: 0 8px;
+    }
+
+    .tab {
+      background: var(--win-face);
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 0;
+      padding: 4px 12px 5px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+      position: relative;
+      bottom: -1px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .tab.active {
+      background: var(--win-face);
+      z-index: 2;
+      font-weight: bold;
+      padding-bottom: 7px;
+    }
+
+    .tab:not(.active) {
+      background: #c0bbb4;
+      top: 2px;
+    }
+
+    .tab-content {
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
+      padding: 12px;
+      background: var(--win-face);
+    }
+
+    /* ===========================
+       GROUPBOX
+       =========================== */
+    .groupbox {
+      border: 1px solid var(--win-border-dark);
+      border-top: 1px solid var(--win-border-dark);
+      padding: 12px 10px 10px;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .groupbox-label {
+      position: absolute;
+      top: -8px;
+      left: 8px;
+      background: var(--win-face);
+      padding: 0 4px;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* ===========================
+       LISTVIEW / LISTBOX
+       =========================== */
+    .listview {
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      overflow: auto;
+    }
+
+    .listview table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    .listview thead th {
+      background: var(--win-face);
+      border-right: 1px solid var(--win-border-dark);
+      border-bottom: 2px solid var(--win-border-dark);
+      padding: 3px 8px;
+      text-align: left;
+      font-weight: bold;
+      white-space: nowrap;
+      cursor: pointer;
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+    }
+
+    .listview thead th:hover {
+      background: #c8c4bc;
+    }
+
+    .listview tbody tr {
+      cursor: default;
+    }
+
+    .listview tbody tr:hover {
+      background: #cce8ff;
+    }
+
+    .listview tbody tr.selected {
+      background: var(--win-highlight);
+      color: white;
+    }
+
+    .listview tbody td {
+      padding: 2px 8px;
+      border-bottom: 1px solid #e8e4de;
+      white-space: nowrap;
+    }
+
+    /* ===========================
+       SCROLLBAR (styled)
+       =========================== */
+    ::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--win-face);
+      border-left: 1px solid var(--win-border-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
+    }
+
+    ::-webkit-scrollbar-button {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
+      height: 16px;
+    }
+
+    /* ===========================
+       ICON GRID (desktop / projects)
+       =========================== */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 80px);
+      gap: 4px;
+      padding: 4px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 4px;
+      cursor: pointer;
+      width: 80px;
+    }
+
+    .icon-item:hover .icon-label {
+      background: var(--win-highlight);
+      color: white;
+    }
+
+    .icon-item:hover .icon-img {
+      opacity: 0.8;
+    }
+
+    .icon-img {
+      width: 32px;
+      height: 32px;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      image-rendering: pixelated;
+    }
+
+    .icon-label {
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      text-align: center;
+      color: black;
+      text-shadow: none;
+      line-height: 1.2;
+      max-width: 72px;
+      word-wrap: break-word;
+      padding: 1px 3px;
+    }
+
+    /* ===========================
+       MARCHING ANTS / TICKER
+       =========================== */
+    .ticker-bar {
+      background: var(--win-titlebar);
+      color: white;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      padding: 2px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: tickerMove 25s linear infinite;
+    }
+
+    @keyframes tickerMove {
+      from { transform: translateX(100vw); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* ===========================
+       SEPARATOR
+       =========================== */
+    .win-sep {
+      height: 0;
+      border-top: 1px solid var(--win-border-dark);
+      border-bottom: 1px solid var(--win-border-light);
+      margin: 6px 0;
+    }
+
+    /* ===========================
+       INPUT FIELDS
+       =========================== */
+    .win-input {
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      padding: 3px 4px;
+      outline: none;
+      color: black;
+    }
+
+    /* ===========================
+       STATS PANEL
+       =========================== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .stat-item {
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      padding: 8px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--win-titlebar);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      color: var(--win-darker);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===========================
+       ALERT / DIALOG ICON
+       =========================== */
+    .dialog-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    /* ===========================
+       BLINKING
+       =========================== */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .blink {
+      animation: blink 1s step-start infinite;
+    }
+
+    /* ===========================
+       UNDER CONSTRUCTION BANNER
+       =========================== */
+    .uc-banner {
+      background: #ffff00;
+      border: 2px dashed #ff0000;
+      padding: 6px 12px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      font-weight: bold;
+      color: #cc0000;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* ===========================
+       MAIN LAYOUT
+       =========================== */
+    #main-window {
+      margin: 8px auto;
+      max-width: 960px;
+      background: var(--win-face);
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* ===========================
+       PROJECT CARDS (Explorer style)
+       =========================== */
+    .project-card {
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-darker);
+      border-bottom: 1px solid var(--win-border-darker);
+      padding: 8px;
+      cursor: pointer;
+      transition: none;
+    }
+
+    .project-card:hover {
+      background: #cce8ff;
+    }
+
+    .project-card-title {
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--win-blue-link);
+      text-decoration: underline;
+      margin-bottom: 4px;
+    }
+
+    .project-card-cat {
+      font-size: 10px;
+      color: var(--win-darker);
+      margin-bottom: 4px;
+    }
+
+    .project-card-desc {
+      font-size: 10px;
+      color: black;
+      line-height: 1.4;
+    }
+
+    .project-type-badge {
+      display: inline-block;
+      background: var(--win-face);
+      border-top: 1px solid var(--win-border-light);
+      border-left: 1px solid var(--win-border-light);
+      border-right: 1px solid var(--win-border-dark);
+      border-bottom: 1px solid var(--win-border-dark);
+      padding: 1px 5px;
+      font-size: 9px;
+      margin-right: 3px;
+      margin-top: 4px;
+      color: black;
+    }
+
+    /* ===========================
+       SERVICE LIST ITEM
+       =========================== */
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid #e0dcd4;
+    }
+
+    .service-num {
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--win-titlebar);
+      min-width: 28px;
+    }
+
+    /* ===========================
+       SKILL BARS
+       =========================== */
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0;
+    }
+
+    .skill-name-col {
+      width: 120px;
+      font-size: 10px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .skill-bar-wrap {
+      flex: 1;
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      height: 16px;
+      display: flex;
+    }
+
+    .skill-bar-fill {
+      background: var(--win-titlebar);
+      height: 100%;
+      display: flex;
+    }
+
+    .skill-chunk {
+      width: 8px;
+      background: var(--win-titlebar);
+      margin-right: 2px;
+      height: 100%;
+    }
+
+    .skill-pct-col {
+      width: 30px;
+      font-size: 10px;
+      font-family: 'Courier New', monospace;
+      color: var(--win-darker);
+    }
+
+    /* ===========================
+       PROCESS STEPS
+       =========================== */
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px;
+      border: 1px solid transparent;
+    }
+
+    .process-step:hover {
+      background: #cce8ff;
+      border-color: var(--win-titlebar);
+    }
+
+    .process-num {
+      width: 24px;
+      height: 24px;
+      background: var(--win-titlebar);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       ABOUT SECTION
+       =========================== */
+    .about-text {
+      font-size: 11px;
+      line-height: 1.6;
+      color: black;
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      padding: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    /* ===========================
+       CONTACT / INFO
+       =========================== */
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px dotted var(--win-border-dark);
+    }
+
+    .info-label {
+      font-size: 10px;
+      font-weight: bold;
+      color: var(--win-darker);
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .info-value {
+      font-size: 11px;
+      color: black;
+    }
+
+    /* ===========================
+       HERO / SPLASH
+       =========================== */
+    #hero-window {
+      max-width: 960px;
+      margin: 8px auto;
+    }
+
+    .hero-content {
+      background: var(--win-face);
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-photo {
+      width: 120px;
+      height: 150px;
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: right center;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      image-rendering: auto;
+    }
+
+    .hero-name {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--win-titlebar);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-role {
+      font-size: 11px;
+      color: var(--win-darker);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .hero-desc {
+      font-size: 11px;
+      color: black;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* ===========================
+       EDUCATION CARDS
+       =========================== */
+    .edu-card {
+      background: white;
+      border-top: 1px solid var(--win-border-dark);
+      border-left: 1px solid var(--win-border-dark);
+      border-right: 1px solid var(--win-border-light);
+      border-bottom: 1px solid var(--win-border-light);
+      padding: 8px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .edu-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       LOGROS
+       =========================== */
+    .logro-item {
+      background: white;
+      border: 1px solid var(--win-border-dark);
+      padding: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    /* ===========================
+       TOOLTIP (Win2K style)
+       =========================== */
+    .tooltip {
+      background: #ffffcc;
+      border: 1px solid black;
+      padding: 2px 4px;
+      font-size: 10px;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    /* ===========================
+       FOOTER / COPYRIGHT
+       =========================== */
+    #footer-bar {
+      max-width: 960px;
+      margin: 0 auto 8px;
+      padding: 4px 8px;
+      background: var(--win-face);
+      border-top: 2px solid var(--win-border-light);
+      border-left: 2px solid var(--win-border-light);
+      border-right: 2px solid var(--win-border-darker);
+      border-bottom: 2px solid var(--win-border-darker);
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--win-darker);
+    }
+
+    /* ===========================
+       MEDIA QUERIES
+       =========================== */
+    @media (max-width: 700px) {
+      .two-col, .three-col, .stats-grid {
+        grid-template-columns: 1fr;
       }
-
-      /* HERO MOBILE — DEFINITIVE RULES */
-      #hero {
-        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMAGENES MIAS/deperfil.png') !important;
-        height: 100vh !important;
-        min-height: 100vh !important;
-        padding: 0 !important;
-        position: relative !important;
-        overflow: hidden !important;
-        background-position: right center !important;
-        background-size: cover !important;
-        display: block !important;
+      .hero-content {
+        flex-direction: column;
       }
-
-      #hero::after {
-        content: '' !important;
-        position: absolute !important;
-        inset: 0 !important;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%,
-            rgba(0, 0, 0, 0.2) 60%, transparent 100%) !important;
-        z-index: 2 !important;
-        pointer-events: none !important;
+      .hero-photo {
+        width: 80px;
+        height: 100px;
       }
-
-      .hero-cutout {
-        display: block !important;
-        position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
-        left: auto !important;
-        width: auto !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: right top !important;
-        z-index: 2 !important;
-        margin: 0 !important;
-        transform: none !important;
+      .hero-name {
+        font-size: 16px;
       }
-
-      .hn {
-        position: absolute !important;
-        z-index: 1 !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 0 !important;
-        top: 35% !important;
-        left: 0 !important;
-        font-size: 3.2rem !important;
-        line-height: 1 !important;
-        color: white !important;
+      #taskbar .taskbar-window-btn {
+        min-width: 80px;
+        font-size: 10px;
       }
-
-      #hero .hc {
-        position: absolute !important;
-        z-index: 5 !important;
-        bottom: 60px !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-        padding: 0 20px !important;
-        display: block !important;
-        transform: none !important;
-      }
-
-      .hro {
-        font-size: 0.85rem !important;
-        color: #ddd !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
-        display: block !important;
-        letter-spacing: 1px !important;
-        background: none !important;
-        backdrop-filter: none !important;
-        width: 100% !important;
-      }
-
-      .hbt {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 12px !important;
-        width: 100% !important;
-      }
-
-      .hbt a {
-        width: 80% !important;
-        text-align: center !important;
-        max-width: 280px !important;
-        margin: 0 !important;
-        padding: 14px !important;
-        justify-content: center !important;
-        display: flex !important;
-      }
-
-      /* Global Elements Cleanup */
-      #bg-particles {
-        display: block !important;
-        opacity: 1 !important;
-        position: fixed !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 9 !important;
-        pointer-events: none !important;
-        transition: opacity 0.6s !important;
-      }
-
-      #cursor,
-      .trail,
-      .trp,
-      #cd,
-      #cr,
-      #hero-dust,
-      .nav-p,
-      .nls {
-        display: none !important;
-      }
-
-      nav {
-        display: flex !important;
-        justify-content: space-between !important;
-        padding: 15px 20px !important;
-        background: rgba(8, 8, 8, .98) !important;
-        position: fixed !important;
-        top: 0 !important;
-        width: 100% !important;
-        z-index: 5000 !important;
-      }
-
-      .mtog {
-        display: block !important;
-        position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        z-index: 6000 !important;
-      }
-
-      /* Sections & Typography */
-      section {
-        padding: 60px 20px !important;
-      }
-
-      .st,
-      .ht,
-      .section-title {
-        font-size: 2.5rem !important;
-        line-height: 1.1 !important;
-      }
-
-      /* SOBRE MÍ — FULL COLUMN */
-      #sobre {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        padding: 60px 20px !important;
-        overflow: hidden !important;
-      }
-
-      #sobre .sph {
-        display: none !important;
-      }
-
-      #sobre .sbt {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-      }
-
-      #sobre p {
-        width: 100% !important;
-        word-break: break-word !important;
-        font-size: 0.95rem !important;
-      }
-
-      #skills-section {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        gap: 30px !important;
-        margin-top: 40px !important;
-      }
-
-      /* STATS */
-      .sb {
-        grid-template-columns: repeat(2, 1fr) !important;
-        padding: 40px 20px !important;
-      }
-
-      /* PROYECTOS GRID */
-      .pg {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-      }
-
-      /* SERVICIOS — CARDS WITH NUMBERS & BORDERS */
-      #servicios {
-        padding: 40px 16px !important;
-        background: #fff !important;
-      }
-
-      .svl {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-      }
-
-      .svi {
-        position: relative !important;
-        overflow: hidden !important;
-        width: 100% !important;
-        margin-bottom: 24px !important;
-        padding: 24px 20px 20px !important;
-        border-left: 4px solid #e00000 !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-        background: #f9f9f9 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-      }
-
-      .svnum {
-        font-size: 6rem !important;
-        opacity: 0.08 !important;
-        position: absolute !important;
-        top: 10px !important;
-        right: 16px !important;
-        z-index: 0 !important;
-        color: #e00000 !important;
-        pointer-events: none !important;
-        line-height: 0.8 !important;
-      }
-
-      .svn {
-        position: relative !important;
-        z-index: 1 !important;
-        font-size: 1.2rem !important;
-        text-transform: uppercase !important;
-        margin-bottom: 12px !important;
-        color: #0a0a0a !important;
-        font-weight: 800 !important;
-      }
-
-      .svn::after {
-        content: '' !important;
-        display: block !important;
-        width: 40px !important;
-        height: 2px !important;
-        background: #e00000 !important;
-        margin-top: 8px !important;
-      }
-
-      .svd {
-        position: relative !important;
-        z-index: 1 !important;
-        display: block !important;
-        font-size: 0.9rem !important;
-        line-height: 1.6 !important;
-        color: #333 !important;
-        margin-bottom: 16px !important;
-      }
-
-      .svtg {
-        position: relative !important;
-        z-index: 1 !important;
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
-      }
-
-      .svt {
-        background: transparent !important;
-        border: 1px solid #e00000 !important;
-        color: #e00000 !important;
-        border-radius: 2px !important;
-        padding: 4px 10px !important;
-        font-size: 0.7rem !important;
-        letter-spacing: 0.1em !important;
-        text-transform: uppercase !important;
-      }
-
-      /* EL PROCESO (TIMELINE) */
-      #proceso {
-        padding: 60px 20px !important;
-      }
-
-      .prg {
-        display: flex !important;
-        flex-direction: column !important;
-        position: relative !important;
-        padding-left: 20px !important;
-      }
-
-      .prg::after {
-        display: none !important;
-      }
-
-      .prg::before {
-        content: '';
-        position: absolute;
-        left: 35px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: rgba(204, 0, 0, 0.2);
-        z-index: 1;
-      }
-
-      .prs {
-        width: 100% !important;
-        text-align: left !important;
-        padding: 0 0 40px 40px !important;
-        margin: 0 !important;
-        position: relative !important;
-      }
-
-      .prn {
-        position: absolute !important;
-        left: -32px;
-        top: 0;
-        margin: 0 !important;
-        z-index: 5 !important;
-        width: 60px !important;
-        height: 60px !important;
-        font-size: 1.3rem !important;
-      }
-
-      .prt {
-        font-size: 1rem !important;
-        margin-bottom: 10px !important;
-        color: #fff !important;
-      }
-
-      .prd {
-        font-size: 0.85rem !important;
-        line-height: 1.6 !important;
-      }
-
-      /* SECCIÓN CONTACTO — VERTICAL FLOW */
-      #contacto {
-        padding: 80px 20px !important;
-      }
-
-      #contacto div[style*="z-index:2"] {
-        padding: 0 !important;
-        width: 100% !important;
-      }
-
-      #contacto h2 {
-        font-size: 2.8rem !important;
-        margin-bottom: 25px !important;
-      }
-
-      #contacto p {
-        font-size: 0.95rem !important;
-        margin-bottom: 30px !important;
-      }
-
-      #contacto a[href^="mailto"] {
-        font-size: 1.1rem !important;
-        word-break: break-all !important;
-        border-bottom-width: 2px !important;
-      }
-
-      #contacto div[style*="justify-content:space-between"] {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 20px !important;
-        margin-top: 40px !important;
-      }
-
-      #contacto span {
-        font-size: 0.75rem !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 8px !important;
-      }
-
-      #contacto div[style*="justify-content:center;gap:16px"] {
-        flex-direction: column !important;
-        gap: 12px !important;
-        margin-top: 40px !important;
-        width: 100% !important;
-        align-items: center !important;
-      }
-
-      #contacto div[style*="justify-content:center;gap:16px"] a {
-        width: 100% !important;
-        max-width: 300px !important;
-        padding: 14px !important;
-        display: flex !important;
-        justify-content: center !important;
-      }
-
-      /* Footer */
-      footer {
-        flex-direction: column !important;
-        gap: 15px !important;
-        text-align: center !important;
-        padding: 30px 20px !important;
-      }
-
-      /* Specific Small Screen Fix */
-      @media (max-width: 480px) {
-
-        .cem,
-        a[href^="mailto:"] {
-          font-size: 0.95rem !important;
-        }
-
-        .prn {
-          width: 56px !important;
-          height: 56px !important;
-          font-size: 1.2rem !important;
-        }
+      .icon-grid {
+        grid-template-columns: repeat(auto-fill, 70px);
       }
     }
   </style>
@@ -2723,1046 +1168,678 @@
 
 <body>
 
-  <nav id="nav">
-    <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
-    <ul class="nls" style="margin-left:auto;">
-      <li><a href="#sobre">Sobre mí</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">El Proceso</a></li>
-      <li><a href="curriculum.html">Currículum</a></li>
-      <li><a href="#contacto" class="ncta">Contacto</a></li>
-    </ul>
-    <button class="mtog" id="mtog">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- =====================
+     MAIN BROWSER WINDOW
+     ===================== -->
+<div id="main-window">
 
-  <!-- MOBILE OVERLAY -->
-  <!-- MOBILE OVERLAY -->
-  <div class="movl" id="movl">
-    <a href="index.html" onclick="toggleMenu()">Inicio</a>
-    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
-    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
-    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
-    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
-    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  <!-- TITLE BAR -->
+  <div class="titlebar">
+    <div class="titlebar-title">
+      <div class="titlebar-icon">🖥️</div>
+      Valentín Sánchez — Portafolio — Microsoft Internet Explorer
+    </div>
+    <div class="titlebar-buttons">
+      <div class="win-btn">_</div>
+      <div class="win-btn">□</div>
+      <div class="win-btn close">✕</div>
+    </div>
   </div>
 
+  <!-- MENU BAR -->
+  <div class="menubar">
+    <a href="#">Archivo</a>
+    <a href="#">Edición</a>
+    <a href="#">Ver</a>
+    <a href="#">Favoritos</a>
+    <a href="#">Herramientas</a>
+    <a href="#">Ayuda</a>
+  </div>
 
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <a class="toolbar-btn" href="#">⬅ Atrás</a>
+    <a class="toolbar-btn" href="#">➡ Adelante</a>
+    <a class="toolbar-btn" href="#">⛔ Detener</a>
+    <a class="toolbar-btn" href="#">🔄 Actualizar</a>
+    <div class="toolbar-sep"></div>
+    <a class="toolbar-btn" href="#">🏠 Inicio</a>
+    <a class="toolbar-btn" href="curriculum.html">📋 Currículum</a>
+    <div class="toolbar-sep"></div>
+    <a class="toolbar-btn" href="https://www.instagram.com/vaalensnchz/" target="_blank">📸 Instagram</a>
+    <a class="toolbar-btn" href="https://wa.me/5493515558997" target="_blank">💬 WhatsApp</a>
+  </div>
 
-  <div id="cd"></div>
-  <div id="cr"></div>
+  <!-- ADDRESS BAR -->
+  <div class="toolbar" style="padding: 2px 4px; gap: 4px;">
+    <span style="font-size:11px; min-width:40px;">Dirección:</span>
+    <input class="win-input" style="flex:1; font-size:11px;" type="text" value="http://valentinsanchez.com.ar/portafolio/" readonly>
+    <a class="push-btn" href="#" style="min-width:40px; font-size:11px;">Ir</a>
+  </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hg"></div>
-    <div class="hgl"></div>
-    <!-- CAPA 1: Nombre detrás de la foto -->
-    <h1 class="hn" style="position:absolute;z-index:1;width:100%;text-align:center;pointer-events:none;">
-      VALENTÍN<br><span class="acc">SÁNCHEZ</span></h1>
-    <!-- CAPA 2: Foto recortada encima del nombre -->
-    <img src="IMAGENES MIAS/deperfil-recortado.png" alt="Valentín Sánchez" class="hero-cutout">
-    <!-- CAPA 3: hey + espaciador + hro + botones encima de todo -->
-    <div class="hc">
-      <div style="height:clamp(60px,10vw,120px);"></div>
-      <div class="hro"><span>Diseñador</span> · <span>Editor</span> · <span>Productor</span></div>
-      <div class="hbt">
-        <a href="#proyectos" class="br">Ver proyectos</a>
-        <a href="#contacto" class="bo">Contactar</a>
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      🌐 &nbsp;Bienvenido al portafolio de Valentín Sánchez &nbsp;★&nbsp; Diseñador Gráfico · Editor de Video · Productor Audiovisual &nbsp;★&nbsp; Córdoba, Argentina &nbsp;★&nbsp; Disponible para proyectos freelance 2026 &nbsp;★&nbsp; KORD3 · Agency Luxury · Energía Fitness · MF Sports · Natan Barber &nbsp;★&nbsp; vaalentinsanchez5@gmail.com &nbsp;★&nbsp;
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div style="padding: 8px; background: #d4d0c8;">
+
+    <!-- UNDER CONSTRUCTION BANNER -->
+    <div class="uc-banner" style="margin-bottom: 8px;">
+      🚧 &nbsp;<span class="blink">★</span>&nbsp; SITIO EN CONSTRUCCIÓN — ÚLTIMA ACTUALIZACIÓN: 01/04/2026 &nbsp;<span class="blink">★</span>&nbsp; 🚧
+    </div>
+
+    <!-- ====== HERO WINDOW ====== -->
+    <div style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040; margin-bottom: 8px;">
+      <div class="titlebar">
+        <div class="titlebar-title">
+          <div class="titlebar-icon">👤</div>
+          Acerca de Valentín Sánchez
+        </div>
+        <div class="titlebar-buttons">
+          <div class="win-btn">_</div>
+          <div class="win-btn">□</div>
+          <div class="win-btn close">✕</div>
+        </div>
       </div>
-    </div>
-  </section>
 
+      <div class="hero-content">
+        <img src="IMAGENES MIAS/deperfil.png" alt="Valentín Sánchez" class="hero-photo" onerror="this.style.display='none'">
+        <div class="hero-left">
+          <div class="hero-name">VALENTÍN SÁNCHEZ</div>
+          <div class="hero-role">Diseñador · Editor · Productor</div>
+          <div class="hero-desc">
+            Tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería Electrónica en la UTN, y hoy estoy enfocado en el diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico y Publicidad en la Universidad Empresarial Siglo 21. Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero.
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;">
+            <a class="push-btn primary" href="#proyectos">📁 Ver Proyectos</a>
+            <a class="push-btn" href="#contacto">✉️ Contactar</a>
+            <a class="push-btn" href="curriculum.html">📄 Currículum</a>
+          </div>
+        </div>
 
-  <!-- MARQUEE -->
-  <div class="mw">
-    <div class="mt">
-      <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span
-          class="md">✦</span></span><span class="mi">BRANDING <span class="md">✦</span></span><span
-        class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span
-          class="md">✦</span></span><span class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span
-        class="mi">FACEBOOK ADS <span class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span
-          class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span
-        class="mi">BRANDING <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span
-          class="md">✦</span></span><span class="mi">COMMUNITY MANAGER <span class="md">✦</span></span><span
-        class="mi">INDUMENTARIA DEPORTIVA <span class="md">✦</span></span><span class="mi">FACEBOOK ADS <span
-          class="md">✦</span></span>
-    </div>
-  </div>
-
-
-  <!-- SOBRE MÍ -->
-  <section id="sobre">
-    <div class="sbt rv">
-      <div class="sl">Sobre mí</div>
-      <h2 class="st">INTEGRACIÓN<br><em>CREATIVA</em></h2>
-      <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería
-        Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el
-        diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico y Publicidad en la Universidad Empresarial
-        Siglo 21.
-      </p>
-      <p>Trabajo como diseñador gráfico y creativo audiovisual, desarrollando marcas y contenidos desde cero, combinando
-        branding, publicidad y producción audiovisual. Tengo experiencia en rebranding, relanzamientos de cuentas,
-        dirección y edición de videos, diseño de piezas para redes y campañas publicitarias.</p>
-      <p>Participo tanto en proyectos de clientes como en marcas propias, liderando procesos creativos completos:
-        concepto, diseño, producción y comunicación, con foco en impacto visual, coherencia de marca y resultados.</p>
-      <!-- skills section -->
-      <div id="skills-section">
-        <div class="skill-group">
-          <div class="sl">SOFTWARE QUE MANEJO</div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/photoshop.png" alt="Photoshop"></span>
-            <span class="skill-name">Photoshop</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="90"></div>
+        <div style="width: 180px; flex-shrink: 0;">
+          <!-- System Properties style panel -->
+          <div style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040;">
+            <div class="titlebar titlebar-inactive" style="height: 18px; font-size: 10px;">
+              <span>Propiedades del Sistema</span>
             </div>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/illustrator.png" alt="Illustrator"></span>
-            <span class="skill-name">Illustrator</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="90"></div>
+            <div style="padding: 6px; background: #d4d0c8; font-size: 10px;">
+              <div class="info-row"><span class="info-label">Edad:</span><span class="info-value">22 años</span></div>
+              <div class="info-row"><span class="info-label">Ciudad:</span><span class="info-value">Córdoba, AR</span></div>
+              <div class="info-row"><span class="info-label">Idioma:</span><span class="info-value">Inglés B2</span></div>
+              <div class="info-row"><span class="info-label">Estado:</span><span class="info-value" style="color: green;">✅ Disponible</span></div>
+              <div class="info-row"><span class="info-label">Clientes:</span><span class="info-value">8 activos</span></div>
+              <div class="info-row"><span class="info-label">Exp.:</span><span class="info-value">2 años</span></div>
             </div>
-            <span class="skill-pct">90%</span>
           </div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/capcut.png" alt="CapCut"></span>
-            <span class="skill-name">CapCut</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="90"></div>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div style="background: var(--win-face); padding: 6px 8px; border-top: 1px solid #808080;">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Clientes activos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Años de exp.</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Certif. UTN</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Carrera univ.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="statusbar">
+        <div class="status-panel">Listo</div>
+        <div class="status-panel" style="flex: 0; min-width: 150px;">Córdoba, Argentina</div>
+        <div class="status-panel" style="flex: 0; min-width: 100px;">🔒 Seguro</div>
+      </div>
+    </div>
+
+    <!-- ====== PROYECTOS WINDOW ====== -->
+    <div id="proyectos" style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040; margin-bottom: 8px;">
+      <div class="titlebar">
+        <div class="titlebar-title">
+          <div class="titlebar-icon">📁</div>
+          Proyectos — Portafolio de Valentín Sánchez
+        </div>
+        <div class="titlebar-buttons">
+          <div class="win-btn">_</div>
+          <div class="win-btn">□</div>
+          <div class="win-btn close">✕</div>
+        </div>
+      </div>
+      <div class="menubar">
+        <a href="#">Archivo</a>
+        <a href="#">Edición</a>
+        <a href="#">Ver</a>
+        <a href="#">Favoritos</a>
+      </div>
+      <div class="toolbar">
+        <span style="font-size:11px;">Vista: </span>
+        <a class="toolbar-btn">🗃️ Iconos</a>
+        <a class="toolbar-btn">📋 Detalles</a>
+        <a class="toolbar-btn">🗄️ Mosaico</a>
+        <div class="toolbar-sep"></div>
+        <span style="font-size:11px; color: var(--win-darker);">7 objetos</span>
+      </div>
+      <!-- Left panel + content -->
+      <div style="display: flex; background: white; min-height: 200px;">
+        <!-- Left sidebar -->
+        <div style="width: 160px; flex-shrink: 0; background: var(--win-face); border-right: 1px solid #808080; padding: 8px; font-size: 10px;">
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 6px; color: var(--win-titlebar);">Tareas del archivo</div>
+          <div style="margin-bottom: 2px;"><a href="kord3.html" style="font-size: 10px;">📁 Abrir KORD3</a></div>
+          <div style="margin-bottom: 2px;"><a href="agency.html" style="font-size: 10px;">📁 Abrir Agency</a></div>
+          <div style="margin-bottom: 2px;"><a href="energia.html" style="font-size: 10px;">📁 Abrir Energía</a></div>
+          <div class="win-sep"></div>
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 6px; color: var(--win-titlebar);">Otros lugares</div>
+          <div style="margin-bottom: 2px;"><a href="#servicios" style="font-size: 10px;">🖥️ Servicios</a></div>
+          <div style="margin-bottom: 2px;"><a href="#contacto" style="font-size: 10px;">✉️ Contacto</a></div>
+          <div class="win-sep"></div>
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 4px; color: var(--win-titlebar);">Detalles</div>
+          <div style="font-size: 9px; color: var(--win-darker); line-height: 1.5;">
+            <strong>Portafolio</strong><br>
+            Carpeta de archivos<br>
+            Fecha: 2024–2026<br>
+            Córdoba, Argentina
+          </div>
+        </div>
+        <!-- Icon grid -->
+        <div style="flex: 1; padding: 8px; background: white;">
+          <div class="icon-grid">
+            <a href="kord3.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">👕</div>
+                <div class="icon-label">KORD3<br>CEO · Branding</div>
+              </div>
+            </a>
+            <a href="agency.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">🎬</div>
+                <div class="icon-label">Agency Luxury<br>Ads · Video</div>
+              </div>
+            </a>
+            <a href="energia.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">⚡</div>
+                <div class="icon-label">Energía Fitness<br>Rebranding</div>
+              </div>
+            </a>
+            <a href="mfsports.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">⚽</div>
+                <div class="icon-label">MF Sports<br>Indumentaria</div>
+              </div>
+            </a>
+            <a href="natan.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">✂️</div>
+                <div class="icon-label">Natan Barber<br>Branding</div>
+              </div>
+            </a>
+            <a href="home.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">🏠</div>
+                <div class="icon-label">Home Improvement<br>UGC · IA</div>
+              </div>
+            </a>
+            <a href="otros.html" style="text-decoration: none; color: inherit;">
+              <div class="icon-item">
+                <div class="icon-img">📂</div>
+                <div class="icon-label">Otros Clientes<br>Varios</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="statusbar">
+        <div class="status-panel">7 objetos</div>
+        <div class="status-panel" style="flex: 0; min-width: 200px;">Seleccione un objeto para ver sus propiedades</div>
+      </div>
+    </div>
+
+    <!-- ====== TWO-COLUMN: SERVICIOS + PROCESO ====== -->
+    <div class="two-col" style="margin-bottom: 8px;">
+
+      <!-- SERVICIOS -->
+      <div id="servicios" style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040;">
+        <div class="titlebar">
+          <div class="titlebar-title">
+            <div class="titlebar-icon">🛠️</div>
+            Servicios — Lista de capacidades
+          </div>
+          <div class="titlebar-buttons">
+            <div class="win-btn">_</div>
+            <div class="win-btn">□</div>
+            <div class="win-btn close">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="listview">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:30px;">#</th>
+                  <th>Servicio</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="this.classList.toggle('selected')">
+                  <td>01</td>
+                  <td>
+                    <strong>Branding &amp; Identidad Visual</strong><br>
+                    <span style="font-size:9px; color: #666;">Logo · Manual de marca · Paleta · Tipografía</span>
+                  </td>
+                  <td><span style="color: green; font-size:10px;">●</span> Activo</td>
+                </tr>
+                <tr onclick="this.classList.toggle('selected')">
+                  <td>02</td>
+                  <td>
+                    <strong>Edición de Video &amp; Ads</strong><br>
+                    <span style="font-size:9px; color: #666;">VSL · Reels · Facebook Ads · UGC</span>
+                  </td>
+                  <td><span style="color: green; font-size:10px;">●</span> Activo</td>
+                </tr>
+                <tr onclick="this.classList.toggle('selected')">
+                  <td>03</td>
+                  <td>
+                    <strong>Community Management</strong><br>
+                    <span style="font-size:9px; color: #666;">Instagram · Feed · Historias · Rebranding</span>
+                  </td>
+                  <td><span style="color: green; font-size:10px;">●</span> Activo</td>
+                </tr>
+                <tr onclick="this.classList.toggle('selected')">
+                  <td>04</td>
+                  <td>
+                    <strong>Dirección Audiovisual</strong><br>
+                    <span style="font-size:9px; color: #666;">Concepto · Estrategia · Storytelling</span>
+                  </td>
+                  <td><span style="color: green; font-size:10px;">●</span> Activo</td>
+                </tr>
+                <tr onclick="this.classList.toggle('selected')">
+                  <td>05</td>
+                  <td>
+                    <strong>Diseño de Indumentaria</strong><br>
+                    <span style="font-size:9px; color: #666;">Camisetas · Buzos · Musculosas · Sponsors</span>
+                  </td>
+                  <td><span style="color: green; font-size:10px;">●</span> Activo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top: 8px; display: flex; gap: 6px;">
+            <a class="push-btn primary" href="#contacto">Solicitar Servicio</a>
+            <a class="push-btn" href="curriculum.html">Ver Currículum</a>
+          </div>
+        </div>
+        <div class="statusbar">
+          <div class="status-panel">5 servicios disponibles</div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040;">
+        <div class="titlebar">
+          <div class="titlebar-title">
+            <div class="titlebar-icon">💾</div>
+            Software &amp; Habilidades
+          </div>
+          <div class="titlebar-buttons">
+            <div class="win-btn">_</div>
+            <div class="win-btn">□</div>
+            <div class="win-btn close">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="groupbox">
+            <div class="groupbox-label">SOFTWARE QUE MANEJO</div>
+            <div class="skill-row">
+              <div class="skill-name-col">Photoshop</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 90%;">
+                  <div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div><div class="skill-chunk"></div>
+                </div>
+              </div>
+              <div class="skill-pct-col">90%</div>
             </div>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/premiere.png" alt="Premiere Pro"></span>
-            <span class="skill-name">Premiere Pro</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="75"></div>
+            <div class="skill-row">
+              <div class="skill-name-col">Illustrator</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 90%;"></div>
+              </div>
+              <div class="skill-pct-col">90%</div>
             </div>
-            <span class="skill-pct">75%</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/notion.png" alt="Notion"></span>
-            <span class="skill-name">Notion</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="75"></div>
+            <div class="skill-row">
+              <div class="skill-name-col">CapCut</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 90%;"></div>
+              </div>
+              <div class="skill-pct-col">90%</div>
             </div>
-            <span class="skill-pct">75%</span>
-          </div>
-
-        </div>
-        <div class="skill-group">
-          <div class="sl">EN APRENDIZAJE</div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/aftereffects.png" alt="After Effects"></span>
-            <span class="skill-name">After Effects</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="20"></div>
+            <div class="skill-row">
+              <div class="skill-name-col">Premiere Pro</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 75%;"></div>
+              </div>
+              <div class="skill-pct-col">75%</div>
             </div>
-            <span class="skill-pct">20%</span>
-          </div>
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/diseño ux ui.png" alt="Diseño UX/UI"></span>
-            <span class="skill-name">Diseño UX/UI · Coderhouse</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="60"></div>
+            <div class="skill-row">
+              <div class="skill-name-col">Notion</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 75%;"></div>
+              </div>
+              <div class="skill-pct-col">75%</div>
             </div>
-            <span class="skill-pct">60%</span>
           </div>
-
-          <div class="skill-item">
-            <span class="skill-icon"><img src="LOGOS SOFTWARE/blender.png" alt="Blender Modelado 3D"></span>
-            <span class="skill-name">Blender Modelado 3D</span>
-            <div class="skill-bar">
-              <div class="skill-fill" data-pct="40"></div>
+          <div class="groupbox">
+            <div class="groupbox-label">EN APRENDIZAJE</div>
+            <div class="skill-row">
+              <div class="skill-name-col">After Effects</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 20%;"></div>
+              </div>
+              <div class="skill-pct-col">20%</div>
             </div>
-            <span class="skill-pct">40%</span>
+            <div class="skill-row">
+              <div class="skill-name-col">Diseño UX/UI</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 60%;"></div>
+              </div>
+              <div class="skill-pct-col">60%</div>
+            </div>
+            <div class="skill-row">
+              <div class="skill-name-col">Blender 3D</div>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-fill" style="width: 40%;"></div>
+              </div>
+              <div class="skill-pct-col">40%</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="sph rv">
-      <div class="pf">
-        <img src="IMAGENES MIAS/decostado.png" alt="Valentín Sánchez"
-          style="width:100%;height:100%;object-fit:cover;object-position: 100% center;">
-      </div>
-      <div class="pbg pb1">Disponible · 2026</div>
-      <div class="pbg pb2">Inglés B2</div>
-    </div>
-  </section>
 
-  <!-- STATS -->
-  <div class="sb">
-    <div class="si rv">
-      <div class="sn" data-target="8">0</div>
-      <div class="sl2">Clientes activos</div>
     </div>
-    <div class="si rv">
-      <div class="sn" data-target="2">0</div>
-      <div class="sl2">Años de experiencia</div>
+
+    <!-- ====== PROCESO WINDOW ====== -->
+    <div id="proceso" style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040; margin-bottom: 8px;">
+      <div class="titlebar">
+        <div class="titlebar-title">
+          <div class="titlebar-icon">🔄</div>
+          El Proceso — Metodología de trabajo
+        </div>
+        <div class="titlebar-buttons">
+          <div class="win-btn">_</div>
+          <div class="win-btn">□</div>
+          <div class="win-btn close">✕</div>
+        </div>
+      </div>
+      <div class="window-content">
+        <div style="margin-bottom: 8px; font-size: 11px; color: var(--win-darker);">
+          Asistente para instalación de Proyecto Creativo — Cada proyecto sigue estos pasos generales:
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;">
+          <div class="process-step" style="flex-direction: column;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <div class="process-num">01</div>
+              <strong style="font-size:11px;">Concepto</strong>
+            </div>
+            <div style="font-size:10px; color: var(--win-darker); line-height: 1.4;">Entiendo el negocio, el público y los objetivos. Defino el universo estético y la dirección creativa.</div>
+          </div>
+          <div class="process-step" style="flex-direction: column;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <div class="process-num">02</div>
+              <strong style="font-size:11px;">Diseño</strong>
+            </div>
+            <div style="font-size:10px; color: var(--win-darker); line-height: 1.4;">Desarrollo visual completo: identidad, piezas gráficas, paleta y lineamientos de comunicación.</div>
+          </div>
+          <div class="process-step" style="flex-direction: column;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <div class="process-num">03</div>
+              <strong style="font-size:11px;">Producción</strong>
+            </div>
+            <div style="font-size:10px; color: var(--win-darker); line-height: 1.4;">Grabación, dirección y producción audiovisual. Del storyboard a la toma final.</div>
+          </div>
+          <div class="process-step" style="flex-direction: column;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <div class="process-num">04</div>
+              <strong style="font-size:11px;">Edición</strong>
+            </div>
+            <div style="font-size:10px; color: var(--win-darker); line-height: 1.4;">Post-producción, edición de video, subtítulos y optimización para cada plataforma.</div>
+          </div>
+          <div class="process-step" style="flex-direction: column;">
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+              <div class="process-num">05</div>
+              <strong style="font-size:11px;">Lanzamiento</strong>
+            </div>
+            <div style="font-size:10px; color: var(--win-darker); line-height: 1.4;">Estrategia de publicación, semana hype, scheduling y análisis de resultados.</div>
+          </div>
+        </div>
+        <!-- Progress -->
+        <div style="margin-top: 10px; border-top: 1px solid #808080; padding-top: 8px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span style="font-size:11px; width:120px;">Progreso del proyecto:</span>
+            <div class="progress-wrap" style="flex:1;">
+              <div class="progress-fill" style="width:60%;"></div>
+            </div>
+            <span style="font-size:10px; font-family: 'Courier New', monospace;">60%</span>
+          </div>
+          <div style="text-align:center; font-size:10px; color: var(--win-darker);">Paso 3 de 5 — Producción en curso...</div>
+        </div>
+      </div>
+      <div class="statusbar">
+        <div class="status-panel">Fase actual: Producción</div>
+        <div class="status-panel" style="flex: 0; min-width: 200px;">Tiempo estimado: Variable</div>
+      </div>
     </div>
-    <div class="si rv">
-      <div class="sn" data-target="1">0</div>
-      <div class="sl2">Carreras universitarias</div>
+
+    <!-- ====== TWO-COLUMN: EDUCACIÓN + LOGROS ====== -->
+    <div class="two-col" style="margin-bottom: 8px;">
+
+      <!-- EDUCACIÓN -->
+      <div style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040;">
+        <div class="titlebar titlebar-inactive">
+          <div class="titlebar-title">
+            <div class="titlebar-icon">🎓</div>
+            Educación
+          </div>
+          <div class="titlebar-buttons">
+            <div class="win-btn">_</div>
+            <div class="win-btn">□</div>
+            <div class="win-btn close">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="edu-card">
+            <div class="edu-icon">🏛️</div>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Diseño Gráfico y Publicidad</div>
+              <div style="font-size:10px; color: var(--win-titlebar);">Siglo 21 — En curso</div>
+              <div style="font-size:10px; color: var(--win-darker);">2024 – Presente</div>
+              <div style="font-size:10px; line-height:1.4; margin-top:3px;">Diseño de comunicación visual, publicidad y estrategia de marca.</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-icon">⚙️</div>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Ingeniería Electrónica</div>
+              <div style="font-size:10px; color: var(--win-titlebar);">UTN Córdoba — Hasta 3er año</div>
+              <div style="font-size:10px; color: var(--win-darker);">2020 – 2023</div>
+              <div style="font-size:10px; line-height:1.4; margin-top:3px;">Base técnica, analítica y lógica de resolución de problemas.</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-icon">💡</div>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Certificaciones UTN</div>
+              <div style="font-size:10px; color: var(--win-titlebar);">Universidad Tecnológica Nacional</div>
+              <div style="font-size:10px; color: var(--win-darker);">2022 – 2024 · 6 certificaciones</div>
+              <div style="font-size:10px; line-height:1.4; margin-top:3px;">Marketing Digital, Diseño UX/UI (Coderhouse) y más.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGROS -->
+      <div style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040;">
+        <div class="titlebar titlebar-inactive">
+          <div class="titlebar-title">
+            <div class="titlebar-icon">🏆</div>
+            Logros y Reconocimientos
+          </div>
+          <div class="titlebar-buttons">
+            <div class="win-btn">_</div>
+            <div class="win-btn">□</div>
+            <div class="win-btn close">✕</div>
+          </div>
+        </div>
+        <div class="window-content">
+          <div class="logro-item" style="margin-bottom: 6px;">
+            <span style="font-size:16px;">🌐</span>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Campaña internacional</div>
+              <div style="font-size:10px; color: var(--win-darker); line-height:1.4;">Ads UGC con producción IA para empresa en Florida, EE.UU. — Home Improvement Power</div>
+            </div>
+          </div>
+          <div class="logro-item" style="margin-bottom: 6px;">
+            <span style="font-size:16px;">🚀</span>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Fundador de KORD3</div>
+              <div style="font-size:10px; color: var(--win-darker); line-height:1.4;">Marca de indumentaria propia con branding, web, producción audiovisual y drops de producto.</div>
+            </div>
+          </div>
+          <div class="logro-item" style="margin-bottom: 6px;">
+            <span style="font-size:16px;">📱</span>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">Rebranding completo Energía Fitness</div>
+              <div style="font-size:10px; color: var(--win-darker); line-height:1.4;">Rebranding total + semana hype + producción audiovisual. Crecimiento significativo en redes.</div>
+            </div>
+          </div>
+          <div class="logro-item">
+            <span style="font-size:16px;">🎬</span>
+            <div>
+              <div style="font-weight:bold; font-size:11px;">VSL para nicho médico premium</div>
+              <div style="font-size:10px; color: var(--win-darker); line-height:1.4;">Videos Sales Letters y Facebook Ads para Agency Luxury — cirujanos plásticos, Bs. As.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="si rv">
-      <div class="sn" data-target="6">0</div>
-      <div class="sl2">Certificaciones UTN</div>
+
+    <!-- ====== CONTACTO WINDOW (Alert Dialog style) ====== -->
+    <div id="contacto" style="border-top: 2px solid #fff; border-left: 2px solid #fff; border-right: 2px solid #404040; border-bottom: 2px solid #404040; margin-bottom: 8px; max-width: 580px; margin-left: auto; margin-right: auto;">
+      <div class="titlebar">
+        <div class="titlebar-title">
+          <div class="titlebar-icon">✉️</div>
+          Contacto — ¿Tenés un proyecto?
+        </div>
+        <div class="titlebar-buttons">
+          <div class="win-btn">_</div>
+          <div class="win-btn">□</div>
+          <div class="win-btn close">✕</div>
+        </div>
+      </div>
+      <div class="window-content">
+        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 12px;">
+          <div class="dialog-icon">💬</div>
+          <div style="flex:1;">
+            <div style="font-size: 13px; font-weight: bold; margin-bottom: 6px;">¡Hablemos!</div>
+            <div style="font-size: 11px; line-height: 1.6; color: black;">
+              Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la ejecución.
+            </div>
+          </div>
+        </div>
+        <div class="win-sep"></div>
+        <div style="background: white; padding: 8px; margin: 8px 0; border-top: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #fff; border-bottom: 1px solid #fff;">
+          <div class="info-row"><span class="info-label">Email:</span><a href="mailto:vaalentinsanchez5@gmail.com" style="font-size:11px;">vaalentinsanchez5@gmail.com</a></div>
+          <div class="info-row"><span class="info-label">Tel/WA:</span><span class="info-value">+54 9 351 555 8997</span></div>
+          <div class="info-row"><span class="info-label">Instagram:</span><a href="https://www.instagram.com/vaalensnchz/" target="_blank" style="font-size:11px;">@vaalensnchz</a></div>
+          <div class="info-row"><span class="info-label">Ubicación:</span><span class="info-value">Córdoba, Argentina</span></div>
+        </div>
+        <div class="win-sep"></div>
+        <div style="display: flex; gap: 8px; justify-content: center; margin-top: 8px;">
+          <a class="push-btn primary" href="https://wa.me/5493515558997" target="_blank">💬 WhatsApp</a>
+          <a class="push-btn" href="https://www.instagram.com/vaalensnchz/" target="_blank">📸 Instagram</a>
+          <a class="push-btn" href="mailto:vaalentinsanchez5@gmail.com">✉️ Email</a>
+          <a class="push-btn" href="curriculum.html">📄 CV</a>
+        </div>
+      </div>
+      <div class="statusbar">
+        <div class="status-panel">✅ Disponible para nuevos proyectos · 2026</div>
+      </div>
     </div>
+
+  </div><!-- /page content -->
+
+  <!-- BROWSER STATUSBAR -->
+  <div class="statusbar">
+    <div class="status-panel">Listo</div>
+    <div class="status-panel" style="flex: 0; min-width: 120px;">🌐 Internet</div>
+    <div class="status-panel" style="flex: 0; min-width: 80px;">✅ Seguro</div>
   </div>
 
+</div><!-- /main-window -->
 
+<!-- FOOTER -->
+<div id="footer-bar" style="margin-bottom: 50px;">
+  <span>VALENTÍN SÁNCHEZ — Diseñador · Editor · Productor · Córdoba, AR</span>
+  <span>© 2026 · Todos los derechos reservados · vaalentinsanchez5@gmail.com</span>
+</div>
 
-
-
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <div class="sl rv">Portfolio</div>
-    <h2 class="st rv">PROYECTOS</h2>
-    <div class="pg">
-      <a href="kord3.html">
-        <div class="pc ck">
-          <div class="po">
-            <div class="pt">CEO · Branding · Audiovisual · Indumentaria</div>
-            <div class="pn">KORD3</div>
-            <div class="pd">Marca de ropa propia. Identidad visual, indumentaria, producción audiovisual, web y
-              lanzamiento.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="agency.html">
-        <div class="pc ca">
-          <div class="po">
-            <div class="pt">Edición · Ads · Marketing</div>
-            <div class="pn">AGENCY LUXURY</div>
-            <div class="pd">VSL, Facebook Ads y thumbnails para agencia de cirujanos plásticos.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="energia.html">
-        <div class="pc ce">
-          <div class="po">
-            <div class="pt">Rebranding · Creativo · Redes</div>
-            <div class="pn">ENERGÍA FITNESS</div>
-            <div class="pd">Rebranding completo, semana hype y producción audiovisual.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="mfsports.html">
-        <div class="pc cm">
-          <div class="po">
-            <div class="pt">Indumentaria Deportiva · Sponsors</div>
-            <div class="pn">MF SPORTS</div>
-            <div class="pd">Camisetas, musculosas y buzos para fútbol y hockey.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="natan.html">
-        <div class="pc cn2">
-          <div class="po">
-            <div class="pt">Branding · Lanzamiento · Audiovisual</div>
-            <div class="pn">NATAN BARBER ESTUDIO</div>
-            <div class="pd">Branding desde cero, video con eje en el cuarteto cordobés.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="home.html">
-        <div class="pc ch">
-          <div class="po">
-            <div class="pt">Video Ads · UGC · IA · Florida USA</div>
-            <div class="pn">HOME IMPROVEMENT POWER</div>
-            <div class="pd">Ads UGC con producción IA para empresa en Florida.</div>
-            <div class="pb">Ver proyecto completo</div>
-          </div>
-        </div>
-      </a>
-      <a href="otros.html">
-        <div class="pc cz">
-          <div class="po">
-            <div class="pt">Edición · Seguridad · Farmacia · Legal</div>
-            <div class="pn">OTROS CLIENTES</div>
-            <div class="pd">Zetta Security (Cba), Farmacia Pavan (Cba), Legal Leads (Chile).</div>
-            <div class="pb">Ver más</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section id="servicios">
-    <div class="sl rv" style="color: #e63946;">— LO QUE OFREZCO</div>
-    <h2 class="st rv" style="color: #0a0a0a;">SERVICIOS</h2>
-    <div class="svl">
-      <!-- 01 -->
-      <div class="svi rv">
-        <div class="svnum">01</div>
-        <div style="width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="svn">Branding & Identidad Visual</div>
-          </div>
-          <div class="svd" style="color: #666; font-size: 0.85rem;">Logo, manual de marca, paleta, tipografía y universo
-            estético completo. Ideal para marcas que arrancan o que necesitan reposicionarse.</div>
-        </div>
-        <div class="svtg"><span class="svt">LOGO</span><span class="svt">MANUAL DE MARCA</span><span
-            class="svt">IDENTIDAD</span><span class="svt">TIPOGRAFÍA</span><span class="svt">PALETA</span>
-        </div>
-      </div>
-      <!-- 02 -->
-      <div class="svi rv">
-        <div class="svnum">02</div>
-        <div style="width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="svn">Edición de Video & Ads</div>
-          </div>
-          <div class="svd" style="color: #666; font-size: 0.85rem;">VSL, reels, stories y anuncios para
-            Facebook/Instagram. Hooks fuertes, subtítulos y llamados a la acción orientados a conversión.</div>
-        </div>
-        <div class="svtg"><span class="svt">REELS</span><span class="svt">VSL</span><span class="svt">UGC</span><span
-            class="svt">ADS</span><span class="svt">SUBTÍTULOS</span></div>
-      </div>
-      <!-- 03 -->
-      <div class="svi rv">
-        <div class="svnum">03</div>
-        <div style="width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="svn">Community Management</div>
-          </div>
-          <div class="svd" style="color: #666; font-size: 0.85rem;">Gestión integral de redes: planificación, diseño de
-            piezas, carruseles, historias y estrategia editorial mensual.</div>
-        </div>
-        <div class="svtg"><span class="svt">INSTAGRAM</span><span class="svt">FEED</span><span
-            class="svt">HISTORIAS</span><span class="svt">REBRANDING</span></div>
-      </div>
-      <!-- 04 -->
-      <div class="svi rv">
-        <div class="svnum">04</div>
-        <div style="width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="svn">Dirección Audiovisual</div>
-          </div>
-          <div class="svd" style="color: #666; font-size: 0.85rem;">Dirección y producción de video desde concepto hasta
-            edición final. Rebranding, lanzamientos y semanas hype incluidos.</div>
-        </div>
-        <div class="svtg"><span class="svt">CONCEPTO</span><span class="svt">ESTRATEGIA</span><span
-            class="svt">CONTENIDO</span><span class="svt">STORYTELLING</span></div>
-      </div>
-      <!-- 05 -->
-      <div class="svi rv">
-        <div class="svnum">05</div>
-        <div style="width: 100%;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="svn">Diseño de Indumentaria</div>
-          </div>
-          <div class="svd" style="color: #666; font-size: 0.85rem;">Conjuntos deportivos para fútbol, hockey y más.
-            Camisetas, buzos, musculosas con identidad visual coherente para cada equipo.</div>
-        </div>
-        <div class="svtg"><span class="svt">CAMISETAS</span><span class="svt">BUZOS</span><span
-            class="svt">DEPORTIVA</span><span class="svt">SPONSORS</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESO -->
-  <section id="proceso">
-    <div class="sl rv">Metodología</div>
-    <h2 class="st rv" style="font-size: 5rem; margin-bottom: 20px;">EL<br><em>PROCESO</em></h2>
-    <p style="color:#ffffff;max-width:600px;margin:0 auto 30px;text-align:center;font-weight:300;">Cada proyecto es
-      único. Este es el proceso general que sigo como base, pero dependiendo del cliente, el rubro y los objetivos, el
-      orden y los pasos pueden variar.</p>
-    <div class="prg">
-      <div class="prs rv">
-        <div class="prn">01</div>
-        <div class="prt">Concepto</div>
-        <div class="prd">Entiendo el negocio, el público y los objetivos. Defino el universo estético y la dirección
-          creativa.</div>
-      </div>
-      <div class="prs rv">
-        <div class="prn">02</div>
-        <div class="prt">Diseño</div>
-        <div class="prd">Desarrollo visual completo: identidad, piezas gráficas, paleta y lineamientos de comunicación.
-        </div>
-      </div>
-      <div class="prs rv">
-        <div class="prn">03</div>
-        <div class="prt">Producción</div>
-        <div class="prd">Grabación, dirección y producción audiovisual. Del storyboard a la toma final.</div>
-      </div>
-      <div class="prs rv">
-        <div class="prn">04</div>
-        <div class="prt">Edición</div>
-        <div class="prd">Post-producción, edición de video, subtítulos y optimización para cada plataforma.</div>
-      </div>
-      <div class="prs rv">
-        <div class="prn">05</div>
-        <div class="prt">Lanzamiento</div>
-        <div class="prd">Estrategia de publicación, semana hype, scheduling y análisis de resultados.</div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="mw">
-    <div class="mt">
-      <span class="mi">BRANDING <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span
-          class="md">✦</span></span><span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span
-        class="mi">INDUMENTARIA <span class="md">✦</span></span><span class="mi">CONTENIDO DIGITAL <span
-          class="md">✦</span></span><span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span
-        class="mi">PRODUCCIÓN AUDIOVISUAL <span class="md">✦</span></span><span class="mi">MARKETING <span
-          class="md">✦</span></span><span class="mi">BRANDING
-        <span class="md">✦</span></span><span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span><span
-        class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span><span class="mi">INDUMENTARIA <span
-          class="md">✦</span></span><span class="mi">CONTENIDO DIGITAL <span class="md">✦</span></span><span
-        class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span><span class="mi">PRODUCCIÓN AUDIOVISUAL <span
-          class="md">✦</span></span><span class="mi">MARKETING
-        <span class="md">✦</span></span>
-    </div>
+<!-- =====================
+     TASKBAR
+     ===================== -->
+<div id="taskbar">
+  <a id="start-btn" href="#">
+    <div class="start-icon"></div>
+    Inicio
+  </a>
+  <div class="taskbar-sep"></div>
+  <a class="taskbar-window-btn" href="#">🖥️ Valentín Sánchez - Portafolio</a>
+  <a class="taskbar-window-btn" href="curriculum.html">📋 Currículum</a>
+  <div class="taskbar-sep" style="margin-left:auto;"></div>
+  <div id="tray">
+    <span title="Internet Explorer">🌐</span>
+    <span title="Volumen">🔊</span>
+    <span id="clock">00:00</span>
   </div>
+</div>
 
+<script>
+  // Clock
+  function updateClock() {
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('clock').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
 
-  <!-- CONTACTO -->
-  <section id="contacto"
-    style="width:100%;margin:0;padding:0;position:relative;overflow:hidden;background-image:url('IMAGENES MIAS/dearriba.png');background-size:cover;background-position:center top;text-align:center;">
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.20);z-index:1;"></div>
-    <div style="position:relative;z-index:2;padding:100px 40px 80px;">
-      <p
-        style="color:#FF0000;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;margin-bottom:16px;">
-        — HABLEMOS —</p>
-      <h2
-        style="color:#ffffff;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;font-family:'Bebas Neue',sans-serif;text-transform:uppercase;line-height:1.1;margin-bottom:20px;">
-        ¿TENÉS UN PROYECTO?</h2>
-      <p
-        style="color:#ffffff;font-size:1rem;max-width:560px;margin:0 auto 40px;line-height:1.7;font-family:'Barlow',sans-serif;">
-        Disponible para proyectos freelance, colaboraciones y trabajos de largo plazo. Desde el concepto hasta la
-        ejecución.</p>
-      <div style="margin-bottom:40px;">
-        <a href="mail :vaalentinsanchez5@gmail.com"
-          style="display:inline-block;color:#ffffff;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;font-family:'Bebas Neue',sans-serif;text-transform:uppercase;text-decoration:none;letter-spacing:2px;border-bottom:3px solid #FF0000;padding-bottom:8px;">VAALENTINSANCHEZ5@GMAIL.COM</a>
-      </div>
-      <div
-        style="display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto 40px;padding:0 20px;color:#ffffff;font-size:0.82rem;letter-spacing:1.5px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;flex-wrap:wrap;gap:16px;">
-        <span>+54 9 351 555 8997 · TELÉFONO / WHATSAPP</span>
-        <span>@VAALENSNCHZ · INSTAGRAM</span>
-        <span>CÓRDOBA, ARGENTINA · UBICACIÓN</span>
-      </div>
-      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-        <a href="https://wa.me/5493515558997" target="_blank"
-          style="background:#FF0000;color:#ffffff;padding:14px 32px;font-size:0.82rem;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid #FF0000;">WHATSAPP</a>
-        <a href="https://www.instagram.com/vaalensnchz/" target="_blank"
-          style="background:transparent;color:#ffffff;padding:14px 32px;font-size:0.82rem;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid #ffffff;">INSTAGRAM</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="flo">VALENTÍN SÁNCHEZ<span>.</span></div>
-    <div class="fco">© 2025 · Diseñador · Editor · Productor · Córdoba, AR</div>
-  </footer>
-
-  <!-- MODALS -->
-  <div class="mo" id="m-kord3">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('kord3')">✕</button>
-        <div class="mcat">CEO · Branding · Indumentaria · Audiovisual</div>
-        <div class="mttl">KORD3</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Fundador & CEO</span><span class="mci">Branding Completo</span><span
-            class="mci">Diseño de Indumentaria</span><span class="mci">Producción Audiovisual</span><span
-            class="mci">Página Web</span></div>
-        <div class="ms">Descripción</div>
-        <p>Soy <strong>fundador y director creativo de KORD3</strong>, una marca de ropa que desarrollo de manera
-          integral, uniendo identidad de marca, diseño de producto, producción audiovisual y marketing digital. Mi
-          rol
-          abarca todo el proceso creativo y estratégico, desde el concepto inicial hasta la ejecución final.</p>
-        <div class="ms">Branding & Identidad</div>
-        <p>Desarrollé el <strong>branding completo de la marca</strong>: identidad visual, universo estético, tono
-          de
-          comunicación y lineamientos gráficos. También el diseño de remeras y propuestas de indumentaria,
-          definiendo
-          conceptos, estilos y criterios visuales para cada drop.</p>
-        <div class="ms">Producción Audiovisual</div>
-        <p>Lideré la producción audiovisual: <strong>concepto, planificación, grabación, dirección y edición
-            final</strong> de videos de presentación desde cero, cuidando una narrativa coherente con la
-          personalidad de
-          la marca.</p>
-        <div class="ms">Semana Hype 4</div>
-        <div class="mhl">
-          <p>Estrategia de expectativa previa al drop. <strong>Producción y publicación planificada de videos,
-              posts e
-              historias durante varios días</strong> para generar misterio, conversación y anticipación antes del
-            lanzamiento oficial.</p>
-        </div>
-        <div class="ms">Página Web</div>
-        <p><strong>Creé y diseñé la página web de KORD3</strong>, pensada como extensión de la identidad de la
-          marca y
-          soporte para la presentación del proyecto, el storytelling y la experiencia visual del usuario.</p>
-        <div class="mlk"><a href="https://www.instagram.com/kord3.ar/" target="_blank" class="ml1">Instagram
-            @kord3.ar</a><!-- DRIVE_URL: Portafolio completo Kord3 -->
-          <a href="https://drive.google.com/drive/folders/1D40mUxD-DwSL4gaHUXWV2La7S-4auekq?usp=drive_link"
-            target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-agency">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('agency')">✕</button>
-        <div class="mcat">Edición · Ads · Marketing · Buenos Aires</div>
-        <div class="mttl">AGENCY LUXURY</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Editor de Video</span><span class="mci">VSL</span><span class="mci">Facebook
-            Ads</span><span class="mci">Thumbnails</span><span class="mci">Nicho Médico Premium</span></div>
-        <div class="ms">Descripción</div>
-        <p>Trabajé como <strong>editor de video para Agency Luxury</strong>, agencia de marketing con base en
-          Buenos
-          Aires especializada en el nicho de cirujanos plásticos. Rol enfocado en la edición de contenido
-          audiovisual
-          orientado a conversión, abordando cada pieza desde lo visual y lo estratégico.</p>
-        <div class="ms">Responsabilidades</div>
-        <ul class="mli">
-          <li>Edición de <strong>VSL (Video Sales Letters)</strong> y anuncios para Facebook Ads optimizando
-            ritmo,
-            estructura, subtítulos y narrativa.</li>
-          <li>Diseño de <strong>portadas (thumbnails y covers)</strong> priorizando impacto visual y claridad del
-            mensaje.</li>
-          <li>Trabajo con el equipo de marketing adaptando contenido a <strong>objetivos comerciales
-              concretos</strong>.
-          </li>
-          <li>Estándar visual alineado al <strong>posicionamiento premium del nicho médico</strong>.</li>
-        </ul>
-        <div class="mlk"><a href="https://www.instagram.com/luxury.agency_llc/" target="_blank" class="ml1">Instagram
-            @luxury.agency_llc</a><!-- DRIVE_URL: Portafolio completo Agency Luxury -->
-          <a href="https://drive.google.com/drive/folders/1IcUsqJ8yI4Taq-THSqp2ZrRZW80lawnv?usp=drive_link"
-            target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-energia">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('energia')">✕</button>
-        <div class="mcat">Rebranding · Dirección Creativa · Community</div>
-        <div class="mttl">ENERGÍA FITNESS</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Rebranding</span><span class="mci">Dirección Creativa</span><span
-            class="mci">Community Manager</span><span class="mci">Producción Audiovisual</span><span class="mci">Semana
-            Hype</span></div>
-        <div class="ms">Descripción</div>
-        <p>Trabajé en el <strong>rebranding y relanzamiento integral de Energía Fitness</strong>, redefiniendo la
-          identidad visual y la comunicación en redes sociales. El proyecto comenzó con la reconstrucción total de
-          la
-          cuenta: feed, tono visual y presencia digital.</p>
-        <div class="ms">Gestión de contenido</div>
-        <ul class="mli">
-          <li>Edición de <strong>carruseles, videos y piezas gráficas</strong></li>
-          <li>Rediseño de <strong>historias destacadas</strong></li>
-          <li>Planificación de contenidos alineados a la nueva identidad</li>
-          <li>Dirección y producción audiovisual completa: de la idea al producto final</li>
-        </ul>
-        <div class="ms">Semana Hype</div>
-        <div class="mhl">
-          <p>Estrategia previa al relanzamiento: videos, posts e historias diseñados para <strong>construir
-              anticipación
-              y misterio progresivo</strong> antes de la presentación oficial.</p>
-        </div>
-        <p>El cierre fue un <strong>video de presentación grabado desde cero</strong>: planificación, grabación,
-          dirección y edición. Pieza principal del relanzamiento consolidando la nueva identidad.</p>
-        <div class="mlk"><a href="https://www.instagram.com/energiafitness.cba/" target="_blank" class="ml1">Instagram
-            @energiafitness.cba</a><!-- DRIVE_URL: Portafolio completo Energía Fitness -->
-          <a href="https://drive.google.com/drive/folders/1Wm3IiHyRxUaHtxe2_hucsiBFcSka26sX?usp=drive_link"
-            target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-mfsports">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('mfsports')">✕</button>
-        <div class="mcat">Diseño de Indumentaria Deportiva</div>
-        <div class="mttl">MF SPORTS</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Diseñador de Ropa</span><span class="mci">Fútbol</span><span
-            class="mci">Hockey</span><span class="mci">Camisetas</span><span class="mci">Mockups</span><span
-            class="mci">Presentaciones Sponsors</span></div>
-        <div class="ms">Descripción</div>
-        <p>Trabajé en el <strong>diseño de indumentaria deportiva para MF Sports</strong>, desarrollando conjuntos
-          completos para fútbol y hockey. Enfoque en identidad visual, coherencia estética y adaptación del diseño
-          a
-          cada equipo.</p>
-        <div class="ms">Alcance del trabajo</div>
-        <ul class="mli">
-          <li>Diseño de <strong>camisetas de fútbol y hockey</strong> con identidad visual única por equipo</li>
-          <li><strong>Musculosas, buzos y equipamiento completo</strong></li>
-          <li><strong>Mockups profesionales</strong> para presentación de productos</li>
-          <li><strong>Presentaciones visuales para sponsors</strong>: propuesta de marca y valor comercial ante
-            posibles
-            aliados</li>
-        </ul>
-        <div class="mlk"><a href="https://www.instagram.com/mfsports.ar/" target="_blank" class="ml1">Instagram
-            @mfsports.ar</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-natan">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('natan')">✕</button>
-        <div class="mcat">Branding · Dirección Creativa · Audiovisual</div>
-        <div class="mttl">NATAN BARBER ESTUDIO</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Branding desde cero</span><span class="mci">Community
-            Manager</span><span class="mci">Producción Audiovisual</span><span class="mci">Semana Hype</span><span
-            class="mci">Cuarteto
-            Cordobés</span></div>
-        <div class="ms">Descripción</div>
-        <p>Trabajé en el <strong>desarrollo del branding y lanzamiento completo</strong> de The Natan Barber
-          Studio,
-          construyendo la identidad visual y el estilo de la marca desde cero. Definición del tono, la estética y
-          la
-          presencia en redes sociales.</p>
-        <div class="ms">Video de presentación</div>
-        <div class="mhl">
-          <p>Produje, dirigí y edité el video de presentación. <strong>Eje conceptual: el cuarteto
-              cordobés</strong>,
-            incorporando un elemento cultural fuerte y local para conectar con la identidad de la marca y su
-            público.
-            Proceso completo: idea, producción, grabación, dirección y edición final.</p>
-        </div>
-        <div class="ms">Estrategia completa</div>
-        <ul class="mli">
-          <li><strong>Semana Hype</strong>: videos, posts e historias para generar expectativa y misterio
-            progresivo
-          </li>
-          <li>Edición de <strong>carruseles y piezas gráficas</strong> para redes sociales</li>
-          <li>Diseño de <strong>stickers para ceras</strong> — identidad visual al producto físico</li>
-        </ul>
-        <div class="mlk"><a href="https://www.instagram.com/natan.barber.estudio/" target="_blank" class="ml1">Instagram
-            @natan.barber.estudio</a><!-- DRIVE_URL: Portafolio completo Natan Barber -->
-          <a href="https://drive.google.com/drive/folders/1ayGPRBRxmenzvTuW6wfJhDH-5xB8MN9q?usp=drive_link"
-            target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-home">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('home')">✕</button>
-        <div class="mcat">Video Ads · UGC · IA · Florida, USA</div>
-        <div class="mttl">HOME IMPROVEMENT POWER</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Editor de Video</span><span class="mci">Facebook Ads</span><span
-            class="mci">Instagram Ads</span><span class="mci">UGC / Influencer</span><span class="mci">IA
-            Tools</span><span class="mci">Florida, EE.UU.</span></div>
-        <div class="ms">Descripción</div>
-        <p>Trabajo con <strong>HomeImprovementPower</strong>, empresa del sector home improvement en Florida
-          (EE.UU.),
-          creando contenido audiovisual y creativos para campañas publicitarias en redes sociales — incluyendo
-          producción con inteligencia artificial.</p>
-        <div class="ms">Edición para Ads</div>
-        <ul class="mli">
-          <li><strong>Hooks fuertes</strong> en los primeros segundos para captar atención inmediata</li>
-          <li><strong>Subtítulos claros</strong>, buen ritmo visual y CTA orientados a conversión</li>
-          <li>Estilo <strong>UGC/influencer</strong> para mayor autenticidad y performance</li>
-          <li>Variaciones de creativos para <strong>testing continuo y optimización</strong></li>
-        </ul>
-        <div class="ms">Producción con IA</div>
-        <div class="mhl">
-          <p>Producción con <strong>voz en off IA, generación de recursos audiovisuales y adaptaciones
-              creativas</strong>, permitiendo escalar volumen de contenido sin perder efectividad publicitaria.
-          </p>
-        </div>
-        <div class="mlk"><a href="https://www.instagram.com/homeimprovementpower/" target="_blank" class="ml1">Instagram
-            @homeimprovementpower</a><!-- DRIVE_URL: Portafolio completo Home Improvement Power -->
-          <a href="https://drive.google.com/drive/folders/193iJy2NcTXkWi0dD5RpDsDyWeLwX5fFV?usp=drive_link"
-            target="_blank" class="ml2" data-pending="DRIVE_URL">Ver portafolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mo" id="m-otros">
-    <div class="md2">
-      <div class="mh"><button class="mx" onclick="closeM('otros')">✕</button>
-        <div class="mcat">Edición de Video · Múltiples rubros</div>
-        <div class="mttl">ZETTA · PAVAN · LEGAL LEADS</div>
-      </div>
-      <div class="mb">
-        <div class="mch"><span class="mci">Editor de Video</span><span class="mci">Seguridad</span><span
-            class="mci">Farmacia</span><span class="mci">Legal</span><span class="mci">Córdoba</span><span
-            class="mci">Chile</span></div>
-        <p>Edición de contenido audiovisual para distintas marcas y empresas, adaptando cada pieza a su rubro,
-          público y
-          objetivo comunicacional.</p>
-        <div class="ms">Zetta Security — Córdoba</div>
-        <p>Contenido para <strong>empresa de instalación de cámaras de seguridad</strong>. Piezas enfocadas en
-          servicios, confianza y profesionalismo.</p>
-        <div class="ms">Farmacia Pavan — Córdoba</div>
-        <p>Videos para <strong>farmacia cordobesa</strong> orientados a comunicación comercial y promocional.
-          Claridad
-          del mensaje y estética accesible.</p>
-        <div class="ms">Legal Leads — Chile</div>
-        <p>Videos para <strong>estudio jurídico chileno</strong> orientados a captación de clientes. Tono serio y
-          ordenado alineado al rubro legal.</p>
-        <div class="mlk"><a href="https://www.instagram.com/zettasecurity.ht/" target="_blank" class="ml1">Zetta
-            Security</a><a href="https://www.instagram.com/farmaciapavan/" target="_blank" class="ml2">Farmacia
-            Pavan</a><a href="https://www.instagram.com/legal.leadsmkt/" target="_blank" class="ml2">Legal
-            Leads</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // === MOBILE MENU ===
-    const movl = document.getElementById('movl');
-    const mtog = document.getElementById('mtog');
-
-    function toggleMenu() {
-      movl.classList.toggle('active');
-      mtog.classList.toggle('active');
-      document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : '';
-    }
-    mtog.addEventListener('click', toggleMenu);
-
-    // === CURSOR — usa transform con translate(x-50%, y-50%) ===
-    const cd = document.getElementById('cd');
-    const cr = document.getElementById('cr');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cd.style.transform = `translate(calc(${mx}px - 50%),calc(${my}px - 50%))`;
-    });
-
-    (function ar() {
-      rx += (mx - rx) * .13; ry += (my - ry) * .13;
-      cr.style.transform = `translate(calc(${rx}px - 50%),calc(${ry}px - 50%))`;
-      requestAnimationFrame(ar);
-    })();
-
-    // === SCROLL REVEAL — blur-fade con stagger ===
-    const blurFadeObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const container = entry.target;
-        // Elementos hijos con .rv dentro del contenedor
-        const rvKids = container.querySelectorAll('.rv');
-        if (rvKids.length) {
-          rvKids.forEach((el, i) => {
-            el.style.transitionDelay = `${i * 0.08}s`;
-            el.classList.add('vs', 'vi');
-          });
-        }
-        // El propio contenedor si tiene .rv
-        if (container.classList.contains('rv')) {
-          container.classList.add('vs', 'vi');
-        }
-        blurFadeObs.unobserve(container);
-      });
-    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('section, .sb, .mw').forEach(s => blurFadeObs.observe(s));
-    // También observar .rv sueltos fuera de sección
-    document.querySelectorAll('.rv').forEach(el => {
-      if (!el.closest('section') && !el.closest('.sb') && !el.closest('.mw')) {
-        blurFadeObs.observe(el);
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
-
-    // Trail
-    const TR = 7, tp = [];
-    for (let i = 0; i < TR; i++) {
-      const e = document.createElement('div');
-      e.className = 'trp';
-      const s = 8 - i;
-      e.style.cssText = `width:${s}px;height:${s}px;background:rgba(204,0,0,${.55 - i * .07});box-shadow:0 0 ${s * 2}px rgba(204,0,0,${.4 - i * .05});`;
-      document.body.appendChild(e);
-      tp.push({ e, x: 0, y: 0 });
-    }
-    (function at() {
-      let px = mx, py = my;
-      for (let i = 0; i < TR; i++) {
-        const sp = .38 - i * .04;
-        tp[i].x += (px - tp[i].x) * sp; tp[i].y += (py - tp[i].y) * sp;
-        tp[i].e.style.transform = `translate(calc(${tp[i].x}px - 50%),calc(${tp[i].y}px - 50%))`;
-        px = tp[i].x; py = tp[i].y;
-      }
-      requestAnimationFrame(at);
-    })();
-
-    document.querySelectorAll('a,button,.pc,.svi,.ti,.ec,.cc,.lgc,.exi').forEach(el => {
-      el.addEventListener('mouseenter', () => { cd.classList.add('hov'); cr.classList.add('hov'); });
-      el.addEventListener('mouseleave', () => { cd.classList.remove('hov'); cr.classList.remove('hov'); });
-    });
-
-    // NAV
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('sc', scrollY > 50);
-    });
-
-    // REVEAL — manejado por blurFadeObs arriba
-
-    // COUNTERS
-    const co = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target, t = +el.dataset.target;
-          let c = 0; const st = t / 38;
-          const tm = setInterval(() => { c += st; if (c >= t) { el.textContent = t + '+'; clearInterval(tm); } else el.textContent = Math.floor(c); }, 45);
-          co.unobserve(el);
-        }
-      });
-    }, { threshold: .5 });
-    document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
-
-    // SKILL BARS animation
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const fill = e.target.querySelector('.skill-fill');
-          if (fill) fill.style.width = fill.dataset.pct + '%';
-          skillObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    // observe each skill row
-    document.querySelectorAll('.skill-item').forEach(el => skillObserver.observe(el));
-
-    // MODALS
-    function openM(id) { document.getElementById('m-' + id).classList.add('on'); document.body.style.overflow = 'hidden'; }
-    function closeM(id) { document.getElementById('m-' + id).classList.remove('on'); document.body.style.overflow = ''; }
-    document.querySelectorAll('.mo').forEach(o => {
-      o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('on'); document.body.style.overflow = ''; } });
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') document.querySelectorAll('.mo.on').forEach(o => { o.classList.remove('on'); document.body.style.overflow = ''; });
-    });
-
-    // ===================================================
-    // 1. NAV PARTICLES
-    // ===================================================
-    (function navParticles() {
-      const nav = document.getElementById('nav');
-      const COUNT = 16;
-      const particles = [];
-      for (let i = 0; i < COUNT; i++) {
-        const p = document.createElement('div');
-        p.className = 'nav-p';
-        const size = Math.random() * 2.4 + 0.8;
-        p.style.cssText = `width:${size}px;height:${size}px;position:absolute;opacity:0;top:0;left:0;`;
-        nav.appendChild(p);
-        const nw = window.innerWidth;
-        const nh = 70;
-        particles.push({
-          el: p,
-          x: Math.random() * nw,
-          y: Math.random() * nh,
-          vx: (Math.random() - 0.5) * 0.45,
-          vy: (Math.random() - 0.5) * 0.3,
-          baseOp: Math.random() * 0.5 + 0.2,
-          age: Math.floor(Math.random() * 180),
-          maxLife: Math.random() * 200 + 120,
-        });
-      }
-      function tickParticles() {
-        const nw = nav.offsetWidth;
-        const nh = nav.offsetHeight;
-        particles.forEach(p => {
-          p.age++;
-          p.x += p.vx;
-          p.y += p.vy;
-          const progress = p.age / p.maxLife;
-          const fadeIn = Math.min(progress * 6, 1);
-          const fadeOut = Math.max(0, 1 - Math.max(0, progress - 0.65) / 0.35);
-          const op = p.baseOp * fadeIn * fadeOut;
-          if (p.age >= p.maxLife || p.x < -4 || p.x > nw + 4) {
-            p.x = Math.random() * nw;
-            p.y = Math.random() * nh;
-            p.age = 0;
-            p.vx = (Math.random() - 0.5) * 0.45;
-            p.vy = (Math.random() - 0.5) * 0.3;
-          }
-          p.el.style.transform = `translate(${p.x}px,${p.y}px)`;
-          p.el.style.opacity = op.toFixed(3);
-        });
-        requestAnimationFrame(tickParticles);
-      }
-      tickParticles();
-    })();
-
-    // ===================================================
-    // 2. 3D CARD TILT + FLOAT
-    // ===================================================
-    (function cardEffects() {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      document.querySelectorAll('#proyectos .pc').forEach((card, i) => {
-        const delay = (i * 0.35).toFixed(2);
-        const dur = (3.0 + i * 0.28).toFixed(2);
-        card.classList.add('floating');
-        card.style.animationDelay = `${delay}s`;
-        card.style.animationDuration = `${dur}s`;
-
-        if (isMobile) return; // no 3D en mobile
-
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5;
-          const y = (e.clientY - r.top) / r.height - 0.5;
-          card.style.animationPlayState = 'paused';
-          card.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
-          card.style.transform = `perspective(900px) rotateX(${(-y * 11).toFixed(1)}deg) rotateY(${(x * 11).toFixed(1)}deg) scale(1.025) translateY(-5px)`;
-          card.style.boxShadow = `${(-x * 20).toFixed(0)}px ${(-y * 20).toFixed(0)}px 40px rgba(255,0,0,0.32), 0 0 28px rgba(255,0,0,0.18), 0 0 0 1px rgba(255,0,0,0.6)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.animationPlayState = 'running';
-          card.style.transition = 'transform 0.65s cubic-bezier(0.16,1,0.3,1), box-shadow 0.65s ease';
-          card.style.transform = '';
-          card.style.boxShadow = '';
-        });
-      });
-    })();
-
-    // ===================================================
-    // 3. CINEMATIC TEXT + PARTICLES
-    // ===================================================
-    (function cinematicEffects() {
-      const hro = document.querySelector('.hro');
-      if (hro) {
-        const nodes = Array.from(hro.childNodes);
-        hro.innerHTML = '';
-        let delay = 0.75;
-        nodes.forEach(node => {
-          if (node.nodeType === 3) {
-            [...node.textContent].forEach(ch => {
-              if (ch === ' ') hro.appendChild(document.createTextNode(' '));
-              else {
-                const s = document.createElement('span');
-                s.className = 'hro-char';
-                s.textContent = ch;
-                s.style.animationDelay = `${delay.toFixed(2)}s`;
-                delay += 0.038;
-                hro.appendChild(s);
-              }
-            });
-          } else if (node.nodeType === 1) {
-            const clone = node.cloneNode(false);
-            clone.innerHTML = '';
-            [...node.textContent].forEach(ch => {
-              if (ch === ' ') clone.appendChild(document.createTextNode(' '));
-              else {
-                const s = document.createElement('span');
-                s.className = 'hro-char';
-                s.textContent = ch;
-                s.style.animationDelay = `${delay.toFixed(2)}s`;
-                delay += 0.038;
-                clone.appendChild(s);
-              }
-            });
-            hro.appendChild(clone);
-          }
-        });
-        hro.style.opacity = '1';
-      }
-    })();
-
-  </script>
-
-
-
-  <script>
-    (function initGlobalParticles() {
-      if (document.getElementById('bg-particles')) return;
-      const canvas = document.createElement('canvas');
-      canvas.id = 'bg-particles';
-
-      // Estilos del canvas - fixed para cubrir TODA la página incluyendo el hero
-      canvas.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        pointer-events: none;
-        opacity: 1;
-      `;
-      document.body.appendChild(canvas);
-
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      const ctx = canvas.getContext('2d');
-
-      // Más partículas, más grandes, más visibles
-      const particles = Array.from({ length: 180 }, () => ({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: -(Math.random() * 0.5 + 0.15),
-        r: Math.random() * 2.5 + 0.8,
-        op: Math.random() * 0.55 + 0.2,
-        life: Math.random()
-      }));
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx;
-          p.y += p.vy;
-          p.life -= 0.0018;
-          if (p.y < -10 || p.life <= 0) {
-            p.y = canvas.height + 10;
-            p.x = Math.random() * canvas.width;
-            p.life = Math.random() * 0.5 + 0.5;
-          }
-          if (p.x < -10) p.x = canvas.width + 10;
-          if (p.x > canvas.width + 10) p.x = -10;
-          const alpha = Math.max(0, p.op * p.life);
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 0, 0, ${alpha.toFixed(3)})`;
-          ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-
-      // Desvanece solo en la sección contacto
-      const contactSec = document.getElementById('contacto');
-      if (contactSec) {
-        const obs = new IntersectionObserver(([ent]) => {
-          canvas.style.opacity = ent.isIntersecting ? '0' : '1';
-          canvas.style.transition = 'opacity 0.6s';
-        }, { threshold: 0.1 });
-        obs.observe(contactSec);
-      }
-    })();
-  </script>
-
+  });
+</script>
 
 </body>
-
 </html>
