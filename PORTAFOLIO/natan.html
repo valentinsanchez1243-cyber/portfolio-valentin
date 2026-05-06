@@ -443,6 +443,73 @@
     
     @media (max-width: 1024px) { .hype-social-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .hype-social-grid { grid-template-columns: 1fr; } }
+
+    /* ── MOBILE GLOBAL ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* hide animated canvas/particles on mobile */
+      #bg-particles, #ag-canvas { display: none !important; }
+      body::after { display: none !important; }
+
+      nav { padding: 14px 18px !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; }
+
+      .hero-banner { height: 300px !important; padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(2.8rem, 13vw, 5rem) !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
+
+      /* sections */
+      .section { padding: 40px 18px !important; }
+      .section-desc { text-align: left !important; font-size: 0.92rem !important; }
+      .section-title { font-size: 2rem !important; }
+
+      /* overview: stack vertically, video on top */
+      .overview-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .overview-media { max-width: 100% !important; order: -1; }
+      .overview-content { order: 1; }
+
+      /* tag list */
+      .tag-list { gap: 8px !important; margin-top: 24px !important; }
+
+      /* project index */
+      .pj-index { margin-top: 28px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+
+      /* carousels */
+      .carousel-slide { width: calc(50vw - 32px) !important; }
+      .product-slide { width: calc(50vw - 32px) !important; height: auto !important; }
+
+      /* reels: 2-col on tablet */
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+      /* sessions: single column */
+      .sessions-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+      /* hype section */
+      .hype-feed-wrap { padding: 60px 18px !important; }
+      .hype-feed-title { font-size: clamp(3rem, 16vw, 5rem) !important; }
+      .hype-feed-desc { font-size: 0.95rem !important; }
+      .hype-social-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+      /* instagram section */
+      .instagram-section { padding: 60px 18px !important; }
+      .instagram-handle { font-size: 2.2rem !important; }
+
+      footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .ig-feed { grid-template-columns: 1fr !important; }
+      .carousel-slide { width: calc(100vw - 48px) !important; }
+      .product-slide { width: calc(50vw - 24px) !important; }
+      .hype-social-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 
   <section class="hype-feed-wrap rv" id="hype">

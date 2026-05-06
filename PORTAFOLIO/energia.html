@@ -710,6 +710,57 @@
       transform: translateY(0);
     }
 
+    /* ── MOBILE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* hide GIF on mobile — too heavy & the section stacks anyway */
+      .overview-gif-side { display: none !important; }
+      .overview-grid { grid-template-columns: 1fr !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; align-items: center; justify-content: center; }
+
+      /* hero: don't touch, just text if needed */
+      .hero-banner { padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(2.6rem, 13vw, 5rem) !important; }
+
+      /* marquee */
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 16px !important; }
+
+      /* sections */
+      section, .section { padding: 48px 18px !important; }
+      .section-desc, p { text-align: left !important; font-size: 0.92rem !important; }
+      .section-title { font-size: 1.9rem !important; }
+
+      /* overview grid: already 1-col at 768px but add more fixes */
+      .overview-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+      /* stories grid: 4-col → 2-col */
+      .stories-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+
+      /* ig feed: 2-col at this size */
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+      /* hype section */
+      .hype-feed-wrap { padding: 60px 18px !important; }
+      .hype-feed-title { font-size: clamp(2.8rem, 15vw, 5rem) !important; }
+
+      /* instagram closing */
+      .instagram-section { padding: 60px 18px !important; }
+      .instagram-handle { font-size: 2rem !important; }
+
+      footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .stories-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .ig-feed { grid-template-columns: 1fr !important; }
+    }
 
   </style>
 </head>
@@ -787,8 +838,9 @@
       </ul>
     </div>
       </div>
-      <div class="overview-video-side">
+      <div class="overview-video-side overview-gif-side">
         <img
+          class="overview-gif"
           src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/energia%20fitnes%20antes%20y%20despues%20video.gif"
           alt="Energía Fitness — Antes y Después"
           loading="lazy"

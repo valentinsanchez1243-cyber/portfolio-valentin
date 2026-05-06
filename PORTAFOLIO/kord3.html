@@ -1197,6 +1197,42 @@
       display: block;
       border-radius: 16px;
     }
+
+    /* ── MOBILE ADDITIONS (complement existing block) ────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; }
+      body { cursor: default !important; }
+
+      /* PDF height */
+      .proj-pdf-frame,
+      iframe[title*="KORD3"],
+      iframe[title*="Manual"] { height: 360px !important; }
+
+      /* Editorial photo grid: stack */
+      .prod-grid-editorial { grid-template-columns: 1fr !important; }
+      .prod-main { min-height: 280px !important; }
+      .prod-secondary { grid-template-rows: auto auto !important; }
+      .prod-secondary-item { min-height: 200px !important; }
+
+      /* hype section */
+      .hype-feed-wrap { padding: 60px 18px !important; }
+      .hype-feed-title { font-size: clamp(3rem, 16vw, 5.5rem) !important; }
+
+      /* pj index */
+      .pj-index-list { gap: 8px 20px !important; }
+
+      /* section desc left-align */
+      .section-desc, p { text-align: left !important; }
+
+      /* mw full width */
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+    }
+
+    @media (max-width: 480px) {
+      .proj-pdf-frame,
+      iframe[title*="KORD3"],
+      iframe[title*="Manual"] { height: 280px !important; }
+    }
   </style>
 </head>
 

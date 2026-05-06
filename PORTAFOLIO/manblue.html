@@ -190,8 +190,46 @@
     .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 4px; color: var(--w); text-decoration: none; }
 
     /* ======================================================
-       UNIVERSAL FLUID MOBILE RESPONSIVE OVERHAUL (MAX 768PX)
+       MOBILE
        ====================================================== */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* hide particle canvas on mobile — perf + not needed */
+      #bg-particles, #ag-canvas { display: none !important; }
+      body::after { display: none !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; align-items: center; justify-content: center; }
+
+      .hero-banner { height: 300px !important; padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(2.8rem, 13vw, 5rem) !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
+
+      .section { padding: 40px 18px !important; }
+      .section-desc { text-align: left !important; font-size: 0.92rem !important; }
+      .section-title { font-size: 1.9rem !important; }
+
+      /* feed grid: 5-col → 3-col */
+      .grid-feed { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+      /* stories grid: 6-col → 3-col */
+      .grid-stories { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+
+      .pj-index { margin-top: 28px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+
+      footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .grid-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
+      .grid-stories { grid-template-columns: repeat(2, 1fr) !important; gap: 5px !important; }
+    }
 
   </style>
 </head>

@@ -2166,11 +2166,23 @@
         gap: 24px !important;
         padding: 0 !important;
       }
-      
+
+      /* CV layout grid — main column + sidebar stacks vertically */
+      .cvw {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
       .premium-cert-grid, .premium-cert-grid--wide {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
       }
+
+      /* LOGROS section on white bg */
+      #logros { padding: 60px 18px !important; }
+      #logros .cvw { grid-template-columns: 1fr !important; gap: 28px !important; }
+      #logros .cve { padding: 16px 16px 16px 20px !important; }
+      #logros .cvedd { font-size: .82rem !important; }
 
       .sb { padding: 40px 20px !important; }
       .si { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px !important; }

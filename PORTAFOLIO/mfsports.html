@@ -112,6 +112,70 @@
     /* --- FOOTER --- */
     footer { padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
 
+    /* =============================================
+       MOBILE — MF SPORTS
+       ============================================= */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* NAV */
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; align-items: center; justify-content: center; }
+
+      /* HERO — no tocar el visual, solo ajustar padding */
+      .hero-banner {
+        height: 320px !important;
+        padding: 30px 20px 28px !important;
+        align-items: flex-end !important;
+      }
+      .hero-title { font-size: clamp(3rem, 14vw, 5rem) !important; }
+      .hero-sub { font-size: 0.72rem !important; letter-spacing: 2px !important; }
+
+      /* MARQUEE */
+      .mw { padding: 16px 0 !important; }
+      .mi { font-size: 1.4rem !important; padding: 0 18px !important; }
+
+      /* SECCIONES */
+      section { padding: 48px 18px !important; }
+      .section-title { font-size: clamp(2rem, 9vw, 3rem) !important; }
+      .section-desc { font-size: 0.95rem !important; }
+      p { text-align: left !important; }
+
+      /* ÍNDICE */
+      .pj-index-list { flex-direction: column !important; gap: 8px !important; }
+
+      /* FOTO GRID — 47 camisetas: 3 cols en mobile para ver el diseño completo */
+      .mfs-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 3px !important;
+      }
+
+      /* PDF SPONSOR — iframe visible pero compacto, con link para abrir completo */
+      .pdf-showcase {
+        border-radius: 8px !important;
+        overflow: hidden !important;
+      }
+      .pdf-showcase iframe {
+        height: 340px !important;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 32px 18px !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner { height: 260px !important; }
+      .mfs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .pdf-showcase iframe { height: 280px !important; }
+    }
 
   </style>
 </head>

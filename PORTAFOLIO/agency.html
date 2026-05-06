@@ -853,10 +853,19 @@
       section { padding: 60px 20px !important; }
       .section-title { font-size: 2.2rem !important; }
       
-      .agency-vid-grid, .vsl-grid, .tag-list, .pj-index-list {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
+      /* 17 vertical videos: 2-col on mobile = manageable grid */
+      .agency-vid-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
       }
+      /* VSL 16/9 videos: 1-col stacked */
+      .vsl-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .tag-list { gap: 8px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+      .section-desc { text-align: left !important; }
 
       .vid-carousel { max-width: 100% !important; }
       .vid-slide { min-width: 100% !important; }

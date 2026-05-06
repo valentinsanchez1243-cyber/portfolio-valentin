@@ -120,6 +120,55 @@
     .pdf-showcase-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
     .proj-pdf-frame { width: 100%; height: 750px; border: none; display: block; background: #111; }
 
+    /* MOBILE MENU */
+    .mtog { display: none; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); padding: 8px; z-index: 6000; cursor: pointer; position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 8px; align-items: center; justify-content: center; }
+    .mtog span { display: block; width: 22px; height: 2px; background: var(--w); position: absolute; left: 11px; transition: .4s cubic-bezier(0.16,1,0.3,1); }
+    .mtog span:nth-child(1) { top: 14px; }
+    .mtog span:nth-child(2) { top: 21px; }
+    .mtog span:nth-child(3) { top: 28px; }
+    .mtog.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mtog.active span:nth-child(2) { opacity: 0; }
+    .mtog.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .movl { position: fixed; inset: 0; background: rgba(8,8,8,0.92); backdrop-filter: blur(20px); z-index: 5500; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; visibility: hidden; pointer-events: none; transition: all .4s cubic-bezier(0.16,1,0.3,1); }
+    .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
+    .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
+    .movl a:hover { color: var(--rb); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; }
+
+      .hero-banner { height: 300px !important; padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(3rem, 13vw, 5rem) !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
+
+      .section { padding: 44px 20px !important; }
+      .section-desc { text-align: left !important; font-size: 0.95rem !important; }
+      .section-title { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
+
+      .tag-list { gap: 8px !important; }
+
+      .pj-index { margin-top: 32px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+
+      .pdf-showcase-hd { padding: 14px 16px !important; }
+      .proj-pdf-frame { height: 380px !important; }
+
+      footer { padding: 30px 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .proj-pdf-frame { height: 300px !important; }
+      .section-desc { font-size: 0.9rem !important; }
+    }
 
   </style>
 </head>
@@ -138,6 +187,16 @@
       <li style="margin-left:8px;"><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
   </nav>
+
+  <button class="mtog" id="mtog"><span></span><span></span><span></span></button>
+  <div class="movl" id="movl">
+    <a href="index.html" onclick="toggleMenu()">Inicio</a>
+    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
+    <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  </div>
 
   <section class="hero-banner">
     <div class="hero-banner-content">
@@ -275,6 +334,14 @@
       requestAnimationFrame(anim);
     }
     anim();
+
+    // Mobile menu toggle
+    const mtog = document.getElementById('mtog');
+    const movl = document.getElementById('movl');
+    if (mtog && movl) {
+      function toggleMenu() { mtog.classList.toggle('active'); movl.classList.toggle('active'); document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : ''; }
+      mtog.addEventListener('click', toggleMenu);
+    }
 
     // PDF carga inmediata al abrir la página (ultra-rápido)
     document.querySelectorAll('iframe[data-src]').forEach(function(f){
