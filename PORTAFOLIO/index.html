@@ -5013,6 +5013,14 @@ adding: 30px 24px !important; }
 
 
   <script>
+    // === TOGGLE MUTE (Fix 3) ===
+    function toggleMute(btn) {
+      var video = btn.closest('.rv-card, .vid-slide, div')?.querySelector('video');
+      if (!video) return;
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇' : '🔊';
+    }
+
     // === MOBILE MENU ===
     const movl = document.getElementById('movl');
     const mtog = document.getElementById('mtog');
@@ -5587,4 +5595,4 @@ adding: 30px 24px !important; }
   </script>
 </body>
 
-</html>                          
+</html>
