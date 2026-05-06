@@ -1309,5 +1309,31 @@
     loop();
   })();
   </script>
+
+  <script>
+  /* Click para desmutear videos (los verticales no tienen controls) */
+  (function(){
+    function attachUnmute(v){
+      v.style.cursor = 'pointer';
+      v.addEventListener('click', function(){
+        v.muted = !v.muted;
+        if(!v.muted){ v.volume = 1; v.play().catch(function(){}); }
+      }, {once: false});
+    }
+    // Videos ya cargados
+    document.querySelectorAll('video[src]').forEach(attachUnmute);
+    // Videos lazy (data-src) — esperar a que el observer les ponga el src
+    var mo = new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        if(m.attributeName === 'src' && m.target.tagName === 'VIDEO'){
+          attachUnmute(m.target);
+        }
+      });
+    });
+    document.querySelectorAll('video[data-src]').forEach(function(v){
+      mo.observe(v, {attributes: true, attributeFilter: ['src']});
+    });
+  })();
+  </script>
 </body>
 </html>
