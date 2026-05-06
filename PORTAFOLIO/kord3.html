@@ -8,6 +8,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap"
     rel="stylesheet">
+  <link rel="preconnect" href="https://valentin-cdn.b-cdn.net">
+  <link rel="dns-prefetch" href="https://valentin-cdn.b-cdn.net">
   <link rel="stylesheet" href="project-base.css">
 
   <style>
@@ -1310,7 +1312,7 @@
         <span class="pdf-showcase-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 5px; color: var(--rb);">MANUAL DE MARCA</span>
         <span class="pdf-showcase-sub" style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35);">KORD3</span>
       </div>
-      <iframe data-data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
+      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
     </div>
   </section>
 
@@ -1752,15 +1754,10 @@
       draw();
     })();
 
-    // LAZY PDF IFRAMES
-    new IntersectionObserver(function(es) {
-      es.forEach(function(e) {
-        if (e.isIntersecting && e.target.dataset.src) {
-          e.target.src = e.target.dataset.src;
-          delete e.target.dataset.src;
-        }
-      });
-    }, { rootMargin: '900px' }).observe(document.querySelector('iframe[data-src]'));
+    // PDF carga inmediata al abrir la página (ultra-rápido)
+    document.querySelectorAll('iframe[data-src]').forEach(function(f){
+      f.src = f.dataset.src; delete f.dataset.src;
+    });
   </script>
 
   <!-- ANTIGRAVITY CURSOR PARTICLES -->
