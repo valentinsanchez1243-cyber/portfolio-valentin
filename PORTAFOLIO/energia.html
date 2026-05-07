@@ -744,6 +744,11 @@
       /* stories grid: 4-col → 2-col */
       .stories-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
 
+      /* historias carousel: 1 slide visible at a time */
+      .carousel-slide { min-width: 82% !important; height: 380px !important; padding: 0 6px !important; }
+      .carousel-slide.horizontal { height: 190px !important; }
+      .carousel-wrap { padding: 0 !important; }
+
       /* ig feed: 2-col at this size */
       .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
 
@@ -758,7 +763,7 @@
       footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
 
       /* MARQUEE SPEED - MOBILE */
-      .mt, .marquee-track { animation-duration: 8s !important; }
+      .mt, .marquee-track { animation-duration: 5s !important; }
     }
 
     @media (max-width: 480px) {
