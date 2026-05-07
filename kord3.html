@@ -1226,6 +1226,10 @@
 
       /* mw full width */
       .mw { margin-left: 0 !important; width: 100vw !important; }
+
+      /* PDF: hide iframe, show button */
+      .pdf-desktop { display: none !important; }
+      .pdf-mobile { display: block !important; }
     }
 
     @media (max-width: 480px) {
@@ -1338,7 +1342,8 @@
   <!-- SECCIÓN: BRANDING HEADER -->
   <section class="reveal" id="branding" style="padding: 60px 64px 0; max-width: 1200px; margin: 0 auto;">
     <div class="section-subtitle" style="letter-spacing:6px;">— IDENTIDAD VISUAL · DISEÑO</div>
-    <h2 class="section-title" style="margin-bottom:0;">BRANDING<br><em>& MANUAL DE MARCA</em></h2>
+    <h2 class="section-title" style="margin-bottom:16px;">BRANDING<br><em>& MANUAL DE MARCA</em></h2>
+    <p class="section-desc" style="max-width:680px;">Desarrollé la identidad visual completa de KORD3 desde cero: logotipo, paleta de color, sistema tipográfico y el manual de marca que unifica todo el universo estético. El objetivo fue construir una marca que trascienda la indumentaria y opere como un proyecto cultural con identidad propia.</p>
   </section>
 
   <!-- SECCIÓN: MANUAL DE MARCA -->
@@ -1348,7 +1353,16 @@
         <span class="pdf-showcase-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 5px; color: var(--rb);">MANUAL DE MARCA</span>
         <span class="pdf-showcase-sub" style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35);">KORD3</span>
       </div>
-      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
+      <!-- Desktop: embedded PDF -->
+      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame pdf-desktop" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
+      <!-- Mobile: open in new tab -->
+      <div class="pdf-mobile" style="display:none; padding: 32px 20px; text-align:center;">
+        <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:20px;">Manual de Marca · KORD3</p>
+        <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf" target="_blank" rel="noopener"
+           style="display:inline-block; padding:14px 36px; border:1px solid var(--rb); color:var(--rb); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; letter-spacing:4px; text-decoration:none; border-radius:4px; text-transform:uppercase;">
+          VER MANUAL →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1356,7 +1370,8 @@
   <section id="remeras" style="padding: 40px 0 70px; overflow: hidden;">
     <div style="padding: 0 64px; margin-bottom: 36px;" class="reveal">
       <div class="section-subtitle">— DROP 0.0 · COLECCIÓN COMPLETA</div>
-      <h2 class="section-title" style="margin-bottom: 0;">REMERAS<br><em>& INDUMENTARIA</em></h2>
+      <h2 class="section-title" style="margin-bottom: 16px;">REMERAS<br><em>& INDUMENTARIA</em></h2>
+      <p class="section-desc" style="max-width:680px;">Diseñé y produje el primer drop de KORD3: remeras, buzos y conjuntos con gráficas propias. Desde el diseño hasta la presentación del producto en redes, cada pieza fue pensada como parte de un lanzamiento con identidad y narrativa de marca.</p>
     </div>
 
     <style>
@@ -1491,7 +1506,8 @@
   <!-- SECCIÓN: FOTOS DE PRODUCCIÓN -->
   <section id="fotografia" class="reveal" style="padding: 20px 64px 60px; max-width: 1200px; margin: 0 auto;">
     <div class="section-subtitle">— EDITORIAL</div>
-    <h2 class="section-title" style="margin-bottom: 32px;">PRODUCCIÓN<br>FOTOGRÁFICA</h2>
+    <h2 class="section-title" style="margin-bottom: 16px;">PRODUCCIÓN<br>FOTOGRÁFICA</h2>
+    <p class="section-desc" style="max-width:680px; margin-bottom:32px;">Dirigí y produje la sesión fotográfica del Drop 0.0 con un enfoque editorial y urbano. Concepto, locación, styling y dirección de modelos — todo coordinado para que cada imagen comunique la estética de la marca sin necesitar texto.</p>
     <div class="prod-grid-editorial">
       <div class="prod-main">
         <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%286%29.webp" loading="lazy" alt="KORD3 Producción Fotográfica Principal">
