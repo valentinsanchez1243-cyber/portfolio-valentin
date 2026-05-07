@@ -867,12 +867,18 @@
       .pj-index-list { gap: 8px 20px !important; }
       .section-desc { text-align: justify !important; }
 
+      /* Force reveal sections visible on mobile - observer can fail on small screens */
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+
       .vid-carousel { max-width: 100% !important; }
       .vid-slide { min-width: 100% !important; }
 
       /* OVERFLOW PROTECTION */
       * { max-width: 100vw !important; box-sizing: border-box !important; }
       html, body { overflow-x: hidden !important; position: relative !important; width: 100% !important; }
+
+      /* MARQUEE SPEED - MOBILE */
+      .mt, .marquee-track { animation-duration: 6s !important; }
     }
 
     @media (max-width: 480px) {

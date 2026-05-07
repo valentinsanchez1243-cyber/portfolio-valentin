@@ -3512,7 +3512,7 @@ adding: 30px 24px !important; }
       section p, .sbt p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
-        text-align: left !important;
+        text-align: justify !important;
         word-break: normal !important;
         white-space: normal !important;
         letter-spacing: normal !important;
@@ -3599,8 +3599,19 @@ adding: 30px 24px !important; }
 
       /* FEED / MARQUEE FIXES */
       .feed-grid { grid-template-columns: repeat(3, 1fr) !important; }
-      .mt, .marquee-track { animation-duration: 14s !important; }
-      .mf-track, .kord-track { animation-duration: 8s !important; }
+      .mt, .marquee-track { animation-duration: 6s !important; }
+      .mf-track, .kord-track { animation-duration: 4s !important; }
+
+      /* QUICK LOOK ACCORDION - MOBILE */
+      .prev-hint { display: none !important; }
+      #previews { padding: 60px 16px !important; }
+      .ptabs { gap: 0 !important; }
+      .ptab-hd { height: auto !important; min-height: 60px !important; padding: 14px 12px !important; }
+      .ptab-num { font-size: 0.65rem !important; letter-spacing: 2px !important; }
+      .ptab-idx { font-size: 0.65rem !important; }
+      .ptab-name { font-size: 1.05rem !important; letter-spacing: 2px !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; max-width: 55vw !important; }
+      .ptab-arrow { flex-shrink: 0 !important; font-size: 1rem !important; }
+      .ptab-icon { width: 28px !important; height: 28px !important; flex-shrink: 0 !important; }
     }
 
     @media (max-width: 480px) {
