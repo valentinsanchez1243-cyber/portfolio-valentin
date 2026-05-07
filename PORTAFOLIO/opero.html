@@ -159,8 +159,9 @@
       .pj-index { margin-top: 32px !important; }
       .pj-index-list { gap: 8px 20px !important; }
 
-      /* PDF: hide entire section on mobile */
-      .pdf-showcase { display: none !important; }
+      /* PDF mobile: show link, hide iframe */
+      .pdf-desktop { display: none !important; }
+      .pdf-mobile { display: block !important; }
 
       /* MARQUEE SPEED - MOBILE */
       .mt, .marquee-track { animation-duration: 6s !important; }
@@ -271,13 +272,9 @@
       </div>
       <!-- Desktop: embedded PDF -->
       <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero.pdf#toolbar=0" class="proj-pdf-frame pdf-desktop" title="Manual de Marca Opero"></iframe>
-      <!-- Mobile: open in new tab -->
-      <div class="pdf-mobile" style="display:none; padding: 32px 20px; text-align:center;">
-        <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:20px;">Manual de Marca · OPERO</p>
-        <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero.pdf" target="_blank" rel="noopener"
-           style="display:inline-block; padding:14px 36px; border:1px solid var(--rb); color:var(--rb); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; letter-spacing:4px; text-decoration:none; border-radius:4px; text-transform:uppercase;">
-          VER MANUAL →
-        </a>
+      <!-- Mobile: Google Docs viewer inline -->
+      <div class="pdf-mobile" style="display:none;">
+        <iframe src="https://docs.google.com/viewer?url=https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero.pdf&embedded=true" style="width:100%; height:520px; border:none; display:block; background:#111;" title="Manual de Marca Opero Mobile"></iframe>
       </div>
     </div>
   </section>
