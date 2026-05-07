@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OPERO - Valentín Sánchez</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://valentin-cdn.b-cdn.net">
+  <link rel="dns-prefetch" href="https://valentin-cdn.b-cdn.net">
   <link rel="stylesheet" href="project-base.css">
 
   <style>
@@ -118,6 +120,55 @@
     .pdf-showcase-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
     .proj-pdf-frame { width: 100%; height: 750px; border: none; display: block; background: #111; }
 
+    /* MOBILE MENU */
+    .mtog { display: none; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); padding: 8px; z-index: 6000; cursor: pointer; position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 8px; align-items: center; justify-content: center; }
+    .mtog span { display: block; width: 22px; height: 2px; background: var(--w); position: absolute; left: 11px; transition: .4s cubic-bezier(0.16,1,0.3,1); }
+    .mtog span:nth-child(1) { top: 14px; }
+    .mtog span:nth-child(2) { top: 21px; }
+    .mtog span:nth-child(3) { top: 28px; }
+    .mtog.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mtog.active span:nth-child(2) { opacity: 0; }
+    .mtog.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .movl { position: fixed; inset: 0; background: rgba(8,8,8,0.92); backdrop-filter: blur(20px); z-index: 5500; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; visibility: hidden; pointer-events: none; transition: all .4s cubic-bezier(0.16,1,0.3,1); }
+    .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
+    .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
+    .movl a:hover { color: var(--rb); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; }
+
+      .hero-banner { height: 300px !important; padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(3rem, 13vw, 5rem) !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
+
+      .section { padding: 44px 20px !important; }
+      .section-desc { text-align: justify !important; font-size: 0.95rem !important; }
+      .section-title { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
+
+      .tag-list { gap: 8px !important; }
+
+      .pj-index { margin-top: 32px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+
+      .pdf-showcase-hd { padding: 14px 16px !important; }
+      .proj-pdf-frame { height: 380px !important; }
+
+      footer { padding: 30px 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .proj-pdf-frame { height: 300px !important; }
+      .section-desc { font-size: 0.9rem !important; }
+    }
 
   </style>
 </head>
@@ -136,6 +187,16 @@
       <li style="margin-left:8px;"><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
   </nav>
+
+  <button class="mtog" id="mtog"><span></span><span></span><span></span></button>
+  <div class="movl" id="movl">
+    <a href="index.html" onclick="toggleMenu()">Inicio</a>
+    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
+    <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  </div>
 
   <section class="hero-banner">
     <div class="hero-banner-content">
@@ -206,14 +267,14 @@
         <span class="pdf-showcase-title">MANUAL DE MARCA</span>
         <span class="pdf-showcase-sub">OPERO · SISTEMA DE IDENTIDAD VISUAL</span>
       </div>
-      <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero.pdf#toolbar=0" class="proj-pdf-frame" title="Manual de Marca Opero"></iframe>
+      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero.pdf#toolbar=0" class="proj-pdf-frame" title="Manual de Marca Opero"></iframe>
     </div>
   </section>
 
   <section class="section rv" style="padding: 120px 24px; text-align: center;">
     <div style="max-width: 800px; margin: 0 auto;">
-      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@OPERO.ARG</h2>
-      <a href="https://www.instagram.com/opero.arg/?hl=es" target="_blank" 
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@OPERO.AR</h2>
+      <a href="https://www.instagram.com/opero.ar/" target="_blank"
          style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
          onmouseover="this.style.background='var(--rb)'; this.style.color='#fff'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
          onmouseout="this.style.background='transparent'; this.style.color='var(--rb)'; this.style.boxShadow='none'">
@@ -232,7 +293,9 @@
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.play().catch(() => {});
+          const v = entry.target;
+          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+          v.play().catch(() => {});
         } else {
           entry.target.pause();
         }
@@ -272,51 +335,110 @@
     }
     anim();
 
+    // Mobile menu toggle
+    const mtog = document.getElementById('mtog');
+    const movl = document.getElementById('movl');
+    if (mtog && movl) {
+      function toggleMenu() { mtog.classList.toggle('active'); movl.classList.toggle('active'); document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : ''; }
+      mtog.addEventListener('click', toggleMenu);
+    }
+
+    // PDF carga inmediata al abrir la página (ultra-rápido)
+    document.querySelectorAll('iframe[data-src]').forEach(function(f){
+      f.src = f.dataset.src; delete f.dataset.src;
+    });
   </script>
 
-<script>
-(function(){
-  if(window.innerWidth<=768)return;
-  if(document.getElementById('ag-canvas'))return;
-  var cv=document.createElement('canvas');
-  cv.id='ag-canvas';
-  cv.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
-  document.body.appendChild(cv);
-  var ctx=cv.getContext('2d');
-  var W=cv.width=window.innerWidth,H=cv.height=window.innerHeight;
-  window.addEventListener('resize',function(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;});
-  var pts=[],lx=W/2,ly=H/2;
-  var COLS=['255,255,255','255,255,255','200,210,255','255,225,190'];
-  function emit(x,y,n){
-    for(var i=0;i<n&&pts.length<300;i++){
-      var a=Math.random()*Math.PI*2,s=Math.random()*1.2+0.3;
-      pts.push({x:x+(Math.random()-.5)*8,y:y+(Math.random()-.5)*8,
-        vx:Math.cos(a)*s*.35,vy:-(Math.random()*1.5+0.5),
-        r:Math.random()*2+0.8,op:Math.random()*.5+0.25,
-        dec:Math.random()*.013+.007,
-        col:COLS[Math.floor(Math.random()*COLS.length)]});
+  <!-- ANTIGRAVITY CURSOR PARTICLES -->
+  <script>
+  (function(){
+    if (window.innerWidth <= 768) return; // solo desktop
+    if (document.getElementById('ag-canvas')) return; // ya inicializado
+
+    var canvas = document.createElement('canvas');
+    canvas.id = 'ag-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    var particles = [];
+    var mx = W/2, my = H/2;
+    var lastX = mx, lastY = my;
+    var frameId = null;
+
+    // Paleta: blanco puro — sutil sobre cualquier fondo oscuro
+    var COLORS = ['255,255,255', '255,255,255', '200,200,255', '255,220,180'];
+
+    function spawnAt(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 1.4 + 0.4;
+        particles.push({
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: Math.cos(angle) * speed * 0.4,
+          vy: -(Math.random() * 1.8 + 0.6),   // sube
+          r:  Math.random() * 2.2 + 0.8,
+          op: Math.random() * 0.55 + 0.3,
+          decay: Math.random() * 0.012 + 0.008,
+          col: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+      }
     }
-  }
-  var th=false;
-  document.addEventListener('mousemove',function(e){
-    if(th)return;th=true;setTimeout(function(){th=false;},16);
-    var dx=e.clientX-lx,dy=e.clientY-ly,d=Math.sqrt(dx*dx+dy*dy);
-    if(d>3){emit(e.clientX,e.clientY,Math.min(Math.floor(d/6)+1,3));lx=e.clientX;ly=e.clientY;}
-  });
-  document.addEventListener('click',function(e){emit(e.clientX,e.clientY,14);});
-  (function loop(){
-    requestAnimationFrame(loop);
-    ctx.clearRect(0,0,W,H);
-    for(var i=pts.length-1;i>=0;i--){
-      var p=pts[i];
-      p.x+=p.vx;p.y+=p.vy;p.vy-=.025;p.vx*=.97;
-      p.op-=p.dec;p.r*=.992;
-      if(p.op<=0||p.r<.2){pts.splice(i,1);continue;}
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
+
+    var throttle = false;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (throttle) return;
+      throttle = true;
+      setTimeout(function(){ throttle = false; }, 16);
+
+      var dx = mx - lastX, dy = my - lastY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 2) {
+        var n = Math.min(Math.floor(dist / 6) + 1, 4);
+        spawnAt(mx, my, n);
+        lastX = mx; lastY = my;
+      }
+    });
+
+    // Efecto click: ráfaga de partículas
+    document.addEventListener('click', function(e){
+      spawnAt(e.clientX, e.clientY, 14);
+    });
+
+    function loop(){
+      frameId = requestAnimationFrame(loop);
+      ctx.clearRect(0, 0, W, H);
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
+        p.vx *= 0.98;           // leve resistencia lateral
+        p.op -= p.decay;
+        p.r  *= 0.993;
+
+        if (p.op <= 0 || p.r < 0.2) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
+        ctx.fill();
+      }
     }
+    loop();
   })();
-})();
-</script>
+  </script>
 </body>
 </html>

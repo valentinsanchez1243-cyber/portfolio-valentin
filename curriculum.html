@@ -2166,11 +2166,23 @@
         gap: 24px !important;
         padding: 0 !important;
       }
-      
+
+      /* CV layout grid — main column + sidebar stacks vertically */
+      .cvw {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
       .premium-cert-grid, .premium-cert-grid--wide {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
       }
+
+      /* LOGROS section on white bg */
+      #logros { padding: 60px 18px !important; }
+      #logros .cvw { grid-template-columns: 1fr !important; gap: 28px !important; }
+      #logros .cve { padding: 16px 16px 16px 20px !important; }
+      #logros .cvedd { font-size: .82rem !important; }
 
       .sb { padding: 40px 20px !important; }
       .si { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px !important; }
@@ -3113,7 +3125,7 @@
     function createCard(item, absoluteIndex) {
       return `
         <article class="premium-cert-card" onclick="openCertByIndex(${absoluteIndex})">
-          <div class="premium-cert-media" style="background-image: linear-gradient(rgba(8,8,8,.18), rgba(8,8,8,.18)), url('${item.src}')"></div>
+          <div class="premium-cert-media" data-bg="${item.src}"></div>
           <div class="premium-cert-overlay"></div>
           <div class="premium-cert-content">
             <div class="premium-cert-kicker">${item.category}</div>
@@ -3179,53 +3191,116 @@
     });
 
     renderAllCertSections();
+
+    // LAZY LOAD cert card backgrounds
+    const certBgObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const bg = el.getAttribute('data-bg');
+          if (bg) {
+            el.style.backgroundImage = "linear-gradient(rgba(8,8,8,.18), rgba(8,8,8,.18)), url('" + bg + "')";
+            el.removeAttribute('data-bg');
+            certBgObs.unobserve(el);
+          }
+        }
+      });
+    }, { rootMargin: '150px' });
+    document.querySelectorAll('.premium-cert-media[data-bg]').forEach(el => certBgObs.observe(el));
   </script>
 
 
-<script>
-(function(){
-  if(window.innerWidth<=768)return;
-  if(document.getElementById('ag-canvas'))return;
-  var cv=document.createElement('canvas');
-  cv.id='ag-canvas';
-  cv.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
-  document.body.appendChild(cv);
-  var ctx=cv.getContext('2d');
-  var W=cv.width=window.innerWidth,H=cv.height=window.innerHeight;
-  window.addEventListener('resize',function(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;});
-  var pts=[],lx=W/2,ly=H/2;
-  var COLS=['255,255,255','255,255,255','200,210,255','255,225,190'];
-  function emit(x,y,n){
-    for(var i=0;i<n&&pts.length<300;i++){
-      var a=Math.random()*Math.PI*2,s=Math.random()*1.2+0.3;
-      pts.push({x:x+(Math.random()-.5)*8,y:y+(Math.random()-.5)*8,
-        vx:Math.cos(a)*s*.35,vy:-(Math.random()*1.5+0.5),
-        r:Math.random()*2+0.8,op:Math.random()*.5+0.25,
-        dec:Math.random()*.013+.007,
-        col:COLS[Math.floor(Math.random()*COLS.length)]});
+  <!-- ANTIGRAVITY CURSOR PARTICLES -->
+  <script>
+  (function(){
+    if (window.innerWidth <= 768) return; // solo desktop
+    if (document.getElementById('ag-canvas')) return; // ya inicializado
+
+    var canvas = document.createElement('canvas');
+    canvas.id = 'ag-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    var particles = [];
+    var mx = W/2, my = H/2;
+    var lastX = mx, lastY = my;
+    var frameId = null;
+
+    // Paleta: blanco puro — sutil sobre cualquier fondo oscuro
+    var COLORS = ['255,255,255', '255,255,255', '200,200,255', '255,220,180'];
+
+    function spawnAt(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 1.4 + 0.4;
+        particles.push({
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: Math.cos(angle) * speed * 0.4,
+          vy: -(Math.random() * 1.8 + 0.6),   // sube
+          r:  Math.random() * 2.2 + 0.8,
+          op: Math.random() * 0.55 + 0.3,
+          decay: Math.random() * 0.012 + 0.008,
+          col: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+      }
     }
-  }
-  var th=false;
-  document.addEventListener('mousemove',function(e){
-    if(th)return;th=true;setTimeout(function(){th=false;},16);
-    var dx=e.clientX-lx,dy=e.clientY-ly,d=Math.sqrt(dx*dx+dy*dy);
-    if(d>3){emit(e.clientX,e.clientY,Math.min(Math.floor(d/6)+1,3));lx=e.clientX;ly=e.clientY;}
-  });
-  document.addEventListener('click',function(e){emit(e.clientX,e.clientY,14);});
-  (function loop(){
-    requestAnimationFrame(loop);
-    ctx.clearRect(0,0,W,H);
-    for(var i=pts.length-1;i>=0;i--){
-      var p=pts[i];
-      p.x+=p.vx;p.y+=p.vy;p.vy-=.025;p.vx*=.97;
-      p.op-=p.dec;p.r*=.992;
-      if(p.op<=0||p.r<.2){pts.splice(i,1);continue;}
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
+
+    var throttle = false;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (throttle) return;
+      throttle = true;
+      setTimeout(function(){ throttle = false; }, 16);
+
+      var dx = mx - lastX, dy = my - lastY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 2) {
+        var n = Math.min(Math.floor(dist / 6) + 1, 4);
+        spawnAt(mx, my, n);
+        lastX = mx; lastY = my;
+      }
+    });
+
+    // Efecto click: ráfaga de partículas
+    document.addEventListener('click', function(e){
+      spawnAt(e.clientX, e.clientY, 14);
+    });
+
+    function loop(){
+      frameId = requestAnimationFrame(loop);
+      ctx.clearRect(0, 0, W, H);
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
+        p.vx *= 0.98;           // leve resistencia lateral
+        p.op -= p.decay;
+        p.r  *= 0.993;
+
+        if (p.op <= 0 || p.r < 0.2) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
+        ctx.fill();
+      }
     }
+    loop();
   })();
-})();
-</script>
+  </script>
 </body>
 
 </html>

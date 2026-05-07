@@ -342,7 +342,7 @@
         </div>
       </div>
       <div class="overview-media">
-        <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/natan%20ahora.mov" muted loop playsinline></video>
+        <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/natan-ahora.mp4" autoplay muted loop playsinline></video>
       </div>
     </div>
   </section>
@@ -391,9 +391,9 @@
     <div class="section-subtitle">— CONTENIDO VERTICAL</div>
     <h2 class="section-title">Reels</h2>
     <div class="ig-feed">
-      <div class="ig-post"><div class="ig-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/0307.mov" muted loop playsinline controls></video></div></div>
-      <div class="ig-post"><div class="ig-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/asmr.mov" muted loop playsinline controls></video></div></div>
-      <div class="ig-post"><div class="ig-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/corte-primer-plano.mov" muted loop playsinline controls></video></div></div>
+      <div class="ig-post"><div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/0307.mp4" muted loop playsinline controls></video></div></div>
+      <div class="ig-post"><div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/asmr.mp4" muted loop playsinline controls></video></div></div>
+      <div class="ig-post"><div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/corte-primer-plano.mp4" muted loop playsinline controls></video></div></div>
     </div>
   </section>
 
@@ -406,11 +406,11 @@
     </p>
     <div class="sessions-grid">
       <div class="session-card">
-        <div class="session-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/session-1.mov" muted loop playsinline controls></video></div>
+        <div class="session-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/session-1.mp4" muted loop playsinline controls></video></div>
         <div class="session-ft"><span class="session-title">Session 01</span></div>
       </div>
       <div class="session-card">
-        <div class="session-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/session-2.mov" muted loop playsinline controls></video></div>
+        <div class="session-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/videos/session-2.mp4" muted loop playsinline controls></video></div>
         <div class="session-ft"><span class="session-title">Session 02</span></div>
       </div>
     </div>
@@ -421,7 +421,7 @@
     <div class="section-subtitle">— PIEZA CENTRAL</div>
     <h2 class="section-title">Video de <em>Presentación</em></h2>
     <div class="video-main">
-      <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/PRESENTACION.mp4" controls playsinline></video>
+      <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/PRESENTACION.mp4" controls playsinline></video>
     </div>
   </section>
 
@@ -443,6 +443,73 @@
     
     @media (max-width: 1024px) { .hype-social-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .hype-social-grid { grid-template-columns: 1fr; } }
+
+    /* ── MOBILE GLOBAL ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* hide animated canvas/particles on mobile */
+      #bg-particles, #ag-canvas { display: none !important; }
+      body::after { display: none !important; }
+
+      nav { padding: 14px 18px !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; }
+
+      .hero-banner { height: 300px !important; padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(2.8rem, 13vw, 5rem) !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
+
+      /* sections */
+      .section { padding: 40px 18px !important; }
+      .section-desc { text-align: justify !important; font-size: 0.92rem !important; }
+      .section-title { font-size: 2rem !important; }
+
+      /* overview: stack vertically, video on top */
+      .overview-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .overview-media { max-width: 100% !important; order: -1; }
+      .overview-content { order: 1; }
+
+      /* tag list */
+      .tag-list { gap: 8px !important; margin-top: 24px !important; }
+
+      /* project index */
+      .pj-index { margin-top: 28px !important; }
+      .pj-index-list { gap: 8px 20px !important; }
+
+      /* carousels */
+      .carousel-slide { width: calc(50vw - 32px) !important; }
+      .product-slide { width: calc(50vw - 32px) !important; height: auto !important; }
+
+      /* reels: 2-col on tablet */
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+      /* sessions: single column */
+      .sessions-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+      /* hype section */
+      .hype-feed-wrap { padding: 60px 18px !important; }
+      .hype-feed-title { font-size: clamp(3rem, 16vw, 5rem) !important; }
+      .hype-feed-desc { font-size: 0.95rem !important; }
+      .hype-social-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+      /* instagram section */
+      .instagram-section { padding: 60px 18px !important; }
+      .instagram-handle { font-size: 2.2rem !important; }
+
+      footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .ig-feed { grid-template-columns: 1fr !important; }
+      .carousel-slide { width: calc(100vw - 48px) !important; }
+      .product-slide { width: calc(50vw - 24px) !important; }
+      .hype-social-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 
   <section class="hype-feed-wrap rv" id="hype">
@@ -455,7 +522,7 @@
     <div class="hype-social-grid">
       <!-- POS 1 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" muted loop playsinline></video></div>
+        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 1.2K</span>
@@ -467,7 +534,7 @@
       </div>
       <!-- POS 2 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" muted loop playsinline></video></div>
+        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 2.4K</span>
@@ -507,8 +574,8 @@
 
   <section class="section rv" style="padding: 120px 24px; text-align: center;">
     <div style="max-width: 800px; margin: 0 auto;">
-      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@NATANBARBERSTUDIO</h2>
-      <a href="https://www.instagram.com/natanbarberstudio/" target="_blank" 
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@NATAN.BARBER.ESTUDIO</h2>
+      <a href="https://www.instagram.com/natan.barber.estudio/" target="_blank"
          style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
          onmouseover="this.style.background='var(--rb)'; this.style.color='#fff'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
          onmouseout="this.style.background='transparent'; this.style.color='var(--rb)'; this.style.boxShadow='none'">
@@ -527,8 +594,12 @@
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const v = entry.target;
-        if (entry.isIntersecting) v.play().catch(() => {});
-        else v.pause();
+        if (entry.isIntersecting) {
+          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('video').forEach(v => {
@@ -682,67 +753,96 @@
     initCarousel('productTrack', 'prodPrev', 'prodNext', 'prodDots', 5);
   </script>
 
-<script>
-(function(){
-  if(window.innerWidth<=768)return;
-  if(document.getElementById('ag-canvas'))return;
-  var cv=document.createElement('canvas');
-  cv.id='ag-canvas';
-  cv.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
-  document.body.appendChild(cv);
-  var ctx=cv.getContext('2d');
-  var W=cv.width=window.innerWidth,H=cv.height=window.innerHeight;
-  window.addEventListener('resize',function(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;});
-  var pts=[],lx=W/2,ly=H/2;
-  var COLS=['255,255,255','255,255,255','200,210,255','255,225,190'];
-  function emit(x,y,n){
-    for(var i=0;i<n&&pts.length<300;i++){
-      var a=Math.random()*Math.PI*2,s=Math.random()*1.2+0.3;
-      pts.push({x:x+(Math.random()-.5)*8,y:y+(Math.random()-.5)*8,
-        vx:Math.cos(a)*s*.35,vy:-(Math.random()*1.5+0.5),
-        r:Math.random()*2+0.8,op:Math.random()*.5+0.25,
-        dec:Math.random()*.013+.007,
-        col:COLS[Math.floor(Math.random()*COLS.length)]});
-    }
-  }
-  var th=false;
-  document.addEventListener('mousemove',function(e){
-    if(th)return;th=true;setTimeout(function(){th=false;},16);
-    var dx=e.clientX-lx,dy=e.clientY-ly,d=Math.sqrt(dx*dx+dy*dy);
-    if(d>3){emit(e.clientX,e.clientY,Math.min(Math.floor(d/6)+1,3));lx=e.clientX;ly=e.clientY;}
-  });
-  document.addEventListener('click',function(e){emit(e.clientX,e.clientY,14);});
-  (function loop(){
-    requestAnimationFrame(loop);
-    ctx.clearRect(0,0,W,H);
-    for(var i=pts.length-1;i>=0;i--){
-      var p=pts[i];
-      p.x+=p.vx;p.y+=p.vy;p.vy-=.025;p.vx*=.97;
-      p.op-=p.dec;p.r*=.992;
-      if(p.op<=0||p.r<.2){pts.splice(i,1);continue;}
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
-    }
-  })();
-})();
-</script>
+  <!-- ANTIGRAVITY CURSOR PARTICLES -->
+  <script>
+  (function(){
+    if (window.innerWidth <= 768) return; // solo desktop
+    if (document.getElementById('ag-canvas')) return; // ya inicializado
 
-<script>
-(function(){
-  var vObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      var v = e.target;
-      if(e.isIntersecting){
-        if(v.dataset.src){ v.src = v.dataset.src; delete v.dataset.src; }
-        if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
-        v.play().catch(function(){});
-      } else {
-        v.pause();
+    var canvas = document.createElement('canvas');
+    canvas.id = 'ag-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    var particles = [];
+    var mx = W/2, my = H/2;
+    var lastX = mx, lastY = my;
+    var frameId = null;
+
+    // Paleta: blanco puro — sutil sobre cualquier fondo oscuro
+    var COLORS = ['255,255,255', '255,255,255', '200,200,255', '255,220,180'];
+
+    function spawnAt(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 1.4 + 0.4;
+        particles.push({
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: Math.cos(angle) * speed * 0.4,
+          vy: -(Math.random() * 1.8 + 0.6),   // sube
+          r:  Math.random() * 2.2 + 0.8,
+          op: Math.random() * 0.55 + 0.3,
+          decay: Math.random() * 0.012 + 0.008,
+          col: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+      }
+    }
+
+    var throttle = false;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (throttle) return;
+      throttle = true;
+      setTimeout(function(){ throttle = false; }, 16);
+
+      var dx = mx - lastX, dy = my - lastY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 2) {
+        var n = Math.min(Math.floor(dist / 6) + 1, 4);
+        spawnAt(mx, my, n);
+        lastX = mx; lastY = my;
       }
     });
-  }, {threshold: 0.15});
-  document.querySelectorAll('video[data-src]').forEach(function(v){ vObs.observe(v); });
-})();
-</script>
+
+    // Efecto click: ráfaga de partículas
+    document.addEventListener('click', function(e){
+      spawnAt(e.clientX, e.clientY, 14);
+    });
+
+    function loop(){
+      frameId = requestAnimationFrame(loop);
+      ctx.clearRect(0, 0, W, H);
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
+        p.vx *= 0.98;           // leve resistencia lateral
+        p.op -= p.decay;
+        p.r  *= 0.993;
+
+        if (p.op <= 0 || p.r < 0.2) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html>

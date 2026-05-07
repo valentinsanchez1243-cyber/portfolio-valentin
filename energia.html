@@ -710,6 +710,57 @@
       transform: translateY(0);
     }
 
+    /* ── MOBILE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+
+      /* hide GIF on mobile — too heavy & the section stacks anyway */
+      .overview-gif-side { display: none !important; }
+      .overview-grid { grid-template-columns: 1fr !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; align-items: center; justify-content: center; }
+
+      /* hero: don't touch, just text if needed */
+      .hero-banner { padding: 28px 20px !important; }
+      .hero-title { font-size: clamp(2.6rem, 13vw, 5rem) !important; }
+
+      /* marquee */
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.5rem !important; padding: 0 16px !important; }
+
+      /* sections */
+      section, .section { padding: 48px 18px !important; }
+      .section-desc, p { text-align: justify !important; font-size: 0.92rem !important; }
+      .section-title { font-size: 1.9rem !important; }
+
+      /* overview grid: already 1-col at 768px but add more fixes */
+      .overview-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+      /* stories grid: 4-col → 2-col */
+      .stories-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+
+      /* ig feed: 2-col at this size */
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+      /* hype section */
+      .hype-feed-wrap { padding: 60px 18px !important; }
+      .hype-feed-title { font-size: clamp(2.8rem, 15vw, 5rem) !important; }
+
+      /* instagram closing */
+      .instagram-section { padding: 60px 18px !important; }
+      .instagram-handle { font-size: 2rem !important; }
+
+      footer { padding: 30px 18px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .stories-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .ig-feed { grid-template-columns: 1fr !important; }
+    }
 
   </style>
 </head>
@@ -787,8 +838,9 @@
       </ul>
     </div>
       </div>
-      <div class="overview-video-side">
+      <div class="overview-video-side overview-gif-side">
         <img
+          class="overview-gif"
           src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/energia%20fitnes%20antes%20y%20despues%20video.gif"
           alt="Energía Fitness — Antes y Después"
           loading="lazy"
@@ -887,7 +939,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/ENERGIA%20FITNESS%20(1).mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/energia-fitness-1.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -909,7 +961,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/ENERGIA%20FITNESS%20(2).mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/energia-fitness-2.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -931,7 +983,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/MODALIDAD.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/MODALIDAD.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -953,7 +1005,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/PROMOCION.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/videos/PROMOCION.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -973,7 +1025,7 @@
     <div class="section-subtitle">— PIEZA CENTRAL</div>
     <h2 class="section-title">Video de <em>presentación</em></h2>
     <div class="video-main">
-      <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/VIDEO%20PRESENTACION.mov" controls playsinline></video>
+      <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/VIDEO-PRESENTACION.mp4" preload="none" controls playsinline></video>
     </div>
   </section>
 
@@ -998,7 +1050,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-1.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-1.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -1029,7 +1081,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-2.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-2.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -1060,7 +1112,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-3.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-3.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -1091,7 +1143,7 @@
           <div class="ig-more">···</div>
         </div>
         <div class="ig-media">
-          <video preload="none" data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-4.mov" muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/semana-hype/semana-hype-4.mp4" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover;display:block;"></video>
         </div>
         <div class="ig-post-ft">
           <div class="ig-actions">
@@ -1135,10 +1187,12 @@
     // VIDEO OBSERVER
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        const v = entry.target;
         if (entry.isIntersecting) {
-          entry.target.play().catch(() => {});
+          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+          v.play().catch(() => {});
         } else {
-          entry.target.pause();
+          v.pause();
         }
       });
     }, { threshold: 0.1 });
@@ -1244,67 +1298,96 @@
     });
   </script>
 
-<script>
-(function(){
-  if(window.innerWidth<=768)return;
-  if(document.getElementById('ag-canvas'))return;
-  var cv=document.createElement('canvas');
-  cv.id='ag-canvas';
-  cv.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
-  document.body.appendChild(cv);
-  var ctx=cv.getContext('2d');
-  var W=cv.width=window.innerWidth,H=cv.height=window.innerHeight;
-  window.addEventListener('resize',function(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;});
-  var pts=[],lx=W/2,ly=H/2;
-  var COLS=['255,255,255','255,255,255','200,210,255','255,225,190'];
-  function emit(x,y,n){
-    for(var i=0;i<n&&pts.length<300;i++){
-      var a=Math.random()*Math.PI*2,s=Math.random()*1.2+0.3;
-      pts.push({x:x+(Math.random()-.5)*8,y:y+(Math.random()-.5)*8,
-        vx:Math.cos(a)*s*.35,vy:-(Math.random()*1.5+0.5),
-        r:Math.random()*2+0.8,op:Math.random()*.5+0.25,
-        dec:Math.random()*.013+.007,
-        col:COLS[Math.floor(Math.random()*COLS.length)]});
-    }
-  }
-  var th=false;
-  document.addEventListener('mousemove',function(e){
-    if(th)return;th=true;setTimeout(function(){th=false;},16);
-    var dx=e.clientX-lx,dy=e.clientY-ly,d=Math.sqrt(dx*dx+dy*dy);
-    if(d>3){emit(e.clientX,e.clientY,Math.min(Math.floor(d/6)+1,3));lx=e.clientX;ly=e.clientY;}
-  });
-  document.addEventListener('click',function(e){emit(e.clientX,e.clientY,14);});
-  (function loop(){
-    requestAnimationFrame(loop);
-    ctx.clearRect(0,0,W,H);
-    for(var i=pts.length-1;i>=0;i--){
-      var p=pts[i];
-      p.x+=p.vx;p.y+=p.vy;p.vy-=.025;p.vx*=.97;
-      p.op-=p.dec;p.r*=.992;
-      if(p.op<=0||p.r<.2){pts.splice(i,1);continue;}
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
-    }
-  })();
-})();
-</script>
+  <!-- ANTIGRAVITY CURSOR PARTICLES -->
+  <script>
+  (function(){
+    if (window.innerWidth <= 768) return; // solo desktop
+    if (document.getElementById('ag-canvas')) return; // ya inicializado
 
-<script>
-(function(){
-  var vObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      var v = e.target;
-      if(e.isIntersecting){
-        if(v.dataset.src){ v.src = v.dataset.src; delete v.dataset.src; }
-        if(v.preload === 'none'){ v.preload = 'auto'; v.load(); }
-        v.play().catch(function(){});
-      } else {
-        v.pause();
+    var canvas = document.createElement('canvas');
+    canvas.id = 'ag-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    var particles = [];
+    var mx = W/2, my = H/2;
+    var lastX = mx, lastY = my;
+    var frameId = null;
+
+    // Paleta: blanco puro — sutil sobre cualquier fondo oscuro
+    var COLORS = ['255,255,255', '255,255,255', '200,200,255', '255,220,180'];
+
+    function spawnAt(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 1.4 + 0.4;
+        particles.push({
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: Math.cos(angle) * speed * 0.4,
+          vy: -(Math.random() * 1.8 + 0.6),   // sube
+          r:  Math.random() * 2.2 + 0.8,
+          op: Math.random() * 0.55 + 0.3,
+          decay: Math.random() * 0.012 + 0.008,
+          col: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+      }
+    }
+
+    var throttle = false;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (throttle) return;
+      throttle = true;
+      setTimeout(function(){ throttle = false; }, 16);
+
+      var dx = mx - lastX, dy = my - lastY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 2) {
+        var n = Math.min(Math.floor(dist / 6) + 1, 4);
+        spawnAt(mx, my, n);
+        lastX = mx; lastY = my;
       }
     });
-  }, {threshold: 0.15});
-  document.querySelectorAll('video[data-src]').forEach(function(v){ vObs.observe(v); });
-})();
-</script>
+
+    // Efecto click: ráfaga de partículas
+    document.addEventListener('click', function(e){
+      spawnAt(e.clientX, e.clientY, 14);
+    });
+
+    function loop(){
+      frameId = requestAnimationFrame(loop);
+      ctx.clearRect(0, 0, W, H);
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
+        p.vx *= 0.98;           // leve resistencia lateral
+        p.op -= p.decay;
+        p.r  *= 0.993;
+
+        if (p.op <= 0 || p.r < 0.2) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html>
