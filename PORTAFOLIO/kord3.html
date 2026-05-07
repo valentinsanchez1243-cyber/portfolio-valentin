@@ -1222,10 +1222,14 @@
       .pj-index-list { gap: 8px 20px !important; }
 
       /* section desc left-align */
-      .section-desc, p { text-align: left !important; }
+      .section-desc, p { text-align: justify !important; }
 
       /* mw full width */
       .mw { margin-left: 0 !important; width: 100vw !important; }
+
+      /* PDF: hide iframe, show button */
+      .pdf-desktop { display: none !important; }
+      .pdf-mobile { display: block !important; }
     }
 
     @media (max-width: 480px) {
@@ -1338,7 +1342,8 @@
   <!-- SECCIÓN: BRANDING HEADER -->
   <section class="reveal" id="branding" style="padding: 60px 64px 0; max-width: 1200px; margin: 0 auto;">
     <div class="section-subtitle" style="letter-spacing:6px;">— IDENTIDAD VISUAL · DISEÑO</div>
-    <h2 class="section-title" style="margin-bottom:0;">BRANDING<br><em>& MANUAL DE MARCA</em></h2>
+    <h2 class="section-title" style="margin-bottom:16px;">BRANDING<br><em>& MANUAL DE MARCA</em></h2>
+    <p class="section-desc" style="max-width:680px;">Desarrollé la identidad visual completa de KORD3 desde cero: logotipo, paleta de color, sistema tipográfico y el manual de marca que unifica todo el universo estético. El objetivo fue construir una marca que trascienda la indumentaria y opere como un proyecto cultural con identidad propia.</p>
   </section>
 
   <!-- SECCIÓN: MANUAL DE MARCA -->
@@ -1348,7 +1353,16 @@
         <span class="pdf-showcase-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 5px; color: var(--rb);">MANUAL DE MARCA</span>
         <span class="pdf-showcase-sub" style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35);">KORD3</span>
       </div>
-      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
+      <!-- Desktop: embedded PDF -->
+      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf#toolbar=0" class="proj-pdf-frame pdf-desktop" style="width: 100%; height: 680px; border: none; display: block; background: #111;" title="Manual de Marca KORD3"></iframe>
+      <!-- Mobile: open in new tab -->
+      <div class="pdf-mobile" style="display:none; padding: 32px 20px; text-align:center;">
+        <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:20px;">Manual de Marca · KORD3</p>
+        <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/kord3-manual-de-marca.pdf" target="_blank" rel="noopener"
+           style="display:inline-block; padding:14px 36px; border:1px solid var(--rb); color:var(--rb); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; letter-spacing:4px; text-decoration:none; border-radius:4px; text-transform:uppercase;">
+          VER MANUAL →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1356,7 +1370,8 @@
   <section id="remeras" style="padding: 40px 0 70px; overflow: hidden;">
     <div style="padding: 0 64px; margin-bottom: 36px;" class="reveal">
       <div class="section-subtitle">— DROP 0.0 · COLECCIÓN COMPLETA</div>
-      <h2 class="section-title" style="margin-bottom: 0;">REMERAS<br><em>& INDUMENTARIA</em></h2>
+      <h2 class="section-title" style="margin-bottom: 16px;">REMERAS<br><em>& INDUMENTARIA</em></h2>
+      <p class="section-desc" style="max-width:680px;">Diseñé y produje el primer drop de KORD3: remeras, buzos y conjuntos con gráficas propias. Desde el diseño hasta la presentación del producto en redes, cada pieza fue pensada como parte de un lanzamiento con identidad y narrativa de marca.</p>
     </div>
 
     <style>
@@ -1372,118 +1387,118 @@
     <!-- FILA 1: NEGRAS → izquierda -->
     <div class="mq-row" style="overflow:hidden;margin-bottom:6px;">
       <div class="mq-track" style="animation:marqueeLeft 55s linear infinite;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-NEGRA.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-NEGRA.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-NEGRA.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-NEGRA.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
         <!-- duplicado para loop seamless -->
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-NEGRA.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-NEGRA.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-NEGRO.webp" loading="lazy" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-NEGRA.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-NEGRA.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA8-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-NEGRO.webp" loading="eager" alt="" style="background:#0d0d0d;">
       </div>
     </div>
 
     <!-- FILA 2: BLANCAS → derecha -->
     <div class="mq-row" style="overflow:hidden;">
       <div class="mq-track" style="animation:marqueeRight 60s linear infinite;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-BLANCA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT-COPIA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT-2.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-BLANCA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK-COPIA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK-2.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-PURPURA.webp" loading="lazy" alt="" style="background:#1a0030;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-PURPURA.webp" loading="lazy" alt="" style="background:#1a0030;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-BLANCA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT-COPIA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT-2.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-BLANCA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK-COPIA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK-2.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-PURPURA.webp" loading="eager" alt="" style="background:#1a0030;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-PURPURA.webp" loading="eager" alt="" style="background:#1a0030;">
         <!-- duplicado para loop seamless -->
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-BLANCA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT-COPIA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT-2.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-BLANCA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK-COPIA.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK-2.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-BLANCO.webp" loading="lazy" alt="" style="background:#f0f0f0;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-PURPURA.webp" loading="lazy" alt="" style="background:#1a0030;">
-        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-PURPURA.webp" loading="lazy" alt="" style="background:#1a0030;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-FRONT-BLANCA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-FRONT-COPIA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-FRONT-2.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-FRONT-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA1-BACK-BLANCA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA2-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA4-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA5-CODE001-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA6-BACK-COPIA.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA7-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA9-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA10-BACK-2.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA11-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA12-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA13-BACK-BLANCO.webp" loading="eager" alt="" style="background:#f0f0f0;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-FRONT-PURPURA.webp" loading="eager" alt="" style="background:#1a0030;">
+        <img class="mq-img" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/remeras/REMERA3-BACK-PURPURA.webp" loading="eager" alt="" style="background:#1a0030;">
       </div>
     </div>
   </section>
@@ -1491,7 +1506,8 @@
   <!-- SECCIÓN: FOTOS DE PRODUCCIÓN -->
   <section id="fotografia" class="reveal" style="padding: 20px 64px 60px; max-width: 1200px; margin: 0 auto;">
     <div class="section-subtitle">— EDITORIAL</div>
-    <h2 class="section-title" style="margin-bottom: 32px;">PRODUCCIÓN<br>FOTOGRÁFICA</h2>
+    <h2 class="section-title" style="margin-bottom: 16px;">PRODUCCIÓN<br>FOTOGRÁFICA</h2>
+    <p class="section-desc" style="max-width:680px; margin-bottom:32px;">Dirigí y produje la sesión fotográfica del Drop 0.0 con un enfoque editorial y urbano. Concepto, locación, styling y dirección de modelos — todo coordinado para que cada imagen comunique la estética de la marca sin necesitar texto.</p>
     <div class="prod-grid-editorial">
       <div class="prod-main">
         <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/Dise%C3%B1o%20sin%20t%C3%ADtulo%20%286%29.webp" loading="lazy" alt="KORD3 Producción Fotográfica Principal">
@@ -1824,68 +1840,4 @@
     var COLORS = ['255,255,255', '255,255,255', '200,200,255', '255,220,180'];
 
     function spawnAt(x, y, n) {
-      for (var i = 0; i < n; i++) {
-        var angle = Math.random() * Math.PI * 2;
-        var speed = Math.random() * 1.4 + 0.4;
-        particles.push({
-          x: x + (Math.random() - 0.5) * 6,
-          y: y + (Math.random() - 0.5) * 6,
-          vx: Math.cos(angle) * speed * 0.4,
-          vy: -(Math.random() * 1.8 + 0.6),   // sube
-          r:  Math.random() * 2.2 + 0.8,
-          op: Math.random() * 0.55 + 0.3,
-          decay: Math.random() * 0.012 + 0.008,
-          col: COLORS[Math.floor(Math.random() * COLORS.length)]
-        });
-      }
-    }
-
-    var throttle = false;
-    document.addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      if (throttle) return;
-      throttle = true;
-      setTimeout(function(){ throttle = false; }, 16);
-
-      var dx = mx - lastX, dy = my - lastY;
-      var dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist > 2) {
-        var n = Math.min(Math.floor(dist / 6) + 1, 4);
-        spawnAt(mx, my, n);
-        lastX = mx; lastY = my;
-      }
-    });
-
-    // Efecto click: ráfaga de partículas
-    document.addEventListener('click', function(e){
-      spawnAt(e.clientX, e.clientY, 14);
-    });
-
-    function loop(){
-      frameId = requestAnimationFrame(loop);
-      ctx.clearRect(0, 0, W, H);
-      for (var i = particles.length - 1; i >= 0; i--) {
-        var p = particles[i];
-        p.x  += p.vx;
-        p.y  += p.vy;
-        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
-        p.vx *= 0.98;           // leve resistencia lateral
-        p.op -= p.decay;
-        p.r  *= 0.993;
-
-        if (p.op <= 0 || p.r < 0.2) {
-          particles.splice(i, 1);
-          continue;
-        }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
-        ctx.fill();
-      }
-    }
-    loop();
-  })();
-  </script>
-</body>
-</html>
+      for (var i = 0; 

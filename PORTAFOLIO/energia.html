@@ -715,6 +715,7 @@
       html, body { overflow-x: hidden !important; width: 100% !important; }
       body { cursor: default !important; }
       #cursor, .trail { display: none !important; }
+      #bg-particles, #ag-canvas { display: none !important; }
 
       /* hide GIF on mobile — too heavy & the section stacks anyway */
       .overview-gif-side { display: none !important; }
@@ -734,7 +735,7 @@
 
       /* sections */
       section, .section { padding: 48px 18px !important; }
-      .section-desc, p { text-align: left !important; font-size: 0.92rem !important; }
+      .section-desc, p { text-align: justify !important; font-size: 0.92rem !important; }
       .section-title { font-size: 1.9rem !important; }
 
       /* overview grid: already 1-col at 768px but add more fixes */
@@ -1263,6 +1264,7 @@
 
     // Particles
     (function initParticles() {
+      if (window.innerWidth <= 768) return; // skip on mobile
       const canvas = document.getElementById('bg-particles');
       if(!canvas) return;
       const ctx = canvas.getContext('2d');

@@ -212,13 +212,17 @@
       .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
 
       .section { padding: 40px 18px !important; }
-      .section-desc { text-align: left !important; font-size: 0.92rem !important; }
+      .section-desc { text-align: justify !important; font-size: 0.92rem !important; }
       .section-title { font-size: 1.9rem !important; }
 
       /* feed grid: 5-col → 3-col */
       .grid-feed { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
       /* stories grid: 6-col → 3-col */
       .grid-stories { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+
+      /* overview: stack text + image vertically */
+      .overview-grid-mb { grid-template-columns: 1fr !important; gap: 32px !important; }
+      .overview-media { max-width: 100% !important; justify-self: stretch !important; order: -1; }
 
       .pj-index { margin-top: 28px !important; }
       .pj-index-list { gap: 8px 20px !important; }
@@ -280,7 +284,7 @@
 
   <section class="section rv">
     <div class="section-subtitle">— OVERVIEW</div>
-    <div style="display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center;">
+    <div class="overview-grid-mb" style="display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center;">
       <div>
         <p class="section-desc">
           Man Blue FC fue un proyecto integral de gestión de redes sociales para un club de fútbol amateur en Córdoba. El objetivo central fue construir una presencia digital profesional desde cero, acompañando el avance del torneo con una narrativa visual coherente y emocionante para los jugadores y patrocinadores.
