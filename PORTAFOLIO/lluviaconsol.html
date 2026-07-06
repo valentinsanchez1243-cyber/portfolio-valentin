@@ -272,21 +272,19 @@
 
     /* MARQUEE */
     .mw {
+      background: var(--rb);
+      padding: 22px 0;
       overflow: hidden;
-      background: rgba(var(--rb-rgb), 0.04);
-      border-top: 1px solid rgba(var(--rb-rgb), 0.15);
-      border-bottom: 1px solid rgba(var(--rb-rgb), 0.15);
-      padding: 12px 0;
+      white-space: nowrap;
       position: relative;
-      z-index: 2;
+      z-index: 10;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
     }
 
     .mt {
-      display: flex;
-      gap: 0;
-      white-space: nowrap;
-      animation: mq 12s linear infinite;
-      width: max-content;
+      display: inline-flex;
+      animation: mq 20s linear infinite;
     }
 
     @keyframes mq {
@@ -295,15 +293,18 @@
     }
 
     .mi {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .75rem;
-      letter-spacing: 5px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      padding: 0 32px;
       text-transform: uppercase;
-      color: var(--rb);
-      padding: 0 28px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      opacity: .92;
     }
 
-    .md { color: var(--rb); opacity: .6; }
+    .md { color: rgba(255,255,255,0.4); margin: 0 10px; }
 
     /* SECTIONS */
     section {
@@ -324,19 +325,18 @@
     }
 
     .section-title {
-      font-family: 'Barlow', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: normal;
+      line-height: 1;
+      margin-bottom: 16px;
       color: var(--w);
-      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--g);
+      font-style: normal;
+      color: var(--rb);
     }
 
     .section-desc {
@@ -592,7 +592,6 @@
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
     <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUEVE CON SOL</a>
     <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
@@ -624,29 +623,16 @@
   </div>
 
   <!-- INTRO + ÍNDICE -->
-  <section class="reveal" style="padding-bottom: 20px;">
+  <section class="reveal" style="padding-top: 80px; padding-bottom: 20px;">
     <a href="index.html#proyectos" class="back-btn" style="margin-bottom: 40px; display: inline-flex;">← Volver a proyectos</a>
 
     <div class="section-subtitle" style="letter-spacing:6px;">— AGENCIA DE COMUNICACIÓN · CÓRDOBA</div>
-    <h2 class="section-title" style="margin-bottom: 20px;">LLUEVE<br><em>CON SOL</em></h2>
+    <h2 class="section-title" style="margin-bottom: 16px;">LLUEVE<br><em>CON SOL</em></h2>
 
-    <p class="section-desc">
-      Trabajo como editor de video y diseñador de contenido para Llueve con Sol, agencia de comunicación y marketing con base en Córdoba, en modalidad remota desde mayo de 2026. Me encargo de la edición de reels y videos para marcas locales de gastronomía, restaurantes y otros rubros, además del diseño de placas visuales y piezas gráficas para redes sociales, adaptando cada pieza al estilo y la identidad de marca de cada cliente. Trabajo de forma coordinada con la dirección de la agencia, cumpliendo tiempos de entrega y el estándar visual que exige cada cuenta.
-    </p>
-
-    <div class="tag-list" style="margin-bottom: 40px;">
-      <span class="tag">EDICIÓN DE VIDEO</span>
-      <span class="tag">DISEÑO GRÁFICO</span>
-      <span class="tag">CONTENIDO PARA REDES</span>
-      <span class="tag">GESTIÓN DE CUENTAS</span>
-    </div>
-
-    <div class="pj-index rv">
+    <div class="pj-index rv" style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;">
       <span class="pj-index-label">— ÍNDICE</span>
       <ul class="pj-index-list">
-        <li><a href="#reels">REELS & VIDEOS</a></li>
-        <li><a href="#placas">PLACAS & DISEÑO GRÁFICO</a></li>
-        <li><a href="#historias">HISTORIAS & CONTENIDO</a></li>
+        <li><a href="#reels">REELS &amp; VIDEOS</a></li>
       </ul>
     </div>
   </section>
@@ -705,18 +691,6 @@
   </section>
 
 
-
-  <section class="reveal" style="padding: 120px 24px; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@LLUEVE.CON.SOL</h2>
-      <a href="https://www.instagram.com/llueve.con.sol/" target="_blank" rel="noopener"
-         style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
-         onmouseover="this.style.background='var(--rb)'; this.style.color='#fff';"
-         onmouseout="this.style.background='transparent'; this.style.color='var(--rb)';">
-        VER INSTAGRAM →
-      </a>
-    </div>
-  </section>
 
   <div style="height: 80px;"></div>
 

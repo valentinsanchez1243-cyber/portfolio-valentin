@@ -618,8 +618,7 @@
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-    <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
+    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUEVE CON SOL</a>
     <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
@@ -652,25 +651,20 @@
     </div>
   </div>
 
-  <!-- INTRO + ÍNDICE -->
-  <section class="reveal" style="padding-bottom: 20px;">
-    <a href="index.html#proyectos" class="back-btn" style="margin-bottom: 40px; display: inline-flex;">← Volver a proyectos</a>
-
-    <div class="pj-index rv" style="margin-bottom: 0;">
-      <span class="pj-index-label">— ÍNDICE</span>
-      <ul class="pj-index-list">
-        <li><a href="#brief">BRIEF & INVESTIGACIÓN</a></li>
-        <li><a href="#naming">NAMING</a></li>
-        <li><a href="#sistema">SISTEMA VISUAL</a></li>
-        <li><a href="#piezas">PIEZAS APLICADAS</a></li>
-      </ul>
-    </div>
-  </section>
 
   <!-- SECCIÓN #brief — DESCRIPCIÓN + VIDEOS -->
-  <section class="reveal" id="brief" style="padding-top: 20px; max-width: 1200px;">
+  <section class="reveal" id="brief" style="padding-top: 80px; max-width: 1200px;">
     <div class="section-subtitle" style="letter-spacing:6px;">— BRIEF & INVESTIGACIÓN</div>
     <h2 class="section-title" style="margin-bottom:40px;">WOLDI<br><em>IDENTIDAD DE MARCA</em></h2>
+
+    <!-- ÍNDICE -->
+    <div class="pj-index rv" style="margin-top: 24px; margin-bottom: 40px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;">
+      <span class="pj-index-label">— ÍNDICE</span>
+      <ul class="pj-index-list">
+        <li><a href="#brief">BRIEF &amp; INVESTIGACIÓN</a></li>
+        <li><a href="#piezas">MANUAL DE MARCA</a></li>
+      </ul>
+    </div>
 
     <div class="woldi-content-grid">
       <!-- Columna texto -->
@@ -694,33 +688,17 @@
 
       <!-- Columna videos -->
       <div class="vid-wrap">
-        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
+        <video preload="none" muted playsinline controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
           <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/TP4.mp4" type="video/mp4">
         </video>
-        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
+        <video preload="none" muted playsinline controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
           <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/video%20woldi.mp4" type="video/mp4">
         </video>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN #naming -->
-  <section class="reveal" id="naming" style="max-width: 1200px;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— PROCESO DE NAMING</div>
-    <h2 class="section-title" style="margin-bottom:16px;">NAMING</h2>
-    <p class="section-desc" style="max-width:720px;">
-      El nombre <strong style="color:var(--rb);">WOLDI</strong> surgió de un proceso riguroso de evaluación de alternativas. La fusión entre "Wol" —referencia al lobo (wolf)— y "bondi" (bondiola) generó un nombre corto, sonoro y sin competencia directa en el mercado. Pronunciable, registrable y con alto potencial de recordación de marca para el segmento gastronómico joven.
-    </p>
-  </section>
 
-  <!-- SECCIÓN #sistema -->
-  <section class="reveal" id="sistema" style="max-width: 1200px;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— IDENTIDAD VISUAL</div>
-    <h2 class="section-title" style="margin-bottom:16px;">SISTEMA<br><em>VISUAL</em></h2>
-    <p class="section-desc" style="max-width:720px;">
-      El sistema visual integra logotipo, paleta cromática, sistema tipográfico e iconografía bajo una coherencia estética que evita representaciones literales del producto. La síntesis del pan tipo bollo con guiños al universo del lobo construye un universo de marca diferenciado, moderno y con proyección de largo plazo.
-    </p>
-  </section>
 
   <!-- SECCIÓN #piezas — MANUAL DE MARCA PDF -->
   <section class="reveal" id="piezas" style="padding-top: 10px; max-width: 1200px;">
@@ -733,7 +711,7 @@
         <span class="pdf-showcase-sub">WOLDI</span>
       </div>
       <!-- Desktop: embedded PDF -->
-      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf#toolbar=0"
+      <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf#toolbar=0"
         class="proj-pdf-frame pdf-desktop"
         style="width:100%; height:680px; border:none; display:block; background:#111;"
         title="Manual de Marca WOLDI"></iframe>
