@@ -843,4 +843,24 @@
         r: Math.random() * 2 + 0.5, op: Math.random() * 0.4 + 0.2, life: Math.random()
       }));
       function draw() {
-        ctx.clearRect(0, 0, canvas.width
+        ctx.clearRect(0, 0, canvas.width,canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life += 0.005;
+          if (p.y < -10 || p.life > 1) {
+            p.y = canvas.height + 10;
+            p.x = Math.random() * canvas.width;
+            p.life = 0;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(245, 158, 11, ${p.op})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+  </script>
+</body>
+</html>
