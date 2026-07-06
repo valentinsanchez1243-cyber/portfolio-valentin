@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOLDI - Valentín Sánchez</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://valentin-cdn.b-cdn.net">
+  <link rel="dns-prefetch" href="https://valentin-cdn.b-cdn.net">
+  <link rel="stylesheet" href="project-base.css">
+
+  <style>
+    :root {
+      --rb: #E8B84B;
+      --rb-rgb: 232, 184, 75;
+      --r: #E8B84B;
+      --b: #080808;
+      --w: #ffffff;
+      --g: #aaaaaa;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--b);
+      color: var(--w);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    /* CURSOR */
+    #cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--rb);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      transition: transform .15s;
+    }
+
+    .trail {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: var(--rb);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+    }
+
+    /* NOISE */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 99990;
+      opacity: .28;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 5000;
+      display: flex; align-items: center; justify-content: flex-end; gap: 28px;
+      padding: 30px 64px;
+      background: linear-gradient(to bottom, rgba(8,8,8,.98), transparent);
+      transition: all .4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .nl {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 4px;
+      color: var(--w);
+      margin-right: auto;
+    }
+    .nl span { color: var(--rb); }
+
+    .nls {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nls a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      text-decoration: none;
+      position: relative;
+      padding: 6px 16px;
+      border-radius: 22px;
+      border: 1px solid transparent;
+      transition: color .25s, border-color .3s, box-shadow .3s, background .3s;
+    }
+
+    .nls a:not(.ncta):hover {
+      color: var(--w);
+      border-color: rgba(var(--rb-rgb), 0.45);
+      box-shadow: 0 0 10px rgba(var(--rb-rgb),0.3), 0 0 24px rgba(var(--rb-rgb),0.1), inset 0 0 8px rgba(var(--rb-rgb),0.04);
+      background: rgba(var(--rb-rgb), 0.05);
+    }
+
+    .ncta {
+      background: var(--rb) !important;
+      color: var(--b) !important;
+      padding: 7px 18px;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-size: .76rem !important;
+      letter-spacing: 3px !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s;
+      border-radius: 4px !important;
+      border: none !important;
+    }
+
+    /* MOBILE MENU TOGGLE */
+    .mtog {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 6000;
+    }
+    .mtog span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--w);
+      transition: .3s;
+    }
+    .mtog.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mtog.active span:nth-child(2) { opacity: 0; }
+    .mtog.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE OVERLAY */
+    .movl {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.97);
+      z-index: 5500;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .movl.active { display: flex; }
+    .movl a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--w);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .movl a:hover { color: var(--rb); }
+
+    /* HERO */
+    .hero-banner {
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      min-height: 540px;
+      display: flex;
+      align-items: flex-end;
+      padding: 80px 64px;
+      position: relative;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.92), rgba(8,8,8,0.15) 60%, rgba(8,8,8,0.4));
+    }
+
+    .hero-banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--rb);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--rb);
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 10vw, 130px);
+      line-height: .9;
+      color: var(--w);
+    }
+
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 1.8vw, 18px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-top: 12px;
+    }
+
+    /* MARQUEE */
+    .mw {
+      overflow: hidden;
+      background: rgba(var(--rb-rgb), 0.04);
+      border-top: 1px solid rgba(var(--rb-rgb), 0.15);
+      border-bottom: 1px solid rgba(var(--rb-rgb), 0.15);
+      padding: 12px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mt {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: mq 12s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes mq {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .mi {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--rb);
+      padding: 0 28px;
+    }
+
+    .md { color: var(--rb); opacity: .6; }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rb);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Barlow', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: var(--w);
+      text-transform: uppercase;
+    }
+
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--g);
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--g);
+      font-weight: 400;
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    /* TAGS */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--rb);
+      color: var(--rb);
+      background: transparent;
+    }
+
+    /* PROJECT INDEX */
+    .pj-index {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pj-index-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      color: var(--rb);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .pj-index-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 48px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pj-index-list a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      color: var(--w);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: color .3s ease;
+      display: inline-block;
+    }
+
+    .pj-index-list a:hover { color: var(--rb); }
+
+    /* WOLDI 2-COL GRID */
+    .woldi-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* VIDEO PLACEHOLDER */
+    .vid-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .vid-wrap video {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(var(--rb-rgb), 0.25);
+      background: #0d0d0d;
+      display: block;
+    }
+
+    /* PDF SHOWCASE */
+    .pdf-showcase {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+
+    .pdf-showcase-hd {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .pdf-showcase-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 5px;
+      color: var(--rb);
+    }
+
+    .pdf-showcase-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .82rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 16px;
+      transition: color .2s, border-color .2s;
+    }
+    .back-btn:hover { color: var(--rb); border-color: var(--rb); }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .rv {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease .1s, transform .6s ease .1s;
+    }
+    .rv.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* PARTICLES */
+    #bg-particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.6s;
+    }
+
+    section, .sb, .mw, .mo, #hero, .hero-banner { position: relative; z-index: 2; }
+    .hero-banner-content { z-index: 6 !important; position: relative !important; }
+    nav { z-index: 5000 !important; }
+    #cursor, .trail { z-index: 9999 !important; }
+
+    /* ── MOBILE ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; }
+      body { cursor: default !important; }
+
+      #cursor, .trail { display: none !important; }
+
+      nav {
+        padding: 15px 20px !important;
+        background: rgba(8,8,8,.98) !important;
+        justify-content: space-between !important;
+      }
+
+      .nls { display: none !important; }
+
+      .mtog { display: flex !important; }
+
+      .hero-banner {
+        height: auto !important;
+        min-height: 420px !important;
+        padding: 100px 20px 40px !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .hero-banner-content {
+        width: 100% !important;
+      }
+
+      .hero-title {
+        font-size: 3.5rem !important;
+        line-height: 1 !important;
+      }
+
+      .hero-sub {
+        font-size: 0.82rem !important;
+        margin-top: 10px !important;
+      }
+
+      section {
+        padding: 40px 20px !important;
+      }
+
+      .section-title {
+        font-size: 1.8rem !important;
+      }
+
+      /* WOLDI 2-col → 1 col */
+      .woldi-content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      .section-desc, p {
+        text-align: justify !important;
+      }
+
+      .pj-index-list {
+        gap: 8px 20px !important;
+      }
+
+      /* PDF */
+      .pdf-desktop { display: none !important; }
+      .pdf-mobile  { display: block !important; }
+
+      /* Footer */
+      footer {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
+      }
+
+      /* Marquee speed */
+      .mt { animation-duration: 12s !important; }
+    }
+
+    @media (max-width: 480px) {
+      iframe[title*="WOLDI"] { height: 280px !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursor"></div>
+
+  <nav id="nav">
+    <a href="index.html" class="nl" style="text-decoration:none;">VS<span>.</span></a>
+    <ul class="nls" style="margin-left:auto;">
+      <li><a href="index.html#sobre">Sobre mí</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">El Proceso</a></li>
+      <li><a href="curriculum.html">Currículum</a></li>
+      <li><a href="woldi.html">WOLDI</a></li>
+      <li><a href="lluviaconsol.html">LLUVIA CON SOL</a></li>
+      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
+    </ul>
+    <button class="mtog" id="mtog">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="movl" id="movl">
+    <a href="index.html" onclick="toggleMenu()">Inicio</a>
+    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
+    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
+    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  </div>
+
+  <!-- SECCIÓN 1: HERO BANNER -->
+  <div class="hero-banner">
+    <div class="hero-banner-content">
+      <div class="hero-tag">Proyecto Académico · Siglo 21 · 2025</div>
+      <div class="hero-title">WOLDI</div>
+      <div class="hero-sub">Branding · Naming · Sistema Visual · Identidad Editorial</div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="mw">
+    <div class="mt">
+      <span class="mi">BRANDING <span class="md">✦</span></span>
+      <span class="mi">NAMING <span class="md">✦</span></span>
+      <span class="mi">SISTEMA VISUAL <span class="md">✦</span></span>
+      <span class="mi">IDENTIDAD EDITORIAL <span class="md">✦</span></span>
+      <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span>
+      <span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span>
+      <span class="mi">MANUAL DE MARCA <span class="md">✦</span></span>
+      <span class="mi">BRANDING <span class="md">✦</span></span>
+      <span class="mi">NAMING <span class="md">✦</span></span>
+      <span class="mi">SISTEMA VISUAL <span class="md">✦</span></span>
+      <span class="mi">IDENTIDAD EDITORIAL <span class="md">✦</span></span>
+      <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span>
+      <span class="mi">DIRECCIÓN CREATIVA <span class="md">✦</span></span>
+      <span class="mi">MANUAL DE MARCA <span class="md">✦</span></span>
+    </div>
+  </div>
+
+  <!-- INTRO + ÍNDICE -->
+  <section class="reveal" style="padding-bottom: 20px;">
+    <a href="index.html#proyectos" class="back-btn" style="margin-bottom: 40px; display: inline-flex;">← Volver a proyectos</a>
+
+    <div class="pj-index rv" style="margin-bottom: 0;">
+      <span class="pj-index-label">— ÍNDICE</span>
+      <ul class="pj-index-list">
+        <li><a href="#brief">BRIEF & INVESTIGACIÓN</a></li>
+        <li><a href="#naming">NAMING</a></li>
+        <li><a href="#sistema">SISTEMA VISUAL</a></li>
+        <li><a href="#piezas">PIEZAS APLICADAS</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN #brief — DESCRIPCIÓN + VIDEOS -->
+  <section class="reveal" id="brief" style="padding-top: 20px; max-width: 1200px;">
+    <div class="section-subtitle" style="letter-spacing:6px;">— BRIEF & INVESTIGACIÓN</div>
+    <h2 class="section-title" style="margin-bottom:40px;">WOLDI<br><em>IDENTIDAD DE MARCA</em></h2>
+
+    <div class="woldi-content-grid">
+      <!-- Columna texto -->
+      <div>
+        <p class="section-desc">
+          Desarrollé la identidad de marca completa de WOLDI como trabajo práctico final de Diseño de Comunicación Visual II (Universidad Siglo 21, cátedra Camila Young Romanutti), junto a Tomás Bertona y Carmela Russo, actuando los tres como estudio de diseño. WOLDI es un emprendimiento gastronómico cordobés real —propio— especializado en sandwiches de bondiola desmenuzada para autoservicio de eventos, con proyección futura hacia catering, congelados y envasado al vacío.
+        </p>
+        <p class="section-desc">
+          El proceso arrancó con un brief exhaustivo relevando valores de marca, personalidad y público objetivo, seguido de un análisis de competencia que detectó un mercado saturado de recursos visuales literales. A partir de ahí encaramos un proceso de naming evaluando varias alternativas hasta llegar a WOLDI, fusión entre "Wol" y "bondi" (bondiola).
+        </p>
+        <p class="section-desc">
+          Con esa base construimos el sistema visual completo: logotipo, tipografías, paleta cromática e iconografía, sintetizando el pan tipo bollo con guiños sutiles al universo del lobo, evitando toda representación literal del producto para diferenciarnos de la competencia y ganar recordación de marca.
+        </p>
+        <div class="tag-list" style="margin-top: 18px;">
+          <span class="tag">BRANDING</span>
+          <span class="tag">NAMING</span>
+          <span class="tag">SISTEMA VISUAL</span>
+          <span class="tag">IDENTIDAD EDITORIAL</span>
+        </div>
+      </div>
+
+      <!-- Columna videos -->
+      <div class="vid-wrap">
+        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(232,184,75,0.25); background:#0d0d0d;">
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/TP4.mp4" type="video/mp4">
+        </video>
+        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(232,184,75,0.25); background:#0d0d0d;">
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/video%20woldi.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN #naming -->
+  <section class="reveal" id="naming" style="max-width: 1200px;">
+    <div class="section-subtitle" style="letter-spacing:6px;">— PROCESO DE NAMING</div>
+    <h2 class="section-title" style="margin-bottom:16px;">NAMING</h2>
+    <p class="section-desc" style="max-width:720px;">
+      El nombre <strong style="color:var(--rb);">WOLDI</strong> surgió de un proceso riguroso de evaluación de alternativas. La fusión entre "Wol" —referencia al lobo (wolf)— y "bondi" (bondiola) generó un nombre corto, sonoro y sin competencia directa en el mercado. Pronunciable, registrable y con alto potencial de recordación de marca para el segmento gastronómico joven.
+    </p>
+  </section>
+
+  <!-- SECCIÓN #sistema -->
+  <section class="reveal" id="sistema" style="max-width: 1200px;">
+    <div class="section-subtitle" style="letter-spacing:6px;">— IDENTIDAD VISUAL</div>
+    <h2 class="section-title" style="margin-bottom:16px;">SISTEMA<br><em>VISUAL</em></h2>
+    <p class="section-desc" style="max-width:720px;">
+      El sistema visual integra logotipo, paleta cromática, sistema tipográfico e iconografía bajo una coherencia estética que evita representaciones literales del producto. La síntesis del pan tipo bollo con guiños al universo del lobo construye un universo de marca diferenciado, moderno y con proyección de largo plazo.
+    </p>
+  </section>
+
+  <!-- SECCIÓN #piezas — MANUAL DE MARCA PDF -->
+  <section class="reveal" id="piezas" style="padding-top: 10px; max-width: 1200px;">
+    <div class="section-subtitle" style="letter-spacing:6px;">— MANUAL DE MARCA · WOLDI</div>
+    <h2 class="section-title" style="margin-bottom:24px;">PIEZAS<br><em>APLICADAS</em></h2>
+
+    <div class="pdf-showcase">
+      <div class="pdf-showcase-hd">
+        <span class="pdf-showcase-title">MANUAL DE MARCA</span>
+        <span class="pdf-showcase-sub">WOLDI</span>
+      </div>
+      <!-- Desktop: embedded PDF -->
+      <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf#toolbar=0"
+        class="proj-pdf-frame pdf-desktop"
+        style="width:100%; height:680px; border:none; display:block; background:#111;"
+        title="Manual de Marca WOLDI"></iframe>
+      <!-- Mobile: Google Docs viewer inline -->
+      <div class="pdf-mobile" style="display:none;">
+        <iframe src="https://docs.google.com/viewer?url=https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf&embedded=true"
+          style="width:100%; height:520px; border:none; display:block; background:#111;"
+          title="Manual de Marca WOLDI Mobile"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 80px;"></div>
+
+  <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--rb)">.</span></div>
+    <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2025 · Córdoba, AR</div>
+  </footer>
+
+  <script>
+    // VIDEO OBSERVER
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('video').forEach(v => {
+      v.setAttribute('autoplay', '');
+      v.setAttribute('muted', '');
+      v.setAttribute('loop', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('preload', 'none');
+      videoObserver.observe(v);
+    });
+
+    // REVEAL OBSERVER
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('vs', 'in');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
+
+    // MOBILE MENU
+    const movl = document.getElementById('movl');
+    const mtog = document.getElementById('mtog');
+    if (movl && mtog) {
+      function toggleMenu() {
+        movl.classList.toggle('active');
+        mtog.classList.toggle('active');
+        document.body.style.overflow = movl.classList.contains('active') ? 'hidden' : '';
+      }
+      mtog.addEventListener('click', toggleMenu);
+    }
+
+    // CURSOR
+    const cursor = document.getElementById('cursor');
+    const trails = [];
+    if (cursor) {
+      for (let i = 0; i < 7; i++) {
+        const t = document.createElement('div');
+        t.classList.add('trail');
+        document.body.appendChild(t);
+        trails.push({ el: t, x: 0, y: 0 });
+      }
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      });
+      function animateTrail() {
+        let px = mx, py = my;
+        trails.forEach(t => {
+          t.x += (px - t.x) * 0.3; t.y += (py - t.y) * 0.3;
+          t.el.style.left = t.x + 'px'; t.el.style.top = t.y + 'px';
+          px = t.x; py = t.y;
+        });
+        requestAnimationFrame(animateTrail);
+      }
+      animateTrail();
+    }
+
+    // PARTICLES
+    (function initParticles() {
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
+      document.body.appendChild(canvas);
+      window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({length: 100}, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.5 + 0.1),
+        r: Math.random() * 2 + 0.5, op: Math.random() * 0.4 + 0.2, life: Math.random()
+      }));
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = Math.random() * 0.5 + 0.5; }
+          const alpha = Math.max(0, p.op * p.life);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(232, 184, 75, ${alpha.toFixed(3)})`; ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // PDF carga inmediata
+    document.querySelectorAll('iframe[data-src]').forEach(function(f) {
+      f.src = f.dataset.src; delete f.dataset.src;
+    });
+  </script>
+</body>
+</html>

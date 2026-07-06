@@ -769,7 +769,23 @@
     @media (max-width: 480px) {
       .stories-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .ig-feed { grid-template-columns: 1fr !important; }
+      /* media-grid mobile */
+      .grid-stories { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+      .grid-feed    { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
     }
+
+    /* ── MEDIA GRID (homogeneizado manblue) ── */
+    .media-grid { display: grid; gap: 16px; margin-top: 30px; }
+    .grid-feed { grid-template-columns: repeat(5, 1fr); }
+    .grid-stories { grid-template-columns: repeat(6, 1fr); }
+    .media-card { background: #0d0d0d; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .4s; position: relative; }
+    .media-card:hover { border-color: var(--rb); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(var(--rb-rgb),.2); }
+    .media-card img { width: 100%; display: block; transition: .5s; }
+    .media-card.feed img { aspect-ratio: 4/5; object-fit: cover; }
+    .media-card.story img { aspect-ratio: 9/16; object-fit: cover; }
+    .media-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.8), transparent); opacity: 0; transition: .3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; }
+    .media-card:hover .media-overlay { opacity: 1; }
+    .media-label { font-family: 'Barlow Condensed', sans-serif; font-size: .7rem; letter-spacing: 3px; color: #fff; text-transform: uppercase; }
 
   </style>
 </head>
@@ -800,7 +816,9 @@
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="index.html#proceso" onclick="toggleMenu()">El proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+        <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
+    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
+<a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
   <!-- HERO BANNER -->
@@ -862,66 +880,53 @@
   <section class="section rv" id="stories">
     <div class="section-subtitle">— DISEÑO DE CONTENIDO</div>
     <h2 class="section-title">Historias</h2>
-    <div class="carousel-wrap" id="storiesCarousel">
-      <div class="carousel-track" id="storiesTrack">
-        <div class="carousel-slide"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/1-01.webp" alt="Historia 1" loading="eager"></div>
-        <div class="carousel-slide"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/2.webp" alt="Historia 2" loading="eager"></div>
-        <div class="carousel-slide"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/tip%20semanal%201.webp" alt="Tip Semanal 1" loading="eager"></div>
-        <div class="carousel-slide"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/tip%20semanal%204.webp" alt="Tip Semanal 4" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%202_Mesa%20de%20trabajo%201.webp" alt="Horizontal 2" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%203_Mesa%20de%20trabajo%201.webp" alt="Horizontal 3" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%204_Mesa%20de%20trabajo%201_Mesa%20de%20trabajo%201.webp" alt="Horizontal 4b" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%204_Mesa%20de%20trabajo%201.webp" alt="Horizontal 4" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%205_Mesa%20de%20trabajo%201.webp" alt="Horizontal 5" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%206_Mesa%20de%20trabajo%201.webp" alt="Horizontal 6" loading="eager"></div>
-        <div class="carousel-slide horizontal"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%207_Mesa%20de%20trabajo%201.webp" alt="Horizontal 7" loading="eager"></div>
+    <div class="media-grid grid-stories">
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/1-01.webp" alt="Historia 1" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
       </div>
-      <button class="carousel-btn prev" id="storiesPrev">&#8592;</button>
-      <button class="carousel-btn next" id="storiesNext">&#8594;</button>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/2.webp" alt="Historia 2" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/tip%20semanal%201.webp" alt="Tip Semanal 1" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/tip%20semanal%204.webp" alt="Tip Semanal 4" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%202_Mesa%20de%20trabajo%201.webp" alt="Horizontal 2" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%203_Mesa%20de%20trabajo%201.webp" alt="Horizontal 3" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%204_Mesa%20de%20trabajo%201_Mesa%20de%20trabajo%201.webp" alt="Horizontal 4b" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%204_Mesa%20de%20trabajo%201.webp" alt="Horizontal 4" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%205_Mesa%20de%20trabajo%201.webp" alt="Horizontal 5" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%206_Mesa%20de%20trabajo%201.webp" alt="Horizontal 6" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
+      <div class="media-card story">
+        <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ENERGIA-FITNESS/PLANTILLAS%20PARA%20HISTORIAS/horizontal%207_Mesa%20de%20trabajo%201.webp" alt="Horizontal 7" loading="lazy">
+        <div class="media-overlay"><span class="media-label">HISTORIA</span></div>
+      </div>
     </div>
-    <div class="carousel-dots" id="storiesDots"></div>
   </section>
-
-  <script>
-    (function() {
-      const track = document.getElementById('storiesTrack');
-      const slides = track.querySelectorAll('.carousel-slide');
-      const dotsWrap = document.getElementById('storiesDots');
-      const total = slides.length;
-      const visible = window.innerWidth <= 768 ? 1 : 5;
-      let cur = 0;
-
-      // Force slide width to match visible count (fixes mobile layout)
-      function setSlideWidths() {
-        const slideW = track.parentElement.offsetWidth / visible;
-        slides.forEach(s => { s.style.minWidth = slideW + 'px'; s.style.width = slideW + 'px'; });
-      }
-      setSlideWidths();
-
-      // Build dots
-      slides.forEach((_, i) => {
-        const d = document.createElement('div');
-        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(d);
-      });
-
-      function goTo(n) {
-        const slideW = track.parentElement.offsetWidth / visible;
-        cur = Math.max(0, Math.min(n, total - visible));
-        track.style.transform = `translateX(${-(cur * slideW)}px)`;
-        dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === cur);
-        });
-      }
-
-      document.getElementById('storiesPrev').addEventListener('click', () => goTo(cur - 1));
-      document.getElementById('storiesNext').addEventListener('click', () => goTo(cur + 1));
-
-      // Auto-slide
-      setInterval(() => goTo(cur + 1 > total - visible ? 0 : cur + 1), 3500);
-    })();
-  </script>
 
   <!-- REBRANDING -->
   <section class="section rv" id="branding">
