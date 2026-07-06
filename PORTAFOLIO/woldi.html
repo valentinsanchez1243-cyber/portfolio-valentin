@@ -482,23 +482,12 @@
     .back-btn:hover { color: var(--rb); border-color: var(--rb); }
 
     /* REVEAL */
-    .reveal {
+    .rv, .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
+      transition: opacity .7s ease;
     }
-    .reveal.in {
+    .rv.vs, .rv.in, .reveal.vs, .reveal.in, .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
-    }
-    .rv {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease .1s, transform .6s ease .1s;
-    }
-    .rv.in {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* PARTICLES */
@@ -593,6 +582,9 @@
 
       /* Marquee speed */
       .mt { animation-duration: 12s !important; }
+    
+      /* Force all reveal elements visible on mobile */
+      .reveal, .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
     }
 
     @media (max-width: 480px) {
@@ -786,13 +778,16 @@
     }, { threshold: 0 });
     document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
     // Fallback: forzar visibilidad si el observer no dispara
-    setTimeout(() => {
+    // Force reveal on load + timeout (belt & suspenders)
+    function forceReveal() {
       document.querySelectorAll('.rv, .reveal').forEach(el => {
         el.classList.add('vs', 'in');
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
-    }, 800);
+    }
+    setTimeout(forceReveal, 500);
+    window.addEventListener('load', forceReveal);
 
     // MOBILE MENU
     const movl = document.getElementById('movl');
