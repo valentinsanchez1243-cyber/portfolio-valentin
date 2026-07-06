@@ -312,35 +312,42 @@
     .section-subtitle {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       color: var(--rb);
-      margin-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-subtitle::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--rb);
+      flex-shrink: 0;
     }
 
     .section-title {
-      font-family: 'Barlow', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
       color: var(--w);
-      text-transform: uppercase;
     }
 
     .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--g);
+      font-style: normal;
+      color: var(--rb);
     }
 
     .section-desc {
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.72;
       color: var(--g);
-      font-weight: 400;
-      max-width: 680px;
-      margin-bottom: 24px;
+      max-width: 800px;
+      margin-bottom: 28px;
     }
 
     /* TAGS */
@@ -643,42 +650,46 @@
   </div>
 
 
-  <!-- DESC: OVERVIEW DEL PROYECTO -->
-  <section class="reveal" style="padding: 40px 64px 0; max-width: 1100px; margin: 0 auto;">
-    <p class="section-desc" style="max-width:680px;">
-      Desarrollé la identidad de marca completa de WOLDI como trabajo práctico final de Diseño de Comunicación Visual II (Universidad Siglo 21, cátedra Camila Young Romanutti), junto a Tomás Bertona y Carmela Russo, actuando los tres como estudio de diseño. WOLDI es un emprendimiento gastronómico cordobés real —propio— especializado en sandwiches de bondiola desmenuzada para autoservicio de eventos, con proyección futura hacia catering, congelados y envasado al vacío.
-    </p>
-    <div class="tag-list" style="margin-top:18px;">
-      <span class="tag">BRANDING</span>
-      <span class="tag">NAMING</span>
-      <span class="tag">SISTEMA VISUAL</span>
-      <span class="tag">IDENTIDAD EDITORIAL</span>
-    </div>
-    <div class="pj-index rv" style="margin-bottom: 60px;">
-      <span class="pj-index-label">— ÍNDICE</span>
-      <ul class="pj-index-list">
-        <li><a href="#brief">BRIEF &amp; INVESTIGACIÓN</a></li>
-        <li><a href="#piezas">MANUAL DE MARCA</a></li>
-      </ul>
+  <!-- OVERVIEW -->
+  <section class="reveal" style="padding: 60px 64px; max-width: 1100px; margin: 0 auto;">
+    <div class="section-subtitle">— OVERVIEW</div>
+    <div style="max-width: 860px;">
+      <p class="section-desc">
+        Desarrollé la identidad de marca completa de WOLDI como trabajo práctico final de Diseño de Comunicación Visual II (Universidad Siglo 21, cátedra Camila Young Romanutti), junto a Tomás Bertona y Carmela Russo, actuando los tres como estudio de diseño. WOLDI es un emprendimiento gastronómico cordobés real especializado en sandwiches de bondiola desmenuzada para autoservicio de eventos.
+      </p>
+      <p class="section-desc">
+        El proceso arrancó con un brief exhaustivo relevando valores de marca, personalidad y público objetivo, seguido de un análisis de competencia. A partir de ahí encaramos un proceso de naming hasta llegar a WOLDI —fusión entre "Wol" (wolf) y "bondi" (bondiola)— y construimos el sistema visual completo: logotipo, tipografías, paleta cromática e iconografía.
+      </p>
+      <div class="tag-list">
+        <span class="tag">Branding</span>
+        <span class="tag">Naming</span>
+        <span class="tag">Sistema Visual</span>
+        <span class="tag">Identidad Editorial</span>
+        <span class="tag">Manual de Marca</span>
+      </div>
+      <div class="pj-index rv">
+        <span class="pj-index-label">— ÍNDICE</span>
+        <ul class="pj-index-list">
+          <li><a href="#brief">IDENTIDAD &amp; VIDEOS</a></li>
+          <li><a href="#piezas">MANUAL DE MARCA</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- SECCIÓN #brief — DESCRIPCIÓN + VIDEOS -->
+  <!-- BRIEF + VIDEOS -->
   <section class="reveal" id="brief" style="padding: 60px 64px 0; max-width: 1200px; margin: 0 auto;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— BRIEF &amp; INVESTIGACIÓN</div>
-    <h2 class="section-title" style="margin-bottom:16px;">WOLDI<br><em>&amp; IDENTIDAD DE MARCA</em></h2>
+    <div class="section-subtitle">— IDENTIDAD &amp; PROCESO</div>
+    <h2 class="section-title">WOLDI<br><em>IDENTIDAD DE MARCA</em></h2>
     <p class="section-desc" style="max-width:680px;">
-      El proceso arrancó con un brief exhaustivo relevando valores de marca, personalidad y público objetivo, seguido de un análisis de competencia que detectó un mercado saturado de recursos visuales literales. A partir de ahí encaramos un proceso de naming evaluando varias alternativas hasta llegar a WOLDI, fusión entre "Wol" y "bondi" (bondiola).
+      Con esa base construimos el sistema visual completo: sintetizando el pan tipo bollo con guiños sutiles al universo del lobo, evitando toda representación literal del producto para diferenciarnos de la competencia y ganar recordación de marca.
     </p>
-
     <div class="woldi-content-grid" style="margin-top: 32px;">
-      <!-- Columna texto -->
       <div>
         <p class="section-desc">
-          Con esa base construimos el sistema visual completo: logotipo, tipografías, paleta cromática e iconografía, sintetizando el pan tipo bollo con guiños sutiles al universo del lobo, evitando toda representación literal del producto para diferenciarnos de la competencia y ganar recordación de marca.
+          Los dos videos documentan el proceso completo: desde la presentación del proyecto académico hasta el armado del sistema visual aplicado en piezas reales.
         </p>
       </div>
-      <!-- Columna videos -->
       <div class="vid-wrap">
         <video preload="none" muted playsinline controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
           <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/TP4.mp4" type="video/mp4">
@@ -690,26 +701,25 @@
     </div>
   </section>
 
-  <!-- SECCIÓN #piezas — MANUAL DE MARCA PDF -->
+  <!-- MANUAL DE MARCA -->
   <section class="reveal" id="piezas" style="padding: 60px 64px 80px; max-width: 1200px; margin: 0 auto;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— MANUAL DE MARCA</div>
-    <h2 class="section-title" style="margin-bottom:24px;">WOLDI<br><em>&amp; MANUAL DE MARCA</em></h2>
-
+    <div class="section-subtitle">— DOCUMENTACIÓN</div>
+    <h2 class="section-title">Manual de <em>Marca</em></h2>
     <div class="pdf-showcase">
       <div class="pdf-showcase-hd">
         <span class="pdf-showcase-title">MANUAL DE MARCA</span>
-        <span class="pdf-showcase-sub">WOLDI</span>
+        <span class="pdf-showcase-sub">WOLDI · SISTEMA DE IDENTIDAD VISUAL</span>
       </div>
-      <!-- Desktop: embedded PDF -->
       <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf#toolbar=0"
         class="proj-pdf-frame pdf-desktop"
-        style="width:100%; height:680px; border:none; display:block; background:#111;"
+        style="width:100%; height:720px; border:none; display:block; background:#111;"
         title="Manual de Marca WOLDI"></iframe>
-      <!-- Mobile: Google Docs viewer inline -->
-      <div class="pdf-mobile" style="display:none;">
-        <iframe src="https://docs.google.com/viewer?url=https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf&embedded=true"
-          style="width:100%; height:520px; border:none; display:block; background:#111;"
-          title="Manual de Marca WOLDI Mobile"></iframe>
+      <div class="pdf-mobile" style="display:none; padding: 32px 20px; text-align:center;">
+        <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:20px;">Manual de Marca · WOLDI</p>
+        <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/MANUAL%20DE%20MARCA-WOLDI.pdf" target="_blank" rel="noopener"
+           style="display:inline-block; padding:14px 36px; border:1px solid var(--rb); color:var(--rb); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; letter-spacing:4px; text-decoration:none; border-radius:4px; text-transform:uppercase;">
+          VER MANUAL →
+        </a>
       </div>
     </div>
   </section>

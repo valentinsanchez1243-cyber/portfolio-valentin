@@ -207,7 +207,7 @@
 
     /* HERO */
     .hero-banner {
-      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp');
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLUEVE-CON-SOL.webp');
       background-size: cover;
       background-position: center;
       height: 420px;
@@ -318,43 +318,42 @@
     .section-subtitle {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       color: var(--rb);
-      margin-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    .section-title.hero-style {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: normal;
-      line-height: 1;
-      letter-spacing: 1px;
+    .section-subtitle::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--rb);
+      flex-shrink: 0;
     }
 
     .section-title {
-      font-family: 'Barlow', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
       color: var(--w);
-      text-transform: uppercase;
     }
 
     .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--g);
+      font-style: normal;
+      color: var(--rb);
     }
 
     .section-desc {
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.72;
       color: var(--g);
-      font-weight: 400;
-      max-width: 720px;
-      margin-bottom: 24px;
+      max-width: 800px;
+      margin-bottom: 28px;
     }
 
     /* TAGS */
@@ -614,24 +613,51 @@
   </div>
 
 
-  <!-- DESC: OVERVIEW DEL PROYECTO -->
-  <section class="reveal" style="padding: 40px 64px 0; max-width: 1100px; margin: 0 auto;">
-    <p class="section-desc" style="max-width:680px;">
-      Trabajo como editor de video y diseñador de contenido para Llueve con Sol, agencia de comunicación y marketing con base en Córdoba, en modalidad remota desde mayo de 2026. Me encargo de la edición de reels y videos para marcas locales de gastronomía, restaurantes y otros rubros, además del diseño de placas visuales y piezas gráficas para redes sociales, adaptando cada pieza al estilo y la identidad de marca de cada cliente.
-    </p>
-    <div class="tag-list" style="margin-top:18px;">
-      <span class="tag">EDICIÓN DE VIDEO</span>
-      <span class="tag">DISEÑO GRÁFICO</span>
-      <span class="tag">CONTENIDO PARA REDES</span>
-      <span class="tag">GESTIÓN DE CUENTAS</span>
+  <!-- MARQUEE -->
+  <div class="mw">
+    <div class="mt">
+      <span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span>
+      <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span>
+      <span class="mi">CONTENIDO PARA REDES <span class="md">✦</span></span>
+      <span class="mi">GESTIÓN DE CUENTAS <span class="md">✦</span></span>
+      <span class="mi">REELS <span class="md">✦</span></span>
+      <span class="mi">PLACAS VISUALES <span class="md">✦</span></span>
+      <span class="mi">EDICIÓN DE VIDEO <span class="md">✦</span></span>
+      <span class="mi">DISEÑO GRÁFICO <span class="md">✦</span></span>
+      <span class="mi">CONTENIDO PARA REDES <span class="md">✦</span></span>
+      <span class="mi">GESTIÓN DE CUENTAS <span class="md">✦</span></span>
+      <span class="mi">REELS <span class="md">✦</span></span>
+      <span class="mi">PLACAS VISUALES <span class="md">✦</span></span>
     </div>
-    <div class="pj-index rv" style="margin-bottom: 60px;">
-      <span class="pj-index-label">— ÍNDICE</span>
-      <ul class="pj-index-list">
-        <li><a href="#reels">REELS &amp; VIDEOS</a></li>
-      </ul>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="reveal" style="padding: 60px 64px; max-width: 1100px; margin: 0 auto;">
+    <div class="section-subtitle">— OVERVIEW</div>
+    <div style="max-width: 860px;">
+      <p class="section-desc">
+        Trabajo como editor de video y diseñador de contenido para Llueve con Sol, agencia de comunicación y marketing con base en Córdoba, en modalidad remota desde mayo de 2026. Me encargo de la edición de reels y videos para marcas locales de gastronomía, restaurantes y otros rubros, adaptando cada pieza al estilo y la identidad de marca de cada cliente.
+      </p>
+      <p class="section-desc">
+        Trabajo de forma coordinada con la dirección de la agencia, cumpliendo tiempos de entrega y el estándar visual que exige cada cuenta. Cada reel está pensado para generar impacto en los primeros segundos: ritmo, música y narrativa visual adaptada a cada marca.
+      </p>
+      <div class="tag-list">
+        <span class="tag">Edición de Video</span>
+        <span class="tag">Diseño Gráfico</span>
+        <span class="tag">Contenido para Redes</span>
+        <span class="tag">Gestión de Cuentas</span>
+        <span class="tag">Reels</span>
+      </div>
+      <div class="pj-index rv">
+        <span class="pj-index-label">— ÍNDICE</span>
+        <ul class="pj-index-list">
+          <li><a href="#reels">REELS &amp; VIDEOS</a></li>
+        </ul>
+      </div>
     </div>
   </section>
+
+
 
   <!-- SECCIÓN #reels — VIDEOS -->
   <section class="reveal" id="reels" style="padding: 60px 64px 80px; max-width: 1400px; margin: 0 auto;">
