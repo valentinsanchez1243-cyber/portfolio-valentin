@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lluvia con Sol - Valentín Sánchez</title>
+  <title>Llueve con Sol - Valentín Sánchez</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -408,19 +408,34 @@
     /* REELS GRID — 3 cols */
     .lcs-reels-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
       margin-top: 32px;
+    }
+
+    .lcs-reels-grid .lcs-vid-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .lcs-reels-grid video {
       width: 100%;
       aspect-ratio: 9 / 16;
       object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid rgba(var(--rb-rgb), 0.22);
-      background: #0d0d0d;
+      border-radius: 8px;
+      border: 1px solid rgba(var(--rb-rgb), 0.2);
+      background: #111;
       display: block;
+    }
+
+    .lcs-vid-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .78rem;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      text-transform: uppercase;
     }
 
     /* BACK BUTTON */
@@ -541,10 +556,10 @@
 
       .pj-index-list { gap: 8px 20px !important; }
 
-      /* LLUVIA CON SOL — reels grid → 1 col */
+      /* LLUEVE CON SOL — reels grid → 1 col */
       .lcs-reels-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
       }
 
       footer {
@@ -585,7 +600,7 @@
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
     <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
+    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUEVE CON SOL</a>
     <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
@@ -593,7 +608,7 @@
   <div class="hero-banner">
     <div class="hero-banner-content">
       <div class="hero-tag">Trabajo Freelance · Mayo 2026 — Presente</div>
-      <div class="hero-title">LLUVIA<br><em>CON SOL</em></div>
+      <div class="hero-title">LLUEVE<br><em>CON SOL</em></div>
       <div class="hero-sub">Edición de Video · Diseño Gráfico · Contenido para Redes</div>
     </div>
   </div>
@@ -621,10 +636,10 @@
     <a href="index.html#proyectos" class="back-btn" style="margin-bottom: 40px; display: inline-flex;">← Volver a proyectos</a>
 
     <div class="section-subtitle" style="letter-spacing:6px;">— AGENCIA DE COMUNICACIÓN · CÓRDOBA</div>
-    <h2 class="section-title" style="margin-bottom: 20px;">LLUVIA<br><em>CON SOL</em></h2>
+    <h2 class="section-title" style="margin-bottom: 20px;">LLUEVE<br><em>CON SOL</em></h2>
 
     <p class="section-desc">
-      Trabajo como editor de video y diseñador de contenido para Lluvia con Sol, agencia de comunicación y marketing con base en Córdoba, en modalidad remota desde mayo de 2026. Me encargo de la edición de reels y videos para marcas locales de gastronomía, restaurantes y otros rubros, además del diseño de placas visuales y piezas gráficas para redes sociales, adaptando cada pieza al estilo y la identidad de marca de cada cliente. Trabajo de forma coordinada con la dirección de la agencia, cumpliendo tiempos de entrega y el estándar visual que exige cada cuenta.
+      Trabajo como editor de video y diseñador de contenido para Llueve con Sol, agencia de comunicación y marketing con base en Córdoba, en modalidad remota desde mayo de 2026. Me encargo de la edición de reels y videos para marcas locales de gastronomía, restaurantes y otros rubros, además del diseño de placas visuales y piezas gráficas para redes sociales, adaptando cada pieza al estilo y la identidad de marca de cada cliente. Trabajo de forma coordinada con la dirección de la agencia, cumpliendo tiempos de entrega y el estándar visual que exige cada cuenta.
     </p>
 
     <div class="tag-list" style="margin-bottom: 40px;">
@@ -651,52 +666,53 @@
     <p class="section-desc">Edición de reels para marcas de gastronomía y otros rubros — adaptados a la identidad visual y tono de cada cuenta.</p>
 
     <div class="lcs-reels-grid">
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0611.mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0611.mov" type="video/mp4">
-      </video>
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0616%20(1).mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0616%20(1).mov" type="video/mp4">
-      </video>
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0619.mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0619.mov" type="video/mp4">
-      </video>
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0623%20(2).mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0623%20(2).mov" type="video/mp4">
-      </video>
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0625.mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0625.mov" type="video/mp4">
-      </video>
-      <video preload="none" controls>
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/12.6.R.mov" type="video/quicktime">
-        <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/12.6.R.mov" type="video/mp4">
-      </video>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0611.mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 11/06</div>
+      </div>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0616%20(1).mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 16/06</div>
+      </div>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0619.mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 19/06</div>
+      </div>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0623%20(2).mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 23/06</div>
+      </div>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/0625.mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 25/06</div>
+      </div>
+
+      <div class="lcs-vid-item">
+        <video preload="none" muted controls playsinline>
+          <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/LLUVIA%20CON%20SOL/12.6.R.mov" type="video/mp4">
+        </video>
+        <div class="lcs-vid-label">REEL 12/06</div>
+      </div>
+
     </div>
   </section>
 
-  <!-- SECCIÓN #placas -->
-  <section class="reveal" id="placas" style="max-width: 1200px;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— DISEÑO GRÁFICO</div>
-    <h2 class="section-title" style="margin-bottom: 16px;">PLACAS<br><em>& DISEÑO GRÁFICO</em></h2>
-    <div class="pending-block">
-      <!-- PENDIENTE: placas y diseño gráfico — esperando material -->
-      <p>MATERIAL EN PROCESO · PRÓXIMAMENTE</p>
-    </div>
-  </section>
 
-  <!-- SECCIÓN #historias -->
-  <section class="reveal" id="historias" style="max-width: 1200px;">
-    <div class="section-subtitle" style="letter-spacing:6px;">— CONTENIDO</div>
-    <h2 class="section-title" style="margin-bottom: 16px;">HISTORIAS<br><em>& CONTENIDO</em></h2>
-    <div class="pending-block">
-      <!-- PENDIENTE: historias — esperando material -->
-      <p>MATERIAL EN PROCESO · PRÓXIMAMENTE</p>
-    </div>
-  </section>
 
   <section class="reveal" style="padding: 120px 24px; text-align: center;">
     <div style="max-width: 800px; margin: 0 auto;">
@@ -742,7 +758,13 @@
     }, { threshold: 0 });
     document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
     // Fallback: forzar visibilidad si el observer no dispara
-    setTimeout(() => document.querySelectorAll('.rv, .reveal').forEach(el => el.classList.add('vs', 'in')), 1200);
+    setTimeout(() => {
+      document.querySelectorAll('.rv, .reveal').forEach(el => {
+        el.classList.add('vs', 'in');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }, 800);
 
     // MOBILE MENU
     const movl = document.getElementById('movl');
@@ -764,41 +786,3 @@
         const t = document.createElement('div');
         t.classList.add('trail');
         document.body.appendChild(t);
-        trails.push({ el: t, x: 0, y: 0 });
-      }
-      let mx = 0, my = 0;
-      document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      });
-      function animateTrail() {
-        let px = mx, py = my;
-        trails.forEach(t => {
-          t.x += (px - t.x) * 0.3; t.y += (py - t.y) * 0.3;
-          t.el.style.left = t.x + 'px'; t.el.style.top = t.y + 'px';
-          px = t.x; py = t.y;
-        });
-        requestAnimationFrame(animateTrail);
-      }
-      animateTrail();
-    }
-
-    // PARTICLES
-    (function initParticles() {
-      const canvas = document.createElement('canvas');
-      canvas.id = 'bg-particles';
-      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
-      document.body.appendChild(canvas);
-      window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-      const ctx = canvas.getContext('2d');
-      const particles = Array.from({length: 100}, () => ({
-        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.5 + 0.1),
-        r: Math.random() * 2 + 0.5, op: Math.random() * 0.4 + 0.2, life: Math.random()
-      }));
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.ra

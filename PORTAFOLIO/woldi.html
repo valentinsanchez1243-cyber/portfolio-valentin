@@ -786,7 +786,13 @@
     }, { threshold: 0 });
     document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
     // Fallback: forzar visibilidad si el observer no dispara
-    setTimeout(() => document.querySelectorAll('.rv, .reveal').forEach(el => el.classList.add('vs', 'in')), 1200);
+    setTimeout(() => {
+      document.querySelectorAll('.rv, .reveal').forEach(el => {
+        el.classList.add('vs', 'in');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }, 800);
 
     // MOBILE MENU
     const movl = document.getElementById('movl');
@@ -842,7 +848,4 @@
         r: Math.random() * 2 + 0.5, op: Math.random() * 0.4 + 0.2, life: Math.random()
       }));
       function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.
+        ctx.clearRect(0, 0, canvas.width
