@@ -14,9 +14,9 @@
 
   <style>
     :root {
-      --rb: #E8B84B;
-      --rb-rgb: 232, 184, 75;
-      --r: #E8B84B;
+      --rb: #F59E0B;
+      --rb-rgb: 245, 158, 11;
+      --r: #F59E0B;
       --b: #080808;
       --w: #ffffff;
       --g: #aaaaaa;
@@ -611,10 +611,7 @@
       <li><a href="index.html#proyectos">Proyectos</a></li>
       <li><a href="index.html#servicios">Servicios</a></li>
       <li><a href="index.html#proceso">El Proceso</a></li>
-      <li><a href="curriculum.html">Currículum</a></li>
-      <li><a href="woldi.html">WOLDI</a></li>
-      <li><a href="lluviaconsol.html">LLUVIA CON SOL</a></li>
-      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
+      <li><a href="curriculum.html">Currículum</a></li>      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
     <button class="mtog" id="mtog">
       <span></span><span></span><span></span>
@@ -705,10 +702,10 @@
 
       <!-- Columna videos -->
       <div class="vid-wrap">
-        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(232,184,75,0.25); background:#0d0d0d;">
+        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
           <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/TP4.mp4" type="video/mp4">
         </video>
-        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(232,184,75,0.25); background:#0d0d0d;">
+        <video preload="none" controls style="width:100%; border-radius:10px; border:1px solid rgba(245,158,11,0.25); background:#0d0d0d;">
           <source src="https://valentin-cdn.b-cdn.net/PROYECTOS/WOLDI/video%20woldi.mp4" type="video/mp4">
         </video>
       </div>
@@ -786,8 +783,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('vs', 'in');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0 });
     document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
+    // Fallback: forzar visibilidad si el observer no dispara
+    setTimeout(() => document.querySelectorAll('.rv, .reveal').forEach(el => el.classList.add('vs', 'in')), 1200);
 
     // MOBILE MENU
     const movl = document.getElementById('movl');

@@ -2381,10 +2381,7 @@
       <li><a href="index.html#proyectos-carousel">Proyectos</a></li>
       <li><a href="index.html#servicios">Servicios</a></li>
       <li><a href="index.html#proceso">El Proceso</a></li>
-      <li><a href="curriculum.html">Currículum</a></li>
-            <li><a href="woldi.html">WOLDI</a></li>
-      <li><a href="lluviaconsol.html">LLUVIA CON SOL</a></li>
-<li><a href="index.html#contacto" class="ncta">Contacto</a></li>
+      <li><a href="curriculum.html">Currículum</a></li><li><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
     <button class="mtog" id="mtog">
       <span></span><span></span><span></span>
@@ -2402,8 +2399,6 @@
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-        <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
 <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
   <!-- MOBILE OVERLAY -->
@@ -2503,6 +2498,20 @@
     <div class="sl rv">Trayectoria</div>
     <h2 class="st rv">EXPERIENCIA<br><em>LABORAL</em></h2>
     <div class="exl">
+      <div class="exi rv">
+        <div class="exp">Mayo 2026 — Actualidad</div>
+        <div class="exr">
+          <div class="exro">LLUVIA CON SOL | Editor de Video &amp; Diseñador de Contenido</div>
+          <div class="exco">Córdoba, Argentina · Remoto</div>
+          <div class="exde">Edición de videos y reels para marcas locales de Córdoba: gastronomía, restaurantes y rubros varios. Diseño de placas visuales y piezas gráficas para redes sociales adaptadas a cada cliente y estilo de marca. Trabajo remoto en equipo con la dirección de la agencia, cumpliendo tiempos de entrega y estándares visuales.</div>
+          <div class="extg">
+            <span class="extgi">Edición Video</span>
+            <span class="extgi">Diseño Gráfico</span>
+            <span class="extgi">Redes Sociales</span>
+          </div>
+        </div>
+      </div>
+
       <div class="exi rv">
         <div class="exp">2025 — Actualidad</div>
         <div class="exr">
@@ -3281,37 +3290,4 @@
       }
     });
 
-    // Efecto click: ráfaga de partículas
-    document.addEventListener('click', function(e){
-      spawnAt(e.clientX, e.clientY, 14);
-    });
-
-    function loop(){
-      frameId = requestAnimationFrame(loop);
-      ctx.clearRect(0, 0, W, H);
-      for (var i = particles.length - 1; i >= 0; i--) {
-        var p = particles[i];
-        p.x  += p.vx;
-        p.y  += p.vy;
-        p.vy -= 0.02;           // aceleración hacia arriba (anti-gravedad)
-        p.vx *= 0.98;           // leve resistencia lateral
-        p.op -= p.decay;
-        p.r  *= 0.993;
-
-        if (p.op <= 0 || p.r < 0.2) {
-          particles.splice(i, 1);
-          continue;
-        }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
-        ctx.fill();
-      }
-    }
-    loop();
-  })();
-  </script>
-</body>
-
-</html>
+    // Efecto click: 

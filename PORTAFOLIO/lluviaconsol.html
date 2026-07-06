@@ -511,14 +511,28 @@
 
       .hero-banner {
         height: auto !important;
-        min-height: 420px !important;
-        padding: 100px 20px 40px !important;
+        min-height: 80vh !important;
+        padding: 120px 20px 60px !important;
+        display: flex !important;
         align-items: center !important;
+        justify-content: center !important;
         text-align: center !important;
+        background-position: center !important;
       }
-
-      .hero-title { font-size: 3rem !important; line-height: 1 !important; }
-      .hero-sub { font-size: 0.78rem !important; margin-top: 10px !important; }
+      .hero-banner-content {
+        position: relative !important;
+        width: 100% !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+      }
+      .hero-title { font-size: clamp(2.5rem, 12vw, 4.5rem) !important; line-height: 1 !important; }
+      .hero-tag { font-size: 0.7rem !important; letter-spacing: 3px !important; margin-bottom: 10px !important; }
+      .hero-sub { font-size: 0.9rem !important; letter-spacing: 2px !important; }
 
       section { padding: 40px 20px !important; }
       .section-title { font-size: 1.8rem !important; }
@@ -555,10 +569,7 @@
       <li><a href="index.html#proyectos">Proyectos</a></li>
       <li><a href="index.html#servicios">Servicios</a></li>
       <li><a href="index.html#proceso">El Proceso</a></li>
-      <li><a href="curriculum.html">Currículum</a></li>
-      <li><a href="woldi.html">WOLDI</a></li>
-      <li><a href="lluviaconsol.html">LLUVIA CON SOL</a></li>
-      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
+      <li><a href="curriculum.html">Currículum</a></li>      <li><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
     <button class="mtog" id="mtog">
       <span></span><span></span><span></span>
@@ -687,6 +698,18 @@
     </div>
   </section>
 
+  <section class="reveal" style="padding: 120px 24px; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@LLUEVE.CON.SOL</h2>
+      <a href="https://www.instagram.com/llueve.con.sol/" target="_blank" rel="noopener"
+         style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
+         onmouseover="this.style.background='var(--rb)'; this.style.color='#fff';"
+         onmouseout="this.style.background='transparent'; this.style.color='var(--rb)';">
+        VER INSTAGRAM →
+      </a>
+    </div>
+  </section>
+
   <div style="height: 80px;"></div>
 
   <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
@@ -716,8 +739,10 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('vs', 'in');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0 });
     document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
+    // Fallback: forzar visibilidad si el observer no dispara
+    setTimeout(() => document.querySelectorAll('.rv, .reveal').forEach(el => el.classList.add('vs', 'in')), 1200);
 
     // MOBILE MENU
     const movl = document.getElementById('movl');

@@ -28,6 +28,10 @@
       /* Zetta White */
       --manblue: #00D2FF;
       /* Man Blue FC */
+      --woldi: #E8A838;
+      /* Woldi Gold */
+      --lluvia: #F59E0B;
+      /* Lluvia con Sol Amber */
       --b: #080808;
       --b2: #0f0f0f;
       --w: #F0F0F0;
@@ -1101,10 +1105,6 @@ p,
       margin: 0;
     }
 
-    #proyectos-carousel .pg>a:last-child {
-      grid-column: 1/-1;
-    }
-
     .pg {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1390,6 +1390,51 @@ p,
       inset: 0;
       background: rgba(0, 0, 0, 0.25);
       z-index: 0;
+    }
+
+    /* WOLDI */
+    .cwoldi .pt,
+    .cwoldi .pb {
+      color: var(--woldi);
+    }
+
+    .cwoldi::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
+    /* LLUVIA CON SOL */
+    .clluvia .pt,
+    .clluvia .pb {
+      color: var(--lluvia);
+    }
+
+    .clluvia::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
+    /* CATEGORY SUBTITLES IN PROJECT GRID */
+    .pg-category {
+      grid-column: 1 / -1;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      padding: 30px 0 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 4px;
+    }
+
+    .pg-category:first-child {
+      padding-top: 0;
     }
 
     .pc.square-card {
@@ -4494,16 +4539,18 @@ adding: 30px 24px !important; }
     </div>
 
     <div class="pg">
-      <!-- Agency Luxury -->
-      <a href="agency.html" class="pc tilt-card reveal">
+      <!-- ═══ BRANDING / IDENTIDAD DE MARCA ═══ -->
+      <div class="pg-category">— BRANDING / IDENTIDAD DE MARCA</div>
+
+      <!-- WOLDI (NEW) -->
+      <a href="woldi.html" class="pc tilt-card reveal cwoldi">
         <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp"
-            alt="Agency Luxury">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp" alt="WOLDI">
         </div>
         <div class="po">
           <div class="pt">Proyecto</div>
-          <div class="pn">Agency Luxury</div>
-          <div class="pd">Ads, edición de video y contenido orientado a performance.</div>
+          <div class="pn">WOLDI</div>
+          <div class="pd">Identidad de marca completa, naming y sistema visual para gastronomía.</div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4520,6 +4567,66 @@ adding: 30px 24px !important; }
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
+
+      <!-- Opero -->
+      <a href="opero.html" class="pc tilt-card reveal co">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-OPERO.webp" alt="Opero">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Opero</div>
+          <div class="pd">Branding estratégico y manual de marca profesional.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ═══ EDICIÓN DE VIDEOS ═══ -->
+      <div class="pg-category">— EDICIÓN DE VIDEOS</div>
+
+      <!-- Lluvia con Sol (NEW) -->
+      <a href="lluviaconsol.html" class="pc tilt-card reveal clluvia">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp" alt="Lluvia con Sol">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Lluvia con Sol</div>
+          <div class="pd">Edición de video y diseño de contenido para agencia de marketing.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- Agency Luxury -->
+      <a href="agency.html" class="pc tilt-card reveal">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp"
+            alt="Agency Luxury">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Agency Luxury</div>
+          <div class="pd">Ads, edición de video y contenido orientado a performance.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- Home Improvement Power -->
+      <a href="home.html" class="pc tilt-card reveal">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-HOME.webp"
+            alt="Home Improvement">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Home Improvement</div>
+          <div class="pd">Ads y contenido estratégico para el mercado de EE.UU. con IA.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ═══ MANEJO DE CUENTAS / REDES SOCIALES ═══ -->
+      <div class="pg-category">— MANEJO DE CUENTAS / REDES SOCIALES</div>
 
       <!-- Man Blue FC -->
       <a href="manblue.html" class="pc tilt-card reveal cmb">
@@ -4562,18 +4669,8 @@ adding: 30px 24px !important; }
         </div>
       </a>
 
-      <!-- Opero -->
-      <a href="opero.html" class="pc tilt-card reveal co">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-OPERO.webp" alt="Opero">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Opero</div>
-          <div class="pd">Branding estratégico y manual de marca profesional.</div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
+      <!-- ═══ INDUMENTARIA ═══ -->
+      <div class="pg-category">— INDUMENTARIA</div>
 
       <!-- MF Sports -->
       <a href="mfsports.html" class="pc tilt-card reveal">
@@ -4584,20 +4681,6 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">MF Sports</div>
           <div class="pd">Diseño de indumentaria deportiva y presentaciones profesionales.</div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-
-      <!-- Home Improvement -->
-      <a href="home.html" class="pc tilt-card reveal">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-HOME.webp"
-            alt="Home Improvement">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Home Improvement</div>
-          <div class="pd">Ads y contenido estratégico para el mercado de EE.UU. con IA.</div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
