@@ -168,24 +168,40 @@
 
     /* MOBILE OVERLAY */
     .movl {
-      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(8,8,8,.97);
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(20px) saturate(180%);
       z-index: 5500;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 32px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all .5s cubic-bezier(0.16,1,0.3,1);
     }
-    .movl.active { display: flex; }
+    .movl::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px; height: 260px;
+      background: var(--rb);
+      filter: blur(140px);
+      opacity: 0.12;
+      z-index: -1;
+    }
+    .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
     .movl a {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
+      font-size: 2.4rem;
       letter-spacing: 4px;
       color: var(--w);
       text-decoration: none;
-      transition: color .2s;
+      transition: color .3s;
     }
     .movl a:hover { color: var(--rb); }
 
@@ -194,11 +210,10 @@
       background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp');
       background-size: cover;
       background-position: center;
-      height: 100vh;
-      min-height: 540px;
+      height: 420px;
       display: flex;
       align-items: flex-end;
-      padding: 80px 64px;
+      padding: 60px 64px;
       position: relative;
     }
 
@@ -403,7 +418,7 @@
       aspect-ratio: 9 / 16;
       object-fit: cover;
       border-radius: 12px;
-      border: 1px solid rgba(56,189,248,0.18);
+      border: 1px solid rgba(var(--rb-rgb), 0.22);
       background: #0d0d0d;
       display: block;
     }
@@ -680,22 +695,17 @@
   </footer>
 
   <script>
-    // VIDEO OBSERVER
+    // VIDEO OBSERVER — lazy load only, sin autoplay
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const v = entry.target;
         if (entry.isIntersecting) {
-          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
-          v.play().catch(() => {});
-        } else {
-          v.pause();
+          if (v.getAttribute('preload') === 'none') { v.preload = 'auto'; v.load(); }
         }
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('video').forEach(v => {
-      v.setAttribute('autoplay', '');
       v.setAttribute('muted', '');
-      v.setAttribute('loop', '');
       v.setAttribute('playsinline', '');
       v.setAttribute('preload', 'none');
       videoObserver.observe(v);
@@ -766,15 +776,4 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
           p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = Math.random() * 0.5 + 0.5; }
-          const alpha = Math.max(0, p.op * p.life);
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(249, 115, 22, ${alpha.toFixed(3)})`; ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-  </script>
-</body>
-</html>
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.ra

@@ -168,24 +168,40 @@
 
     /* MOBILE OVERLAY */
     .movl {
-      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(8,8,8,.97);
+      background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(20px) saturate(180%);
       z-index: 5500;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 32px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all .5s cubic-bezier(0.16,1,0.3,1);
     }
-    .movl.active { display: flex; }
+    .movl::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px; height: 260px;
+      background: var(--rb);
+      filter: blur(140px);
+      opacity: 0.12;
+      z-index: -1;
+    }
+    .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
     .movl a {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
+      font-size: 2.4rem;
       letter-spacing: 4px;
       color: var(--w);
       text-decoration: none;
-      transition: color .2s;
+      transition: color .3s;
     }
     .movl a:hover { color: var(--rb); }
 
@@ -194,11 +210,10 @@
       background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp');
       background-size: cover;
       background-position: center;
-      height: 100vh;
-      min-height: 540px;
+      height: 420px;
       display: flex;
       align-items: flex-end;
-      padding: 80px 64px;
+      padding: 60px 64px;
       position: relative;
     }
 
@@ -251,21 +266,19 @@
 
     /* MARQUEE */
     .mw {
+      background: var(--rb);
+      padding: 22px 0;
       overflow: hidden;
-      background: rgba(var(--rb-rgb), 0.04);
-      border-top: 1px solid rgba(var(--rb-rgb), 0.15);
-      border-bottom: 1px solid rgba(var(--rb-rgb), 0.15);
-      padding: 12px 0;
+      white-space: nowrap;
       position: relative;
-      z-index: 2;
+      z-index: 10;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
     }
 
     .mt {
-      display: flex;
-      gap: 0;
-      white-space: nowrap;
-      animation: mq 12s linear infinite;
-      width: max-content;
+      display: inline-flex;
+      animation: mq 20s linear infinite;
     }
 
     @keyframes mq {
@@ -274,15 +287,18 @@
     }
 
     .mi {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .75rem;
-      letter-spacing: 5px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      padding: 0 32px;
       text-transform: uppercase;
-      color: var(--rb);
-      padding: 0 28px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      opacity: .92;
     }
 
-    .md { color: var(--rb); opacity: .6; }
+    .md { color: rgba(255,255,255,0.4); margin: 0 10px; }
 
     /* SECTIONS */
     section {
@@ -296,26 +312,35 @@
     .section-subtitle {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       text-transform: uppercase;
       color: var(--rb);
-      margin-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-subtitle::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--rb);
+      flex-shrink: 0;
     }
 
     .section-title {
-      font-family: 'Barlow', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: normal;
+      line-height: 1;
+      margin-bottom: 30px;
       color: var(--w);
-      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--g);
+      font-style: normal;
+      color: var(--rb);
     }
 
     .section-desc {
@@ -740,22 +765,17 @@
   </footer>
 
   <script>
-    // VIDEO OBSERVER
+    // VIDEO OBSERVER — lazy load only, sin autoplay
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const v = entry.target;
         if (entry.isIntersecting) {
-          if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
-          v.play().catch(() => {});
-        } else {
-          v.pause();
+          if (v.getAttribute('preload') === 'none') { v.preload = 'auto'; v.load(); }
         }
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('video').forEach(v => {
-      v.setAttribute('autoplay', '');
       v.setAttribute('muted', '');
-      v.setAttribute('loop', '');
       v.setAttribute('playsinline', '');
       v.setAttribute('preload', 'none');
       videoObserver.observe(v);
@@ -826,20 +846,4 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
           p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
-          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; p.life = Math.random() * 0.5 + 0.5; }
-          const alpha = Math.max(0, p.op * p.life);
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(232, 184, 75, ${alpha.toFixed(3)})`; ctx.fill();
-        });
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    // PDF carga inmediata
-    document.querySelectorAll('iframe[data-src]').forEach(function(f) {
-      f.src = f.dataset.src; delete f.dataset.src;
-    });
-  </script>
-</body>
-</html>
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height + 10; p.
