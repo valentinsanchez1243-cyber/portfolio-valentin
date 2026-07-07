@@ -5486,11 +5486,11 @@ adding: 30px 24px !important; }
       function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
       resize(); window.addEventListener('resize', resize);
       const ctx = canvas.getContext('2d');
-      const particles = Array.from({ length: 80 }, () => ({
+      const particles = Array.from({ length: 200 }, () => ({
         x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
         vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.4 + 0.1),
-        r: Math.random() * 1.5,
-        op: Math.random() * 0.4 + 0.2
+        r: Math.random() * 2.5 + 0.8,
+        op: Math.random()*0.55+0.3
       }));
       function animateParticles() {
         const nw = window.innerWidth, nh = window.innerHeight;

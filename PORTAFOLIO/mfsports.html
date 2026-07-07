@@ -399,10 +399,10 @@
       window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
       canvas.width = window.innerWidth; canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d');
-      const particles = Array.from({ length: 120 }, () => ({
+      const particles = Array.from({ length: 220 }, () => ({
         x: Math.random() * canvas.width, y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3, vy: -(Math.random() * 0.5 + 0.1),
-        r: Math.random() * 2 + 0.5, op: Math.random() * 0.4 + 0.2, life: Math.random()
+        r: Math.random()*3.5+1, op: Math.random()*0.55+0.3, life: Math.random()
       }));
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
