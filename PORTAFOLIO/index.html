@@ -3559,7 +3559,8 @@ adding: 30px 24px !important; }
       }
 
       /* SECCIONES Y GRIDS */
-      section { padding: 60px 20px !important; }
+      section { padding: 50px 18px !important; }
+      #proyectos-carousel { padding: 50px 0 70px !important; }
       .st { font-size: 2.2rem !important; margin-bottom: 30px !important; text-align: center !important; }
 
       /* ===== EL PROCESO (Fix: Desborde y Columna) ===== */
@@ -3610,10 +3611,50 @@ adding: 30px 24px !important; }
       }
 
       /* OTROS GRIDS Y SECCIONES */
-      .sb, .about, #sobre, .eg, .cg, .pg {
+      .sb, .about, #sobre, .eg, .cg {
         display: block !important;
         width: 100% !important;
       }
+
+      /* PROYECTO CARDS — 2 columnas compactas en mobile */
+      .pg {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 0 14px !important;
+      }
+      .pg-category {
+        grid-column: 1 / -1 !important;
+        font-size: 0.85rem !important;
+        padding: 16px 0 2px !important;
+        letter-spacing: 2px !important;
+        margin-top: 4px !important;
+      }
+      .pc {
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: 3 / 4 !important;
+        border-radius: 14px !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+      }
+      .pcb {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .pcb img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+      .po {
+        padding: 10px 12px !important;
+      }
+      .pt { font-size: 0.5rem !important; letter-spacing: 2px !important; margin-bottom: 2px !important; }
+      .pn { font-size: 0.9rem !important; line-height: 1.1 !important; }
+      .pd, .pb { display: none !important; }
+      #proyectos-carousel { padding: 48px 0 64px !important; }
 
       .si {
         border-right: none !important;
@@ -3636,6 +3677,65 @@ adding: 30px 24px !important; }
         gap: 15px !important;
       }
       .skill-bar { flex: 1 !important; }
+
+
+      /* ===== SERVICIOS MOBILE ===== */
+      #servicios { padding: 50px 18px !important; }
+      #servicios .sl { font-size: 0.7rem !important; margin-bottom: 8px !important; }
+      #servicios .st { font-size: 2.2rem !important; margin-bottom: 28px !important; }
+
+      .svi {
+        grid-template-columns: 44px 1fr !important;
+        gap: 14px !important;
+        padding: 18px 0 !important;
+        align-items: flex-start !important;
+      }
+      /* Ocultar columna de tags en mobile */
+      .svtg { display: none !important; }
+
+      .svnum {
+        font-size: 2rem !important;
+        line-height: 1 !important;
+        padding-top: 2px !important;
+      }
+      .svn {
+        font-size: 1.05rem !important;
+        letter-spacing: 0px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 5px !important;
+      }
+      .svd {
+        font-size: 0.82rem !important;
+        line-height: 1.55 !important;
+        max-width: 100% !important;
+        margin-top: 4px !important;
+      }
+      .svbdg { display: none !important; }
+
+      /* ===== PROCESO MOBILE ===== */
+      #proceso { padding: 50px 18px !important; }
+      #proceso .sl { font-size: 0.7rem !important; }
+      #proceso .st { font-size: 2.2rem !important; }
+      .prg {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+      }
+      .prs {
+        padding: 18px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+        flex-direction: row !important;
+        display: flex !important;
+        gap: 16px !important;
+      }
+      .prn {
+        font-size: 2rem !important;
+        min-width: 44px !important;
+        margin: 0 !important;
+      }
+      .prt { font-size: 1rem !important; }
+      .prd { font-size: 0.82rem !important; line-height: 1.55 !important; }
 
       /* FEED / MARQUEE FIXES */
       .feed-grid { grid-template-columns: repeat(3, 1fr) !important; }
