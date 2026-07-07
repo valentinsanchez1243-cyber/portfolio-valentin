@@ -27,6 +27,9 @@
       --zetta: #FFFFFF;
       /* Zetta White */
       --manblue: #00D2FF;
+      --woldi: #F59E0B;
+      --opero: #8B5CF6;
+      --llueve: #F97316;
       /* Man Blue FC */
       --b: #080808;
       --b2: #0f0f0f;
@@ -1249,11 +1252,7 @@ p,
       background-position: center;
     }
 
-    .ck .pt {
-      color: var(--kord);
-    }
-
-    .ck .pb {
+    .ck .pt, .ck .pn, .ck .pb {
       color: var(--kord);
     }
 
@@ -1265,28 +1264,23 @@ p,
       z-index: 0;
     }
 
-    .ca .pt,
-    .ca .pb {
+    .ca .pt, .ca .pn, .ca .pb {
       color: var(--agency);
     }
 
-    .ce .pt,
-    .ce .pb {
+    .ce .pt, .ce .pn, .ce .pb {
       color: var(--energia);
     }
 
-    .cm .pt,
-    .cm .pb {
+    .cm .pt, .cm .pn, .cm .pb {
       color: var(--mfsports);
     }
 
-    .cn2 .pt,
-    .cn2 .pb {
+    .cn2 .pt, .cn2 .pn, .cn2 .pb {
       color: var(--natan);
     }
 
-    .ch .pt,
-    .ch .pb {
+    .ch .pt, .ch .pn, .ch .pb {
       color: var(--home);
     }
 
@@ -1295,8 +1289,7 @@ p,
       color: var(--zetta);
     }
 
-    .cmb .pt,
-    .cmb .pb {
+    .cmb .pt, .cmb .pn, .cmb .pb {
       color: var(--manblue);
     }
 
@@ -1391,6 +1384,40 @@ p,
       background: rgba(0, 0, 0, 0.25);
       z-index: 0;
     }
+
+
+    /* WOLDI - amber */
+    .cw .pt, .cw .pn, .cw .pb { color: var(--woldi); }
+    .cw:hover { border-color: rgba(245,158,11,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.15) !important; }
+
+    /* OPERO - purple */
+    .co .pt, .co .pn, .co .pb { color: var(--opero); }
+    .co:hover { border-color: rgba(139,92,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.15) !important; }
+
+    /* LLUEVE CON SOL - orange */
+    .cl .pt, .cl .pn, .cl .pb { color: var(--llueve); }
+    .cl:hover { border-color: rgba(249,115,22,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.15) !important; }
+
+    /* KORD3 hover */
+    .ck:hover { border-color: rgba(139,92,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.15) !important; }
+
+    /* AGENCY hover */
+    .ca:hover { border-color: rgba(34,197,94,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(34,197,94,0.15) !important; }
+
+    /* ENERGIA hover */
+    .ce:hover { border-color: rgba(255,215,0,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,215,0,0.15) !important; }
+
+    /* MFSPORTS hover */
+    .cm:hover { border-color: rgba(250,128,114,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(250,128,114,0.15) !important; }
+
+    /* NATAN hover */
+    .cn2:hover { border-color: rgba(59,130,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.15) !important; }
+
+    /* HOME hover */
+    .ch:hover { border-color: rgba(14,165,233,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(14,165,233,0.15) !important; }
+
+    /* MAN BLUE hover */
+    .cmb:hover { border-color: rgba(0,210,255,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,210,255,0.15) !important; }
 
     .pc.square-card {
       height: auto !important;
@@ -4514,7 +4541,7 @@ adding: 30px 24px !important; }
       <div class="pg-category">— BRANDING / IDENTIDAD DE MARCA</div>
 
       <!-- WOLDI -->
-      <a href="woldi.html" class="pc tilt-card reveal">
+      <a href="woldi.html" class="pc tilt-card reveal cw">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp" alt="WOLDI">
         </div>
@@ -4527,7 +4554,7 @@ adding: 30px 24px !important; }
       </a>
 
       <!-- KORD3 -->
-      <a href="kord3.html" class="pc tilt-card reveal">
+      <a href="kord3.html" class="pc tilt-card reveal ck">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-KORD3.webp" alt="KORD3">
         </div>
@@ -4556,7 +4583,7 @@ adding: 30px 24px !important; }
       <div class="pg-category">— EDICIÓN DE VIDEOS</div>
 
       <!-- LLUEVE CON SOL -->
-      <a href="lluviaconsol.html" class="pc tilt-card reveal">
+      <a href="lluviaconsol.html" class="pc tilt-card reveal cl">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp" alt="Llueve con Sol">
         </div>
@@ -4569,7 +4596,7 @@ adding: 30px 24px !important; }
       </a>
 
       <!-- Agency Luxury -->
-      <a href="agency.html" class="pc tilt-card reveal">
+      <a href="agency.html" class="pc tilt-card reveal ca">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp" alt="Agency Luxury">
         </div>
@@ -4582,7 +4609,7 @@ adding: 30px 24px !important; }
       </a>
 
       <!-- Home Improvement -->
-      <a href="home.html" class="pc tilt-card reveal">
+      <a href="home.html" class="pc tilt-card reveal ch">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-HOME.webp" alt="Home Improvement">
         </div>
@@ -4611,7 +4638,7 @@ adding: 30px 24px !important; }
       </a>
 
       <!-- Energía Fitness -->
-      <a href="energia.html" class="pc tilt-card reveal">
+      <a href="energia.html" class="pc tilt-card reveal ce">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-ENERGIA.webp" alt="Energía Fitness">
         </div>
@@ -4624,7 +4651,7 @@ adding: 30px 24px !important; }
       </a>
 
       <!-- Natan Barber -->
-      <a href="natan.html" class="pc tilt-card reveal">
+      <a href="natan.html" class="pc tilt-card reveal cn2">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-NATAN.webp" alt="Natan Barber">
         </div>
@@ -4640,7 +4667,7 @@ adding: 30px 24px !important; }
       <div class="pg-category">— INDUMENTARIA</div>
 
       <!-- MF Sports -->
-      <a href="mfsports.html" class="pc tilt-card reveal">
+      <a href="mfsports.html" class="pc tilt-card reveal cm">
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-MFSPORTS.webp" alt="MF Sports">
         </div>
