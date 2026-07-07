@@ -1236,7 +1236,13 @@
       .mq-track { animation-duration: 30s !important; }
     }
 
-    @media (max-width: 480px) {
+    /* Desactivar animación flotante de banner en mobile */
+      .hero-banner { animation: none !important; }
+      /* Párrafos justificados en mobile */
+      p { text-align: justify !important; }
+      .section-desc { text-align: justify !important; }
+
+      @media (max-width: 480px) {
       .proj-pdf-frame,
       iframe[title*="KORD3"],
       iframe[title*="Manual"] { height: 280px !important; }

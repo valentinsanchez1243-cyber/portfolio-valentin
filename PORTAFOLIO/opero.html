@@ -166,9 +166,28 @@
       .pdf-mobile { display: block !important; }
 
       footer { padding: 30px 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+
+      .section { padding: 40px 18px !important; }
+      .section-title { font-size: clamp(1.8rem, 9vw, 2.8rem) !important; }
+      .section-desc { font-size: 0.92rem !important; line-height: 1.7 !important; }
+      .hero-banner { height: 260px !important; }
+      .hero-title { font-size: clamp(2.2rem, 11vw, 3.5rem) !important; }
+      .hero-tag { font-size: 0.6rem !important; letter-spacing: 3px !important; }
+      .hero-sub { font-size: 0.7rem !important; }
+      .tag-list { flex-wrap: wrap !important; gap: 6px !important; }
+      .tag-list span { font-size: 0.65rem !important; padding: 4px 10px !important; }
+      .pj-index-list { flex-direction: column !important; gap: 6px !important; }
+      .pdf-showcase { margin: 24px 0 !important; }
+      footer { padding: 24px 18px !important; flex-direction: column !important; gap: 6px !important; text-align: center !important; font-size: 0.8rem !important; }
     }
 
-    @media (max-width: 480px) {
+    /* Desactivar animación flotante de banner en mobile */
+      .hero-banner { animation: none !important; }
+      /* Párrafos justificados en mobile */
+      p { text-align: justify !important; }
+      .section-desc { text-align: justify !important; }
+
+      @media (max-width: 480px) {
       .section-desc { font-size: 0.9rem !important; }
     }
 
@@ -277,12 +296,8 @@
       <!-- Desktop: embedded PDF -->
       <iframe data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero-comprimido.pdf#toolbar=0" class="proj-pdf-frame pdf-desktop" title="Manual de Marca Opero"></iframe>
       <!-- Mobile: open in new tab -->
-      <div class="pdf-mobile" style="display:none; padding: 32px 20px; text-align:center;">
-        <p style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:2px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:20px;">Manual de Marca · OPERO</p>
-        <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero-comprimido.pdf" target="_blank" rel="noopener"
-           style="display:inline-block; padding:14px 36px; border:1px solid var(--rb); color:var(--rb); font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.95rem; letter-spacing:4px; text-decoration:none; border-radius:4px; text-transform:uppercase;">
-          VER MANUAL →
-        </a>
+            <div class="pdf-mobile" style="display:none;">
+        <iframe src="https://docs.google.com/viewer?url=https://valentin-cdn.b-cdn.net/PROYECTOS/OPERO/manual-de-marca-opero-comprimido.pdf&embedded=true" style="width:100%; height:520px; border:none; display:block; background:#111;" title="Manual de Marca Opero Mobile"></iframe>
       </div>
     </div>
   </section>

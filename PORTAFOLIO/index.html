@@ -3552,7 +3552,7 @@ adding: 30px 24px !important; }
       section p, .sbt p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
-        text-align: left !important;
+        text-align: justify !important;
         word-break: normal !important;
         white-space: normal !important;
         letter-spacing: normal !important;
@@ -3743,6 +3743,102 @@ adding: 30px 24px !important; }
       .mf-track, .kord-track { animation-duration: 8s !important; }
     }
 
+      /* ════════════════════════════════════════════════
+         MOBILE FIXES — second pass
+         ════════════════════════════════════════════════ */
+
+      /* Desactivar animación flotante en banners (muy lenta en mobile) */
+      .hero-banner {
+        animation: none !important;
+      }
+
+      /* Menú móvil: fuente más pequeña */
+      .movl {
+        gap: 20px !important;
+      }
+      .movl a {
+        font-size: 1.6rem !important;
+        letter-spacing: 2px !important;
+      }
+
+      /* "Pasá el cursor…": esconder en mobile */
+      .prev-hint {
+        display: none !important;
+      }
+
+      /* ── MI TRABAJO EN ACCIÓN: tabs más compactos ── */
+      .ptab-hd {
+        height: 68px !important;
+      }
+      .ptab-icon {
+        width: 40px !important;
+        height: 68px !important;
+      }
+      .ptab-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      .ptab-idx {
+        font-size: 0.48rem !important;
+        letter-spacing: 1px !important;
+      }
+      .ptab-hd-bar {
+        margin: 0 8px !important;
+        height: 18px !important;
+      }
+      .ptab-name {
+        font-size: 1.1rem !important;
+        letter-spacing: 2px !important;
+      }
+      .ptab-arrow {
+        width: 26px !important;
+        height: 26px !important;
+        margin-right: 12px !important;
+        font-size: 0.7rem !important;
+      }
+      .sec-inner {
+        padding: 6px 14px 22px !important;
+      }
+
+      /* ── PROYECTO CARDS: borde = color del proyecto (siempre, no solo hover) ── */
+      .pc.cw  { border-color: rgba(245,158,11, 0.55) !important; }
+      .pc.ck  { border-color: rgba(139,92,246,  0.55) !important; }
+      .pc.co  { border-color: rgba(139,92,246,  0.55) !important; }
+      .pc.cl  { border-color: rgba(249,115,22,  0.55) !important; }
+      .pc.ca  { border-color: rgba(34,197,94,   0.55) !important; }
+      .pc.ch  { border-color: rgba(14,165,233,  0.55) !important; }
+      .pc.cmb { border-color: rgba(0,210,255,   0.55) !important; }
+      .pc.ce  { border-color: rgba(255,215,0,   0.55) !important; }
+      .pc.cn2 { border-color: rgba(22,72,200,   0.55) !important; }
+      .pc.cm  { border-color: rgba(250,128,114, 0.55) !important; }
+
+      /* ── PROCESO: ocultar línea roja decorativa ── */
+      .prg::after {
+        display: none !important;
+      }
+      /* Círculo de número: más pequeño para layout horizontal */
+      #proceso .prn {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        font-size: 1.2rem !important;
+        flex-shrink: 0 !important;
+      }
+      #proceso .prs {
+        gap: 14px !important;
+        padding: 16px 0 !important;
+      }
+      #proceso .prt {
+        font-size: 0.95rem !important;
+        margin-bottom: 4px !important;
+      }
+      #proceso .prd {
+        font-size: 0.8rem !important;
+      }
+      #proceso .st {
+        font-size: 2.8rem !important;
+      }
+
     @media (max-width: 480px) {
       .hn, .hero-title { font-size: 2.2rem !important; }
       .st { font-size: 1.9rem !important; }
@@ -3777,8 +3873,6 @@ adding: 30px 24px !important; }
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-        <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUEVE CON SOL</a>
 <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
