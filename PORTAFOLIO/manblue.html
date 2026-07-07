@@ -252,6 +252,10 @@
       p { text-align: justify !important; }
       .section-desc { text-align: justify !important; }
 
+      /* Menú móvil: tamaño uniforme */
+      .movl { gap: 20px !important; }
+      .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
+
       @media (max-width: 480px) {
       .grid-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 6px !important; }
       .grid-stories { grid-template-columns: repeat(2, 1fr) !important; gap: 5px !important; }
@@ -274,7 +278,17 @@
       <li><a href="index.html#proceso">El proceso</a></li>
       <li><a href="curriculum.html">Currículum</a></li><li style="margin-left:8px;"><a href="index.html#contacto" class="ncta">Contacto</a></li>
     </ul>
+    <button class="mtog" id="mtog" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
   </nav>
+  <div class="movl" id="movl">
+    <a href="index.html" onclick="toggleMenu()">Inicio</a>
+    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
+    <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+  </div>
 
   <section class="hero-banner">
     <div class="hero-banner-content">
@@ -579,6 +593,15 @@
     }
     loop();
   })();
+  </script>
+  <script>
+    function toggleMenu() {
+      const btn = document.querySelector('.mtog');
+      const menu = document.getElementById('movl');
+      btn.classList.toggle('active');
+      menu.classList.toggle('active');
+      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+    }
   </script>
 </body>
 </html>

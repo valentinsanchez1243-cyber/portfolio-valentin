@@ -783,6 +783,10 @@
       p { text-align: justify !important; }
       .section-desc { text-align: justify !important; }
 
+      /* Menú móvil: tamaño uniforme */
+      .movl { gap: 20px !important; }
+      .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
+
       @media (max-width: 480px) {
       .stories-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .ig-feed { grid-template-columns: 1fr !important; }
@@ -830,13 +834,11 @@
   <div class="movl" id="movl">
     <a href="index.html" onclick="toggleMenu()">Inicio</a>
     <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
-    <a href="index.html#proyectos" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
-    <a href="index.html#proceso" onclick="toggleMenu()">El proceso</a>
+    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
     <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
-        <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
-    <a href="lluviaconsol.html" onclick="toggleMenu()">LLUVIA CON SOL</a>
-<a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
   <!-- HERO BANNER -->
