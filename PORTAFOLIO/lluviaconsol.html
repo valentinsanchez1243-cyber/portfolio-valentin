@@ -77,7 +77,6 @@
       line-height: .9;
       color: var(--w);
     }
-    .hero-title em { font-style: normal; color: var(--rb); }
     .hero-sub {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(13px, 1.8vw, 18px);
@@ -86,41 +85,6 @@
       color: var(--g);
       margin-top: 12px;
     }
-
-    /* Botones del hero */
-    .hero-btns {
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .hero-br {
-      background: var(--rb);
-      color: #fff;
-      padding: 11px 28px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .78rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-    .hero-br:hover { background: rgba(249,115,22,.8); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,.4); }
-    .hero-bo {
-      border: 1px solid rgba(255,255,255,.3);
-      color: var(--w);
-      padding: 11px 28px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .78rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: inline-block;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: border-color .2s, transform .2s;
-    }
-    .hero-bo:hover { border-color: rgba(var(--rb-rgb),.6); color: var(--rb); transform: translateY(-2px); }
 
     @keyframes heroBannerFloat {
       0%, 100% { background-position: center 50%; }
@@ -187,8 +151,6 @@
       .mtog { display: flex !important; }
       .hero-banner { height: 280px !important; padding: 30px 20px !important; background-position: center 40% !important; }
       .hero-title { font-size: clamp(2.5rem, 10vw, 4rem) !important; }
-      .hero-btns { flex-direction: column !important; gap: 10px !important; }
-      .hero-br, .hero-bo { clip-path: none !important; border-radius: 4px !important; padding: 10px 20px !important; width: fit-content !important; }
       .mw { margin-left: 0 !important; width: 100vw !important; }
       .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
       .section { padding: 44px 20px !important; }
@@ -231,13 +193,9 @@
   <div class="hero-banner">
     <div class="hero-banner-content">
       <div class="hero-tag">Trabajo Freelance &middot; Mayo 2026 &mdash; Presente</div>
-      <h1 class="hero-title">LLUEVE <em>CON SOL</em></h1>
+      <h1 class="hero-title">LLUEVE CON SOL</h1>
       <div class="hero-sub">Editor &middot; Dise&#241;ador &middot; Contenido Digital</div>
-      <div class="hero-btns">
-        <a href="#reels" class="hero-br">Ver Reels</a>
-        <a href="https://www.instagram.com/lluveconsol/" target="_blank" rel="noopener" class="hero-bo">Instagram</a>
       </div>
-    </div>
   </div>
 
   <!-- MARQUEE -->
@@ -332,6 +290,20 @@
         <div class="lcs-vid-label">REEL 12/06</div>
       </div>
 
+    </div>
+  </section>
+
+
+  <!-- INSTAGRAM -->
+  <section class="section rv" style="padding: 120px 24px; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">@LLUVECONSOL</h2>
+      <a href="https://www.instagram.com/lluveconsol/" target="_blank" rel="noopener"
+        style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
+        onmouseover="this.style.background='var(--rb)'; this.style.color='#fff'; this.style.boxShadow='0 10px 25px rgba(249,115,22,0.3)'"
+        onmouseout="this.style.background='transparent'; this.style.color='var(--rb)'; this.style.boxShadow='none'">
+        VER INSTAGRAM &#8594;
+      </a>
     </div>
   </section>
 
