@@ -11,7 +11,7 @@
 
   <style>
     :root { --rb: #F97316; --rb-rgb: 249, 115, 22; --b: #080808; --w: #ffffff; --g: #aaaaaa; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--b);
@@ -38,117 +38,67 @@
     .nls a:hover { color: var(--w); border-color: rgba(var(--rb-rgb),0.45); box-shadow: 0 0 15px rgba(var(--rb-rgb),0.3); background: rgba(var(--rb-rgb),0.05); }
     .ncta { background: var(--rb) !important; color: #000 !important; border: none !important; border-radius: 4px !important; }
 
-    /* ── HERO (home style) ──────────────────────── */
-    #hero-lcs {
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-      /* Dark uniform overlay + image — igual que home */
-      background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Vignette radial — home .hg::after */
-    #hero-lcs::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 0%, rgba(8,8,8,.85) 100%);
-      z-index: 1;
-    }
-
-    /* Orange glow center — home .hgl adaptado */
-    #hero-lcs::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 45% 38% at 50% 50%, rgba(249,115,22,.13) 0%, transparent 70%);
-      z-index: 1;
-    }
-
-    /* Bloque central — label + nombre + tagline */
-    .lcs-center {
-      position: absolute;
-      left: 0;
+    /* HERO BANNER — igual que home improvement */
+    .hero-banner {
       width: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      text-align: center;
-      z-index: 10;
+      height: 420px;
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp');
+      background-size: cover;
+      background-position: center 50%;
+      position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      padding: 0 24px;
+      align-items: flex-end;
+      padding: 60px 64px;
+      animation: heroBannerFloat 10s ease-in-out infinite;
+      box-shadow: 0 0 60px rgba(var(--rb-rgb), 0.2), inset 0 0 0 2px rgba(var(--rb-rgb), 0.1);
     }
-
-    /* Label chico — home .hey */
-    .lcs-hey {
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,.95) 0%, rgba(8,8,8,.45) 55%, rgba(8,8,8,.18) 100%);
+    }
+    .hero-banner-content { position: relative; z-index: 1; }
+    .hero-tag {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: .8rem;
-      letter-spacing: 7px;
-      text-transform: uppercase;
-      color: var(--rb);
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fu .9s .1s forwards;
-    }
-
-    /* Nombre grande — home .hn */
-    .lcs-hn {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(68px, 13vw, 185px);
-      line-height: .88;
-      letter-spacing: -3px;
-      color: var(--w);
-      opacity: 0;
-      animation: fuUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-    }
-    .lcs-hn .acc { color: var(--rb); }
-
-    /* Tagline — home .hro */
-    .lcs-hro {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(14px, 2vw, 22px);
+      font-size: .7rem;
       letter-spacing: 6px;
       text-transform: uppercase;
-      color: var(--g);
-      margin-top: 18px;
-      opacity: 0;
-      animation: fu .9s .45s forwards;
-    }
-    .lcs-hro span { color: var(--w); }
-
-    /* Botones — en la parte inferior */
-    .lcs-hc {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      bottom: 56px;
+      color: var(--rb);
+      margin-bottom: 12px;
       display: flex;
-      justify-content: center;
-      z-index: 10;
+      align-items: center;
+      gap: 10px;
     }
-    .lcs-hbt {
-      display: inline-flex;
-      gap: 12px;
-      opacity: 0;
-      animation: fu .9s .7s forwards;
+    .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 10vw, 130px);
+      line-height: .9;
+      color: var(--w);
+    }
+    .hero-title em { font-style: normal; color: var(--rb); }
+    .hero-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 1.8vw, 18px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-top: 12px;
     }
 
-    /* Botón relleno paralelo — home .br */
-    .lcs-br {
+    /* Botones del hero */
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-br {
       background: var(--rb);
       color: #fff;
-      padding: 13px 32px;
+      padding: 11px 28px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: .82rem;
+      font-size: .78rem;
       letter-spacing: 4px;
       text-transform: uppercase;
       text-decoration: none;
@@ -156,15 +106,13 @@
       clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
       transition: background .2s, transform .2s, box-shadow .2s;
     }
-    .lcs-br:hover { background: rgba(249,115,22,.8); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,.45); }
-
-    /* Botón outline paralelo — home .bo */
-    .lcs-bo {
-      border: 1px solid rgba(255,255,255,.25);
+    .hero-br:hover { background: rgba(249,115,22,.8); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,.4); }
+    .hero-bo {
+      border: 1px solid rgba(255,255,255,.3);
       color: var(--w);
-      padding: 13px 32px;
+      padding: 11px 28px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: .82rem;
+      font-size: .78rem;
       letter-spacing: 4px;
       text-transform: uppercase;
       text-decoration: none;
@@ -172,16 +120,11 @@
       clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
       transition: border-color .2s, transform .2s;
     }
-    .lcs-bo:hover { border-color: rgba(255,255,255,.6); transform: translateY(-2px); }
+    .hero-bo:hover { border-color: rgba(var(--rb-rgb),.6); color: var(--rb); transform: translateY(-2px); }
 
-    /* Animaciones */
-    @keyframes fu {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fuUp {
-      from { opacity: 0; transform: translateY(40px) skewX(-1deg); }
-      to   { opacity: 1; transform: translateY(0) skewX(0); }
+    @keyframes heroBannerFloat {
+      0%, 100% { background-position: center 50%; }
+      50%       { background-position: center 53%; }
     }
 
     /* MARQUEE */
@@ -214,31 +157,11 @@
     .pj-index-list a { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
     .pj-index-list a:hover { color: var(--rb); }
 
-    /* REELS GRID — 3 col fijas */
-    .lcs-reels-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 32px;
-    }
+    /* REELS GRID — 3 col */
+    .lcs-reels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
     .lcs-vid-item { display: flex; flex-direction: column; gap: 10px; }
-    .lcs-reels-grid video {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid rgba(var(--rb-rgb), 0.2);
-      background: #111;
-      display: block;
-    }
-    .lcs-vid-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .78rem;
-      letter-spacing: 3px;
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      text-transform: uppercase;
-    }
+    .lcs-reels-grid video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 10px; border: 1px solid rgba(var(--rb-rgb),0.2); background: #111; display: block; }
+    .lcs-vid-label { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; letter-spacing: 3px; color: rgba(255,255,255,.5); text-align: center; text-transform: uppercase; }
 
     /* MOBILE MENU */
     .mtog { display: none; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); z-index: 6000; cursor: pointer; position: fixed; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 8px; align-items: center; justify-content: center; }
@@ -254,11 +177,6 @@
     .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
     .movl a:hover { color: var(--rb); }
 
-    /* z-index hierarchy */
-    #hero-lcs, .mw, .section { position: relative; z-index: 2; }
-    nav { z-index: 5000 !important; }
-    #cursor, .trail { z-index: 99999 !important; }
-
     /* MOBILE */
     @media (max-width: 768px) {
       html, body { overflow-x: hidden !important; width: 100% !important; }
@@ -267,36 +185,18 @@
       nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
       .nls { display: none !important; }
       .mtog { display: flex !important; }
-
-      #hero-lcs { height: 100vh !important; }
-      .lcs-hn { font-size: clamp(3rem, 15vw, 6rem) !important; letter-spacing: -1px !important; }
-      .lcs-hey { font-size: .72rem !important; letter-spacing: 4px !important; }
-      .lcs-hro { font-size: 0.75rem !important; letter-spacing: 3px !important; }
-      .lcs-hbt { flex-direction: column !important; align-items: center !important; gap: 10px !important; }
-      .lcs-br, .lcs-bo {
-        width: 220px !important; text-align: center !important;
-        clip-path: none !important; border-radius: 4px !important;
-        padding: 12px 20px !important; display: flex !important;
-        align-items: center !important; justify-content: center !important;
-      }
-
+      .hero-banner { height: 280px !important; padding: 30px 20px !important; background-position: center 40% !important; }
+      .hero-title { font-size: clamp(2.5rem, 10vw, 4rem) !important; }
+      .hero-btns { flex-direction: column !important; gap: 10px !important; }
+      .hero-br, .hero-bo { clip-path: none !important; border-radius: 4px !important; padding: 10px 20px !important; width: fit-content !important; }
       .mw { margin-left: 0 !important; width: 100vw !important; }
       .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
-
       .section { padding: 44px 20px !important; }
       .section-desc { font-size: 0.95rem !important; }
-      .section-title { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
-      .tag-list { gap: 8px !important; }
-      .pj-index { margin-top: 32px !important; }
-      .pj-index-list { gap: 8px 20px !important; }
-
       .lcs-reels-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-
       footer { padding: 30px 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
     }
-
     @media (max-width: 480px) {
-      .section-desc { font-size: 0.9rem !important; }
       .lcs-reels-grid { grid-template-columns: 1fr !important; }
     }
   </style>
@@ -324,29 +224,21 @@
     <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
     <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="curriculum.html" onclick="toggleMenu()">Curr&#237;culum</a>
-    <a href="woldi.html" onclick="toggleMenu()">WOLDI</a>
     <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--rb)">Contacto</a>
   </div>
 
-  <!-- HERO v2 -->
-  <section id="hero-lcs">
-
-    <!-- Bloque centrado: label + nombre + tagline -->
-    <div class="lcs-center">
-      <div class="lcs-hey">Trabajo Freelance &middot; Mayo 2026 &mdash; Presente</div>
-      <h1 class="lcs-hn">LLUEVE<br><span class="acc">CON SOL</span></h1>
-      <div class="lcs-hro"><span>Editor</span> &middot; <span>Dise&#241;ador</span> &middot; <span>Contenido Digital</span></div>
-    </div>
-
-    <!-- Botones en la parte inferior -->
-    <div class="lcs-hc">
-      <div class="lcs-hbt">
-        <a href="#reels" class="lcs-br">Ver Reels</a>
-        <a href="https://www.instagram.com/lluveconsol/" target="_blank" rel="noopener" class="lcs-bo">Instagram</a>
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <div class="hero-banner-content">
+      <div class="hero-tag">Trabajo Freelance &middot; Mayo 2026 &mdash; Presente</div>
+      <h1 class="hero-title">LLUEVE <em>CON SOL</em></h1>
+      <div class="hero-sub">Editor &middot; Dise&#241;ador &middot; Contenido Digital</div>
+      <div class="hero-btns">
+        <a href="#reels" class="hero-br">Ver Reels</a>
+        <a href="https://www.instagram.com/lluveconsol/" target="_blank" rel="noopener" class="hero-bo">Instagram</a>
       </div>
     </div>
-
-  </section>
+  </div>
 
   <!-- MARQUEE -->
   <div class="mw">
@@ -449,7 +341,6 @@
   </footer>
 
   <script>
-    // Video Observer
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -459,36 +350,29 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('video').forEach(v => {
-      v.setAttribute('muted', '');
-      v.setAttribute('playsinline', '');
-      v.setAttribute('preload', 'none');
+      v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('preload','none');
       videoObserver.observe(v);
     });
 
-    // Reveal Observer
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('vs');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('vs'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
 
-    // Cursor
     const cursor = document.getElementById('cursor');
     const trails = [];
     for (let i = 0; i < 6; i++) {
-      const t = document.createElement('div'); t.className = 'trail'; document.body.appendChild(t); trails.push({el:t, x:0, y:0});
+      const t = document.createElement('div'); t.className = 'trail'; document.body.appendChild(t); trails.push({el:t,x:0,y:0});
     }
     let mx = 0, my = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
     function anim() {
-      let px = mx, py = my;
+      let px=mx, py=my;
       trails.forEach(t => { t.x+=(px-t.x)*.3; t.y+=(py-t.y)*.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; });
       requestAnimationFrame(anim);
     }
     anim();
 
-    // Mobile menu
     const mtog = document.getElementById('mtog');
     const movl = document.getElementById('movl');
     if (mtog && movl) {
@@ -497,7 +381,6 @@
     }
   </script>
 
-  <!-- ANTIGRAVITY CURSOR PARTICLES -->
   <script>
   (function(){
     if (window.innerWidth <= 768) return;
@@ -508,32 +391,14 @@
     document.body.appendChild(canvas);
     var ctx = canvas.getContext('2d');
     var W = canvas.width = window.innerWidth, H = canvas.height = window.innerHeight;
-    window.addEventListener('resize', function(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
-    var particles = [], mx = W/2, my = H/2, lastX = mx, lastY = my;
-    var COLORS = ['249,115,22','255,160,80','255,255,255','249,115,22'];
-    function spawnAt(x,y,n){
-      for(var i=0;i<n;i++){
-        var a=Math.random()*Math.PI*2, s=Math.random()*1.4+0.4;
-        particles.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:Math.cos(a)*s*.4,vy:-(Math.random()*1.8+0.6),r:Math.random()*2.2+0.8,op:Math.random()*.55+.3,decay:Math.random()*.012+.008,col:COLORS[Math.floor(Math.random()*COLORS.length)]});
-      }
-    }
+    window.addEventListener('resize', function(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
+    var particles=[], mx=W/2, my=H/2, lastX=mx, lastY=my;
+    var COLORS=['249,115,22','255,160,80','255,255,255','249,115,22'];
+    function spawnAt(x,y,n){ for(var i=0;i<n;i++){ var a=Math.random()*Math.PI*2,s=Math.random()*1.4+0.4; particles.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:Math.cos(a)*s*.4,vy:-(Math.random()*1.8+0.6),r:Math.random()*2.2+0.8,op:Math.random()*.55+.3,decay:Math.random()*.012+.008,col:COLORS[Math.floor(Math.random()*COLORS.length)]}); } }
     var throttle=false;
-    document.addEventListener('mousemove',function(e){
-      mx=e.clientX;my=e.clientY;
-      if(throttle)return;throttle=true;setTimeout(function(){throttle=false;},16);
-      var dx=mx-lastX,dy=my-lastY,dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist>2){spawnAt(mx,my,Math.min(Math.floor(dist/6)+1,4));lastX=mx;lastY=my;}
-    });
+    document.addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY; if(throttle)return;throttle=true;setTimeout(function(){throttle=false;},16); var dx=mx-lastX,dy=my-lastY,dist=Math.sqrt(dx*dx+dy*dy); if(dist>2){spawnAt(mx,my,Math.min(Math.floor(dist/6)+1,4));lastX=mx;lastY=my;} });
     document.addEventListener('click',function(e){spawnAt(e.clientX,e.clientY,14);});
-    function loop(){
-      requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);
-      for(var i=particles.length-1;i>=0;i--){
-        var p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy-=0.02;p.vx*=0.98;p.op-=p.decay;p.r*=0.993;
-        if(p.op<=0||p.r<0.2){particles.splice(i,1);continue;}
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
-      }
-    }
+    function loop(){ requestAnimationFrame(loop);ctx.clearRect(0,0,W,H); for(var i=particles.length-1;i>=0;i--){ var p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy-=0.02;p.vx*=0.98;p.op-=p.decay;p.r*=0.993; if(p.op<=0||p.r<0.2){particles.splice(i,1);continue;} ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill(); } }
     loop();
   })();
   </script>
