@@ -38,45 +38,57 @@
     .nls a:hover { color: var(--w); border-color: rgba(var(--rb-rgb),0.45); box-shadow: 0 0 15px rgba(var(--rb-rgb),0.3); background: rgba(var(--rb-rgb),0.05); }
     .ncta { background: var(--rb) !important; color: #000 !important; border: none !important; border-radius: 4px !important; }
 
-    /* ── HERO (home style adapted) ──────────────────────────── */
+    /* ── HERO (home style) ──────────────────────── */
     #hero-lcs {
       height: 100vh;
       position: relative;
       overflow: hidden;
-      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLUEVE-CON-SOL.webp');
+      /* Dark uniform overlay + image — igual que home */
+      background-image:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLUEVE-CON-SOL.webp');
       background-size: cover;
       background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Vignette radial (like home .hg::after) */
-    .lcs-hg { position: absolute; inset: 0; }
-    .lcs-hg::after {
+    /* Vignette radial — home .hg::after */
+    #hero-lcs::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 0%, rgba(8,8,8,.9) 100%);
-    }
-
-    /* Orange center glow (like home .hgl red) */
-    .lcs-hgl {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 45% 38% at 50% 50%, rgba(249,115,22,.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 0%, rgba(8,8,8,.85) 100%);
       z-index: 1;
     }
 
-    /* Centered title block */
+    /* Orange glow center — home .hgl adaptado */
+    #hero-lcs::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 45% 38% at 50% 50%, rgba(249,115,22,.13) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    /* Bloque central — label + nombre + tagline */
     .lcs-center {
       position: absolute;
       left: 0;
       width: 100%;
       top: 50%;
-      transform: translateY(-58%);
+      transform: translateY(-50%);
       text-align: center;
       z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 0 24px;
     }
 
-    /* Small label (like home .hey) */
+    /* Label chico — home .hey */
     .lcs-hey {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: .8rem;
@@ -84,46 +96,53 @@
       text-transform: uppercase;
       color: var(--rb);
       margin-bottom: 20px;
-      animation: fu .9s .15s both;
+      opacity: 0;
+      animation: fu .9s .1s forwards;
     }
 
-    /* Big name (like home .hn) */
+    /* Nombre grande — home .hn */
     .lcs-hn {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(68px, 13vw, 185px);
       line-height: .88;
       letter-spacing: -3px;
-      animation: nameReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
-      clip-path: inset(0 100% 0 0);
+      color: var(--w);
+      opacity: 0;
+      animation: fuUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
     }
     .lcs-hn .acc { color: var(--rb); }
 
-    /* Tagline (like home .hro) */
+    /* Tagline — home .hro */
     .lcs-hro {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: clamp(14px, 2vw, 22px);
       letter-spacing: 6px;
       text-transform: uppercase;
       color: var(--g);
-      margin-top: 16px;
-      animation: fu .9s .4s both;
+      margin-top: 18px;
+      opacity: 0;
+      animation: fu .9s .45s forwards;
     }
     .lcs-hro span { color: var(--w); }
 
-    /* Bottom buttons (like home .hc + .hbt) */
+    /* Botones — en la parte inferior */
     .lcs-hc {
       position: absolute;
       left: 0;
       width: 100%;
-      bottom: 48px;
+      bottom: 56px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
       z-index: 10;
     }
-    .lcs-hbt { display: inline-flex; gap: 10px; animation: fu .9s .7s both; }
+    .lcs-hbt {
+      display: inline-flex;
+      gap: 12px;
+      opacity: 0;
+      animation: fu .9s .7s forwards;
+    }
 
-    /* Parallelogram fill (like home .br) */
+    /* Botón relleno paralelo — home .br */
     .lcs-br {
       background: var(--rb);
       color: #fff;
@@ -139,9 +158,9 @@
     }
     .lcs-br:hover { background: rgba(249,115,22,.8); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,.45); }
 
-    /* Parallelogram outline (like home .bo) */
+    /* Botón outline paralelo — home .bo */
     .lcs-bo {
-      border: 1px solid rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.25);
       color: var(--w);
       padding: 13px 32px;
       font-family: 'Barlow Condensed', sans-serif;
@@ -151,13 +170,19 @@
       text-decoration: none;
       display: inline-block;
       clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: border-color .2s, color .2s, transform .2s;
+      transition: border-color .2s, transform .2s;
     }
-    .lcs-bo:hover { border-color: rgba(255,255,255,.55); transform: translateY(-2px); }
+    .lcs-bo:hover { border-color: rgba(255,255,255,.6); transform: translateY(-2px); }
 
-    /* Animations */
-    @keyframes fu { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes nameReveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0% 0 0); } }
+    /* Animaciones */
+    @keyframes fu {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fuUp {
+      from { opacity: 0; transform: translateY(40px) skewX(-1deg); }
+      to   { opacity: 1; transform: translateY(0) skewX(0); }
+    }
 
     /* MARQUEE */
     .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
@@ -189,7 +214,7 @@
     .pj-index-list a { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
     .pj-index-list a:hover { color: var(--rb); }
 
-    /* REELS GRID — 3 columnas */
+    /* REELS GRID — 3 col fijas */
     .lcs-reels-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -229,6 +254,11 @@
     .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
     .movl a:hover { color: var(--rb); }
 
+    /* z-index hierarchy */
+    #hero-lcs, .mw, .section { position: relative; z-index: 2; }
+    nav { z-index: 5000 !important; }
+    #cursor, .trail { z-index: 99999 !important; }
+
     /* MOBILE */
     @media (max-width: 768px) {
       html, body { overflow-x: hidden !important; width: 100% !important; }
@@ -239,11 +269,16 @@
       .mtog { display: flex !important; }
 
       #hero-lcs { height: 100vh !important; }
-      .lcs-hn { font-size: clamp(2.8rem, 13vw, 5rem) !important; letter-spacing: -1px !important; }
+      .lcs-hn { font-size: clamp(3rem, 15vw, 6rem) !important; letter-spacing: -1px !important; }
       .lcs-hey { font-size: .72rem !important; letter-spacing: 4px !important; }
-      .lcs-hro { font-size: 0.78rem !important; letter-spacing: 2px !important; }
+      .lcs-hro { font-size: 0.75rem !important; letter-spacing: 3px !important; }
       .lcs-hbt { flex-direction: column !important; align-items: center !important; gap: 10px !important; }
-      .lcs-br, .lcs-bo { width: 220px !important; text-align: center !important; clip-path: none !important; border-radius: 4px !important; padding: 12px 20px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+      .lcs-br, .lcs-bo {
+        width: 220px !important; text-align: center !important;
+        clip-path: none !important; border-radius: 4px !important;
+        padding: 12px 20px !important; display: flex !important;
+        align-items: center !important; justify-content: center !important;
+      }
 
       .mw { margin-left: 0 !important; width: 100vw !important; }
       .mi { font-size: 1.5rem !important; padding: 0 18px !important; }
@@ -295,23 +330,22 @@
 
   <!-- HERO -->
   <section id="hero-lcs">
-    <div class="lcs-hg"></div>
-    <div class="lcs-hgl"></div>
 
-    <!-- T&#237;tulo centrado -->
+    <!-- Bloque centrado: label + nombre + tagline -->
     <div class="lcs-center">
       <div class="lcs-hey">Trabajo Freelance &middot; Mayo 2026 &mdash; Presente</div>
       <h1 class="lcs-hn">LLUEVE<br><span class="acc">CON SOL</span></h1>
       <div class="lcs-hro"><span>Editor</span> &middot; <span>Dise&#241;ador</span> &middot; <span>Contenido Digital</span></div>
     </div>
 
-    <!-- Botones abajo -->
+    <!-- Botones en la parte inferior -->
     <div class="lcs-hc">
       <div class="lcs-hbt">
         <a href="#reels" class="lcs-br">Ver Reels</a>
-        <a href="index.html#contacto" class="lcs-bo">Contactar</a>
+        <a href="https://www.instagram.com/lluveconsol/" target="_blank" rel="noopener" class="lcs-bo">Instagram</a>
       </div>
     </div>
+
   </section>
 
   <!-- MARQUEE -->
@@ -415,7 +449,7 @@
   </footer>
 
   <script>
-    // Video Observer — lazy load
+    // Video Observer
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -449,7 +483,7 @@
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
     function anim() {
       let px = mx, py = my;
-      trails.forEach(t => { t.x += (px-t.x)*.3; t.y += (py-t.y)*.3; t.el.style.left = t.x+'px'; t.el.style.top = t.y+'px'; px = t.x; py = t.y; });
+      trails.forEach(t => { t.x+=(px-t.x)*.3; t.y+=(py-t.y)*.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; });
       requestAnimationFrame(anim);
     }
     anim();
@@ -473,41 +507,31 @@
     canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
     document.body.appendChild(canvas);
     var ctx = canvas.getContext('2d');
-    var W = canvas.width = window.innerWidth;
-    var H = canvas.height = window.innerHeight;
+    var W = canvas.width = window.innerWidth, H = canvas.height = window.innerHeight;
     window.addEventListener('resize', function(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
-    var particles = [];
-    var mx = W/2, my = H/2, lastX = mx, lastY = my;
+    var particles = [], mx = W/2, my = H/2, lastX = mx, lastY = my;
     var COLORS = ['249,115,22','255,160,80','255,255,255','249,115,22'];
-    function spawnAt(x, y, n) {
-      for (var i = 0; i < n; i++) {
-        var angle = Math.random()*Math.PI*2, speed = Math.random()*1.4+0.4;
-        particles.push({
-          x: x+(Math.random()-.5)*6, y: y+(Math.random()-.5)*6,
-          vx: Math.cos(angle)*speed*.4, vy: -(Math.random()*1.8+0.6),
-          r: Math.random()*2.2+0.8, op: Math.random()*.55+.3,
-          decay: Math.random()*.012+.008,
-          col: COLORS[Math.floor(Math.random()*COLORS.length)]
-        });
+    function spawnAt(x,y,n){
+      for(var i=0;i<n;i++){
+        var a=Math.random()*Math.PI*2, s=Math.random()*1.4+0.4;
+        particles.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:Math.cos(a)*s*.4,vy:-(Math.random()*1.8+0.6),r:Math.random()*2.2+0.8,op:Math.random()*.55+.3,decay:Math.random()*.012+.008,col:COLORS[Math.floor(Math.random()*COLORS.length)]});
       }
     }
-    var throttle = false;
-    document.addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      if (throttle) return; throttle = true; setTimeout(function(){ throttle = false; }, 16);
-      var dx = mx-lastX, dy = my-lastY, dist = Math.sqrt(dx*dx+dy*dy);
-      if (dist > 2) { spawnAt(mx, my, Math.min(Math.floor(dist/6)+1, 4)); lastX = mx; lastY = my; }
+    var throttle=false;
+    document.addEventListener('mousemove',function(e){
+      mx=e.clientX;my=e.clientY;
+      if(throttle)return;throttle=true;setTimeout(function(){throttle=false;},16);
+      var dx=mx-lastX,dy=my-lastY,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist>2){spawnAt(mx,my,Math.min(Math.floor(dist/6)+1,4));lastX=mx;lastY=my;}
     });
-    document.addEventListener('click', function(e){ spawnAt(e.clientX, e.clientY, 14); });
+    document.addEventListener('click',function(e){spawnAt(e.clientX,e.clientY,14);});
     function loop(){
-      requestAnimationFrame(loop);
-      ctx.clearRect(0, 0, W, H);
-      for (var i = particles.length-1; i >= 0; i--) {
-        var p = particles[i];
-        p.x += p.vx; p.y += p.vy; p.vy -= 0.02; p.vx *= 0.98; p.op -= p.decay; p.r *= 0.993;
-        if (p.op <= 0 || p.r < 0.2) { particles.splice(i, 1); continue; }
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba('+p.col+','+p.op.toFixed(3)+')'; ctx.fill();
+      requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);
+      for(var i=particles.length-1;i>=0;i--){
+        var p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy-=0.02;p.vx*=0.98;p.op-=p.decay;p.r*=0.993;
+        if(p.op<=0||p.r<0.2){particles.splice(i,1);continue;}
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba('+p.col+','+p.op.toFixed(3)+')';ctx.fill();
       }
     }
     loop();
