@@ -1386,38 +1386,49 @@ p,
     }
 
 
+    /* ── COLOR BORDERS — siempre visibles desktop + mobile ── */
     /* WOLDI - amber */
     .cw .pt, .cw .pn, .cw .pb { color: var(--woldi); }
-    .cw:hover { border-color: rgba(245,158,11,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.15) !important; }
+    .pc.cw  { border-color: rgba(245,158,11, 0.38); }
+    .cw:hover { border-color: rgba(245,158,11,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(245,158,11,0.18) !important; }
 
     /* OPERO - purple */
     .co .pt, .co .pn, .co .pb { color: var(--opero); }
-    .co:hover { border-color: rgba(139,92,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.15) !important; }
+    .pc.co  { border-color: rgba(139,92,246,  0.38); }
+    .co:hover { border-color: rgba(139,92,246,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.18) !important; }
 
     /* LLUEVE CON SOL - orange */
     .cl .pt, .cl .pn, .cl .pb { color: var(--llueve); }
-    .cl:hover { border-color: rgba(249,115,22,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.15) !important; }
+    .pc.cl  { border-color: rgba(249,115,22,  0.38); }
+    .cl:hover { border-color: rgba(249,115,22,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.18) !important; }
 
-    /* KORD3 hover */
-    .ck:hover { border-color: rgba(139,92,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.15) !important; }
+    /* KORD3 - purple */
+    .pc.ck  { border-color: rgba(139,92,246,  0.38); }
+    .ck:hover { border-color: rgba(139,92,246,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(139,92,246,0.18) !important; }
 
-    /* AGENCY hover */
-    .ca:hover { border-color: rgba(34,197,94,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(34,197,94,0.15) !important; }
+    /* AGENCY - green */
+    .pc.ca  { border-color: rgba(34,197,94,   0.38); }
+    .ca:hover { border-color: rgba(34,197,94,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(34,197,94,0.18) !important; }
 
-    /* ENERGIA hover */
-    .ce:hover { border-color: rgba(255,215,0,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,215,0,0.15) !important; }
+    /* ENERGIA - gold */
+    .pc.ce  { border-color: rgba(255,215,0,   0.38); }
+    .ce:hover { border-color: rgba(255,215,0,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,215,0,0.18) !important; }
 
-    /* MFSPORTS hover */
-    .cm:hover { border-color: rgba(250,128,114,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(250,128,114,0.15) !important; }
+    /* MFSPORTS - salmon */
+    .pc.cm  { border-color: rgba(250,128,114, 0.38); }
+    .cm:hover { border-color: rgba(250,128,114,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(250,128,114,0.18) !important; }
 
-    /* NATAN hover */
-    .cn2:hover { border-color: rgba(59,130,246,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.15) !important; }
+    /* NATAN - blue */
+    .pc.cn2 { border-color: rgba(22,72,200,   0.38); }
+    .cn2:hover { border-color: rgba(59,130,246,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.18) !important; }
 
-    /* HOME hover */
-    .ch:hover { border-color: rgba(14,165,233,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(14,165,233,0.15) !important; }
+    /* HOME - sky */
+    .pc.ch  { border-color: rgba(14,165,233,  0.38); }
+    .ch:hover { border-color: rgba(14,165,233,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(14,165,233,0.18) !important; }
 
-    /* MAN BLUE hover */
-    .cmb:hover { border-color: rgba(0,210,255,0.35) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,210,255,0.15) !important; }
+    /* MAN BLUE - cyan */
+    .pc.cmb { border-color: rgba(0,210,255,   0.38); }
+    .cmb:hover { border-color: rgba(0,210,255,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,210,255,0.18) !important; }
 
     .pc.square-card {
       height: auto !important;
@@ -2356,11 +2367,10 @@ p,
       z-index: 1;
     }
 
-    /* --- PROJECT CARDS — float + glow border --- */
+    /* --- PROJECT CARDS — color border per project --- */
     #proyectos-carousel .pc {
-      box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.22),
-        0 6px 24px rgba(0, 0, 0, 0.45);
-      will-change: transform, box-shadow;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+      will-change: transform, box-shadow, border-color;
     }
 
     #proyectos-carousel .pc.floating {
@@ -2368,9 +2378,7 @@ p,
     }
 
     #proyectos-carousel .pc:hover {
-      box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.7),
-        0 0 22px rgba(255, 0, 0, 0.35),
-        0 12px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
     }
 
     /* --- HERO DUST CANVAS --- */
