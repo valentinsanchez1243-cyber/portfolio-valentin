@@ -1190,25 +1190,29 @@
       });
     }, 900);
 
-    /* --- PARTICLES --- */
+    // PARTICLES
     (function initParticles() {
+      if (document.getElementById('bg-particles')) return;
       const canvas = document.createElement('canvas');
       canvas.id = 'bg-particles';
-      document.body.prepend(canvas);
-      function res() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-      res(); window.addEventListener('resize', res);
-      const ctx = canvas.getContext('2d'), ps = Array.from({length: 60}, () => ({
-        x: Math.random()*innerWidth, y: Math.random()*innerHeight,
-        vx: (Math.random()-.5)*.4, vy: -(Math.random()*.3+.1),
-        r: Math.random()*1.5+.5, op: Math.random()*.4+.2
+      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
+      document.body.appendChild(canvas);
+      window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({length:120}, () => ({
+        x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.3, vy: -(Math.random()*0.5+0.1),
+        r: Math.random()*2+0.5, op: Math.random()*0.4+0.2, life: Math.random()
       }));
       function draw() {
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        ps.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          if (p.y < -10) { p.y = canvas.height+10; p.x = Math.random()*canvas.width; }
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height+10; p.x = Math.random()*canvas.width; p.life = Math.random()*0.5+0.5; }
+          const alpha = Math.max(0, p.op * p.life);
           ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-          ctx.fillStyle = `rgba(34, 197, 94, ${p.op})`; ctx.fill();
+          ctx.fillStyle = `rgba(34, 197, 94, ${alpha.toFixed(3)})`; ctx.fill();
         });
         requestAnimationFrame(draw);
       }

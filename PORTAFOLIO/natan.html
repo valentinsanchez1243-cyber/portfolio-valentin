@@ -262,8 +262,7 @@
 <body>
 
   <div id="cursor"></div>
-  <canvas id="bg-particles"></canvas>
-
+  
   <nav id="nav">
     <a href="index.html" class="nl">VS<span>.</span></a>
     <ul class="nls" style="margin-left:auto;">
@@ -702,16 +701,30 @@
       mtog.addEventListener('click', toggleMenu);
     }
 
+    // PARTICLES
     (function initParticles() {
-      const canvas = document.getElementById('bg-particles');
-      if (!canvas) return;
+      if (document.getElementById('bg-particles')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
+      document.body.appendChild(canvas);
+      window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
       const ctx = canvas.getContext('2d');
-      let W=canvas.width=window.innerWidth, H=canvas.height=window.innerHeight;
-      window.addEventListener('resize', () => { W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
-      const dots = Array.from({length: 40}, () => ({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.2, vx:(Math.random()-.5)*.2, vy:(Math.random()-.5)*.2 }));
+      const particles = Array.from({length:120}, () => ({
+        x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.3, vy: -(Math.random()*0.5+0.1),
+        r: Math.random()*2+0.5, op: Math.random()*0.4+0.2, life: Math.random()
+      }));
       function draw() {
-        ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(22,72,200,.4)';
-        dots.forEach(d => { d.x+=d.vx; d.y+=d.vy; if(d.x<0)d.x=W; if(d.x>W)d.x=0; if(d.y<0)d.y=H; if(d.y>H)d.y=0; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fill(); });
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height+10; p.x = Math.random()*canvas.width; p.life = Math.random()*0.5+0.5; }
+          const alpha = Math.max(0, p.op * p.life);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(22, 72, 200, ${alpha.toFixed(3)})`; ctx.fill();
+        });
         requestAnimationFrame(draw);
       }
       draw();
