@@ -181,7 +181,8 @@
       footer { padding: 24px 18px !important; flex-direction: column !important; gap: 6px !important; text-align: center !important; font-size: 0.8rem !important; }
     }
 
-    /* Desactivar animación flotante de banner en mobile */
+    @media (max-width: 768px) {
+      /* Desactivar animación flotante de banner en mobile */
       .hero-banner { animation: none !important; }
       /* Párrafos justificados en mobile */
       p { text-align: justify !important; }
@@ -190,13 +191,12 @@
       /* Menú móvil: tamaño uniforme */
       .movl { gap: 20px !important; }
       .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
-
-      @media (max-width: 480px) {
+    }
+    @media (max-width: 480px) {
       .section-desc { font-size: 0.9rem !important; }
     }
 
   
-    p { text-align: justify; }
     #bg-particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; }
     </style>
 </head>

@@ -777,7 +777,8 @@
       footer { padding: 24px 18px !important; flex-direction: column !important; gap: 6px !important; text-align: center !important; font-size: 0.8rem !important; }
     }
 
-    /* Desactivar animación flotante de banner en mobile */
+    @media (max-width: 768px) {
+      /* Desactivar animación flotante de banner en mobile */
       .hero-banner { animation: none !important; }
       /* Párrafos justificados en mobile */
       p { text-align: justify !important; }
@@ -786,8 +787,8 @@
       /* Menú móvil: tamaño uniforme */
       .movl { gap: 20px !important; }
       .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
-
-      @media (max-width: 480px) {
+    }
+    @media (max-width: 480px) {
       .stories-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .ig-feed { grid-template-columns: 1fr !important; }
       /* media-grid mobile */

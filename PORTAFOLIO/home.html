@@ -1513,24 +1513,20 @@
         }
 
         /* Desactivar animación flotante de banner en mobile */
-      .hero-banner { animation: none !important; }
-      /* Párrafos justificados en mobile */
-      p { text-align: justify !important; }
-      .section-desc { text-align: justify !important; }
+        @media (max-width: 768px) {
+          .hero-banner { animation: none !important; }
+          p { text-align: justify !important; }
+          .section-desc { text-align: justify !important; }
+          .movl { gap: 20px !important; }
+          .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
+        }
 
-      /* Menú móvil: tamaño uniforme */
-      .movl { gap: 20px !important; }
-      .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
-
-      @media (max-width: 480px) {
+        @media (max-width: 480px) {
           .hero-title { font-size: 2.2rem !important; }
           .section-title { font-size: 1.8rem !important; }
         }
       }
     }
-  
-    p { text-align: justify; }
-    .section-desc { text-align: justify; }
     </style>
 </head>
 

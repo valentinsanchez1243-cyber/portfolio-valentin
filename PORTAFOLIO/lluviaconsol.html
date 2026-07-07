@@ -158,7 +158,8 @@
       .lcs-reels-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
       footer { padding: 30px 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
     }
-    /* Desactivar animación flotante de banner en mobile */
+    @media (max-width: 768px) {
+      /* Desactivar animación flotante de banner en mobile */
       .hero-banner { animation: none !important; }
       /* Párrafos justificados en mobile */
       p { text-align: justify !important; }
@@ -167,12 +168,11 @@
       /* Menú móvil: tamaño uniforme */
       .movl { gap: 20px !important; }
       .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
-
-      @media (max-width: 480px) {
+    }
+    @media (max-width: 480px) {
       .lcs-reels-grid { grid-template-columns: 1fr !important; }
     }
   
-    p { text-align: justify; }
     #bg-particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; }
 
       .section { padding: 40px 18px !important; }
