@@ -1587,6 +1587,14 @@
     
     @media (max-width: 1024px) { .ig-feed { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .ig-feed { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      /* HYPE — home-style clean video grid */
+      #hype .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; margin-top: 24px !important; }
+      #hype .ig-post-hd { display: none !important; }
+      #hype .ig-post-ft { display: none !important; }
+      #hype .ig-post { border-radius: 8px !important; border: 1px solid rgba(139,92,246,.3) !important; overflow: hidden !important; background: #000 !important; padding: 0 !important; opacity: 1 !important; transform: none !important; }
+      #hype .ig-media { aspect-ratio: 9/16 !important; border-radius: 0 !important; }
+    }
   </style>
 
   <section class="hype-feed-wrap reveal" id="hype" style="padding: 100px 64px; background: #0a0a0a;">

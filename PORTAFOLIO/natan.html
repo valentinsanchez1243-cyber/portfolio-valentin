@@ -547,7 +547,7 @@
       /* Colapsar grids */
       .overview-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
       .sessions-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-      .ig-feed { grid-template-columns: repeat(3, 1fr) !important; gap: 6px !important; }
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
       .hype-social-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
       .overview-media { max-width: 100% !important; }
       .pj-index-list { flex-direction: column !important; gap: 6px !important; }
@@ -564,6 +564,13 @@
       /* Menú móvil: tamaño uniforme */
       .movl { gap: 20px !important; }
       .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
+      /* REELS: ensure 2-col */
+      .ig-feed { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+      .ig-post { border-radius: 8px !important; border: 1px solid rgba(22,72,200,.25) !important; overflow: hidden !important; }
+      /* HYPE — home-style clean grid */
+      .hype-post-media { aspect-ratio: 9/16 !important; }
+      .hype-post-info { display: none !important; }
+      .hype-post { border: 1px solid rgba(22,72,200,.3) !important; border-radius: 8px !important; }
     }
     @media (max-width: 480px) {
       .ig-feed { grid-template-columns: 1fr !important; }
@@ -599,7 +606,7 @@
     <div class="hype-social-grid">
       <!-- POS 1 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" muted loop playsinline></video></div>
+        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" autoplay muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 1.2K</span>
@@ -611,7 +618,7 @@
       </div>
       <!-- POS 2 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" muted loop playsinline></video></div>
+        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" autoplay muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 2.4K</span>
