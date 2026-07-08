@@ -609,6 +609,9 @@
       object-fit: contain;
       display: block;
     }
+    /* PÁRRAFOS JUSTIFICADOS */
+    section p, .section-desc, .pj-body p { text-align: justify; }
+
     @media (max-width: 768px) {
       .overview-grid { grid-template-columns: 1fr; gap: 30px; }
     }
@@ -1316,7 +1319,7 @@
       const particles = Array.from({length:250}, () => ({
         x: Math.random()*canvas.width, y: Math.random()*canvas.height,
         vx: (Math.random()-0.5)*0.3, vy: -(Math.random()*0.5+0.1),
-        r: Math.random()*2+0.5, op: Math.random()*0.55+0.3, life: Math.random()
+        r: Math.random()*4+1.5, op: Math.random()*0.55+0.3, life: Math.random()
       }));
       function draw() {
         ctx.clearRect(0,0,canvas.width,canvas.height);

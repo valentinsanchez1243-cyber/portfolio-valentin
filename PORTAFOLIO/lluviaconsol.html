@@ -142,6 +142,9 @@
     .movl a:hover { color: var(--rb); }
 
     /* MOBILE */
+    /* PÁRRAFOS JUSTIFICADOS */
+    section p, .section-desc, .pj-body p { text-align: justify; }
+
     @media (max-width: 768px) {
       html, body { overflow-x: hidden !important; width: 100% !important; }
       body { cursor: default !important; }
@@ -369,7 +372,7 @@
     window.addEventListener('resize', function(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
     var particles=[], mx=W/2, my=H/2, lastX=mx, lastY=my;
     var COLORS=['249,115,22','255,160,80','255,255,255','249,115,22'];
-    function spawnAt(x,y,n){ for(var i=0;i<n;i++){ var a=Math.random()*Math.PI*2,s=Math.random()*1.4+0.4; particles.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:Math.cos(a)*s*.4,vy:-(Math.random()*1.8+0.6),r:Math.random()*2.2+0.8,op:Math.random()*.55+.3,decay:Math.random()*.012+.008,col:COLORS[Math.floor(Math.random()*COLORS.length)]}); } }
+    function spawnAt(x,y,n){ for(var i=0;i<n;i++){ var a=Math.random()*Math.PI*2,s=Math.random()*1.4+0.4; particles.push({x:x+(Math.random()-.5)*6,y:y+(Math.random()-.5)*6,vx:Math.cos(a)*s*.4,vy:-(Math.random()*4+1.5),r:Math.random()*2.2+0.8,op:Math.random()*.55+.3,decay:Math.random()*.012+.008,col:COLORS[Math.floor(Math.random()*COLORS.length)]}); } }
     var throttle=false;
     document.addEventListener('mousemove',function(e){ mx=e.clientX;my=e.clientY; if(throttle)return;throttle=true;setTimeout(function(){throttle=false;},16); var dx=mx-lastX,dy=my-lastY,dist=Math.sqrt(dx*dx+dy*dy); if(dist>2){spawnAt(mx,my,Math.min(Math.floor(dist/6)+1,4));lastX=mx;lastY=my;} });
     document.addEventListener('click',function(e){spawnAt(e.clientX,e.clientY,14);});
@@ -392,7 +395,7 @@
       const particles = Array.from({length:250}, () => ({
         x: Math.random()*canvas.width, y: Math.random()*canvas.height,
         vx: (Math.random()-0.5)*0.3, vy: -(Math.random()*0.5+0.1),
-        r: Math.random()*2+0.5, op: Math.random()*0.55+0.3, life: Math.random()
+        r: Math.random()*4+1.5, op: Math.random()*0.55+0.3, life: Math.random()
       }));
       function draw() {
         ctx.clearRect(0,0,canvas.width,canvas.height);
