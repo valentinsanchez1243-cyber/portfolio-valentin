@@ -361,11 +361,18 @@
     .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
     .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
     .software-used-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
-    .software-used-icons { display: flex; flex-wrap: wrap; gap: 10px; }
-    .software-chip { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; background: rgba(255,255,255,0.03); transition: .3s; }
-    .software-chip:hover { border-color: var(--rb); background: rgba(var(--rb-rgb),0.08); }
-    .software-chip img { width: 20px; height: 20px; object-fit: contain; display: block; }
-    .software-chip span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--w); }
+    .software-used-icons { display: flex; flex-wrap: wrap; gap: 22px; }
+    .software-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
+    .software-icon { width: 52px; height: 52px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: all .3s ease; animation: swFloat 2.4s ease-in-out infinite, swPulse 2s infinite; }
+    .software-icon img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
+    .software-item:hover .software-icon { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 25px rgba(var(--rb-rgb),0.35); }
+    .software-item span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
+    .software-item:nth-child(2) .software-icon { animation-duration: 2.7s, 2s; }
+    .software-item:nth-child(3) .software-icon { animation-duration: 3s, 2s; }
+    .software-item:nth-child(4) .software-icon { animation-duration: 2.2s, 2s; }
+    .software-item:nth-child(5) .software-icon { animation-duration: 2.9s, 2s; }
+    @keyframes swFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes swPulse { 0%,100% { box-shadow: 0 0 5px rgba(var(--rb-rgb),0.35); } 50% { box-shadow: 0 0 16px rgba(var(--rb-rgb),0.55), 0 0 28px rgba(var(--rb-rgb),0.25); } }
 
     /* PROJECT INDEX */
     .pj-index { 
@@ -893,11 +900,11 @@
     <div class="software-used">
       <span class="software-used-label">— SOFTWARE UTILIZADO</span>
       <div class="software-used-icons">
-        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/proyectmanager.webp" alt="Project Manager" loading="lazy"><span>Project Manager & Account Manager</span></div>
-        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp" alt="Illustrator" loading="lazy"><span>Illustrator</span></div>
-        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp" alt="After Effects" loading="lazy"><span>After Effects</span></div>
-        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"><span>CapCut</span></div>
-        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/premiere.webp" alt="Premiere Pro" loading="lazy"><span>Premiere Pro</span></div>
+        <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/proyectmanager.webp" alt="Project Manager" loading="lazy"></div><span>Project Manager & Account Manager</span></div>
+        <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp" alt="Illustrator" loading="lazy"></div><span>Illustrator</span></div>
+        <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp" alt="After Effects" loading="lazy"></div><span>After Effects</span></div>
+        <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"></div><span>CapCut</span></div>
+        <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/premiere.webp" alt="Premiere Pro" loading="lazy"></div><span>Premiere Pro</span></div>
       </div>
     </div>
 
