@@ -66,6 +66,13 @@
     /* TAGS */
     .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
     .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--rb); color: var(--rb); background: transparent; border-radius: 4px; }
+    .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .software-used-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-icons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .software-chip { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; background: rgba(255,255,255,0.03); transition: .3s; }
+    .software-chip:hover { border-color: var(--rb); background: rgba(var(--rb-rgb),0.08); }
+    .software-chip img { width: 20px; height: 20px; object-fit: contain; display: block; }
+    .software-chip span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--w); }
 
     /* REVEAL SYSTEM */
     .rv {
@@ -273,6 +280,14 @@
         <span class="tag">Identidad Visual</span>
         <span class="tag">Growth Strategy</span>
         <span class="tag">ManyChat Automations</span>
+      </div>
+
+      <div class="software-used">
+        <span class="software-used-label">— SOFTWARE UTILIZADO</span>
+        <div class="software-used-icons">
+          <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp" alt="Illustrator" loading="lazy"><span>Illustrator</span></div>
+          <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp" alt="Photoshop" loading="lazy"><span>Photoshop</span></div>
+        </div>
       </div>
 
       <div class="pj-index rv">

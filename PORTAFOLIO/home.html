@@ -13,6 +13,7 @@
   <style>
     :root {
       --rb: #0EA5E9;
+      --rb-rgb: 14, 165, 233;
       --b: #0a0a0a;
       --w: #ffffff;
       --g: #aaaaaa;
@@ -496,6 +497,14 @@
       color: var(--rb);
       background: transparent;
     }
+
+    .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .software-used-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-icons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .software-chip { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; background: rgba(255,255,255,0.03); transition: .3s; }
+    .software-chip:hover { border-color: var(--rb); background: rgba(var(--rb-rgb),0.08); }
+    .software-chip img { width: 20px; height: 20px; object-fit: contain; display: block; }
+    .software-chip span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--w); }
 
     /* BUTTONS */
     .btn-red {
@@ -1619,6 +1628,12 @@
       <span class="tag">UGC</span>
       <span class="tag">IA</span>
       <span class="tag">CREATIVOS</span>
+    </div>
+    <div class="software-used">
+      <span class="software-used-label">— SOFTWARE UTILIZADO</span>
+      <div class="software-used-icons">
+        <div class="software-chip"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"><span>CapCut</span></div>
+      </div>
     </div>
   </section>
 
