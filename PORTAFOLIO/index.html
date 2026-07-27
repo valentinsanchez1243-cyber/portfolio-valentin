@@ -30,6 +30,7 @@
       --woldi: #F59E0B;
       --opero: #8B5CF6;
       --llueve: #F97316;
+      --mafalda: #E63946;
       /* Man Blue FC */
       --b: #080808;
       --b2: #0f0f0f;
@@ -1293,6 +1294,10 @@ p,
       color: var(--manblue);
     }
 
+    .cmaf .pt, .cmaf .pn, .cmaf .pb {
+      color: var(--mafalda);
+    }
+
     .ca {
       background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp');
       background-size: cover;
@@ -1385,6 +1390,20 @@ p,
       z-index: 0;
     }
 
+    .cmaf {
+      background-image: url('https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cmaf::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
 
     /* ── COLOR BORDERS — siempre visibles desktop + mobile ── */
     /* WOLDI - amber */
@@ -1429,6 +1448,9 @@ p,
     /* MAN BLUE - cyan */
     .pc.cmb { border-color: rgba(0,210,255,   0.38); }
     .cmb:hover { border-color: rgba(0,210,255,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,210,255,0.18) !important; }
+
+    .pc.cmaf { border-color: rgba(230,57,70,  0.38); }
+    .cmaf:hover { border-color: rgba(230,57,70,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(230,57,70,0.18) !important; }
 
     .pc.square-card {
       height: auto !important;
@@ -3817,6 +3839,7 @@ adding: 30px 24px !important; }
       .pc.ca  { border-color: rgba(34,197,94,   0.55) !important; }
       .pc.ch  { border-color: rgba(14,165,233,  0.55) !important; }
       .pc.cmb { border-color: rgba(0,210,255,   0.55) !important; }
+      .pc.cmaf { border-color: rgba(230,57,70,  0.55) !important; }
       .pc.ce  { border-color: rgba(255,215,0,   0.55) !important; }
       .pc.cn2 { border-color: rgba(22,72,200,   0.55) !important; }
       .pc.cm  { border-color: rgba(250,128,114, 0.55) !important; }
@@ -4863,6 +4886,22 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Natan Barber</div>
           <div class="pd">Branding completo y producción con fuerte identidad cultural.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ── DISEÑO EDITORIAL ────────────────────────────── -->
+      <div class="pg-category">— DISEÑO EDITORIAL</div>
+
+      <!-- Mafalda -->
+      <a href="mafalda.html" class="pc tilt-card reveal cmaf">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg" alt="Mafalda — Diseño Editorial">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Mafalda</div>
+          <div class="pd">Historieta maquetada en InDesign: retícula, tipografía y narrativa secuencial.</div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
