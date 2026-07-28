@@ -79,6 +79,24 @@
     }
     .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, transparent 100%); }
     .hero-banner-content { position: relative; z-index: 1; }
+    .hud-corner { position: absolute; width: 22px; height: 22px; border: 2px solid var(--rb); opacity: .55; z-index: 2; pointer-events: none; }
+    .hud-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+    .hud-tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+    .hud-bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+    .hud-br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+    .hud-index { position: absolute; bottom: 24px; right: 52px; font-family: 'Barlow Condensed', sans-serif; font-size: .68rem; letter-spacing: 3px; color: var(--rb); opacity: .8; z-index: 2; pointer-events: none; }
+    .ghost-num { position: absolute; left: 12px; bottom: -6px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(90px, 15vw, 200px); line-height: .8; color: var(--rb); opacity: .08; pointer-events: none; user-select: none; }
+    .gfx-plus { position: absolute; color: var(--rb); font-weight: 300; z-index: 2; pointer-events: none; }
+    .gfx-plus-1 { top: 64px; right: 90px; font-size: 1.2rem; opacity: .5; }
+    .gfx-plus-2 { bottom: 80px; left: 100px; font-size: .85rem; opacity: .35; }
+    .hero-diag { position: relative; height: 24px; width: 100%; overflow: hidden; }
+    .hero-diag::before { content: ''; position: absolute; inset: 0; background: var(--rb); clip-path: polygon(0 100%, 100% 0, 100% 100%); opacity: .85; }
+    @media (max-width: 768px) {
+      .hud-index, .gfx-plus-2 { display: none !important; }
+      .ghost-num { font-size: clamp(70px, 24vw, 130px) !important; opacity: .06 !important; }
+      .hud-corner { width: 14px !important; height: 14px !important; }
+      .hero-diag { height: 14px !important; }
+    }
     .hero-tag { font-family: 'Barlow Condensed', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
     .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 10vw, 130px); line-height: .9; color: var(--w); }
@@ -308,12 +326,21 @@
   </div>
 
   <section class="hero-banner">
+    <span class="hud-corner hud-tl"></span>
+    <span class="hud-corner hud-tr"></span>
+    <span class="hud-corner hud-bl"></span>
+    <span class="hud-corner hud-br"></span>
+    <span class="hud-index">N° 07 / 11</span>
+    <span class="gfx-plus gfx-plus-1">+</span>
+    <span class="gfx-plus gfx-plus-2">+</span>
+    <div class="ghost-num">07</div>
     <div class="hero-banner-content">
       <div class="hero-tag">Proyecto · Manejo de Cuentas / Redes Sociales</div>
       <h1 class="hero-title">MAN BLUE FC</h1>
       <div class="hero-sub">ESTRATEGIA DIGITAL · FÚTBOL AMATEUR · CÓRDOBA</div>
     </div>
   </section>
+  <div class="hero-diag"></div>
 
   <div class="mw">
     <div class="mt">
