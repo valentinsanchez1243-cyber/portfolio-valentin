@@ -1390,6 +1390,36 @@ p,
       z-index: 0;
     }
 
+    /* ── STAMP "APPROVED" — hover en tarjetas de proyecto ── */
+    .cw { --stamp-color: var(--woldi); }
+    .ck { --stamp-color: var(--kord); }
+    .co { --stamp-color: var(--opero); }
+    .cl { --stamp-color: var(--llueve); }
+    .ca { --stamp-color: var(--agency); }
+    .ch { --stamp-color: var(--home); }
+    .cmb { --stamp-color: var(--manblue); }
+    .ce { --stamp-color: var(--energia); }
+    .cn2 { --stamp-color: var(--natan); }
+    .cmaf { --stamp-color: var(--mafalda); }
+    .cm { --stamp-color: var(--mfsports); }
+    .pc-stamp {
+      position: absolute; top: 18px; right: 18px; z-index: 4;
+      padding: 4px 10px;
+      border: 1px solid var(--stamp-color, #e63946);
+      color: var(--stamp-color, #e63946);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      background: rgba(8,8,8,.75);
+      opacity: 0;
+      transform: rotate(-12deg) scale(.9);
+      transition: opacity .3s, transform .3s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    .pc:hover .pc-stamp { opacity: .9; transform: rotate(-6deg) scale(1); }
+    @media (max-width: 768px) {
+      .pc-stamp { display: none !important; }
+    }
+
     .cmaf {
       background-image: url('https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg');
       background-size: cover;
@@ -4780,6 +4810,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp" alt="WOLDI">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">WOLDI</div>
@@ -4793,6 +4824,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-KORD3.webp" alt="KORD3">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">KORD3</div>
@@ -4806,6 +4838,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-OPERO.webp" alt="Opero">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Opero</div>
@@ -4822,6 +4855,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp" alt="Llueve con Sol">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">LLUEVE CON SOL</div>
@@ -4835,6 +4869,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp" alt="Agency Luxury">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Agency Luxury</div>
@@ -4848,6 +4883,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-HOME.webp" alt="Home Improvement">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Home Improvement</div>
@@ -4864,6 +4900,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20MAN%20BLUE.webp" alt="Man Blue FC">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Man Blue FC</div>
@@ -4877,6 +4914,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-ENERGIA.webp" alt="Energía Fitness">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Energía Fitness</div>
@@ -4890,6 +4928,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-NATAN.webp" alt="Natan Barber">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Natan Barber</div>
@@ -4906,6 +4945,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg" alt="Mafalda — Diseño Editorial">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">Mafalda</div>
@@ -4922,6 +4962,7 @@ adding: 30px 24px !important; }
         <div class="pcb">
           <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-MFSPORTS.webp" alt="MF Sports">
         </div>
+        <span class="pc-stamp">Approved</span>
         <div class="po">
           <div class="pt">Proyecto</div>
           <div class="pn">MF Sports</div>
