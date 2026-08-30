@@ -31,6 +31,7 @@
       --opero: #8B5CF6;
       --llueve: #F97316;
       --mafalda: #E63946;
+      --felina: #ff6450;
       /* Man Blue FC */
       --b: #080808;
       --b2: #0f0f0f;
@@ -1298,6 +1299,10 @@ p,
       color: var(--mafalda);
     }
 
+    .cfel .pt, .cfel .pn, .cfel .pb {
+      color: var(--felina);
+    }
+
     .ca {
       background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp');
       background-size: cover;
@@ -1404,6 +1409,20 @@ p,
       z-index: 0;
     }
 
+    .cfel {
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-FELINA%20EDITORIAL.webp');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cfel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
 
     /* ── COLOR BORDERS — siempre visibles desktop + mobile ── */
     /* WOLDI - amber */
@@ -1451,6 +1470,9 @@ p,
 
     .pc.cmaf { border-color: rgba(230,57,70,  0.38); }
     .cmaf:hover { border-color: rgba(230,57,70,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(230,57,70,0.18) !important; }
+
+    .pc.cfel { border-color: rgba(255,100,80,  0.38); }
+    .cfel:hover { border-color: rgba(255,100,80,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,100,80,0.18) !important; }
 
     .pc.square-card {
       height: auto !important;
@@ -3840,6 +3862,7 @@ adding: 30px 24px !important; }
       .pc.ch  { border-color: rgba(14,165,233,  0.55) !important; }
       .pc.cmb { border-color: rgba(0,210,255,   0.55) !important; }
       .pc.cmaf { border-color: rgba(230,57,70,  0.55) !important; }
+      .pc.cfel { border-color: rgba(255,100,80,  0.55) !important; }
       .pc.ce  { border-color: rgba(255,215,0,   0.55) !important; }
       .pc.cn2 { border-color: rgba(22,72,200,   0.55) !important; }
       .pc.cm  { border-color: rgba(250,128,114, 0.55) !important; }
@@ -4900,6 +4923,19 @@ adding: 30px 24px !important; }
 
       <!-- ── DISEÑO EDITORIAL ────────────────────────────── -->
       <div class="pg-category">— DISEÑO EDITORIAL</div>
+
+      <!-- Revista Pluma Felina -->
+      <a href="revista.html" class="pc tilt-card reveal cfel">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-FELINA%20EDITORIAL.webp" alt="Revista Pluma Felina — Casa Editorial Felina">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Revista Pluma Felina</div>
+          <div class="pd">Fotonovela editorial para Casa Editorial Felina: maquetación en InDesign y revista digital hojeable.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
 
       <!-- Mafalda -->
       <a href="mafalda.html" class="pc tilt-card reveal cmaf">
