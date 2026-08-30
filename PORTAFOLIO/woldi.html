@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOLDI - Valentín Sánchez</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Road+Rage&family=Englebert&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://valentin-cdn.b-cdn.net">
   <link rel="dns-prefetch" href="https://valentin-cdn.b-cdn.net">
   <link rel="stylesheet" href="project-base.css">
@@ -16,7 +16,7 @@
     body {
       background: var(--b);
       color: var(--w);
-      font-family: 'Barlow', sans-serif;
+      font-family: 'Englebert', sans-serif;
       overflow-x: hidden;
       cursor: none;
       background-image:
@@ -31,10 +31,10 @@
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 5000; display: flex; align-items: center; justify-content: space-between; padding: 30px 64px; background: linear-gradient(to bottom, rgba(8, 8, 8, .98), transparent); transition: .4s cubic-bezier(0.16, 1, 0.3, 1); }
-    .nl { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 4px; color: var(--w); text-decoration: none; }
+    .nl { font-family: 'Rubik Distressed', sans-serif; font-size: 1.5rem; letter-spacing: 4px; color: var(--w); text-decoration: none; }
     .nl span { color: var(--rb); }
     .nls { display: flex; gap: 28px; list-style: none; }
-    .nls a { font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; letter-spacing: 3px; text-transform: uppercase; color: var(--g); text-decoration: none; transition: .3s; position: relative; padding: 6px 16px; border-radius: 22px; border: 1px solid transparent; }
+    .nls a { font-family: 'Road Rage', sans-serif; font-size: .95rem; letter-spacing: 3px; text-transform: uppercase; color: var(--g); text-decoration: none; transition: .3s; position: relative; padding: 6px 16px; border-radius: 22px; border: 1px solid transparent; }
     .nls a:hover { color: var(--w); border-color: rgba(var(--rb-rgb),0.45); box-shadow: 0 0 15px rgba(var(--rb-rgb),0.3); background: rgba(var(--rb-rgb),0.05); }
     .ncta { background: var(--rb) !important; color: #000 !important; border: none !important; border-radius: 4px !important; }
 
@@ -42,37 +42,37 @@
     .hero-banner { width: 100%; height: 420px; background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp'); background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; padding: 60px 64px; }
     .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 10, 10, .95) 0%, rgba(10, 10, 10, .4) 60%, rgba(10, 10, 10, .2) 100%); }
     .hero-banner-content { position: relative; z-index: 1; }
-    .hero-tag { font-family: 'Barlow Condensed', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .hero-tag { font-family: 'Road Rage', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
-    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 10vw, 130px); line-height: .9; color: var(--w); }
-    .hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
+    .hero-title { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(60px, 10vw, 130px); line-height: .9; color: var(--w); }
+    .hero-sub { font-family: 'Road Rage', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
 
     /* MARQUEE */
     .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
     .mt { display: inline-flex; animation: mq 20s linear infinite; }
-    .mi { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 3px; padding: 0 32px; opacity: .92; text-transform: uppercase; font-weight: bold; color: #fff; display: flex; align-items: center; }
+    .mi { font-family: 'Rubik Distressed', sans-serif; font-size: 2.2rem; letter-spacing: 3px; padding: 0 32px; opacity: .92; text-transform: uppercase; font-weight: bold; color: #fff; display: flex; align-items: center; }
     .md { color: rgba(255,255,255,0.4); margin: 0 10px; }
     @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* SECTIONS */
     .section { padding: 60px 64px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
-    .section-subtitle { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+    .section-subtitle { font-family: 'Road Rage', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
     .section-subtitle::before { content: ''; width: 20px; height: 1px; background: var(--rb); }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; margin-bottom: 30px; letter-spacing: 1px; }
+    .section-title { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; margin-bottom: 30px; letter-spacing: 1px; }
     .section-title em { font-style: normal; color: var(--rb); }
     .section-desc { font-size: 1.1rem; line-height: 1.72; color: var(--g); max-width: 800px; margin-bottom: 30px; text-align: justify; }
 
     /* TAGS */
     .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--rb); color: var(--rb); background: transparent; border-radius: 4px; }
+    .tag { font-family: 'Road Rage', sans-serif; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--rb); color: var(--rb); background: transparent; border-radius: 4px; }
     .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .software-used-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-label { font-family: 'Road Rage', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
     .software-used-icons { display: flex; flex-wrap: wrap; gap: 22px; }
     .software-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
     .software-icon { width: 52px; height: 52px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: all .3s ease; animation: swFloat 2.4s ease-in-out infinite, swPulse 2s infinite; }
     .software-icon img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
     .software-item:hover .software-icon { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 25px rgba(var(--rb-rgb),0.35); }
-    .software-item span { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
+    .software-item span { font-family: 'Road Rage', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
     .software-item:nth-child(2) .software-icon { animation-duration: 2.7s, 2s; }
     .software-item:nth-child(3) .software-icon { animation-duration: 3s, 2s; }
     .software-item:nth-child(4) .software-icon { animation-duration: 2.2s, 2s; }
@@ -86,21 +86,21 @@
 
     /* PROJECT INDEX */
     .pj-index { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .pj-index-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 5px; color: var(--rb); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; display: block; }
+    .pj-index-label { font-family: 'Road Rage', sans-serif; font-size: 0.7rem; letter-spacing: 5px; color: var(--rb); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; display: block; }
     .pj-index-list { display: flex; flex-wrap: wrap; gap: 10px 48px; list-style: none; }
-    .pj-index-list a { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
+    .pj-index-list a { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
     .pj-index-list a:hover { color: var(--rb); }
 
     /* WOLDI 2-COL GRID */
-    .woldi-content-grid { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center; margin-top: 32px; }
+    .woldi-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 32px; }
     .vid-wrap { display: flex; flex-direction: column; gap: 20px; }
     .vid-wrap video { width: 100%; border-radius: 10px; border: 1px solid rgba(var(--rb-rgb), 0.25); background: #0d0d0d; display: block; }
 
     /* PDF SHOWCASE */
     .pdf-showcase { margin: 40px 0; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; background: #0d0d0d; }
     .pdf-showcase-hd { padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 4px; }
-    .pdf-showcase-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 5px; color: var(--rb); }
-    .pdf-showcase-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .pdf-showcase-title { font-family: 'Rubik Distressed', sans-serif; font-size: 1.1rem; letter-spacing: 5px; color: var(--rb); }
+    .pdf-showcase-sub { font-family: 'Road Rage', sans-serif; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
     .proj-pdf-frame { width: 100%; height: 750px; border: none; display: block; background: #111; }
 
     /* MOBILE MENU */
@@ -114,7 +114,7 @@
     .mtog.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .movl { position: fixed; inset: 0; background: rgba(8,8,8,0.92); backdrop-filter: blur(20px); z-index: 5500; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; visibility: hidden; pointer-events: none; transition: all .4s cubic-bezier(0.16,1,0.3,1); }
     .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
-    .movl a { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
+    .movl a { font-family: 'Rubik Distressed', sans-serif; font-size: 2.4rem; letter-spacing: 4px; color: var(--w); text-decoration: none; transition: .3s; }
     .movl a:hover { color: var(--rb); }
 
     /* MOBILE */
@@ -294,8 +294,8 @@
     </div>
   </section>
   <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
-    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENT&#205;N S&#193;NCHEZ<span style="color:var(--rb)">.</span></div>
-    <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">&#169; 2025 &middot; C&#243;rdoba, AR</div>
+    <div style="font-family: 'Rubik Distressed', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENT&#205;N S&#193;NCHEZ<span style="color:var(--rb)">.</span></div>
+    <div style="font-family: 'Road Rage', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">&#169; 2025 &middot; C&#243;rdoba, AR</div>
   </footer>
 
   <script>
