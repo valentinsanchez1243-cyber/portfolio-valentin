@@ -101,10 +101,11 @@
     .section-desc { font-size: 1rem; line-height: 1.7; color: var(--g); margin-bottom: 22px; text-align: justify; }
 
     /* ===== FLIPBOOK ===== */
-    .flip-section { display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .flip-wrap { display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; }
+    .flip-wrap { display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; margin-top: 10px; }
     #revista-flip { margin: 0 auto; filter: drop-shadow(0 40px 90px rgba(0,0,0,.65)); }
     #revista-flip .stf__item { background: #111; }
+    #revista-flip .page { background: #111; overflow: hidden; }
+    #revista-flip .page img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .flip-controls { display: flex; align-items: center; gap: 22px; }
     .flip-btn {
       width: 46px; height: 46px; border-radius: 50%;
@@ -150,12 +151,11 @@
     .media-label { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
 
     /* CARRUSEL — detrás de escena */
-    .carrusel-scroll { display: flex; gap: 16px; overflow-x: auto; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--rb) transparent; }
-    .carrusel-scroll::-webkit-scrollbar { height: 6px; }
-    .carrusel-scroll::-webkit-scrollbar-thumb { background: var(--rb); border-radius: 4px; }
-    .carrusel-item { scroll-snap-align: start; flex-shrink: 0; width: 220px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .3s; }
-    .carrusel-item:hover { border-color: var(--rb); transform: translateY(-4px); }
-    .carrusel-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ig-scroll { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--rb) transparent; align-items: flex-end; }
+    .ig-scroll::-webkit-scrollbar { height: 6px; }
+    .ig-scroll::-webkit-scrollbar-thumb { background: var(--rb); border-radius: 4px; }
+    .ig-card { scroll-snap-align: start; flex-shrink: 0; width: 300px; aspect-ratio: 1/1; }
+    .ig-card.ig-vertical { width: 260px; aspect-ratio: 9/16; }
 
     /* REVEAL */
     .rv { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -206,7 +206,8 @@
       .section-title { font-size: clamp(1.7rem, 8vw, 2.6rem) !important; }
 
       .grid-square { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-      .carrusel-item { width: 150px !important; height: 150px !important; }
+      .ig-card { width: 190px !important; }
+      .ig-card.ig-vertical { width: 160px !important; }
 
       #revista-flip { max-width: 92vw !important; }
       .flip-btn { width: 40px !important; height: 40px !important; }
@@ -274,21 +275,6 @@
     </div>
   </div>
 
-  <!-- FLIPBOOK — lo primero que se ve -->
-  <section class="section rv flip-section" id="revista">
-    <div class="section-subtitle">— REVISTA INTERACTIVA</div>
-    <h2 class="section-title">Hojeá la <em>Revista</em></h2>
-    <div class="flip-wrap">
-      <div id="revista-flip"><div class="flip-loading">Cargando revista…</div></div>
-      <div class="flip-controls">
-        <button class="flip-btn" id="flip-prev" aria-label="Página anterior">←</button>
-        <span class="flip-counter" id="flip-counter">01 / 29</span>
-        <button class="flip-btn" id="flip-next" aria-label="Página siguiente">→</button>
-      </div>
-      <span class="flip-hint">Arrastrá la esquina o deslizá para pasar de página</span>
-    </div>
-  </section>
-
   <!-- OVERVIEW -->
   <section class="section rv">
     <div class="section-subtitle">— OVERVIEW</div>
@@ -300,7 +286,7 @@
           Trabajé en Adobe InDesign la totalidad de la revista: retícula, jerarquías tipográficas, tratamiento de imagen y el ritmo de lectura entre páginas, buscando que cada historia se sintiera como un capítulo dentro de una publicación coherente de principio a fin. En Illustrator y Photoshop resolví piezas gráficas, ajustes de color y composición de las imágenes que después se integraron a la maqueta.
         </p>
         <p class="section-desc">
-          El resultado final se publicó como revista digital hojeable en el sitio de la editorial, pensada para leerse igual que una revista física: pasando página por página.
+          El trabajo se dividió en tres frentes: la maquetación completa de la revista (el resultado que ves abajo, en formato digital hojeable), el desarrollo de la fotonovela que le da su identidad narrativa, y la producción de piezas en formato carrusel pensadas específicamente para acompañar cada historia en Instagram.
         </p>
 
         <div class="tag-list">
@@ -328,6 +314,21 @@
             <li><a href="#instagram">INSTAGRAM</a></li>
           </ul>
         </div>
+    </div>
+  </section>
+
+  <!-- FLIPBOOK -->
+  <section class="section rv" id="revista">
+    <div class="section-subtitle">— REVISTA INTERACTIVA</div>
+    <h2 class="section-title">Hojeá la <em>Revista</em></h2>
+    <div class="flip-wrap">
+      <div id="revista-flip"><div class="flip-loading">Cargando revista…</div></div>
+      <div class="flip-controls">
+        <button class="flip-btn" id="flip-prev" aria-label="Página anterior">←</button>
+        <span class="flip-counter" id="flip-counter">01 / 29</span>
+        <button class="flip-btn" id="flip-next" aria-label="Página siguiente">→</button>
+      </div>
+      <span class="flip-hint">Arrastrá la esquina o deslizá para pasar de página</span>
     </div>
   </section>
 
@@ -367,22 +368,25 @@
   <section class="section rv" id="instagram">
     <div class="section-subtitle">— INSTAGRAM</div>
     <h2 class="section-title">Contenido de <em>Instagram</em></h2>
-    <div class="carrusel-scroll">
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-2907-01.webp" alt="Historia de Instagram" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-instagram-01.webp" alt="Historia de Instagram" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Contenido Instagram 01" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Contenido Instagram 02" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Contenido Instagram 03" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Contenido Instagram 04" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Contenido Instagram 05" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Contenido Instagram 06" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Contenido Instagram 07" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Contenido Instagram 08" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Contenido Instagram 09" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Contenido Instagram 10" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Contenido Instagram 11" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Contenido Instagram 12" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Contenido Instagram 13" loading="lazy"></div>
+    <p class="section-desc">
+      Carrusel de piezas gráficas e historias producidas para acompañar cada entrega de la revista en Instagram.
+    </p>
+    <div class="ig-scroll">
+      <div class="media-card ig-card ig-vertical"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-2907-01.webp" alt="Historia de Instagram" loading="lazy"><div class="media-overlay"><span class="media-label">HISTORIA</span></div></div>
+      <div class="media-card ig-card ig-vertical"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-instagram-01.webp" alt="Historia de Instagram" loading="lazy"><div class="media-overlay"><span class="media-label">HISTORIA</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Contenido Instagram 01" loading="lazy"><div class="media-overlay"><span class="media-label">01</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Contenido Instagram 02" loading="lazy"><div class="media-overlay"><span class="media-label">02</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Contenido Instagram 03" loading="lazy"><div class="media-overlay"><span class="media-label">03</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Contenido Instagram 04" loading="lazy"><div class="media-overlay"><span class="media-label">04</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Contenido Instagram 05" loading="lazy"><div class="media-overlay"><span class="media-label">05</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Contenido Instagram 06" loading="lazy"><div class="media-overlay"><span class="media-label">06</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Contenido Instagram 07" loading="lazy"><div class="media-overlay"><span class="media-label">07</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Contenido Instagram 08" loading="lazy"><div class="media-overlay"><span class="media-label">08</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Contenido Instagram 09" loading="lazy"><div class="media-overlay"><span class="media-label">09</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Contenido Instagram 10" loading="lazy"><div class="media-overlay"><span class="media-label">10</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Contenido Instagram 11" loading="lazy"><div class="media-overlay"><span class="media-label">11</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Contenido Instagram 12" loading="lazy"><div class="media-overlay"><span class="media-label">12</span></div></div>
+      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Contenido Instagram 13" loading="lazy"><div class="media-overlay"><span class="media-label">13</span></div></div>
     </div>
   </section>
 
@@ -420,20 +424,35 @@
         el.innerHTML = '';
 
         var pageFlip = new St.PageFlip(el, {
-          width: 340,
-          height: 480,
+          width: 298,
+          height: 421,
           size: 'stretch',
-          minWidth: 220,
-          maxWidth: 420,
-          minHeight: 310,
-          maxHeight: 594,
+          minWidth: 200,
+          maxWidth: 320,
+          minHeight: 283,
+          maxHeight: 453,
           showCover: true,
           usePortrait: true,
           maxShadowOpacity: 0.5,
           mobileScrollSupport: true,
           swipeDistance: 20
         });
-        pageFlip.loadFromImages(pages);
+
+        // Render con elementos <img> reales (loadFromHTML) en vez de canvas
+        // (loadFromImages usa <canvas> y no respeta devicePixelRatio, se ve
+        // borroso en pantallas retina/alta densidad).
+        var pageEls = pages.map(function (src, idx) {
+          var pageDiv = document.createElement('div');
+          pageDiv.className = 'page';
+          if (idx === 0) pageDiv.dataset.density = 'hard';
+          var img = document.createElement('img');
+          img.src = src;
+          img.alt = 'Página ' + (idx + 1);
+          img.loading = idx < 2 ? 'eager' : 'lazy';
+          pageDiv.appendChild(img);
+          return pageDiv;
+        });
+        pageFlip.loadFromHTML(pageEls);
 
         var counter = document.getElementById('flip-counter');
         function pad(n) { return n < 10 ? '0' + n : '' + n; }
