@@ -159,11 +159,6 @@
     .media-card:hover .media-overlay { opacity: 1; }
     .media-label { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
 
-    /* CARRUSEL — detrás de escena */
-    .ig-scroll { display: flex; gap: 20px; overflow-x: auto; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--rb) transparent; align-items: flex-end; }
-    .ig-scroll::-webkit-scrollbar { height: 6px; }
-    .ig-scroll::-webkit-scrollbar-thumb { background: var(--rb); border-radius: 4px; }
-    .ig-card { scroll-snap-align: start; flex-shrink: 0; width: 300px; aspect-ratio: 1/1; }
     .ig-subhead { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: .68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin: 26px 0 12px; }
     .ig-stories-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 20px; }
     .ig-story { aspect-ratio: 9/16; }
@@ -217,7 +212,6 @@
       .section-title { font-size: clamp(1.7rem, 8vw, 2.6rem) !important; }
 
       .grid-square { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-      .ig-card { width: 190px !important; }
       .ig-stories-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
 
       #revista-flip { max-width: 92vw !important; }
@@ -388,20 +382,20 @@
     </p>
 
     <span class="ig-subhead">— Carrusel</span>
-    <div class="ig-scroll">
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Contenido Instagram 01" loading="lazy"><div class="media-overlay"><span class="media-label">01</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Contenido Instagram 02" loading="lazy"><div class="media-overlay"><span class="media-label">02</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Contenido Instagram 03" loading="lazy"><div class="media-overlay"><span class="media-label">03</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Contenido Instagram 04" loading="lazy"><div class="media-overlay"><span class="media-label">04</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Contenido Instagram 05" loading="lazy"><div class="media-overlay"><span class="media-label">05</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Contenido Instagram 06" loading="lazy"><div class="media-overlay"><span class="media-label">06</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Contenido Instagram 07" loading="lazy"><div class="media-overlay"><span class="media-label">07</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Contenido Instagram 08" loading="lazy"><div class="media-overlay"><span class="media-label">08</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Contenido Instagram 09" loading="lazy"><div class="media-overlay"><span class="media-label">09</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Contenido Instagram 10" loading="lazy"><div class="media-overlay"><span class="media-label">10</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Contenido Instagram 11" loading="lazy"><div class="media-overlay"><span class="media-label">11</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Contenido Instagram 12" loading="lazy"><div class="media-overlay"><span class="media-label">12</span></div></div>
-      <div class="media-card ig-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Contenido Instagram 13" loading="lazy"><div class="media-overlay"><span class="media-label">13</span></div></div>
+    <div class="media-grid grid-square">
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Contenido Instagram 01" loading="lazy"><div class="media-overlay"><span class="media-label">01</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Contenido Instagram 02" loading="lazy"><div class="media-overlay"><span class="media-label">02</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Contenido Instagram 03" loading="lazy"><div class="media-overlay"><span class="media-label">03</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Contenido Instagram 04" loading="lazy"><div class="media-overlay"><span class="media-label">04</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Contenido Instagram 05" loading="lazy"><div class="media-overlay"><span class="media-label">05</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Contenido Instagram 06" loading="lazy"><div class="media-overlay"><span class="media-label">06</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Contenido Instagram 07" loading="lazy"><div class="media-overlay"><span class="media-label">07</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Contenido Instagram 08" loading="lazy"><div class="media-overlay"><span class="media-label">08</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Contenido Instagram 09" loading="lazy"><div class="media-overlay"><span class="media-label">09</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Contenido Instagram 10" loading="lazy"><div class="media-overlay"><span class="media-label">10</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Contenido Instagram 11" loading="lazy"><div class="media-overlay"><span class="media-label">11</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Contenido Instagram 12" loading="lazy"><div class="media-overlay"><span class="media-label">12</span></div></div>
+      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Contenido Instagram 13" loading="lazy"><div class="media-overlay"><span class="media-label">13</span></div></div>
     </div>
 
     <span class="ig-subhead">— Historias</span>
