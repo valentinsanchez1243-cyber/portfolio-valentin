@@ -87,8 +87,8 @@
     /* MARQUEE */
     .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
     .mt { display: inline-flex; animation: mq 22s linear infinite; }
-    .mi { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 3px; padding: 0 32px; opacity: .92; text-transform: uppercase; font-weight: bold; color: #0a0a0a; display: flex; align-items: center; }
-    .md { color: rgba(10,10,10,0.4); margin: 0 10px; }
+    .mi { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 3px; padding: 0 32px; opacity: .92; text-transform: uppercase; font-weight: bold; color: #fff; display: flex; align-items: center; }
+    .md { color: rgba(255,255,255,0.4); margin: 0 10px; }
     @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* SECTIONS */
@@ -117,16 +117,6 @@
     .flip-hint { font-family: 'Barlow Condensed', sans-serif; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--g); opacity: .75; }
     .flip-loading { font-family: 'Barlow Condensed', sans-serif; font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--g); padding: 40px 0; }
 
-    /* OVERVIEW */
-    .overview-media { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,100,80,0.2); box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(255,100,80,0.15); position: relative; }
-    .overview-media img { width: 100%; display: block; border-radius: 20px; transition: transform .5s; }
-    .overview-media:hover img { transform: scale(1.02); }
-
-    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0 10px; }
-    .mv-card { padding: 22px 24px; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: rgba(255,255,255,.02); }
-    .mv-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; letter-spacing: 4px; text-transform: uppercase; color: var(--rb); margin-bottom: 10px; }
-    .mv-card p { font-size: .9rem; line-height: 1.6; color: var(--g); text-align: justify; }
-
     .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     .tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
     .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -151,7 +141,7 @@
 
     /* GRID SQUARE (fotonovela) */
     .media-grid { display: grid; gap: 16px; margin-top: 30px; }
-    .grid-square { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .grid-square { grid-template-columns: repeat(5, 1fr); }
     .media-card { background: #0d0d0d; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .4s; position: relative; aspect-ratio: 1/1; }
     .media-card:hover { border-color: var(--rb); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(255,100,80,0.2); }
     .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .5s; }
@@ -166,28 +156,6 @@
     .carrusel-item { scroll-snap-align: start; flex-shrink: 0; width: 220px; height: 220px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .3s; }
     .carrusel-item:hover { border-color: var(--rb); transform: translateY(-4px); }
     .carrusel-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* INSTAGRAM */
-    .ig-profile-card { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; padding: 28px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: rgba(255,255,255,.02); margin-bottom: 36px; }
-    .ig-avatar-badge { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--rb), #ffb199); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #0a0a0a; flex-shrink: 0; letter-spacing: 1px; }
-    .ig-profile-info { flex: 1; min-width: 220px; }
-    .ig-profile-info h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; letter-spacing: 1px; color: var(--w); margin-bottom: 4px; }
-    .ig-profile-handle { font-family: 'Barlow Condensed', sans-serif; font-size: .78rem; color: var(--rb); letter-spacing: 1px; margin-bottom: 12px; display: block; }
-    .ig-stats { display: flex; gap: 26px; margin-bottom: 12px; flex-wrap: wrap; }
-    .ig-stat { display: flex; flex-direction: column; }
-    .ig-stat strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--w); }
-    .ig-stat span { font-family: 'Barlow Condensed', sans-serif; font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--g); }
-    .ig-bio { font-size: .85rem; color: var(--g); line-height: 1.55; max-width: 480px; }
-    .ig-bio strong { color: var(--w); }
-    .ig-cta-row { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
-    .ig-cta { font-family: 'Barlow Condensed', sans-serif; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border: 1px solid var(--rb); color: var(--rb); text-decoration: none; border-radius: 4px; transition: .3s; }
-    .ig-cta:hover { background: var(--rb); color: #0a0a0a; }
-
-    .story-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 480px; margin: 0 auto; }
-    .story-card { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); aspect-ratio: 9/16; transition: .3s; }
-    .story-card:hover { border-color: var(--rb); transform: translateY(-6px); }
-    .story-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .story-card .media-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,.75), transparent 50%); }
 
     /* REVEAL */
     .rv { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -237,16 +205,8 @@
       .section-desc { text-align: justify !important; font-size: 0.92rem !important; }
       .section-title { font-size: clamp(1.7rem, 8vw, 2.6rem) !important; }
 
-      .overview-grid-mb { grid-template-columns: 1fr !important; gap: 32px !important; }
-      .overview-media { max-width: 100% !important; justify-self: stretch !important; order: -1; }
-      .mv-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
-
       .grid-square { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
       .carrusel-item { width: 150px !important; height: 150px !important; }
-
-      .ig-profile-card { padding: 20px !important; gap: 18px !important; }
-      .ig-stats { gap: 18px !important; }
-      .story-grid { max-width: 100% !important; }
 
       #revista-flip { max-width: 92vw !important; }
       .flip-btn { width: 40px !important; height: 40px !important; }
@@ -262,7 +222,6 @@
     }
     @media (max-width: 480px) {
       .grid-square { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
-      .story-grid { grid-template-columns: 1fr 1fr !important; }
     }
   </style>
 </head>
@@ -333,8 +292,7 @@
   <!-- OVERVIEW -->
   <section class="section rv">
     <div class="section-subtitle">— OVERVIEW</div>
-    <div class="overview-grid-mb" style="display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center;">
-      <div>
+    <div>
         <p class="section-desc">
           Durante mi pasantía editorial de tres meses en Casa Editorial Felina (México), estuve a cargo del diseño y maquetación de la <strong style="color:var(--w)">Revista Pluma Felina</strong>, una publicación con formato de fotonovela que retoma historias reales compartidas en Instagram y las convierte en piezas editoriales narrativas.
         </p>
@@ -367,37 +325,10 @@
           <ul class="pj-index-list">
             <li><a href="#revista">LA REVISTA</a></li>
             <li><a href="#fotonovela">FOTONOVELA</a></li>
-            <li><a href="#detras">DETRÁS DE ESCENA</a></li>
             <li><a href="#instagram">INSTAGRAM</a></li>
           </ul>
         </div>
-      </div>
-      <div class="overview-media" style="max-width: 320px; justify-self: center;">
-        <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-FELINA%20EDITORIAL.webp" alt="Portada Revista Pluma Felina" loading="lazy">
-      </div>
     </div>
-  </section>
-
-  <!-- CASA EDITORIAL FELINA -->
-  <section class="section rv">
-    <div class="section-subtitle">— EL CLIENTE</div>
-    <h2 class="section-title">Casa Editorial <em>Felina</em></h2>
-    <p class="section-desc">
-      Casa Editorial Felina fue fundada el 17 de agosto de 2018 por Angie D. Brenes, quien bajo el seudónimo de A.D. Brenes ha dado vida a sus obras literarias más personales. Es un espacio donde las letras cobran vida y la imaginación se despliega sin límites, una empresa hermana de @thehappiestlionessco.
-    </p>
-    <div class="mv-grid">
-      <div class="mv-card">
-        <h4>Misión</h4>
-        <p>Ser un oasis para lectores y escritores, ofreciendo un refugio donde cada obra literaria brilla con su propia luz, proporcionando entretenimiento que nutre la imaginación, el espíritu y la mente.</p>
-      </div>
-      <div class="mv-card">
-        <h4>Visión</h4>
-        <p>Liberar la imaginación de lectores en todo el mundo.</p>
-      </div>
-    </div>
-    <p class="section-desc" style="margin-top:10px;">
-      <strong style="color:var(--w)">Sobre A.D. Brenes:</strong> escritora mexicana conocida por obras como <em style="color:var(--rb); font-style: normal;">El Rugir del Jaguar: El despertar de una nación</em> y su primera novela <em style="color:var(--rb); font-style: normal;">Leidy</em>. Su primer libro fue Recomendación del Mes de la Revista Kena en octubre de 2020 y también fue reconocido por la Revista Air Femme. Fue invitada a programas como Exa con Yordi, La Octava, El Heraldo y TV Mexiquense, entre otros. Además de escritora, es fundadora de la firma de marketing Mr. Kotler & Sons y una activista por el jaguar y los grandes felinos.
-    </p>
   </section>
 
   <!-- FOTONOVELA -->
@@ -432,54 +363,38 @@
     </div>
   </section>
 
-  <!-- DETRÁS DE ESCENA / CARRUSEL -->
-  <section class="section rv" id="detras">
-    <div class="section-subtitle">— PROCESO</div>
-    <h2 class="section-title">Detrás de <em>Escena</em></h2>
-    <p class="section-desc">
-      Bocetos, referencias y piezas de apoyo que se usaron durante el desarrollo visual de la revista.
-    </p>
+  <!-- INSTAGRAM -->
+  <section class="section rv" id="instagram">
+    <div class="section-subtitle">— INSTAGRAM</div>
+    <h2 class="section-title">Contenido de <em>Instagram</em></h2>
     <div class="carrusel-scroll">
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Proceso 01" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Proceso 02" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Proceso 03" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Proceso 04" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Proceso 05" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Proceso 06" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Proceso 07" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Proceso 08" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Proceso 09" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Proceso 10" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Proceso 11" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Proceso 12" loading="lazy"></div>
-      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Proceso 13" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-2907-01.webp" alt="Historia de Instagram" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-instagram-01.webp" alt="Historia de Instagram" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-01.webp" alt="Contenido Instagram 01" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-02.webp" alt="Contenido Instagram 02" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-03.webp" alt="Contenido Instagram 03" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-04.webp" alt="Contenido Instagram 04" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-05.webp" alt="Contenido Instagram 05" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-06.webp" alt="Contenido Instagram 06" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-07.webp" alt="Contenido Instagram 07" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-08.webp" alt="Contenido Instagram 08" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-09.webp" alt="Contenido Instagram 09" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-10.webp" alt="Contenido Instagram 10" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-11.webp" alt="Contenido Instagram 11" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-12.webp" alt="Contenido Instagram 12" loading="lazy"></div>
+      <div class="carrusel-item"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/carrusel-13.webp" alt="Contenido Instagram 13" loading="lazy"></div>
     </div>
   </section>
 
-  <!-- INSTAGRAM -->
-  <section class="section rv" id="instagram">
-    <div class="section-subtitle">— REDES SOCIALES</div>
-    <h2 class="section-title">En <em>Instagram</em></h2>
-    <div class="ig-profile-card">
-      <div class="ig-avatar-badge">CEF</div>
-      <div class="ig-profile-info">
-        <h3>Casa Editorial Felina</h3>
-        <span class="ig-profile-handle">@casa.editorial.felina · Editorial · Est. 2018</span>
-        <div class="ig-stats">
-          <div class="ig-stat"><strong>194</strong><span>Publicaciones</span></div>
-          <div class="ig-stat"><strong>2.499</strong><span>Seguidores</span></div>
-          <div class="ig-stat"><strong>103</strong><span>Seguidos</span></div>
-        </div>
-        <p class="ig-bio">El oasis de lectores y escritores. Una empresa de <strong>@thehappiestlionessco</strong>.</p>
-        <div class="ig-cta-row">
-          <a href="https://www.instagram.com/casa.editorial.felina/" target="_blank" class="ig-cta">Ver Instagram →</a>
-          <a href="https://www.casaeditorialfelina.com/revista-pluma-felina" target="_blank" class="ig-cta">Ver Revista Online →</a>
-        </div>
-      </div>
-    </div>
-    <div class="story-grid">
-      <div class="story-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-2907-01.webp" alt="Historia de Instagram" loading="lazy"><div class="media-overlay"><span class="media-label">HISTORIA</span></div></div>
-      <div class="story-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/EDITORIAL%20FELINA/historia-instagram-01.webp" alt="Historia de Instagram" loading="lazy"><div class="media-overlay"><span class="media-label">HISTORIA</span></div></div>
+  <section class="section rv" style="padding: 120px 24px; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">PLUMA FELINA</h2>
+      <a href="https://www.casaeditorialfelina.com/revista-pluma-felina" target="_blank"
+        style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
+        onmouseover="this.style.background='var(--rb)'; this.style.color='#0a0a0a'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
+        onmouseout="this.style.background='transparent'; this.style.color='var(--rb)'; this.style.boxShadow='none'">
+        VER REVISTA ONLINE →
+      </a>
     </div>
   </section>
 
@@ -505,13 +420,13 @@
         el.innerHTML = '';
 
         var pageFlip = new St.PageFlip(el, {
-          width: 500,
-          height: 700,
+          width: 340,
+          height: 480,
           size: 'stretch',
-          minWidth: 260,
-          maxWidth: 600,
-          minHeight: 360,
-          maxHeight: 850,
+          minWidth: 220,
+          maxWidth: 420,
+          minHeight: 310,
+          maxHeight: 594,
           showCover: true,
           usePortrait: true,
           maxShadowOpacity: 0.5,
