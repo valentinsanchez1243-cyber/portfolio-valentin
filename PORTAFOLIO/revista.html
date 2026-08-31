@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Revista Pluma Felina — Valentín Sánchez</title>
   <meta name="description" content="Case study de diseño editorial: Revista Pluma Felina para Casa Editorial Felina (México). Maquetación, fotonovela y flipbook digital interactivo.">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Road+Rage&family=Englebert&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Unbounded:wght@300;400;500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-base.css">
 
   <style>
@@ -23,7 +23,7 @@
     body {
       background: var(--b);
       color: var(--w);
-      font-family: 'Englebert', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       overflow-x: hidden;
       cursor: none;
       background-image:
@@ -50,7 +50,7 @@
     .nl span { color: var(--rb); }
     .nls { display: flex; gap: 28px; list-style: none; }
     .nls a {
-      font-family: 'Road Rage', sans-serif;
+      font-family: 'Unbounded', sans-serif;
       font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -67,7 +67,7 @@
       box-shadow: 0 0 15px rgba(var(--rb-rgb), 0.5), 0 0 30px rgba(var(--rb-rgb), 0.2), inset 0 0 8px rgba(var(--rb-rgb), 0.1);
       background: rgba(var(--rb-rgb), 0.08);
     }
-    .ncta { background: var(--rb) !important; color: #0a0a0a !important; padding: 7px 18px; font-family: 'Road Rage', sans-serif !important; font-size: .76rem !important; letter-spacing: 3px !important; text-transform: uppercase; text-decoration: none; font-weight: 700; border-radius: 4px !important; }
+    .ncta { background: var(--rb) !important; color: #0a0a0a !important; padding: 7px 18px; font-family: 'Unbounded', sans-serif !important; font-size: .76rem !important; letter-spacing: 3px !important; text-transform: uppercase; text-decoration: none; font-weight: 700; border-radius: 4px !important; }
 
     /* HERO (PORTADA) */
     .hero-banner {
@@ -79,10 +79,10 @@
     }
     .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, transparent 100%); }
     .hero-banner-content { position: relative; z-index: 1; }
-    .hero-tag { font-family: 'Road Rage', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .hero-tag { font-family: 'Unbounded', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
     .hero-title { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(46px, 8vw, 104px); line-height: .9; color: var(--w); }
-    .hero-sub { font-family: 'Road Rage', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
+    .hero-sub { font-family: 'Unbounded', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
 
     /* MARQUEE */
     .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
@@ -94,9 +94,9 @@
     /* SECTIONS */
     .section { padding: 60px 64px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
     .section + .section { padding-top: 20px; }
-    .section-subtitle { font-family: 'Road Rage', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+    .section-subtitle { font-family: 'Unbounded', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
     .section-subtitle::before { content: ''; width: 20px; height: 1px; background: var(--rb); }
-    .section-title { font-family: 'Englebert', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; color: var(--w); text-transform: uppercase; }
+    .section-title { font-family: 'Hanken Grotesk', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; color: var(--w); text-transform: uppercase; }
     .section-title em { color: var(--rb); font-style: normal; }
     .section-desc { font-size: 1rem; line-height: 1.7; color: var(--g); margin-bottom: 22px; text-align: justify; }
 
@@ -114,10 +114,10 @@
       transition: .3s; font-size: 1.1rem;
     }
     .flip-btn:hover { background: var(--rb); color: #0a0a0a; box-shadow: 0 0 22px rgba(var(--rb-rgb),.5); transform: scale(1.08); }
-    .flip-counter { font-family: 'Road Rage', sans-serif; letter-spacing: 3px; color: var(--w); font-size: .95rem; min-width: 80px; text-align: center; }
+    .flip-counter { font-family: 'Unbounded', sans-serif; letter-spacing: 3px; color: var(--w); font-size: .95rem; min-width: 80px; text-align: center; }
     .flip-hint {
       display: flex; align-items: center; gap: 10px;
-      font-family: 'Road Rage', sans-serif; font-size: .82rem; letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'Unbounded', sans-serif; font-size: .82rem; letter-spacing: 2px; text-transform: uppercase;
       color: var(--rb); font-weight: 700;
       padding: 10px 20px; border: 1px solid rgba(var(--rb-rgb),.4); border-radius: 30px;
       background: rgba(var(--rb-rgb),.08);
@@ -125,18 +125,18 @@
     }
     .flip-hint svg { width: 20px; height: 20px; flex-shrink: 0; }
     @keyframes hintPulse { 0%,100% { box-shadow: 0 0 0 rgba(var(--rb-rgb),0); } 50% { box-shadow: 0 0 18px rgba(var(--rb-rgb),.35); } }
-    .flip-loading { font-family: 'Road Rage', sans-serif; font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--g); padding: 40px 0; }
+    .flip-loading { font-family: 'Unbounded', sans-serif; font-size: .75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--g); padding: 40px 0; }
 
     .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .tag { font-family: 'Road Rage', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
+    .tag { font-family: 'Unbounded', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
     .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .software-used-label { font-family: 'Road Rage', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-label { font-family: 'Unbounded', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
     .software-used-icons { display: flex; flex-wrap: wrap; gap: 22px; }
     .software-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
     .software-icon { width: 52px; height: 52px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: all .3s ease; animation: swFloat 2.4s ease-in-out infinite, swPulse 2s infinite; }
     .software-icon img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
     .software-item:hover .software-icon { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 25px rgba(var(--rb-rgb),0.35); }
-    .software-item span { font-family: 'Road Rage', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
+    .software-item span { font-family: 'Unbounded', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
     .software-item:nth-child(2) .software-icon { animation-duration: 2.7s, 2s; }
     .software-item:nth-child(3) .software-icon { animation-duration: 3s, 2s; }
     @keyframes swFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
@@ -144,7 +144,7 @@
 
     /* PROJECT INDEX */
     .pj-index { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .pj-index-label { font-family: 'Road Rage', sans-serif; font-size: 0.7rem; letter-spacing: 5px; color: var(--rb); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; display: block; }
+    .pj-index-label { font-family: 'Unbounded', sans-serif; font-size: 0.7rem; letter-spacing: 5px; color: var(--rb); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; display: block; }
     .pj-index-list { display: flex; flex-wrap: wrap; gap: 10px 48px; list-style: none; }
     .pj-index-list a { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(1.2rem, 2.5vw, 1.7rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
     .pj-index-list a:hover { color: var(--rb); }
@@ -157,9 +157,9 @@
     .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .5s; }
     .media-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: .3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
     .media-card:hover .media-overlay { opacity: 1; }
-    .media-label { font-family: 'Road Rage', sans-serif; font-size: 9px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
+    .media-label { font-family: 'Unbounded', sans-serif; font-size: 9px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
 
-    .ig-subhead { display: block; font-family: 'Road Rage', sans-serif; font-size: .68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin: 26px 0 12px; }
+    .ig-subhead { display: block; font-family: 'Unbounded', sans-serif; font-size: .68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin: 26px 0 12px; }
     .ig-stories-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 20px; }
     .ig-story { aspect-ratio: 9/16; }
 
@@ -409,7 +409,7 @@
     <div style="max-width: 800px; margin: 0 auto;">
       <h2 style="font-family: 'Rubik Distressed', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--w); margin-bottom: 40px; letter-spacing: 2px;">PLUMA FELINA</h2>
       <a href="https://www.casaeditorialfelina.com/revista-pluma-felina" target="_blank"
-        style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Road Rage', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
+        style="display: inline-block; padding: 16px 40px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 4px; text-decoration: none; border-radius: 4px; transition: .3s;"
         onmouseover="this.style.background='var(--rb)'; this.style.color='#0a0a0a'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'"
         onmouseout="this.style.background='transparent'; this.style.color='var(--rb)'; this.style.boxShadow='none'">
         VER REVISTA ONLINE →
@@ -419,7 +419,7 @@
 
   <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
     <div style="font-family: 'Rubik Distressed', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--rb)">.</span></div>
-    <div style="font-family: 'Road Rage', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2025 · Córdoba, AR</div>
+    <div style="font-family: 'Unbounded', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2025 · Córdoba, AR</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>

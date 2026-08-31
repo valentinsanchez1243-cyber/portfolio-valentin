@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mafalda — Valentín Sánchez</title>
   <meta name="description" content="Case study de diseño editorial: historieta de Mafalda maquetada en Adobe InDesign. Retícula, jerarquías tipográficas y narrativa secuencial.">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Road+Rage&family=Englebert&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Unbounded:wght@300;400;500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-base.css">
 
   <style>
@@ -23,7 +23,7 @@
     body {
       background: var(--b);
       color: var(--w);
-      font-family: 'Englebert', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       overflow-x: hidden;
       cursor: none;
       background-image:
@@ -50,7 +50,7 @@
     .nl span { color: var(--rb); }
     .nls { display: flex; gap: 28px; list-style: none; }
     .nls a {
-      font-family: 'Road Rage', sans-serif;
+      font-family: 'Unbounded', sans-serif;
       font-size: .95rem;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -67,7 +67,7 @@
       box-shadow: 0 0 15px rgba(var(--rb-rgb), 0.5), 0 0 30px rgba(var(--rb-rgb), 0.2), inset 0 0 8px rgba(var(--rb-rgb), 0.1);
       background: rgba(var(--rb-rgb), 0.08);
     }
-    .ncta { background: var(--rb) !important; color: #0a0a0a !important; padding: 7px 18px; font-family: 'Road Rage', sans-serif !important; font-size: .76rem !important; letter-spacing: 3px !important; text-transform: uppercase; text-decoration: none; font-weight: 700; border-radius: 4px !important; }
+    .ncta { background: var(--rb) !important; color: #0a0a0a !important; padding: 7px 18px; font-family: 'Unbounded', sans-serif !important; font-size: .76rem !important; letter-spacing: 3px !important; text-transform: uppercase; text-decoration: none; font-weight: 700; border-radius: 4px !important; }
 
     /* HERO (PORTADA) */
     .hero-banner {
@@ -79,10 +79,10 @@
     }
     .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, transparent 100%); }
     .hero-banner-content { position: relative; z-index: 1; }
-    .hero-tag { font-family: 'Road Rage', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .hero-tag { font-family: 'Unbounded', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
     .hero-title { font-family: 'Rubik Distressed', sans-serif; font-size: clamp(60px, 10vw, 130px); line-height: .9; color: var(--w); }
-    .hero-sub { font-family: 'Road Rage', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
+    .hero-sub { font-family: 'Unbounded', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
 
     /* MARQUEE */
     .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
@@ -98,7 +98,7 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
     .pj-index-label {
-      font-family: 'Road Rage', sans-serif;
+      font-family: 'Unbounded', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 5px;
       color: var(--rb);
@@ -127,9 +127,9 @@
     }
     .section { padding: 60px 64px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
     .section + .section { padding-top: 20px; }
-    .section-subtitle { font-family: 'Road Rage', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+    .section-subtitle { font-family: 'Unbounded', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--rb); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
     .section-subtitle::before { content: ''; width: 20px; height: 1px; background: var(--rb); }
-    .section-title { font-family: 'Englebert', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; color: var(--w); text-transform: uppercase; }
+    .section-title { font-family: 'Hanken Grotesk', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; color: var(--w); text-transform: uppercase; }
     .section-title em { color: var(--rb); font-style: normal; }
     .section-desc { font-size: 1rem; line-height: 1.7; color: var(--g); margin-bottom: 32px; text-align: justify; }
 
@@ -148,18 +148,18 @@
 
     .media-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: .3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; }
     .media-card:hover .media-overlay { opacity: 1; }
-    .media-label { font-family: 'Road Rage', sans-serif; font-size: 10px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
+    .media-label { font-family: 'Unbounded', sans-serif; font-size: 10px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
 
     .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .tag { font-family: 'Road Rage', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
+    .tag { font-family: 'Unbounded', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rb); color: var(--rb); background: transparent; }
     .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
-    .software-used-label { font-family: 'Road Rage', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-label { font-family: 'Unbounded', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
     .software-used-icons { display: flex; flex-wrap: wrap; gap: 22px; }
     .software-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
     .software-icon { width: 52px; height: 52px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: all .3s ease; animation: swFloat 2.4s ease-in-out infinite, swPulse 2s infinite; }
     .software-icon img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
     .software-item:hover .software-icon { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 25px rgba(var(--rb-rgb),0.35); }
-    .software-item span { font-family: 'Road Rage', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
+    .software-item span { font-family: 'Unbounded', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
     .software-item:nth-child(2) .software-icon { animation-duration: 2.7s, 2s; }
     .software-item:nth-child(3) .software-icon { animation-duration: 3s, 2s; }
     .software-item:nth-child(4) .software-icon { animation-duration: 2.2s, 2s; }
@@ -368,7 +368,7 @@
   </section>
   <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
     <div style="font-family: 'Rubik Distressed', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--rb)">.</span></div>
-    <div style="font-family: 'Road Rage', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2025 · Córdoba, AR</div>
+    <div style="font-family: 'Unbounded', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2025 · Córdoba, AR</div>
   </footer>
 
   <script>
