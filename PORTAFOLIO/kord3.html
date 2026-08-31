@@ -1636,7 +1636,7 @@
           <div class="ig-user"><div class="ig-username">kord3.ar</div><div class="ig-time">Reel</div></div>
           <div class="ig-more">···</div>
         </div>
-        <div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/reel-1.mp4" autoplay muted loop playsinline controls></video></div>
+        <div class="ig-media"><video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/reel-1.mp4" muted loop playsinline controls></video></div>
         <div class="ig-post-ft">
           <div class="ig-actions">
             <div class="ig-action"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>1.2K</div>
@@ -1670,7 +1670,7 @@
           <div class="ig-user"><div class="ig-username">kord3.ar</div><div class="ig-time">Reel</div></div>
           <div class="ig-more">···</div>
         </div>
-        <div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/reel%202%283%29%20%281%29.mp4" autoplay muted loop playsinline controls></video></div>
+        <div class="ig-media"><video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/reel%202%283%29%20%281%29.mp4" muted loop playsinline controls></video></div>
         <div class="ig-post-ft">
           <div class="ig-actions">
             <div class="ig-action"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>3.1K</div>
@@ -1687,7 +1687,7 @@
           <div class="ig-user"><div class="ig-username">kord3.ar</div><div class="ig-time">Reel</div></div>
           <div class="ig-more">···</div>
         </div>
-        <div class="ig-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/IMG_7401.MP4" autoplay muted loop playsinline controls></video></div>
+        <div class="ig-media"><video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/IMG_7401.MP4" muted loop playsinline controls></video></div>
         <div class="ig-post-ft">
           <div class="ig-actions">
             <div class="ig-action"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>4.8K</div>
@@ -1947,6 +1947,26 @@
       }
     }
     loop();
+  })();
+  </script><script id="lazy-av-observer">
+  (function () {
+    var vids = document.querySelectorAll('video.lazy-av');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          if (v.paused) v.play().catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.15 });
+    vids.forEach(function (v) { io.observe(v); });
   })();
   </script></body>
 </html>

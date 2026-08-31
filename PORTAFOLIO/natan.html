@@ -367,7 +367,7 @@
         </div>
       </div>
       <div class="overview-media">
-        <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/natan-ahora.mp4" autoplay muted loop playsinline></video>
+        <video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/natan-ahora.mp4" muted loop playsinline></video>
       </div>
     </div>
   </section>
@@ -626,7 +626,7 @@
     <div class="hype-social-grid">
       <!-- POS 1 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" autoplay muted loop playsinline></video></div>
+        <div class="hype-post-media"><video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/escribiendo.mp4" muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 1.2K</span>
@@ -638,7 +638,7 @@
       </div>
       <!-- POS 2 -->
       <div class="hype-post ig-post">
-        <div class="hype-post-media"><video src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" autoplay muted loop playsinline></video></div>
+        <div class="hype-post-media"><video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/terminado.mp4" muted loop playsinline></video></div>
         <div class="hype-post-info">
           <div class="hype-post-actions">
             <span>♥ 2.4K</span>
@@ -875,6 +875,26 @@
       }
     }
     loop();
+  })();
+  </script><script id="lazy-av-observer">
+  (function () {
+    var vids = document.querySelectorAll('video.lazy-av');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          if (v.paused) v.play().catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.15 });
+    vids.forEach(function (v) { io.observe(v); });
   })();
   </script></body>
 </html>

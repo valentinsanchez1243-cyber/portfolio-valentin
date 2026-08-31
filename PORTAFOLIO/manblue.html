@@ -372,7 +372,7 @@
         </div>
       </div>
       <div class="overview-media" style="max-width: 320px; justify-self: center;">
-        <video preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/man%20blue%20captura.mp4" autoplay muted loop playsinline style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: block; filter: brightness(1.1);"></video>
+        <video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/man%20blue%20captura.mp4" muted loop playsinline style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: block; filter: brightness(1.1);"></video>
       </div>
     </div>
   </section>
@@ -625,5 +625,25 @@
       document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
     }
   </script>
-</body>
+<script id="lazy-av-observer">
+  (function () {
+    var vids = document.querySelectorAll('video.lazy-av');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          if (v.paused) v.play().catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.15 });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+  </script></body>
 </html>
