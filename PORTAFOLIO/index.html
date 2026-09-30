@@ -32,6 +32,7 @@
       --llueve: #F97316;
       --mafalda: #E63946;
       --felina: #ff6450;
+      --vans: #ffffff;
       /* Man Blue FC */
       --b: #080808;
       --b2: #0f0f0f;
@@ -1419,6 +1420,20 @@ p,
       z-index: 0;
     }
 
+    .cvans {
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/portada-vans.webp');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cvans::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0;
+    }
+
 
     /* ── COLOR BORDERS — siempre visibles desktop + mobile ── */
     /* WOLDI - amber */
@@ -1471,6 +1486,11 @@ p,
 
     .pc.cfel { border-color: rgba(255,100,80,  0.38); }
     .cfel:hover { border-color: rgba(255,100,80,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,100,80,0.18) !important; }
+
+    /* VANS - blanco */
+    .cvans .pt, .cvans .pn, .cvans .pb { color: var(--vans); }
+    .pc.cvans { border-color: rgba(255,255,255,  0.38); }
+    .cvans:hover { border-color: rgba(255,255,255,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,255,255,0.18) !important; }
 
     .pc.square-card {
       height: auto !important;
@@ -3864,6 +3884,7 @@ adding: 30px 24px !important; }
       .pc.ce  { border-color: rgba(255,215,0,   0.55) !important; }
       .pc.cn2 { border-color: rgba(22,72,200,   0.55) !important; }
       .pc.cm  { border-color: rgba(250,128,114, 0.55) !important; }
+      .pc.cvans { border-color: rgba(255,255,255, 0.55) !important; }
 
       /* ── PROCESO: ocultar línea roja decorativa ── */
       .prg::after {
@@ -4960,6 +4981,22 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">MF Sports</div>
           <div class="pd">Diseño de indumentaria deportiva y presentaciones profesionales.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ── PUBLICIDAD / CAMPAÑAS ────────────────────────── -->
+      <div class="pg-category">— PUBLICIDAD / CAMPAÑAS</div>
+
+      <!-- Vans 60 Años -->
+      <a href="vans.html" class="pc tilt-card reveal cvans">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/portada-vans.webp" alt="Vans 60 Años — Rally Creativo 2025">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Vans · 60 Años</div>
+          <div class="pd">Concepto de campaña y dirección de arte para el Rally Creativo 2025.</div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
