@@ -81,7 +81,7 @@
     .hero-banner-content { position: relative; z-index: 1; }
     .hero-tag { font-family: 'Outfit', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rb); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--rb); }
-    .hero-title { font-family: 'Fjalla One', sans-serif; font-size: clamp(46px, 8vw, 104px); line-height: .9; color: var(--w); }
+    .hero-title { font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: clamp(46px, 8vw, 104px); line-height: .9; color: var(--w); }
     .hero-sub { font-family: 'Outfit', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
 
     /* MARQUEE */
@@ -281,9 +281,11 @@
   </div>
 
   <!-- OVERVIEW -->
-  <section class="section rv">
+  <section class="section rv" id="overview">
     <div class="section-subtitle">— OVERVIEW <span class="checker-tag"></span></div>
-    <div>
+
+    <div class="piezas-layout">
+      <div class="piezas-text">
         <p class="section-desc">
           Este proyecto nació en el <strong style="color:var(--w)">Rally Creativo 2025</strong> de la Universidad Siglo 21: un desafío de 24 horas donde equipos de estudiantes de todo el país reciben un brief real de un anunciante y tienen que resolverlo de punta a punta, contra reloj. Lo hice en dupla con un compañero, y el anunciante de esa edición fue <strong style="color:var(--w)">Vans</strong>, con el desafío de conceptualizar el relanzamiento de las Slip-On Classic por sus 60 años.
         </p>
@@ -291,7 +293,7 @@
           Antes de diseñar una sola pieza, nos metimos a fondo en el ADN de la marca: de dónde viene Vans, qué significa "Off The Wall", cómo se formó su comunidad skate y, sobre todo, la historia del patrón <strong style="color:var(--w)">checkerboard</strong> que hoy es su símbolo más reconocible. Ese patrón nació en los 70 de forma completamente orgánica —skaters de California personalizando sus propias zapatillas— y terminó siendo la firma visual de la marca. Ahí encontramos el ángulo: un patrón, por definición, es orden y repetición. Pero el patrón de Vans nació de romper las reglas, no de seguirlas.
         </p>
         <p class="section-desc">
-          De esa tensión salió el concepto que guió toda la campaña: <strong style="color:var(--w)">"60 años rompiendo el patrón"</strong>. Con esa idea como eje, desarrollamos tres piezas pensadas para el mercado argentino —una gráfica de vía pública, un concepto audiovisual para Instagram y un mockup de packaging/merchandising— unificadas bajo el mismo concepto visual y conceptual. Mi parte fue la dirección de arte y el desarrollo de las piezas gráficas en Illustrator y Photoshop, además de la edición en CapCut.
+          De esa tensión salió el concepto que guió toda la campaña: <strong style="color:var(--w)">"60 años rompiendo el patrón"</strong>. Con esa idea como eje, desarrollamos tres piezas pensadas para el mercado argentino —una gráfica de vía pública, un concepto audiovisual para Instagram y un mockup de packaging/merchandising, con el mockup retomando el checkerboard de forma literal: una caja que se agrieta y deja ver el patrón por debajo, como si el paso de los años la hubiera resquebrajado. Mi parte fue la dirección de arte y el desarrollo de las piezas gráficas en Illustrator y Photoshop, además de la edición en CapCut.
         </p>
 
         <div class="tag-list">
@@ -309,15 +311,21 @@
             <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"></div><span>CapCut</span></div>
           </div>
         </div>
+      </div>
 
-        <div class="pj-index rv">
-          <span class="pj-index-label">— ÍNDICE</span>
-          <ul class="pj-index-list">
-            <li><a href="#concepto">EL CONCEPTO</a></li>
-            <li><a href="#piezas">LAS PIEZAS</a></li>
-            <li><a href="#proyecto">VER PROYECTO</a></li>
-          </ul>
-        </div>
+      <div class="media-grid grid-vans-side">
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/4.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/Copia%20de%20Disen%CC%83o%20sin%20ti%CC%81tulo.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/caja%20rota.png" alt="Vans 60 Años — mockup de packaging" loading="lazy"></div><div class="media-overlay"><span class="media-label">Mockup · Packaging</span></div></div>
+      </div>
+    </div>
+
+    <div class="pj-index rv">
+      <span class="pj-index-label">— ÍNDICE</span>
+      <ul class="pj-index-list">
+        <li><a href="#concepto">EL CONCEPTO</a></li>
+        <li><a href="#proyecto">VER PROYECTO</a></li>
+      </ul>
     </div>
   </section>
 
@@ -333,31 +341,6 @@
     <p class="section-desc">
       Para sostener esa idea investigamos a los tres públicos objetivo de la marca —Generación Z, Millennials y Generación X— y encontramos que los tres cargan la misma tensión de fondo con matices distintos: la necesidad de pertenecer contra la necesidad de diferenciarse, la búsqueda de autenticidad en un mundo de patrones repetidos. Vans aparece ahí no como una marca que impone un molde, sino como una que invita a romperlo. Ese fue el insight que bajamos a las tres piezas de la campaña.
     </p>
-  </section>
-
-  <div class="checker-strip"></div>
-
-  <!-- PIEZAS -->
-  <section class="section rv" id="piezas">
-    <div class="section-subtitle">— PRODUCCIÓN GRÁFICA <span class="checker-tag"></span></div>
-    <h2 class="section-title">Las <em>piezas</em></h2>
-
-    <div class="piezas-layout">
-      <div class="piezas-text">
-        <p class="section-desc">
-          Selección de las piezas gráficas desarrolladas para la campaña: dirección de arte, composición y tratamiento visual del concepto "60 años rompiendo el patrón" aplicado a vía pública y merchandising.
-        </p>
-        <p class="section-desc">
-          El mockup de packaging retoma el checkerboard de forma literal: una caja que se agrieta y deja ver el patrón por debajo, como si el paso de los años la hubiera resquebrajado. Las otras dos piezas trabajan la misma idea en formato gráfico, pensadas para vía pública y redes.
-        </p>
-      </div>
-
-      <div class="media-grid grid-vans-side">
-        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/4.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
-        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/Copia%20de%20Disen%CC%83o%20sin%20ti%CC%81tulo.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
-        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/caja%20rota.png" alt="Vans 60 Años — mockup de packaging" loading="lazy"></div><div class="media-overlay"><span class="media-label">Mockup · Packaging</span></div></div>
-      </div>
-    </div>
   </section>
 
   <div class="checker-strip"></div>
