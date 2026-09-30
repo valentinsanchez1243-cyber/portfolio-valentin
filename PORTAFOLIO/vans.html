@@ -140,6 +140,11 @@
     .grid-vans-side .media-card { aspect-ratio: 16 / 10; }
     .grid-vans-side .media-card img { aspect-ratio: 16 / 10; }
 
+    /* INSIGHT + PROYECTO, lado a lado */
+    .insight-proyecto-layout { display: flex; gap: 48px; align-items: flex-start; }
+    .insight-col, .proyecto-col { flex: 1; min-width: 0; }
+    .proyecto-col .pdf-embed { height: 560px; }
+
     /* PIEZAS GRID */
     .media-grid { display: grid; gap: 20px; }
     .grid-vans { grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
@@ -215,6 +220,8 @@
       .piezas-layout { flex-direction: column !important; gap: 22px !important; }
       .piezas-text { flex: 1 1 auto !important; }
       .grid-vans-side { gap: 14px !important; }
+
+      .insight-proyecto-layout { flex-direction: column !important; gap: 36px !important; }
 
       .pdf-embed { height: 480px !important; }
 
@@ -331,32 +338,33 @@
 
   <div class="checker-strip"></div>
 
-  <!-- CONCEPTO -->
-  <section class="section rv" id="concepto">
-    <div class="section-subtitle">— EL INSIGHT <span class="checker-tag"></span></div>
-    <h2 class="section-title">60 años <em>rompiendo el patrón</em></h2>
-    <p class="section-desc">
-      El checkerboard de Vans funciona como metáfora del sistema: casilleros iguales, ordenados, previsibles. Trabajamos la idea de que cada casillero representa una generación —desde los skaters de los 70 que dibujaban el patrón a mano hasta la Generación Z de hoy— y que, en algún momento, una de esas casillas siempre se sale del molde: cambia de color, se agrieta, rompe la cuadrícula. Ese movimiento constante es, para nosotros, la historia real de la marca: 60 años cambiando de forma sin dejar de ser Vans.
-    </p>
-    <p class="section-desc">
-      Para sostener esa idea investigamos a los tres públicos objetivo de la marca —Generación Z, Millennials y Generación X— y encontramos que los tres cargan la misma tensión de fondo con matices distintos: la necesidad de pertenecer contra la necesidad de diferenciarse, la búsqueda de autenticidad en un mundo de patrones repetidos. Vans aparece ahí no como una marca que impone un molde, sino como una que invita a romperlo. Ese fue el insight que bajamos a las tres piezas de la campaña.
-    </p>
-  </section>
+  <!-- CONCEPTO + PROYECTO COMPLETO, lado a lado -->
+  <section class="section rv" style="padding-bottom: 100px;">
+    <div class="insight-proyecto-layout">
+      <div class="insight-col" id="concepto">
+        <div class="section-subtitle">— EL INSIGHT <span class="checker-tag"></span></div>
+        <h2 class="section-title">60 años <em>rompiendo el patrón</em></h2>
+        <p class="section-desc">
+          El checkerboard de Vans funciona como metáfora del sistema: casilleros iguales, ordenados, previsibles. Trabajamos la idea de que cada casillero representa una generación —desde los skaters de los 70 que dibujaban el patrón a mano hasta la Generación Z de hoy— y que, en algún momento, una de esas casillas siempre se sale del molde: cambia de color, se agrieta, rompe la cuadrícula. Ese movimiento constante es, para nosotros, la historia real de la marca: 60 años cambiando de forma sin dejar de ser Vans.
+        </p>
+        <p class="section-desc">
+          Para sostener esa idea investigamos a los tres públicos objetivo de la marca —Generación Z, Millennials y Generación X— y encontramos que los tres cargan la misma tensión de fondo con matices distintos: la necesidad de pertenecer contra la necesidad de diferenciarse, la búsqueda de autenticidad en un mundo de patrones repetidos. Vans aparece ahí no como una marca que impone un molde, sino como una que invita a romperlo. Ese fue el insight que bajamos a las tres piezas de la campaña.
+        </p>
+      </div>
 
-  <div class="checker-strip"></div>
-
-  <!-- PROYECTO COMPLETO -->
-  <section class="section rv" id="proyecto" style="padding-top: 20px; padding-bottom: 100px;">
-    <div class="section-subtitle">— PROYECTO COMPLETO <span class="checker-tag"></span></div>
-    <h2 class="section-title">Ver el <em>proyecto</em></h2>
-    <p class="section-desc">
-      El desarrollo completo del concepto —brief, arquitectura de marca, insight generacional y las tres piezas de campaña— está armado en el siguiente PDF.
-    </p>
-    <div class="pdf-embed">
-      <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" title="Vans 60 Años — PDF completo del proyecto" loading="lazy"></iframe>
-    </div>
-    <div class="pdf-cta">
-      <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
+      <div class="proyecto-col" id="proyecto">
+        <div class="section-subtitle">— PROYECTO COMPLETO <span class="checker-tag"></span></div>
+        <h2 class="section-title">Ver el <em>proyecto</em></h2>
+        <p class="section-desc">
+          El desarrollo completo del concepto —brief, arquitectura de marca, insight generacional y las tres piezas de campaña— está armado en el siguiente PDF.
+        </p>
+        <div class="pdf-embed">
+          <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" title="Vans 60 Años — PDF completo del proyecto" loading="lazy"></iframe>
+        </div>
+        <div class="pdf-cta">
+          <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
+        </div>
+      </div>
     </div>
   </section>
 
