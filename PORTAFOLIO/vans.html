@@ -125,9 +125,23 @@
     /* CHECKERBOARD DIVIDER */
     .checker-strip { width: 100vw; margin-left: calc(-50vw + 50%); height: 36px; background-image: linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111), linear-gradient(45deg, #111 25%, transparent 25%, transparent 75%, #111 75%, #111); background-size: 36px 36px; background-position: 0 0, 18px 18px; background-color: #fff; opacity: .9; }
 
+    /* Pequeño swatch checkerboard junto a los labels de sección — motivo recurrente de la marca */
+    .checker-tag { width: 14px; height: 14px; display: inline-block; margin-left: 10px; border-radius: 2px; background-image: linear-gradient(45deg, #0a0a0a 25%, transparent 25%, transparent 75%, #0a0a0a 75%, #0a0a0a), linear-gradient(45deg, #0a0a0a 25%, transparent 25%, transparent 75%, #0a0a0a 75%, #0a0a0a); background-size: 7px 7px; background-position: 0 0, 3.5px 3.5px; background-color: #fff; vertical-align: middle; }
+
+    /* Borde tipo checkerboard, usado como marco decorativo en piezas clave */
+    .checker-frame { position: relative; padding: 3px; background-image: linear-gradient(45deg, #0a0a0a 25%, transparent 25%, transparent 75%, #0a0a0a 75%, #0a0a0a), linear-gradient(45deg, #0a0a0a 25%, transparent 25%, transparent 75%, #0a0a0a 75%, #0a0a0a); background-size: 14px 14px; background-position: 0 0, 7px 7px; background-color: #fff; border-radius: 12px; }
+    .checker-frame > * { border-radius: 9px; overflow: hidden; display: block; }
+
+    /* PIEZAS — texto e imágenes lado a lado */
+    .piezas-layout { display: flex; gap: 48px; align-items: flex-start; margin-top: 26px; }
+    .piezas-text { flex: 0 0 36%; }
+    .piezas-text .section-desc { margin-bottom: 0; }
+    .grid-vans-side { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; gap: 16px; }
+    .grid-vans-side .media-card:nth-child(3) { grid-column: 1 / -1; }
+
     /* PIEZAS GRID */
-    .media-grid { display: grid; gap: 20px; margin-top: 30px; }
-    .grid-vans { grid-template-columns: repeat(3, 1fr); }
+    .media-grid { display: grid; gap: 20px; }
+    .grid-vans { grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
     .media-card { background: #0d0d0d; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .4s; position: relative; }
     .media-card:hover { border-color: var(--rb); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(255,255,255,0.2); }
     .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .5s; }
@@ -135,8 +149,12 @@
     .media-card:hover .media-overlay { opacity: 1; }
     .media-label { font-family: 'Outfit', sans-serif; font-size: 10px; color: var(--rb); letter-spacing: 2px; text-transform: uppercase; }
 
+    /* PDF EMBED */
+    .pdf-embed { width: 100%; height: 820px; margin-top: 26px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #1a1a1a; }
+    .pdf-embed iframe { width: 100%; height: 100%; border: none; display: block; background: #fff; }
+
     /* PDF BUTTON */
-    .pdf-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 28px; }
+    .pdf-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
     .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border: 1px solid var(--rb); color: var(--rb); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: 3px; text-decoration: none; border-radius: 4px; transition: .3s; text-transform: uppercase; }
     .btn-outline:hover { background: var(--rb); color: #0a0a0a; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
     .btn-solid { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: var(--rb); color: #0a0a0a; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: 3px; text-decoration: none; border-radius: 4px; transition: .3s; text-transform: uppercase; }
@@ -192,6 +210,13 @@
 
       .grid-vans { grid-template-columns: 1fr !important; gap: 14px !important; }
       .checker-strip { margin-left: 0 !important; width: 100vw !important; }
+
+      .piezas-layout { flex-direction: column !important; gap: 22px !important; }
+      .piezas-text { flex: 1 1 auto !important; }
+      .grid-vans-side { grid-template-columns: 1fr !important; grid-auto-rows: 220px !important; gap: 14px !important; }
+      .grid-vans-side .media-card:nth-child(3) { grid-column: 1 !important; }
+
+      .pdf-embed { height: 480px !important; }
 
       .pj-index { margin-top: 28px !important; }
       .pj-index-list { flex-direction: column !important; gap: 6px !important; }
@@ -257,7 +282,7 @@
 
   <!-- OVERVIEW -->
   <section class="section rv">
-    <div class="section-subtitle">— OVERVIEW</div>
+    <div class="section-subtitle">— OVERVIEW <span class="checker-tag"></span></div>
     <div>
         <p class="section-desc">
           Este proyecto nació en el <strong style="color:var(--w)">Rally Creativo 2025</strong> de la Universidad Siglo 21: un desafío de 24 horas donde equipos de estudiantes de todo el país reciben un brief real de un anunciante y tienen que resolverlo de punta a punta, contra reloj. Lo hice en dupla con un compañero, y el anunciante de esa edición fue <strong style="color:var(--w)">Vans</strong>, con el desafío de conceptualizar el relanzamiento de las Slip-On Classic por sus 60 años.
@@ -300,7 +325,7 @@
 
   <!-- CONCEPTO -->
   <section class="section rv" id="concepto">
-    <div class="section-subtitle">— EL INSIGHT</div>
+    <div class="section-subtitle">— EL INSIGHT <span class="checker-tag"></span></div>
     <h2 class="section-title">60 años <em>rompiendo el patrón</em></h2>
     <p class="section-desc">
       El checkerboard de Vans funciona como metáfora del sistema: casilleros iguales, ordenados, previsibles. Trabajamos la idea de que cada casillero representa una generación —desde los skaters de los 70 que dibujaban el patrón a mano hasta la Generación Z de hoy— y que, en algún momento, una de esas casillas siempre se sale del molde: cambia de color, se agrieta, rompe la cuadrícula. Ese movimiento constante es, para nosotros, la historia real de la marca: 60 años cambiando de forma sin dejar de ser Vans.
@@ -310,30 +335,45 @@
     </p>
   </section>
 
+  <div class="checker-strip"></div>
+
   <!-- PIEZAS -->
   <section class="section rv" id="piezas">
-    <div class="section-subtitle">— PRODUCCIÓN GRÁFICA</div>
+    <div class="section-subtitle">— PRODUCCIÓN GRÁFICA <span class="checker-tag"></span></div>
     <h2 class="section-title">Las <em>piezas</em></h2>
-    <p class="section-desc">
-      Selección de las piezas gráficas desarrolladas para la campaña: dirección de arte, composición y tratamiento visual del concepto "60 años rompiendo el patrón" aplicado a vía pública y merchandising.
-    </p>
-    <div class="media-grid grid-vans">
-      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/4.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
-      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/caja%20rota.png" alt="Vans 60 Años — mockup de packaging" loading="lazy"><div class="media-overlay"><span class="media-label">Mockup · Packaging</span></div></div>
-      <div class="media-card"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/Copia%20de%20Disen%CC%83o%20sin%20ti%CC%81tulo.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
+
+    <div class="piezas-layout">
+      <div class="piezas-text">
+        <p class="section-desc">
+          Selección de las piezas gráficas desarrolladas para la campaña: dirección de arte, composición y tratamiento visual del concepto "60 años rompiendo el patrón" aplicado a vía pública y merchandising.
+        </p>
+        <p class="section-desc">
+          El mockup de packaging retoma el checkerboard de forma literal: una caja que se agrieta y deja ver el patrón por debajo, como si el paso de los años la hubiera resquebrajado. Las otras dos piezas trabajan la misma idea en formato gráfico, pensadas para vía pública y redes.
+        </p>
+      </div>
+
+      <div class="media-grid grid-vans-side">
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/4.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/Copia%20de%20Disen%CC%83o%20sin%20ti%CC%81tulo.png" alt="Vans 60 Años — pieza gráfica de campaña" loading="lazy"></div><div class="media-overlay"><span class="media-label">Pieza de campaña</span></div></div>
+        <div class="media-card checker-frame"><div><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/caja%20rota.png" alt="Vans 60 Años — mockup de packaging" loading="lazy"></div><div class="media-overlay"><span class="media-label">Mockup · Packaging</span></div></div>
+      </div>
     </div>
   </section>
 
+  <div class="checker-strip"></div>
+
   <!-- PROYECTO COMPLETO -->
   <section class="section rv" id="proyecto" style="padding-top: 20px; padding-bottom: 100px;">
-    <div class="section-subtitle">— PROYECTO COMPLETO</div>
+    <div class="section-subtitle">— PROYECTO COMPLETO <span class="checker-tag"></span></div>
     <h2 class="section-title">Ver el <em>proyecto</em></h2>
     <p class="section-desc">
-      El desarrollo completo del concepto —brief, arquitectura de marca, insight generacional y las tres piezas de campaña— está armado en un PDF, y también podés verlo publicado en Behance.
+      El desarrollo completo del concepto —brief, arquitectura de marca, insight generacional y las tres piezas de campaña— está armado en el siguiente PDF.
     </p>
+    <div class="pdf-embed">
+      <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" title="Vans 60 Años — PDF completo del proyecto" loading="lazy"></iframe>
+    </div>
     <div class="pdf-cta">
-      <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" target="_blank" class="btn-solid">VER PDF COMPLETO →</a>
-      <a href="https://www.behance.net/gallery/236718161/Proyecto-CAMPANA-60-ANOS-VANS-Relanzamiento-Slip-On" target="_blank" class="btn-outline">VER EN BEHANCE →</a>
+      <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/VANS/VALTO%20DESIGN_compressed.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
     </div>
   </section>
 
