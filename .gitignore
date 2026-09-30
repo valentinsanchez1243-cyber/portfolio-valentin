@@ -1,0 +1,4 @@
+node_modules/
+VIDEOS_MP4/
+*.mov
+*.mp4
