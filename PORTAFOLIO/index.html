@@ -33,6 +33,8 @@
       --mafalda: #E63946;
       --felina: #ff6450;
       --vans: #ffffff;
+      --nutre: #3DD6A0;
+      --jet: #4D94FF;
       /* Man Blue FC */
       --b: #080808;
       --b2: #0f0f0f;
@@ -1434,6 +1436,18 @@ p,
       z-index: 0;
     }
 
+    .cnutre {
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20NUTRI%203D.webp');
+      background-size: cover;
+      background-position: center;
+    }
+    .cnutre::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,28,22,0.95) 0%, rgba(4,28,22,0.75) 38%, rgba(0,0,0,0.25) 100%); z-index: 0; }
+    .cjet {
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20JETSMART.webp');
+      background-size: cover;
+      background-position: center;
+    }
+    .cjet::before { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.25); z-index: 0; }
 
     /* ── COLOR BORDERS — siempre visibles desktop + mobile ── */
     /* WOLDI - amber */
@@ -1490,6 +1504,12 @@ p,
     /* VANS - blanco */
     .cvans .pt, .cvans .pn, .cvans .pb { color: var(--vans); }
     .pc.cvans { border-color: rgba(255,255,255,  0.38); }
+    .cnutre .pt, .cnutre .pn, .cnutre .pb { color: var(--nutre); }
+    .pc.cnutre { border-color: rgba(17,85,67,0.9); }
+    .cnutre:hover { border-color: #1F8F6F !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(17,85,67,0.5) !important; }
+    .cjet .pt, .cjet .pn, .cjet .pb { color: var(--jet); }
+    .pc.cjet { border-color: rgba(77,148,255,0.45); }
+    .cjet:hover { border-color: rgba(77,148,255,0.9) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(77,148,255,0.3) !important; }
     .cvans:hover { border-color: rgba(255,255,255,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,255,255,0.18) !important; }
 
     .pc.square-card {
@@ -3885,6 +3905,8 @@ adding: 30px 24px !important; }
       .pc.cn2 { border-color: rgba(22,72,200,   0.55) !important; }
       .pc.cm  { border-color: rgba(250,128,114, 0.55) !important; }
       .pc.cvans { border-color: rgba(255,255,255, 0.55) !important; }
+      .pc.cnutre { border-color: rgba(31,143,111,0.8) !important; }
+      .pc.cjet { border-color: rgba(77,148,255,0.7) !important; }
 
       /* ── PROCESO: ocultar línea roja decorativa ── */
       .prg::after {
@@ -4910,6 +4932,32 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Vans · 60 Años</div>
           <div class="pd">Concepto de campaña y dirección de arte para el Rally Creativo 2025.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- Nutre3D -->
+      <a href="nutre3d.html" class="pc tilt-card reveal cnutre">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20NUTRI%203D.webp" alt="Nutre3D — Verdura imperfecta, Hackatón 2026">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Nutre3D</div>
+          <div class="pd">Identidad visual y contenido para redes de una investigación universitaria sobre alimentos impresos en 3D.</div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- JetSMART -->
+      <a href="jetsmart.html" class="pc tilt-card reveal cjet">
+        <div class="pcb">
+          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20JETSMART.webp" alt="JetSMART — Tu algún día, Rally Creativo 2026">
+        </div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">JetSMART</div>
+          <div class="pd">Concepto, dirección de arte y reel para el Rally Creativo 2026: Buenos Aires–Medellín en 24 horas.</div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>

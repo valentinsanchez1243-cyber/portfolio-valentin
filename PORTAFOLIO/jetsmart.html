@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu “algún día” · JetSMART · Rally Creativo 2026 — Valentín Sánchez</title>
+  <meta name="description" content="Campaña de 24 horas para el nuevo vuelo directo Buenos Aires–Medellín de JetSMART: cartel de vía pública, reel y acción con creador. Rally Creativo Siglo 21 2026. Proyecto académico.">
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rb: #1B5FD1;          /* relleno (botones, marquee) */
+      --rb-fg: #ffffff;
+      --ac: #4D94FF;          /* acento sobre fondo oscuro (texto, líneas) */
+      --ac-rgb: 77, 148, 255;
+      --b: #080808;
+      --w: #ffffff;
+      --g: #aaaaaa;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--b);
+      color: var(--w);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: 52px 52px;
+    }
+
+    /* CURSOR */
+    #cursor { position: fixed; width: 12px; height: 12px; background: var(--ac); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); transition: transform .15s; }
+    .trail { position: fixed; width: 6px; height: 6px; background: var(--ac); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%,-50%); opacity: 0.5; }
+
+    /* NOISE & PARTICLES */
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 99990; opacity: .28;
+    }
+    #bg-particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.4; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 5000; display: flex; align-items: center; justify-content: space-between; padding: 30px 64px; background: linear-gradient(to bottom, rgba(8,8,8,.98), transparent); transition: .4s; }
+    .nl { font-family: 'Fjalla One', sans-serif; font-size: 1.5rem; letter-spacing: 4px; color: var(--w); text-decoration: none; }
+    .nl span { color: var(--ac); }
+    .nls { display: flex; gap: 28px; list-style: none; }
+    .nls a {
+      font-family: 'Outfit', sans-serif;
+      font-size: .95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--g);
+      text-decoration: none;
+      padding: 6px 16px;
+      border-radius: 22px;
+      border: 1px solid transparent;
+      transition: color .25s, border-color .3s, box-shadow .3s, background .3s;
+    }
+    .nls a:not(.ncta):hover {
+      color: var(--w);
+      border-color: rgba(var(--ac-rgb), 0.8);
+      box-shadow: 0 0 15px rgba(var(--ac-rgb), 0.5), 0 0 30px rgba(var(--ac-rgb), 0.2), inset 0 0 8px rgba(var(--ac-rgb), 0.1);
+      background: rgba(var(--ac-rgb), 0.08);
+    }
+    .ncta { background: var(--rb) !important; color: var(--rb-fg) !important; padding: 7px 18px; font-family: 'Outfit', sans-serif !important; font-size: .76rem !important; letter-spacing: 3px !important; text-transform: uppercase; text-decoration: none; font-weight: 700; border-radius: 4px !important; }
+
+    /* HERO (PORTADA) */
+    .hero-banner {
+      width: 100%; height: 440px;
+      background-image: url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20JETSMART.webp');
+      background-size: cover; background-position: center 100%;
+      position: relative; display: flex; align-items: flex-end; padding: 60px 64px;
+      box-shadow: 0 0 60px rgba(var(--ac-rgb),0.18), inset 0 0 0 2px rgba(var(--ac-rgb),0.14);
+    }
+    .hero-banner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 60%, transparent 100%); }
+    .hero-banner-content { position: relative; z-index: 1; }
+    .hero-tag { font-family: 'Outfit', sans-serif; font-size: .7rem; letter-spacing: 6px; text-transform: uppercase; color: var(--ac); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .hero-tag::before { content: ''; width: 22px; height: 1px; background: var(--ac); }
+    .hero-title { font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: clamp(46px, 8vw, 104px); line-height: .9; color: var(--w); }
+    .hero-sub { font-family: 'Outfit', sans-serif; font-size: clamp(13px, 1.8vw, 18px); letter-spacing: 3px; text-transform: uppercase; color: var(--g); margin-top: 12px; }
+
+    /* MARQUEE */
+    .mw { background: var(--rb); padding: 25px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; width: 100vw; margin-left: calc(-50vw + 50%); }
+    .mt { display: inline-flex; animation: mq 22s linear infinite; }
+    .mi { font-family: 'Fjalla One', sans-serif; font-size: 2.2rem; letter-spacing: 3px; padding: 0 32px; opacity: .92; text-transform: uppercase; font-weight: bold; color: var(--rb-fg); display: flex; align-items: center; }
+    .md { color: rgba(255,255,255,0.45); margin: 0 10px; }
+    @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    .section { padding: 60px 64px; max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+    .section + .section { padding-top: 20px; }
+    .section-subtitle { font-family: 'Outfit', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ac); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+    .section-subtitle::before { content: ''; width: 20px; height: 1px; background: var(--ac); }
+    .section-title { font-family: 'Inter', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.1; margin-bottom: 30px; color: var(--w); text-transform: uppercase; }
+    .section-title em { color: var(--ac); font-style: normal; }
+    .section-desc { font-size: 1rem; line-height: 1.7; color: var(--g); margin-bottom: 22px; text-align: justify; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-family: 'Outfit', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--ac); color: var(--ac); background: transparent; }
+    .software-used { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .software-used-label { font-family: 'Outfit', sans-serif; font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--g); margin-bottom: 14px; display: block; }
+    .software-used-icons { display: flex; flex-wrap: wrap; gap: 22px; }
+    .software-item { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 70px; }
+    .software-icon { width: 52px; height: 52px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: all .3s ease; animation: swFloat 2.4s ease-in-out infinite, swPulse 2s infinite; }
+    .software-icon img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
+    .software-item:hover .software-icon { transform: scale(1.15) rotate(5deg); box-shadow: 0 0 25px rgba(var(--ac-rgb),0.35); }
+    .software-item span { font-family: 'Outfit', sans-serif; font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--g); text-align: center; line-height: 1.25; }
+    .software-item:nth-child(2) .software-icon { animation-duration: 2.7s, 2s; }
+    .software-item:nth-child(3) .software-icon { animation-duration: 3s, 2s; }
+    @keyframes swFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes swPulse { 0%,100% { box-shadow: 0 0 5px rgba(var(--ac-rgb),0.35); } 50% { box-shadow: 0 0 16px rgba(var(--ac-rgb),0.55), 0 0 28px rgba(var(--ac-rgb),0.25); } }
+
+    /* PROJECT INDEX */
+    .pj-index { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .pj-index-label { font-family: 'Outfit', sans-serif; font-size: 0.7rem; letter-spacing: 5px; color: var(--ac); text-transform: uppercase; font-weight: 700; margin-bottom: 24px; display: block; }
+    .pj-index-list { display: flex; flex-wrap: wrap; gap: 10px 48px; list-style: none; }
+    .pj-index-list a { font-family: 'Fjalla One', sans-serif; font-size: clamp(1.2rem, 2.5vw, 1.7rem); color: var(--w); text-decoration: none; letter-spacing: 2px; transition: color .3s ease; display: inline-block; }
+    .pj-index-list a:hover { color: var(--ac); }
+
+
+
+
+    /* PIEZAS — texto e imágenes lado a lado */
+    .piezas-layout { display: flex; gap: 48px; align-items: flex-start; margin-top: 26px; }
+    .piezas-text { flex: 1 1 auto; }
+    .piezas-text .section-desc { margin-bottom: 0; }
+    .grid-vans-side { flex: 0 0 460px; display: flex; flex-direction: column; gap: 14px; }
+
+    /* INSIGHT + PROYECTO, lado a lado */
+    .insight-proyecto-layout { display: flex; gap: 48px; align-items: flex-start; }
+    .insight-col, .proyecto-col { flex: 1; min-width: 0; }
+    .proyecto-col .pdf-embed { height: 560px; }
+
+    /* PIEZAS GRID */
+    .media-grid { display: grid; gap: 20px; }
+    .grid-vans { grid-template-columns: repeat(3, 1fr); margin-top: 30px; }
+    .media-card { background: #0d0d0d; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: .4s; position: relative; }
+    .media-card:hover { border-color: var(--ac); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(var(--ac-rgb),0.22); }
+    .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: .5s; }
+    .media-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); opacity: 0; transition: .3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px; }
+    .media-card:hover .media-overlay { opacity: 1; }
+    .media-label { font-family: 'Outfit', sans-serif; font-size: 10px; color: var(--ac); letter-spacing: 2px; text-transform: uppercase; }
+
+    /* PDF EMBED */
+    .pdf-embed { width: 100%; height: 820px; margin-top: 26px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #1a1a1a; }
+    .pdf-embed iframe { width: 100%; height: 100%; border: none; display: block; background: #fff; }
+
+    /* PDF BUTTON */
+    .pdf-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border: 1px solid var(--ac); color: var(--ac); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: 3px; text-decoration: none; border-radius: 4px; transition: .3s; text-transform: uppercase; }
+    .btn-outline:hover { background: var(--ac); color: #0a0a0a; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+    .btn-solid { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: var(--rb); color: var(--rb-fg); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: 3px; text-decoration: none; border-radius: 4px; transition: .3s; text-transform: uppercase; }
+    .btn-solid:hover { background: #0a0a0a; color: var(--ac); outline: 1px solid var(--ac); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+
+    /* REVEAL */
+    .rv { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .rv.vs { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE MENU TRIGGER */
+    .mtog { display: none; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 8px; z-index: 6000; cursor: pointer; position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 8px; }
+    .mtog span { display: block; width: 24px; height: 2px; background: var(--w); position: absolute; left: 10px; transition: .4s cubic-bezier(0.16,1,0.3,1); }
+    .mtog span:nth-child(1) { top: 15px; }
+    .mtog span:nth-child(2) { top: 21px; }
+    .mtog span:nth-child(3) { top: 27px; }
+    .mtog.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .mtog.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+    .mtog.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* MOBILE OVERLAY */
+    .movl { position: fixed; inset: 0; background: rgba(8,8,8,0.95); backdrop-filter: blur(20px); z-index: 5500; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 35px; opacity: 0; visibility: hidden; pointer-events: none; transition: .5s; }
+    .movl.active { opacity: 1; visibility: visible; pointer-events: auto; }
+    .movl a { font-family: 'Fjalla One', sans-serif; font-size: 2.5rem; letter-spacing: 4px; color: var(--w); text-decoration: none; }
+
+    /* ======================================================
+       MOBILE
+       ====================================================== */
+    section p, .section-desc, .pj-body p { text-align: justify; }
+
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; width: 100% !important; }
+      body { cursor: default !important; }
+      #cursor, .trail { display: none !important; }
+      #bg-particles, #ag-canvas { display: none !important; }
+      body::after { display: none !important; }
+
+      nav { padding: 14px 18px !important; background: rgba(8,8,8,.98) !important; }
+      .nls { display: none !important; }
+      .mtog { display: flex !important; align-items: center; justify-content: center; }
+
+      .hero-banner { height: 280px !important; padding: 26px 20px !important; }
+      .hero-title { font-size: clamp(2.2rem, 11vw, 3.4rem) !important; }
+      .hero-tag { font-size: 0.58rem !important; letter-spacing: 3px !important; }
+      .hero-sub { font-size: 0.68rem !important; }
+
+      .mw { margin-left: 0 !important; width: 100vw !important; }
+      .mi { font-size: 1.4rem !important; padding: 0 16px !important; }
+      .mt { animation-duration: 14s !important; }
+
+      .section { padding: 40px 18px !important; }
+      .section-desc { text-align: justify !important; font-size: 0.92rem !important; }
+      .section-title { font-size: clamp(1.7rem, 8vw, 2.6rem) !important; }
+
+      .grid-vans { grid-template-columns: 1fr !important; gap: 14px !important; }
+
+      .piezas-layout { flex-direction: column !important; gap: 22px !important; }
+      .piezas-text { flex: 1 1 auto !important; }
+      .grid-vans-side { gap: 14px !important; }
+
+      .insight-proyecto-layout { flex-direction: column !important; gap: 36px !important; }
+
+      .pdf-embed { height: 480px !important; }
+
+      .pj-index { margin-top: 28px !important; }
+      .pj-index-list { flex-direction: column !important; gap: 6px !important; }
+
+      .pdf-cta { flex-direction: column !important; align-items: flex-start !important; }
+
+      footer { padding: 24px 18px !important; flex-direction: column !important; gap: 6px !important; text-align: center !important; font-size: 0.8rem !important; }
+
+      p { text-align: justify !important; }
+      .movl { gap: 20px !important; }
+      .movl a { font-size: 1.6rem !important; letter-spacing: 2px !important; }
+    }
+  
+
+    /* ===== Componentes de esta página ===== */
+    .info-card { border: 1px solid rgba(var(--ac-rgb), .3); border-radius: 12px; padding: 30px 34px; background: rgba(var(--ac-rgb), .05); }
+    .info-card .section-desc:last-child { margin-bottom: 0; }
+    .info-card a { color: var(--ac); text-decoration: underline; text-underline-offset: 3px; }
+    .piezas-text .section-desc { margin-bottom: 18px; }
+    .hero-tag { color: #ffffff; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+    .sub-h { font-family: 'Outfit', sans-serif; font-size: .72rem; letter-spacing: 4px; text-transform: uppercase; color: var(--ac); margin: 34px 0 14px; }
+    .notice { font-family: 'Outfit', sans-serif; font-size: .8rem; letter-spacing: .5px; line-height: 1.7; color: var(--g); border-left: 2px solid var(--ac); padding: 10px 18px; margin-top: 30px; max-width: 900px; }
+    .sw-extra { font-family: 'Outfit', sans-serif; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--g); margin-top: 14px; display: block; }
+
+    .video-layout { display: flex; gap: 56px; align-items: flex-start; margin-top: 8px; }
+    .video-text { flex: 1 1 auto; min-width: 0; }
+    .video-wrap { flex: 0 0 auto; display: flex; gap: 24px; }
+    .vid { width: 270px; }
+    .vid video { width: 100%; aspect-ratio: 9 / 16; display: block; background: #000; border-radius: 12px; border: 1px solid rgba(var(--ac-rgb), .35); object-fit: cover; }
+    .vid-cap { font-family: 'Outfit', sans-serif; font-size: .68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--ac); margin-top: 12px; display: block; }
+
+    @media (max-width: 768px) {
+      .video-layout { flex-direction: column !important; gap: 24px !important; }
+      .video-wrap { width: 100% !important; justify-content: center !important; gap: 14px !important; }
+      .vid { width: calc(50% - 7px) !important; }
+      .vid.solo { width: min(100%, 300px) !important; }
+      .info-card { padding: 22px 18px !important; }
+      .notice { font-size: .74rem !important; }
+    }
+
+    /* Motivo del proyecto: ruta de vuelo (línea punteada sobre azul) */
+    .motif-strip { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); height: 28px; background: linear-gradient(90deg, #1B5FD1, #4D94FF); }
+    .motif-strip::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 3px dashed rgba(255,255,255,.85); }
+    .motif-tag { display: inline-block; width: 28px; height: 0; margin-left: 12px; vertical-align: middle; border-top: 2px dashed var(--ac); }
+    .grid-vans-side .media-card img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 768px) { .motif-strip { margin-left: 0 !important; width: 100vw !important; } }
+</style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <nav>
+    <a href="index.html" class="nl">VS<span>.</span></a>
+    <ul class="nls" style="margin-left:auto;">
+      <li><a href="index.html#sobre">Sobre mí</a></li>
+      <li><a href="index.html#proyectos-carousel">Proyectos</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">El proceso</a></li>
+      <li><a href="curriculum.html">Currículum</a></li><li style="margin-left:8px;"><a href="index.html#contacto" class="ncta">Contacto</a></li>
+    </ul>
+    <button class="mtog" id="mtog" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="movl" id="movl">
+    <a href="index.html" onclick="toggleMenu()">Inicio</a>
+    <a href="index.html#sobre" onclick="toggleMenu()">Sobre mí</a>
+    <a href="index.html#proyectos-carousel" onclick="toggleMenu()">Proyectos</a>
+    <a href="index.html#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="index.html#proceso" onclick="toggleMenu()">El Proceso</a>
+    <a href="curriculum.html" onclick="toggleMenu()">Currículum</a>
+    <a href="index.html#contacto" onclick="toggleMenu()" style="color:var(--ac)">Contacto</a>
+  </div>
+
+  <section class="hero-banner"><div class="hero-banner-content">
+      <div class="hero-tag">Rally Creativo Siglo 21 · Edición 2026</div>
+      <h1 class="hero-title">JETSMART<br>“ALGÚN DÍA”</h1>
+      <div class="hero-sub">CAMPAÑA DE 24 HORAS · BUENOS AIRES–MEDELLÍN</div>
+    </div>
+  </section>
+  <div class="mw">
+    <div class="mt">
+      <span class="mi">ALGÚN DÍA <span class="md">✦</span></span>
+      <span class="mi">JETSMART <span class="md">✦</span></span>
+      <span class="mi">BUENOS AIRES–MEDELLÍN <span class="md">✦</span></span>
+      <span class="mi">24 HORAS <span class="md">✦</span></span>
+      <span class="mi">VÍA PÚBLICA <span class="md">✦</span></span>
+      <span class="mi">REEL <span class="md">✦</span></span>
+      <span class="mi">ACCIÓN CON CREADOR <span class="md">✦</span></span>
+      <!-- Duplicate for infinite loop -->
+      <span class="mi">ALGÚN DÍA <span class="md">✦</span></span>
+      <span class="mi">JETSMART <span class="md">✦</span></span>
+      <span class="mi">BUENOS AIRES–MEDELLÍN <span class="md">✦</span></span>
+      <span class="mi">24 HORAS <span class="md">✦</span></span>
+      <span class="mi">VÍA PÚBLICA <span class="md">✦</span></span>
+      <span class="mi">REEL <span class="md">✦</span></span>
+      <span class="mi">ACCIÓN CON CREADOR <span class="md">✦</span></span>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="section rv" id="overview">
+    <div class="section-subtitle">— OVERVIEW <span class="motif-tag"></span></div>
+
+    <div class="piezas-layout">
+      <div class="piezas-text">
+        <p class="section-desc">
+          Mi tercer Rally Creativo y, por lejos, el más completo que armé. En 24 horas, en tripla con Enzo y Tomás, resolvimos el brief de <strong style="color:var(--w)">JetSMART Argentina</strong>: contarle a un público argentino su nuevo vuelo directo Buenos Aires–Medellín, de unas seis horas, sin escalas y a precio ultra bajo. Es un proyecto académico del concurso de la Universidad Siglo 21: no es una campaña encargada ni aprobada por JetSMART.
+        </p>
+        <p class="section-desc">
+          El brief traía una trampa: “JetSMART llegó a Colombia” es cierto, pero le habla a los colombianos. Lo que el cliente más pedía era un punto de vista sobre la cercanía. Nos dimos cuenta de que el argentino guarda el Caribe para <strong style="color:var(--w)">“algún día”</strong> porque lo siente lejos, caro y con escalas; entonces le mostramos que ese día queda a seis horas.
+        </p>
+        <p class="section-desc">
+          Ese “algún día” ató tres piezas: un cartel de vía pública frente al Obelisco, un reel vertical de 20 segundos que arranca en una parada de colectivo y termina en una playa del Caribe, y una acción con un creador que cocina arepas bajo el mismo cartel. Mi parte fue la dirección de arte y la edición del reel —con IA como apoyo en la producción audiovisual, declarada en la entrega—, más la composición y la posproducción.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Dirección de Arte</span>
+          <span class="tag">Concepto Creativo</span>
+          <span class="tag">Edición de Video</span>
+          <span class="tag">Campaña Publicitaria</span>
+        </div>
+
+        <div class="software-used">
+          <span class="software-used-label">— SOFTWARE UTILIZADO</span>
+          <div class="software-used-icons">
+            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp" alt="Photoshop" loading="lazy"></div><span>Photoshop</span></div>
+            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp" alt="After Effects" loading="lazy"></div><span>After Effects</span></div>
+            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"></div><span>CapCut</span></div>
+          </div>
+          <span class="sw-extra">+ Higgsfield</span>
+        </div>
+      </div>
+
+      <div class="media-grid grid-vans-side">
+        <div class="media-card" style="aspect-ratio: 2100 / 1350;"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/PIEZA-FINAL-Ultra-Bajo.webp" alt="JetSMART — pieza principal: Tu algún día a solo 6 horas, Buenos Aires–Medellín sin escalas" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza principal · vía pública</span></div></div>
+      </div>
+    </div>
+
+    <div class="pj-index rv">
+      <span class="pj-index-label">— ÍNDICE</span>
+      <ul class="pj-index-list">
+        <li><a href="#certamen">EL CERTAMEN</a></li>
+        <li><a href="#concepto">EL CONCEPTO</a></li>
+        <li><a href="#proyecto">VER PROYECTO</a></li>
+        <li><a href="#audiovisual">EL AUDIOVISUAL</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="motif-strip"></div>
+
+  <!-- EL CERTAMEN -->
+  <section class="section rv" id="certamen">
+    <div class="section-subtitle">— EL CERTAMEN <span class="motif-tag"></span></div>
+    <h2 class="section-title">Qué es el <em>Rally Creativo</em></h2>
+    <div class="info-card">
+      <p class="section-desc">
+        El Rally Creativo es el concurso de creatividad de la Universidad Siglo 21: un anunciante real presenta un problema de comunicación y equipos de estudiantes de todo el país tienen 24 horas para resolverlo con una campaña. Se compite en dupla o tripla, de forma anónima y con seudónimo, y simula el ritmo de una agencia: brief a la mañana, consultas durante el día y entrega al mediodía siguiente.
+      </p>
+      <p class="section-desc">
+        En la edición 2026 el cliente fue JetSMART, compitieron unos 300 equipos y evaluó un jurado de 13 personas, entre ellas el propio cliente, directores creativos y diseñadores. Se mira la resolución del brief, el concepto, la redacción, la dirección de arte, la integralidad de la campaña y la calidad audiovisual, y los premiados pasan a El Ojo de Iberoamérica. Este fue mi tercer Rally, después de Red Bull y de <a href="vans.html">Vans</a>.
+      </p>
+    </div>
+  </section>
+
+  <div class="motif-strip"></div>
+
+  <!-- CONCEPTO + PROYECTO COMPLETO, lado a lado -->
+  <section class="section rv">
+    <div class="insight-proyecto-layout">
+      <div class="insight-col" id="concepto">
+        <div class="section-subtitle">— EL CONCEPTO <span class="motif-tag"></span></div>
+        <h2 class="section-title">Tu “algún día” a <em>solo 6 horas</em></h2>
+        <p class="section-desc">
+          El concepto es “algún día” y el titular es su cara visible, con la bajada “Buenos Aires–Medellín sin escalas, a precios ultra bajos”. Convierte un dato duro —las seis horas, la ausencia de escalas— en algo humano: ese viaje que todos postergamos. Y como es una frase que cualquiera dice, la campaña no inventa nada: la toma y la responde.
+        </p>
+        <p class="section-desc">
+          El cartel es un séxtuple sobre un edificio frente al Obelisco: alguien desplomado en un sillón y, al lado, una ventana abierta al Caribe colombiano con el avión de JetSMART. El reel cuenta la misma idea en movimiento: una Buenos Aires fría y desaturada, con el cartel como único color, y un corte seco —el ruido de la ciudad se frena con el paso del avión y entra música colombiana— hacia Medellín, Guatapé y Cartagena en moto, hasta una playa al atardecer donde otro avión arrastra una pancarta: “Ese día llegó”.
+        </p>
+        <p class="section-desc">
+          La acción sucede bajo el cartel, en plena hora pico: un creador gastronómico y viajero —proponemos a Gastón Soffritti— y su pareja colombiana cocinan arepas a la parrilla y las regalan a los oficinistas que pasan. Se prueba el destino antes de volar, y las tres piezas quedan unidas en un mismo lugar y una misma promesa.
+        </p>
+
+        <div class="sub-h">— Lo que aprendí</div>
+        <p class="section-desc">
+          El concepto aguantó entre piezas sin forzar nada. Lo que pesó en contra: el reel se llevó casi toda la noche y quedó muy apoyado en IA, justo lo que el brief miraba con recelo, y el cartel y la pantalla de concepto —lo primero que ve el jurado— se cerraron tarde. No obtuvo premio ni mención. Para la próxima: cerrar esas dos piezas antes de producir el video y dejar el reel en una escala que podamos filmar o producir en su mayoría.
+        </p>
+      </div>
+
+      <div class="proyecto-col" id="proyecto">
+        <div class="section-subtitle">— PROYECTO COMPLETO <span class="motif-tag"></span></div>
+        <h2 class="section-title">Ver el <em>proyecto</em></h2>
+        <p class="section-desc">
+          La pantalla inicial con el insight y el concepto, el cartel y las ideas para el reel y la acción están reunidos en el PDF de entrega.
+        </p>
+        <div class="pdf-embed">
+          <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" title="JetSMART — PDF de entrega del proyecto" loading="lazy"></iframe>
+        </div>
+        <div class="pdf-cta">
+          <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="motif-strip"></div>
+
+  <!-- AUDIOVISUAL -->
+  <section class="section rv" id="audiovisual" style="padding-bottom: 100px;">
+    <div class="section-subtitle">— AUDIOVISUAL <span class="motif-tag"></span></div>
+    <h2 class="section-title">El reel y <em>la acción</em></h2>
+    <div class="video-layout">
+      <div class="video-text">
+        <p class="section-desc">
+          A la derecha, el reel de 20 segundos en vertical (9:16) y la acción con el creador, contada como un en vivo de Instagram bajo el cartel. Para el reel armé un guion técnico clip por clip —plano, óptica, movimiento de cámara, luz, audio y posproducción— y prompts de cuadro inicial y final para generar cada toma.
+        </p>
+        <p class="section-desc">
+          Trabajamos un arco de color —Buenos Aires desaturada, Colombia cálida y saturada—, una bisagra sonora en el corte entre las dos ciudades y transiciones por continuidad de movimiento en lugar de fundidos. El cierre lleva animación tipográfica con la tipografía y los colores de la marca, hecha en After Effects.
+        </p>
+      </div>
+      <div class="video-wrap">
+        <div class="vid">
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009.mov#t=0.1" controls preload="metadata" playsinline></video>
+          <span class="vid-cap">Reel · 20 s</span>
+        </div>
+        <div class="vid">
+          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009%20%281%29%281%29.mov#t=0.1" controls preload="metadata" playsinline></video>
+          <span class="vid-cap">Acción con creador · 17 s</span>
+        </div>
+      </div>
+    </div>
+    <div class="notice">
+      Proyecto académico realizado para un concurso: no es una campaña oficial de JetSMART. El reel se produjo con apoyo de herramientas de IA bajo dirección y edición propias. El creador mencionado es talento propuesto: no participó del proyecto y su aparición en la acción es una simulación. Equipo: Valentín Sánchez, Enzo y Tomás.
+    </div>
+  </section>
+
+  <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+    <div style="font-family: 'Fjalla One', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--ac)">.</span></div>
+    <div style="font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2026 · Córdoba, AR</div>
+  </footer>
+
+  <script>
+    // Reveal Observer
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vs', 'in');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv, .reveal').forEach(el => revealObserver.observe(el));
+
+    const cursor = document.getElementById('cursor');
+    const trails = [];
+    for (let i = 0; i < 6; i++) {
+      const t = document.createElement('div'); t.className = 'trail'; document.body.appendChild(t); trails.push({el:t, x:0, y:0});
+    }
+    let mx=0, my=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+    function animate() {
+      let px=mx, py=my;
+      trails.forEach(t => { t.x+=(px-t.x)*.3; t.y+=(py-t.y)*.3; t.el.style.left=t.x+'px'; t.el.style.top=t.y+'px'; px=t.x; py=t.y; });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // PARTICLES
+    (function initParticles() {
+      if (document.getElementById('bg-particles')) return;
+      const canvas = document.createElement('canvas');
+      canvas.id = 'bg-particles';
+      canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;';
+      document.body.appendChild(canvas);
+      window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      const particles = Array.from({length:250}, () => ({
+        x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.3, vy: -(Math.random()*0.5+0.1),
+        r: Math.random()*1.5+0.5, op: Math.random()*0.55+0.3, life: Math.random()
+      }));
+      function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx; p.y += p.vy; p.life -= 0.0015;
+          if (p.y < -10 || p.life <= 0) { p.y = canvas.height+10; p.x = Math.random()*canvas.width; p.life = Math.random()*0.5+0.5; }
+          const alpha = Math.max(0, p.op * p.life);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(77,148,255, ${alpha.toFixed(3)})`; ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+
+  <!-- ANTIGRAVITY CURSOR PARTICLES -->
+  <script>
+  (function(){
+    if (window.innerWidth <= 768) return; // solo desktop
+    if (document.getElementById('ag-canvas')) return; // ya inicializado
+
+    var canvas = document.createElement('canvas');
+    canvas.id = 'ag-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = window.innerWidth;
+    var H = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    var particles = [];
+    var mx = W/2, my = H/2;
+    var lastX = mx, lastY = my;
+    var frameId = null;
+
+    var COLORS = ['255,255,255', '255,255,255', '77,148,255', '77,148,255'];
+
+    function spawnAt(x, y, n) {
+      for (var i = 0; i < n; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = Math.random() * 1.4 + 0.4;
+        particles.push({
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: Math.cos(angle) * speed * 0.4,
+          vy: -(Math.random() * 1.8 + 0.6),
+          r:  Math.random() * 2.2 + 0.8,
+          op: Math.random() * 0.55 + 0.3,
+          decay: Math.random() * 0.012 + 0.008,
+          col: COLORS[Math.floor(Math.random() * COLORS.length)]
+        });
+      }
+    }
+
+    var throttle = false;
+    document.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (throttle) return;
+      throttle = true;
+      setTimeout(function(){ throttle = false; }, 16);
+
+      var dx = mx - lastX, dy = my - lastY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist > 2) {
+        var n = Math.min(Math.floor(dist / 6) + 1, 4);
+        spawnAt(mx, my, n);
+        lastX = mx; lastY = my;
+      }
+    });
+
+    document.addEventListener('click', function(e){
+      spawnAt(e.clientX, e.clientY, 14);
+    });
+
+    function loop(){
+      frameId = requestAnimationFrame(loop);
+      ctx.clearRect(0, 0, W, H);
+      for (var i = particles.length - 1; i >= 0; i--) {
+        var p = particles[i];
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.vy -= 0.02;
+        p.vx *= 0.98;
+        p.op -= p.decay;
+        p.r  *= 0.993;
+
+        if (p.op <= 0 || p.r < 0.2) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(' + p.col + ',' + p.op.toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+    loop();
+  })();
+  </script><script>
+    function toggleMenu() {
+      const btn = document.querySelector('.mtog');
+      const menu = document.getElementById('movl');
+      btn.classList.toggle('active');
+      menu.classList.toggle('active');
+      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+    }
+  </script>
+</body>
+</html>
