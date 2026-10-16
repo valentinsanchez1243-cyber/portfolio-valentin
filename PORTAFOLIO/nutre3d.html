@@ -246,6 +246,11 @@
     .vid video { width: 100%; aspect-ratio: 9 / 16; display: block; background: #000; border-radius: 12px; border: 1px solid rgba(var(--ac-rgb), .35); object-fit: cover; }
     .vid-cap { font-family: 'Outfit', sans-serif; font-size: .68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--ac); margin-top: 12px; display: block; }
 
+    .video-solo { display: flex; justify-content: center; margin-top: 8px; }
+    .vids-row { display: flex; gap: 14px; }
+    .vids-row .vid { flex: 1 1 0; width: auto; min-width: 0; }
+    .vids-row .vid-cap { font-size: .6rem; letter-spacing: 2px; }
+
     @media (max-width: 768px) {
       .video-layout { flex-direction: column !important; gap: 24px !important; }
       .video-wrap { width: 100% !important; justify-content: center !important; gap: 14px !important; }
@@ -255,13 +260,9 @@
       .notice { font-size: .74rem !important; }
     }
 
-    /* Motivo del proyecto: borde zigzag (la hélice de la identidad) */
-    .motif-strip { width: 100vw; margin-left: calc(-50vw + 50%); height: 28px; background-color: #F1F0EE;
-      background-image: linear-gradient(135deg, #115543 25%, transparent 25%), linear-gradient(225deg, #115543 25%, transparent 25%), linear-gradient(315deg, #115543 25%, transparent 25%), linear-gradient(45deg, #115543 25%, transparent 25%);
-      background-size: 28px 28px; background-position: -14px 0, -14px 0, 0 0, 0 0; }
-    .motif-tag { display: inline-block; width: 26px; height: 8px; margin-left: 12px; vertical-align: middle;
-      background-image: linear-gradient(135deg, var(--ac) 25%, transparent 25%), linear-gradient(225deg, var(--ac) 25%, transparent 25%), linear-gradient(315deg, var(--ac) 25%, transparent 25%), linear-gradient(45deg, var(--ac) 25%, transparent 25%);
-      background-size: 8px 8px; background-position: -4px 0, -4px 0, 0 0, 0 0; }
+    /* Motivo del proyecto: zigzag / resorte de la identidad (patrón original) */
+    .motif-strip { width: 100vw; margin-left: calc(-50vw + 50%); height: 36px; background-color: #F1F0EE; background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 28 36%22 width=%2228%22 height=%2236%22%3E%3Cpolyline points=%22-14,29 0,7 14,29 28,7 42,29%22 fill=%22none%22 stroke=%22%2302221b%22 stroke-width=%225%22 stroke-linejoin=%22miter%22 stroke-miterlimit=%2210%22/%3E%3C/svg%3E"); background-size: 28px 36px; background-repeat: repeat-x; }
+    .motif-tag { display: inline-block; width: 42px; height: 14px; margin-left: 12px; vertical-align: middle; background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 28 36%22 width=%2228%22 height=%2236%22%3E%3Cpolyline points=%22-14,29 0,7 14,29 28,7 42,29%22 fill=%22none%22 stroke=%22%232AAE82%22 stroke-width=%226%22 stroke-linejoin=%22miter%22 stroke-miterlimit=%2210%22/%3E%3C/svg%3E"); background-size: 14px 14px; background-repeat: repeat-x; }
     .hero-banner::before { background: linear-gradient(to top, rgba(10,10,10,.96) 0%, rgba(10,10,10,.74) 55%, rgba(10,10,10,.52) 100%); }
     .grid-vans-side .media-card { background: #F1F0EE; }
     .grid-vans-side .media-card img { width: 100%; height: 100%; object-fit: cover; }
@@ -324,13 +325,10 @@
     <div class="piezas-layout">
       <div class="piezas-text">
         <p class="section-desc">
-          Nutre3D nació en el <strong style="color:var(--w)">Hackatón “Narrativas Co-responsables” 2026</strong> de la Universidad Siglo 21: el desafío era contar una investigación universitaria real, con lenguaje audiovisual y gráfico, para que la entienda alguien que no es del palo. Lo hicimos en equipo de tres —Tomás Bertona, Jazmín Mares y yo— y la investigación que nos tocó trata de cómo imprimir en 3D alimentos pensados para <strong style="color:var(--w)">niños con selectividad alimentaria</strong>: chicos que rechazan la comida por su color, su textura o su forma.
+          Nutre3D nació en el <strong style="color:var(--w)">Hackatón “Narrativas Co-responsables” 2026</strong> de la Universidad Siglo 21: contar una investigación real —cómo imprimir en 3D alimentos para <strong style="color:var(--w)">niños con selectividad alimentaria</strong>— de forma clara y sin prometer resultados. Lo hicimos en equipo con Tomás Bertona y Jazmín Mares.
         </p>
         <p class="section-desc">
-          El primer límite fue más ético que visual. La investigación está en curso y todavía no tiene resultados, así que escribimos todo en tono de “se estudia” y “se busca”, sin prometer nada ni mostrar porcentajes, cuidando que ninguna pieza culpe a las familias ni reemplace la consulta con un profesional. Del lado de la comida, lo que se imprime es una papilla con forma hecha con verduras que normalmente se descartan por su aspecto —color disparejo, forma atípica, tejido dañado—, no por su calidad.
-        </p>
-        <p class="section-desc">
-          De ahí salió la idea: <strong style="color:var(--w)">“verdura imperfecta es tinta 3D”</strong>. Armamos una identidad de papel crema, verde profundo y un borde en hélice que remite a la impresión capa por capa, y la bajamos a un sistema de contenido para Instagram (5 historias destacadas, más de 23 historias y 3 reels), un video, una pieza gráfica y un sticker. Mi parte fue la dirección visual y el diseño gráfico, los motion graphics y la edición de video, además del copy y el contenido para redes, en conjunto con el equipo.
+          De ahí salió <strong style="color:var(--w)">“verdura imperfecta es tinta 3D”</strong>: una identidad de papel crema, verde profundo y un patrón en zigzag que remite a la impresión capa por capa, bajada a un sistema de contenido para Instagram, un video, una pieza gráfica y un sticker. Mi parte fue la dirección visual, el diseño gráfico, los motion graphics y la edición de video.
         </p>
 
         <div class="tag-list">
@@ -344,9 +342,9 @@
           <span class="software-used-label">— SOFTWARE UTILIZADO</span>
           <div class="software-used-icons">
             <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp" alt="Illustrator" loading="lazy"></div><span>Illustrator</span></div>
-            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp" alt="After Effects" loading="lazy"></div><span>After Effects</span></div>
+            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp" alt="Photoshop" loading="lazy"></div><span>Photoshop</span></div>
+            <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"></div><span>CapCut</span></div>
           </div>
-          <span class="sw-extra">+ Canva · Google Flow · Higgsfield</span>
         </div>
       </div>
 
@@ -354,15 +352,6 @@
         <div class="media-card" style="aspect-ratio: 1450 / 1027;"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/HACKATON/INDIVIDUAL.webp" alt="Nutre3D — pieza gráfica: el descarte del mercado es la tinta de nuestra comida 3D" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza gráfica</span></div></div>
         <div class="media-card sticker" style="aspect-ratio: 492 / 788; width: 62%; margin: 0 auto;"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/HACKATON/sticker-final.webp" alt="Nutre3D — sticker: verdura imperfecta es tinta 3D" loading="lazy"><div class="media-overlay"><span class="media-label">Sticker</span></div></div>
       </div>
-    </div>
-
-    <div class="pj-index rv">
-      <span class="pj-index-label">— ÍNDICE</span>
-      <ul class="pj-index-list">
-        <li><a href="#concepto">LA IDEA</a></li>
-        <li><a href="#proyecto">VER PROYECTO</a></li>
-        <li><a href="#video">EL VIDEO</a></li>
-      </ul>
     </div>
   </section>
 
@@ -375,19 +364,13 @@
         <div class="section-subtitle">— LA IDEA <span class="motif-tag"></span></div>
         <h2 class="section-title">Verdura imperfecta es <em>tinta 3D</em></h2>
         <p class="section-desc">
-          La materia prima de la investigación es el descarte del mercado: tomate, hojas verdes y berenjena que no llegan a la góndola por verse “raros”. Corrimos el foco del problema: un plato puede ser demasiado para algunos chicos —por su color, su textura o su forma— y lo que se explora es darle otra forma a la comida. “Tinta 3D” pasó a ser la palabra que une todo: la mezcla de verduras que se imprime capa por capa.
-        </p>
-        <p class="section-desc">
-          Tres reglas ordenaron cada pieza. Honestidad: cero promesas, cero resultados. Empatía: la selectividad no es un capricho ni mala crianza, “no hiciste nada mal”. Claridad: lenguaje simple y una idea por pantalla. Con esas reglas armamos el copy de los tres reels y de las historias, que cubren quiénes somos, la investigación, la selectividad, la tinta 3D y una invitación a seguir el proyecto.
+          La verdura que se descarta por su aspecto es la materia prima de la investigación, y “tinta 3D” es la palabra que une todo: la mezcla que se imprime capa por capa. Tres reglas ordenaron cada pieza: honestidad (cero promesas), empatía (“no hiciste nada mal”) y claridad (una idea por pantalla).
         </p>
       </div>
 
       <div class="proyecto-col" id="proyecto">
         <div class="section-subtitle">— PROYECTO COMPLETO <span class="motif-tag"></span></div>
         <h2 class="section-title">Ver el <em>proyecto</em></h2>
-        <p class="section-desc">
-          La identidad, el sistema de contenido y las decisiones de diseño están reunidos en el siguiente PDF.
-        </p>
         <div class="pdf-embed">
           <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/HACKATON/proyecto%20hackaton%20_compressed.pdf" title="Nutre3D — PDF completo del proyecto" loading="lazy"></iframe>
         </div>
@@ -404,27 +387,13 @@
   <section class="section rv" id="video" style="padding-bottom: 100px;">
     <div class="section-subtitle">— AUDIOVISUAL <span class="motif-tag"></span></div>
     <h2 class="section-title">El <em>video</em></h2>
-    <div class="video-layout">
-      <div class="video-text">
-        <p class="section-desc">
-          El video combina escenas ilustrativas generadas con IA —siempre con el cartel “recreación ilustrativa generada con IA”— y material grabado por el equipo. Para que las escenas no se vieran dispares trabajamos con un solo estilo de motion: materiales mate tipo arcilla, formas redondeadas, luz suave de estudio y una paleta corta de verde, naranja y crema.
-        </p>
-        <p class="section-desc">
-          Armamos el flujo en Google Flow con guion técnico, plan de clips y un prompt por plano. Los filtros de seguridad nos obligaron a replantear las tomas: evitamos los primeros planos de chicos comiendo y lo resolvimos con planos lejanos y macros de la comida.
-        </p>
-        <p class="section-desc">
-          Las historias, en cambio, las construimos como un sistema generativo: el diseño se escribe una vez en HTML y CSS y se renderiza a imagen, así que cuando cambiaba una decisión —portadas más informativas, historias en verde sólido para unificar con las destacadas— se re-renderizaba todo en minutos. Lo que me llevo: comunicar ciencia en curso exige disciplina de lenguaje, y con IA generativa la coherencia sale de un bloque de estilo fijo, no de prompts sueltos.
-        </p>
-      </div>
-      <div class="video-wrap">
-        <div class="vid solo">
-          <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/HACKATON/1011.mov#t=0.1" controls preload="metadata" playsinline></video>
-          <span class="vid-cap">Video del proyecto · 50 s</span>
-        </div>
+    <div class="video-solo">
+      <div class="vid solo">
+        <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/HACKATON/1011.mov#t=0.1" controls preload="metadata" playsinline></video>
       </div>
     </div>
     <div class="notice">
-      Proyecto académico realizado en un hackatón universitario. La investigación está en curso: la campaña no comunica resultados ni reemplaza la consulta con profesionales de la salud. Las escenas ilustrativas del video se generaron con IA bajo dirección y edición propias. Equipo: Valentín Sánchez, Tomás Bertona y Jazmín Mares.
+      Proyecto académico de hackatón. La investigación está en curso: la campaña no comunica resultados ni reemplaza la consulta con profesionales de la salud.
     </div>
   </section>
 
