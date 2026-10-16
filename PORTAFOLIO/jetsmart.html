@@ -248,6 +248,11 @@
 
     .video-solo { display: flex; justify-content: center; margin-top: 8px; }
     .vids-row { display: flex; gap: 14px; }
+    .duo { display: flex; gap: 14px; align-items: flex-start; }
+    .duo > .media-card { flex: 0 0 44%; }
+    .duo > .vid { flex: 1 1 0; width: auto; min-width: 0; }
+    .pieces-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 24px; align-items: start; margin-top: 8px; }
+    .pieces-row .vid { width: 100%; }
     .vids-row .vid { flex: 1 1 0; width: auto; min-width: 0; }
     .vids-row .vid-cap { font-size: .6rem; letter-spacing: 2px; }
 
@@ -256,6 +261,11 @@
       .video-wrap { width: 100% !important; justify-content: center !important; gap: 14px !important; }
       .vid { width: calc(50% - 7px) !important; }
       .vid.solo { width: min(100%, 300px) !important; }
+      .pieces-row { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+      .pieces-row > .media-card { grid-column: 1 / -1; }
+      .pieces-row .vid { width: 100% !important; }
+      .duo > .vid { width: auto !important; }
+      .duo > .media-card { flex: 0 0 42% !important; }
       .info-card { padding: 22px 18px !important; }
       .notice { font-size: .74rem !important; }
     }
@@ -319,17 +329,24 @@
     </div>
   </div>
 
-  <!-- OVERVIEW: texto | pieza + videos debajo -->
+  <!-- CONCEPTO (izquierda) | PDF (derecha) -->
   <section class="section rv" id="overview">
-    <div class="section-subtitle">— OVERVIEW <span class="motif-tag"></span></div>
+    <div class="section-subtitle">— EL CONCEPTO <span class="motif-tag"></span></div>
 
-    <div class="piezas-layout">
-      <div class="piezas-text">
+    <div class="insight-proyecto-layout">
+      <div class="insight-col" id="concepto">
+        <h2 class="section-title">Tu “algún día” a <em>solo 6 horas</em></h2>
         <p class="section-desc">
-          Mi tercer Rally Creativo de la Universidad Siglo 21: 24 horas, en tripla con Enzo y Tomás, para el brief de <strong style="color:var(--w)">JetSMART Argentina</strong> —su nuevo vuelo directo Buenos Aires–Medellín, de unas seis horas y sin escalas—. Es un proyecto académico, no una campaña oficial de JetSMART.
+          Mi tercer Rally Creativo de la Universidad Siglo 21: 24 horas, en tripla con Enzo y Tomás, para resolver el brief de <strong style="color:var(--w)">JetSMART Argentina</strong>. Había que contarle a un público argentino el nuevo vuelo directo Buenos Aires–Medellín, de unas seis horas, sin escalas y a precio ultra bajo. Es un proyecto académico del concurso: no es una campaña encargada ni aprobada por JetSMART.
         </p>
         <p class="section-desc">
-          El insight: el argentino guarda el Caribe para <strong style="color:var(--w)">“algún día”</strong> porque lo siente lejos y caro. Le mostramos que ese día queda a seis horas, con tres piezas: un cartel de vía pública frente al Obelisco, un reel de 20 segundos y una acción con un creador. Mi parte fue la dirección de arte y la edición del reel.
+          El brief traía una trampa: “JetSMART llegó a Colombia” es cierto, pero le habla a los colombianos. Nos dimos cuenta de que el argentino guarda el Caribe para <strong style="color:var(--w)">“algún día”</strong> porque lo siente lejos, caro y con escalas. Entonces la idea fue tomar esa frase que todos decimos y responderla: ese día queda a seis horas. El titular es su cara visible, con la bajada “Buenos Aires–Medellín sin escalas, a precios ultra bajos”.
+        </p>
+        <p class="section-desc">
+          Ese concepto ató tres piezas. Un cartel de vía pública frente al Obelisco, con alguien desplomado en un sillón y, al lado, una ventana abierta al Caribe colombiano con el avión de JetSMART. Un reel vertical de 20 segundos que pasa de una Buenos Aires fría y desaturada, con el cartel como único color, a Medellín, Guatapé y Cartagena, y cierra con “Ese día llegó”. Y una acción bajo el cartel, en plena hora pico, donde un creador cocina arepas y las regala a los oficinistas: se prueba el destino antes de volar.
+        </p>
+        <p class="section-desc">
+          Mi parte fue la dirección de arte y la edición del reel —con IA como apoyo en la producción audiovisual, declarada en la entrega—, más la composición y la posproducción de las piezas.
         </p>
 
         <div class="tag-list">
@@ -348,17 +365,13 @@
         </div>
       </div>
 
-      <div class="media-grid grid-vans-side">
-        <div class="media-card" style="aspect-ratio: 2100 / 1350;"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/PIEZA-FINAL-Ultra-Bajo.webp" alt="JetSMART — pieza principal: Tu algún día a solo 6 horas, Buenos Aires–Medellín sin escalas" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza principal · vía pública</span></div></div>
-        <div class="vids-row">
-          <div class="vid">
-            <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009.mov#t=0.1" controls preload="metadata" playsinline></video>
-            <span class="vid-cap">Reel · 20 s</span>
-          </div>
-          <div class="vid">
-            <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009%20%281%29%281%29.mov#t=0.1" controls preload="metadata" playsinline></video>
-            <span class="vid-cap">Acción con creador · 17 s</span>
-          </div>
+      <div class="proyecto-col" id="proyecto">
+        <div class="sub-h" style="margin-top:0;">— PROYECTO COMPLETO</div>
+        <div class="pdf-embed" style="margin-top:0;">
+          <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" title="JetSMART — PDF de entrega del proyecto" loading="lazy"></iframe>
+        </div>
+        <div class="pdf-cta">
+          <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
         </div>
       </div>
     </div>
@@ -366,29 +379,23 @@
 
   <div class="motif-strip"></div>
 
-  <!-- CONCEPTO -->
-  <section class="section rv" id="concepto">
-    <div class="section-subtitle">— EL CONCEPTO <span class="motif-tag"></span></div>
-    <h2 class="section-title">Tu “algún día” a <em>solo 6 horas</em></h2>
-    <p class="section-desc" style="max-width: 900px;">
-      “Algún día” es una frase que todos decimos; la campaña la toma y la responde. El cartel muestra a alguien desplomado en un sillón junto a una ventana abierta al Caribe; el reel pasa de una Buenos Aires fría y desaturada a Medellín, Guatapé y Cartagena, y cierra con “Ese día llegó”; la acción regala arepas a los oficinistas que pasan bajo el cartel.
-    </p>
+  <!-- PIEZA + VIDEOS, debajo -->
+  <section class="section rv" id="audiovisual" style="padding-bottom: 100px;">
+    <div class="section-subtitle">— PIEZAS <span class="motif-tag"></span></div>
+    <h2 class="section-title">El cartel, el reel y <em>la acción</em></h2>
+    <div class="pieces-row">
+      <div class="media-card" style="aspect-ratio: 2100 / 1350;"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/PIEZA-FINAL-Ultra-Bajo.webp" alt="JetSMART — pieza principal: Tu algún día a solo 6 horas, Buenos Aires–Medellín sin escalas" loading="lazy"><div class="media-overlay"><span class="media-label">Pieza principal · vía pública</span></div></div>
+      <div class="vid">
+        <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009.mov#t=0.1" controls preload="metadata" playsinline></video>
+        <span class="vid-cap">Reel · 20 s</span>
+      </div>
+      <div class="vid">
+        <video src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/1009%20%281%29%281%29.mov#t=0.1" controls preload="metadata" playsinline></video>
+        <span class="vid-cap">Acción con creador · 17 s</span>
+      </div>
+    </div>
     <div class="notice">
       Proyecto académico de concurso: no es una campaña oficial de JetSMART. El reel se produjo con apoyo de IA bajo dirección y edición propias. El creador de la acción es talento propuesto: no participó del proyecto y su aparición es una simulación. Equipo: Valentín Sánchez, Enzo y Tomás.
-    </div>
-  </section>
-
-  <div class="motif-strip"></div>
-
-  <!-- PROYECTO COMPLETO (PDF) -->
-  <section class="section rv" id="proyecto" style="padding-bottom: 100px;">
-    <div class="section-subtitle">— PROYECTO COMPLETO <span class="motif-tag"></span></div>
-    <h2 class="section-title">Ver el <em>proyecto</em></h2>
-    <div class="pdf-embed">
-      <iframe src="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" title="JetSMART — PDF de entrega del proyecto" loading="lazy"></iframe>
-    </div>
-    <div class="pdf-cta">
-      <a href="https://valentin-cdn.b-cdn.net/PROYECTOS/JETSMART/Adobe%20FC%20%281%29_compressed%20%281%29.pdf" target="_blank" class="btn-solid">ABRIR PDF EN PESTAÑA COMPLETA →</a>
     </div>
   </section>
 
