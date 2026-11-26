@@ -4171,6 +4171,8 @@ adding: 30px 24px !important; }
     #previews .dev-phone { width: 22%; border: 5px solid #0a0a0c; border-radius: 22px; box-shadow: 0 0 0 2px #a9a9b2, 0 0 0 3px #3b3b41, 0 28px 56px rgba(0,0,0,.7); }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
+<link rel="stylesheet" href="motion.css">
+<script defer src="motion.js"></script>
 </head>
 
 <body>
@@ -4718,11 +4720,8 @@ adding: 30px 24px !important; }
           <div class="ptab-body-wrap">
             <div class="ptab-body">
               <div class="sec-inner web-inner">
-                <div class="web-tabs" role="tablist" aria-label="Proyectos web">
-                  <button type="button" class="wtab is-on" role="tab" aria-selected="true" data-web="altiva">ALTIVA</button>
-                  <button type="button" class="wtab" role="tab" aria-selected="false" data-web="kord3">KORD3</button>
-                </div>
-                <div class="web-stage" data-web-panel="altiva">
+                <div class="web-duo">
+<div class="web-stage" data-web-panel="altiva">
                   <div class="dev-lap">
                     <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio-v3.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio-v3.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
@@ -4730,13 +4729,14 @@ adding: 30px 24px !important; }
                   </div>
                   <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar sitio</a><a href="altiva.html">Ver proyecto</a></div>
                 </div>
-                <div class="web-stage" data-web-panel="kord3" hidden>
+                <div class="web-stage" data-web-panel="kord3">
                   <div class="dev-lap">
                     <div class="dev-lap-screen" data-label="KORD3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-escritorio.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
                     <div class="dev-phone" data-label="K3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-celular.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="kord3.html">Ver proyecto</a></div>
+                </div>
                 </div>
               </div>
             </div>
@@ -4762,10 +4762,100 @@ adding: 30px 24px !important; }
         <div class="ptab-body-wrap">
           <div class="ptab-body">
             <div class="sec-inner comm-inner">
-              <div class="comm-tabs">
-                <button class="ctab ctab-on" onclick="switchComm(this,'energia')">Energía Fitness</button>
-                <button class="ctab" onclick="switchComm(this,'natan')">Natan Barber</button>
-                <button class="ctab" onclick="switchComm(this,'manblue')">Man Blue FC</button>
+              <div class="comm-duo">
+              <div class="comm-panel cpanel-on" id="comm-jere">
+                <div class="feed-hdr">
+                  <div class="feed-ring" style="background:linear-gradient(45deg,#C9A86A,#7a5c2a)">
+                    <div class="feed-av"
+                      style="background-image:url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/portada-jere-inmobiliaria.webp')">
+                    </div>
+                  </div>
+                  <div class="feed-info">
+                    <span class="feed-handle">@jeremiasgigy.propiedades</span>
+                    <span class="feed-bio">Inmobiliaria · Reels, carruseles e historias</span>
+                  </div>
+                  <div class="feed-stats">
+                    <div class="fst"><span class="fst-n">29</span><span class="fst-l">Piezas/mes</span></div>
+                    <div class="fst"><span class="fst-n">3</span><span class="fst-l">Formatos</span></div>
+                  </div>
+                </div>
+                <div class="feed-grid">
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/carrusel/casa-moderna-01.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/carrusel/la-deseada-01.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/historias/historia-casa-moderna.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/historias/historia-3-dormitorios-la-deseada.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/historias/portada-reel-3-dormitorios.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/carrusel/la-deseada-02.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/carrusel/casa-moderna-02.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/historias/historia-la-deseada-1-planta.webp" style="background-size:cover; background-position:center;">
+                  </div>
+<div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/JERE%20INMOBILIARIA/historias/historia-casa-1028.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                </div>
+              </div>
+
+              <div class="comm-panel cpanel-on" id="comm-manblue">
+                <div class="feed-hdr">
+                  <div class="feed-ring" style="background:linear-gradient(45deg,#1D4ED8,#1E40AF)">
+                    <div class="feed-av"
+                      style="background-image:url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20MAN%20BLUE.webp')">
+                    </div>
+                  </div>
+                  <div class="feed-info">
+                    <span class="feed-handle">@manbluefc</span>
+                    <span class="feed-bio">Equipo de Fútbol Amateur · Storytelling Deportivo · Córdoba</span>
+                  </div>
+                  <div class="feed-stats">
+                    <div class="fst"><span class="fst-n">124</span><span class="fst-l">Posts</span></div>
+                    <div class="fst"><span class="fst-n">3.8K</span><span class="fst-l">Seguidores</span></div>
+                    <div class="fst"><span class="fst-n">+45%</span><span class="fst-l">Alcance</span></div>
+                  </div>
+                </div>
+                <div class="feed-grid">
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FIXTURE%205.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISOTRIA%20MATCH%20DAY%201.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20MATCH%20DAY%205.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FULL%20TIME%203.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FINAL%20DEL%20PARTIDO%202.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20CLASIFICADOS%205.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISTORIA%20FULL%20TIME%203.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISTORIA%20MATCH%20DAY%204.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                  <div class="fp"
+                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/SECUENCIA%20DE%20HISTORIAS.webp" style="background-size:cover; background-position:center;">
+                  </div>
+                </div>
               </div>
 
               <div class="comm-panel cpanel-on" id="comm-energia">
@@ -4815,102 +4905,7 @@ adding: 30px 24px !important; }
                   </div>
                 </div>
               </div>
-
-              <div class="comm-panel" id="comm-natan">
-                <div class="feed-hdr">
-                  <div class="feed-ring" style="background:linear-gradient(45deg,var(--natan),#1E40AF)">
-                    <div class="feed-av"
-                      style="background-image:url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-NATAN.webp')">
-                    </div>
-                  </div>
-                  <div class="feed-info">
-                    <span class="feed-handle">@natanbarber_</span>
-                    <span class="feed-bio">Barbería · Cuarteto cordobés · Branding & Redes</span>
-                  </div>
-                  <div class="feed-stats">
-                    <div class="fst"><span class="fst-n">38</span><span class="fst-l">Posts</span></div>
-                    <div class="fst"><span class="fst-n">2.1K</span><span class="fst-l">Seguidores</span></div>
-                    <div class="fst"><span class="fst-n">+52%</span><span class="fst-l">Alcance</span></div>
-                  </div>
-                </div>
-                <div class="feed-grid">
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/contenido/inaguracion.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/contenido/quien-soy.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/contenido/PRECIOS-2.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/contenido/Ubicacion.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/contenido/CLIENTESSS.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/branding/fondo.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/the-new-session.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/semana-hype/viernes.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/NATAN-BARBER/productos/cera-brillosa.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                </div>
-              </div>
-
-              <div class="comm-panel" id="comm-manblue">
-                <div class="feed-hdr">
-                  <div class="feed-ring" style="background:linear-gradient(45deg,#1D4ED8,#1E40AF)">
-                    <div class="feed-av"
-                      style="background-image:url('https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20MAN%20BLUE.webp')">
-                    </div>
-                  </div>
-                  <div class="feed-info">
-                    <span class="feed-handle">@manbluefc</span>
-                    <span class="feed-bio">Equipo de Fútbol Amateur · Storytelling Deportivo · Córdoba</span>
-                  </div>
-                  <div class="feed-stats">
-                    <div class="fst"><span class="fst-n">124</span><span class="fst-l">Posts</span></div>
-                    <div class="fst"><span class="fst-n">3.8K</span><span class="fst-l">Seguidores</span></div>
-                    <div class="fst"><span class="fst-n">+45%</span><span class="fst-l">Alcance</span></div>
-                  </div>
-                </div>
-                <div class="feed-grid">
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FIXTURE%205.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISOTRIA%20MATCH%20DAY%201.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20MATCH%20DAY%205.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FULL%20TIME%203.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20FINAL%20DEL%20PARTIDO%202.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/POST%20CLASIFICADOS%205.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISTORIA%20FULL%20TIME%203.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/HISTORIA%20MATCH%20DAY%204.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                  <div class="fp"
-                    data-bg="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/SECUENCIA%20DE%20HISTORIAS.webp" style="background-size:cover; background-position:center;">
-                  </div>
-                </div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
