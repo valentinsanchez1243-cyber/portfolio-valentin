@@ -40,7 +40,6 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 
 @media(prefers-reduced-motion:reduce){
   html.js-m [data-m]{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important;transition:none!important}.m-wipe{display:none}html{scroll-behavior:auto}.hero-banner{animation:none!important}
-  #previews #ptab-videos .reel-stage::after{animation:none}
 }
 
 /* ===== Mi trabajo en acción · v3 ===== */
@@ -52,31 +51,6 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 #previews .web-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,44px);align-items:start;width:100%}
 #previews .web-duo .web-stage{max-width:none;margin:0;padding:0 8% 0 0;min-width:0}
 #previews .web-duo .web-cta{margin-top:14px;flex-wrap:wrap}
-/* Social manager: tres filas que se deslizan solas */
-.plan{width:100%;max-width:1240px;margin:0 auto;display:grid;gap:clamp(8px,1.6vh,16px)}
-.plan-row{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);align-items:center;gap:14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.02);padding:clamp(8px,1.4vh,14px) 14px}
-.plan-acc{display:flex;gap:10px;align-items:center;min-width:0}
-.plan-av{flex:0 0 44px;width:44px;height:44px;border-radius:50%;padding:2px}
-.plan-av div{width:100%;height:100%;border-radius:50%;background:#111 center/cover;border:2px solid #0b0b0b}
-.plan-id{min-width:0}
-.plan-id>b{display:block;font:600 .74rem/1.2 'Outfit',sans-serif;color:#eee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.plan-id em{display:none}
-.plan-st{display:flex;gap:14px;margin-top:7px}
-.plan-st span{display:flex;flex-direction:column;gap:3px;font:400 .46rem/1 'Outfit',sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#7a7a7a}
-.plan-st b{display:block;font:400 1.15rem/1 'Fjalla One','Outfit',sans-serif;color:#fff;letter-spacing:.5px}
-.plan-st span:first-child b{color:#eab308;font-size:1.35rem}
-.plan-cells{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.plan-track{display:flex;gap:10px;width:max-content;animation:planRun 38s linear infinite}
-.plan-row:nth-child(2) .plan-track{animation-duration:46s;animation-direction:reverse}
-.plan-row:nth-child(3) .plan-track{animation-duration:42s}
-.plan-cells:hover .plan-track{animation-play-state:paused}
-@keyframes planRun{to{transform:translateX(calc(-50% - 5px))}}
-.plan .pc{position:relative;flex:0 0 auto;width:clamp(58px,6.2vw,84px);aspect-ratio:3/4;height:auto!important;min-height:0!important;border-radius:6px;background:#161616 center/cover;border:1px solid rgba(255,255,255,.08);transition:transform .5s var(--ease-calm)}
-.plan .pc i{display:none}
-@media(hover:hover){.plan .pc:hover{transform:translateY(-3px) scale(1.06)}}
-@media(max-width:700px){.plan-row{grid-template-columns:1fr;gap:8px}}
-@media(prefers-reduced-motion:reduce){.plan-track{animation:none}.plan-cells{overflow-x:auto}}
-
 /* ===== Índice tipo Photoshop (colapsado) en todos los proyectos ===== */
 .pjx:not(.open) .pjx-panel{width:48px!important;overflow:visible!important;border-radius:3px;background:linear-gradient(#323232,#262626);border:1px solid #0b0b0b;outline:1px solid #474747;box-shadow:0 18px 44px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
 .pjx:not(.open) .pjx-tabs{height:18px;background:#1b1b1b;border-bottom:1px solid #000;border-radius:3px 3px 0 0}
@@ -92,29 +66,8 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 .pjx:not(.open) .pjx-bar svg{width:11px;height:11px}
 .pjx:not(.open) .pjx-list{overflow:visible!important;max-height:none!important}
 
-/* ===== Mi trabajo en acción: contenido + secuencia caben en una pantalla ===== */
-#previews{--bh:clamp(280px,calc(100vh - 300px),470px)}
-@media(min-width:1001px){
-  #previews .ptabs.stage .ptab-body{height:var(--bh)!important;min-height:0!important;padding:40px 20px 14px!important;overflow:hidden;box-sizing:border-box;justify-content:center}
-  #previews .ptabs.stage .ptab-body .sec-inner{max-height:100%;width:100%}
-}
-
 /* Indumentaria: accesos a cada marca */
 .ind-sec-hd{flex-wrap:wrap;gap:8px 14px;align-items:center}
 .ind-cta{margin-left:auto;font:500 .6rem/1 'Outfit',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:8px 14px;transition:background .4s,color .4s,border-color .4s}
 .ind-cta+.ind-cta{margin-left:0}
 .ind-cta:hover{background:#fff;color:#000;border-color:#fff}
-
-/* Edición de video: todos los clips en abanico */
-@media(min-width:1001px){
-  #previews #ptab-videos .reel-stage{display:flex!important;justify-content:center;align-items:center;flex-wrap:nowrap;width:100%;padding:8px 0}
-  #previews #ptab-videos .reel-group{display:contents!important}
-  #previews #ptab-videos .reel-nav{display:none!important}
-  #previews #ptab-videos .reel-frame{flex:0 0 calc((100% + (var(--n,10) - 1) * 24px) / var(--n,10));width:auto;height:auto;aspect-ratio:138/282;margin:0 -12px;
-    transform:rotate(calc((var(--k,0) - (var(--n,10) - 1)/2) * 1.7deg)) translateY(calc(var(--d,0) * 6px));z-index:var(--z,1);transition:transform .7s var(--ease-calm),box-shadow .7s}
-  #previews #ptab-videos .reel-frame:hover{transform:translateY(-12px) scale(1.1);z-index:99}
-}
-@media(min-width:1001px){
-  #previews #ptab-videos .vid-inner,#previews #ptab-videos .reel-stage{max-width:none!important;width:100%!important;overflow:visible!important}
-  #previews #ptab-videos .reel-stage{padding:18px 0 30px!important}
-}
