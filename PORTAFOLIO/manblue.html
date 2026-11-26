@@ -294,6 +294,23 @@
     .pj-index .pj-index-list a:hover .pj-ar { transform: translateX(5px); }
     .pj-index .pj-index-list a:focus-visible { outline: 2px solid var(--pjc); outline-offset: 3px; }
     @media (max-width: 768px) { .pj-index .pj-index-list { grid-template-columns: 1fr !important; gap: 10px !important; } .pj-index .pj-index-list a { padding: 14px 16px; } }
+  
+    /* ===== ÍNDICE DEL PROYECTO · barra pegajosa ===== */
+    :root { --nav-h: 72px; }
+    html:root, html:root body { overflow-x: clip !important; }
+    .pjnav { --pjc: var(--ac, color-mix(in srgb, var(--rb, #fff) 55%, #fff)); position: sticky; top: var(--nav-h); z-index: 4000; margin-top: 8px; background: rgba(8,8,8,.88); -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%); border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .pjnav-in { max-width: 1200px; margin: 0 auto; padding: 10px 64px; display: flex; align-items: center; gap: 24px; }
+    .pjnav-label { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: 5px; text-transform: uppercase; color: var(--pjc); flex-shrink: 0; }
+    .pjnav-list { display: flex; gap: 8px; list-style: none; margin: 0; padding: 2px 0; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; -webkit-mask-image: linear-gradient(90deg, #000 94%, transparent); mask-image: linear-gradient(90deg, #000 94%, transparent); }
+    .pjnav-list::-webkit-scrollbar { display: none; }
+    .pjnav-list a { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; color: #ececec; text-decoration: none; white-space: nowrap; font-family: 'Fjalla One', sans-serif; font-size: .98rem; letter-spacing: 1.5px; text-transform: uppercase; transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; cursor: pointer; }
+    .pjnav-list a b { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: 2px; color: var(--pjc); transition: color .25s ease; }
+    .pjnav-list a:hover { border-color: var(--pjc); transform: translateY(-1px); }
+    .pjnav-list a.is-active { background: var(--pjc); border-color: var(--pjc); color: #0a0a0a; }
+    .pjnav-list a.is-active b { color: inherit; }
+    .pjnav-list a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    @media (max-width: 900px) { .pjnav-label { display: none; } .pjnav-in { padding: 8px 18px; } }
+    @media (prefers-reduced-motion: reduce) { .pjnav-list a { transition: none; } }
   </style>
 </head>
 <body>
@@ -375,21 +392,16 @@
           </div>
         </div>
 
-        <div class="pj-index rv">
-      <span class="pj-index-label">— ÍNDICE · QUÉ HAY EN ESTE PROYECTO</span>
-      <ul class="pj-index-list">
-        <li><a href="#feed"><span class="pj-n">01</span><span class="pj-t">CONTENIDO EN FEED</span><span class="pj-d">Posts de torneo</span><span class="pj-ar" aria-hidden="true">→</span></a></li>
-        <li><a href="#matchday"><span class="pj-n">02</span><span class="pj-t">MATCH DAY</span><span class="pj-d">Cobertura de match day</span><span class="pj-ar" aria-hidden="true">→</span></a></li>
-        <li><a href="#stories"><span class="pj-n">03</span><span class="pj-t">HISTORIAS &amp; DAILY</span><span class="pj-d">Historias del día a día</span><span class="pj-ar" aria-hidden="true">→</span></a></li>
-        <li><a href="#sequences"><span class="pj-n">04</span><span class="pj-t">SECUENCIAS</span><span class="pj-d">Secuencias de historias</span><span class="pj-ar" aria-hidden="true">→</span></a></li>
-      </ul>
-        </div>
+        
       </div>
       <div class="overview-media" style="max-width: 320px; justify-self: center;">
         <video class="lazy-av" preload="none" src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAN%20BLUE/man%20blue%20captura.mp4" muted loop playsinline style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: block; filter: brightness(1.1);"></video>
       </div>
     </div>
   </section>
+
+  <div class="pjnav" role="navigation" aria-label="Índice del proyecto"><div class="pjnav-in"><span class="pjnav-label">Índice</span><ul class="pjnav-list"><li><a href="#feed" title="Posts de torneo"><b>01</b><span>Contenido En Feed</span></a></li><li><a href="#matchday" title="Cobertura de match day"><b>02</b><span>Match Day</span></a></li><li><a href="#stories" title="Historias del día a día"><b>03</b><span>HISTORIAS &amp; DAILY</span></a></li><li><a href="#sequences" title="Secuencias de historias"><b>04</b><span>Secuencias</span></a></li></ul></div></div>
+
 
   <section class="section rv" id="feed">
     <div class="section-subtitle">— FEED</div>
@@ -659,5 +671,34 @@
     }, { rootMargin: '200px 0px', threshold: 0.15 });
     vids.forEach(function (v) { io.observe(v); });
   })();
-  </script></body>
+  </script>
+  <script>
+    /* índice del proyecto: scroll-spy + desplazamiento con compensación */
+    (function () {
+      var bar = document.querySelector('.pjnav'); if (!bar) return;
+      var navEl = document.querySelector('nav');
+      function navH() { return navEl ? navEl.offsetHeight : 0; }
+      function setH() { document.documentElement.style.setProperty('--nav-h', navH() + 'px'); }
+      setH(); window.addEventListener('resize', setH);
+      var links = [].slice.call(bar.querySelectorAll('a')), last = null;
+      function target(l) { try { return document.querySelector(l.getAttribute('href')); } catch (e) { return null; } }
+      function spy() {
+        var y = navH() + bar.offsetHeight + 40, cur = null;
+        links.forEach(function (l) { var t = target(l); if (t && t.getBoundingClientRect().top <= y) cur = l; });
+        links.forEach(function (l) { l.classList.toggle('is-active', l === cur); });
+        if (cur && cur !== last) { var ul = cur.parentNode.parentNode; ul.scrollTo({ left: cur.offsetLeft - ul.clientWidth / 2 + cur.clientWidth / 2, behavior: 'smooth' }); }
+        last = cur;
+      }
+      window.addEventListener('scroll', function () { window.requestAnimationFrame(spy); }, { passive: true });
+      links.forEach(function (l) {
+        l.addEventListener('click', function (e) {
+          var t = target(l); if (!t) return; e.preventDefault();
+          var top = t.getBoundingClientRect().top + window.pageYOffset - navH() - bar.offsetHeight - 6;
+          window.scrollTo({ top: top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        });
+      });
+      spy();
+    })();
+  </script>
+</body>
 </html>
