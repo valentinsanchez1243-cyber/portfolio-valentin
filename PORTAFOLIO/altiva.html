@@ -427,8 +427,26 @@
     .pjx-bar { height: 34px; background: #2a2a2a; }
 
   </style>
-  <link rel="stylesheet" href="theme.css">
-  <script src="theme.js"></script>
+
+<style>
+/* galería de piezas */
+.gx-sec{padding:70px 64px 90px;position:relative;z-index:2}
+.gx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:26px;margin-top:34px}
+.gx-reel{margin:0;display:flex;flex-direction:column;gap:12px}
+.gx-phone{aspect-ratio:9/16;border-radius:26px;border:6px solid #17171a;background:#000;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.gx-phone video{width:100%;height:100%;object-fit:cover;display:block}
+.gx-img{margin:0;display:flex;flex-direction:column;gap:12px}
+.gx-img .gx-fr{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.gx-img img{width:100%;height:auto;display:block}
+.gx-grid.gx-wide{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.gx-grid{align-items:start}.gx-logo .gx-fr{background:#FDF4E7;padding:22px}.gx-cap{font-family:'Outfit',sans-serif;font-size:.85rem;letter-spacing:.3px;color:#cfcfcf;line-height:1.4}
+.gx-sub{font-family:'Fjalla One',sans-serif;letter-spacing:2px;font-size:.9rem;margin:50px 0 0;color:var(--ac,#fff)}
+@media(max-width:768px){.gx-sec{padding:50px 20px 60px}.gx-grid{grid-template-columns:repeat(2,1fr);gap:16px}.gx-grid.gx-wide{grid-template-columns:1fr}}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var vs=document.querySelectorAll('.gx-phone video');
+vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(o){if(o!==v)o.pause()})})});});
+</script>
 </head>
 <body>
 
@@ -586,7 +604,8 @@
     </div>
   </section>
 
-  <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+  <section class="gx-sec rv" id="piezas"><div class="section-subtitle">— MARCA</div><h2 class="section-title">Piezas de <em>ALTIVA</em></h2><div class="gx-grid gx-wide"><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/caja-organizadora.webp" alt="Mockup · Caja organizadora" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Caja organizadora</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/difusor-sobre-libro.webp" alt="Mockup · Difusor sobre libro" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Difusor sobre libro</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/portatraje.webp" alt="Mockup · Portatraje" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Portatraje</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/tubos-packaging.webp" alt="Mockup · Tubos de packaging" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Tubos de packaging</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/presentacion/eslogan-altiva.webp" alt="Presentación · Eslogan" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Presentación · Eslogan</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/fotos/alejandra-prieto.webp" alt="Alejandra Prieto" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Alejandra Prieto</figcaption></figure></div><div class="gx-sub">LOGOS</div><div class="gx-grid"><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/logo-altiva.svg" alt="Logo ALTIVA" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Logo ALTIVA</figcaption></figure><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/isologo-funda.svg" alt="Isologo funda" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Isologo funda</figcaption></figure><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/logo-funda.svg" alt="Logo funda" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Logo funda</figcaption></figure></div></section>
+<footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
     <div style="font-family: 'Fjalla One', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--ac)">.</span></div>
     <div style="font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2026 · Córdoba, AR</div>
   </footer>
@@ -754,7 +773,7 @@
       function set(o) { box.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); }
       btn.addEventListener('click', function () { set(!box.classList.contains('open')); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-      document.addEventListener('click', function (e) { if (innerWidth <= 900 && !box.contains(e.target)) set(false); });
+      document.addEventListener('click', function (e) { if (box.classList.contains('open') && !box.contains(e.target)) set(false); });
       function target(l) { try { return document.querySelector(l.getAttribute('href')); } catch (e) { return null; } }
       var tick = false;
       function spy() {

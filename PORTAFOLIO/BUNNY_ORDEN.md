@@ -161,3 +161,55 @@ Antes de renombrar un archivo en Bunny hay que cambiar también su enlace en la 
 ## Seguridad
 
 Las claves de Bunny que pegaste en el chat quedaron expuestas. Conviene regenerarlas desde el panel de Bunny (Storage > FTP & API Access). No hace falta que me las vuelvas a pasar: yo solo preparo la lista y vos subís.
+
+
+## Archivos nuevos optimizados (subidos)
+Los originales siguen en Bunny; podés borrarlos a mano cuando quieras.
+
+| Original (borrable) | Nuevo |
+|---|---|
+| PROYECTOS/BACON/9.10.R.B.mov | PROYECTOS/BACON/video/reel-pedido-en-cocina.mp4 |
+| PROYECTOS/BACON/13.11.R.B.mov | PROYECTOS/BACON/video/reel-bun-al-aire.mp4 |
+| PROYECTOS/BACON/24.11.R.B.mov | PROYECTOS/BACON/video/reel-armado-cheese-cebolla.mp4 |
+| PROYECTOS/BACON/B.png | PROYECTOS/BACON/piezas/post-cheese-burger-pepsi.webp |
+| PROYECTOS/BACON/B (1).png | PROYECTOS/BACON/piezas/post-dia-de-la-cheese-burger.webp |
+| PROYECTOS/BACON/flyer humbrguesa especial del mes@1x_1.jpg | PROYECTOS/BACON/piezas/historia-especial-de-septiembre.webp |
+| PROYECTOS/JERE INMOBILIARIA/9.10.R.J.mov | PROYECTOS/JERE INMOBILIARIA/video/reel-comprar-una-propiedad.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/14.10.R.J.mov | PROYECTOS/JERE INMOBILIARIA/video/reel-lote-tu-mejor-opcion.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/6.11.R.J.mov | PROYECTOS/JERE INMOBILIARIA/video/reel-recorrido-casa-1.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/16.11.R.J.mov | PROYECTOS/JERE INMOBILIARIA/video/reel-recorrido-casa-completo.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/18 11.mov | PROYECTOS/JERE INMOBILIARIA/video/reel-3-cosas-antes-de-comprar.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/jere_delicias_bordo_03.J.mp4 | PROYECTOS/JERE INMOBILIARIA/video/reel-las-delicias-aereo-1.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/jere_delicias_bordo_05.J.mp4 | PROYECTOS/JERE INMOBILIARIA/video/reel-las-delicias-aereo-2.mp4 |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_01.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-01.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_02.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-02.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_03.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-03.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_04.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-04.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_05.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-05.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_06.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-06.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_07.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-07.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_08.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-08.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_09.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-09.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_10.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-10.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_11.png | PROYECTOS/JERE INMOBILIARIA/carrusel/casa-moderna-ficha.webp |
+| PROYECTOS/JERE INMOBILIARIA/LD1P_historia.png | PROYECTOS/JERE INMOBILIARIA/historias/historia-casa-moderna.webp |
+| PROYECTOS/JERE INMOBILIARIA/historia_1028.png | PROYECTOS/JERE INMOBILIARIA/historias/historia-3-dormitorios-la-deseada.webp |
+| PROYECTOS/JERE INMOBILIARIA/portada_reel_casa_1028.png | PROYECTOS/JERE INMOBILIARIA/historias/portada-reel-3-dormitorios.webp |
+| PROYECTOS/OPERO/1.10.R.O.mov | PROYECTOS/OPERO/video/reel-yo-no-uso-opero.mp4 |
+| PROYECTOS/OPERO/14.10.R.O.mov | PROYECTOS/OPERO/video/reel-hicimos-esto-para-pymes.mp4 |
+| PROYECTOS/OPERO/19.11.r.O.mov | PROYECTOS/OPERO/video/reel-oficina-con-post-its.mp4 |
+| PROYECTOS/OPERO/25.11.R.O.mov | PROYECTOS/OPERO/video/reel-ventas-en-26-segundos.mp4 |
+| PROYECTOS/OPERO/28.09.R.O.mp4 | PROYECTOS/OPERO/video/reel-calificar-bandeja-unificada.mp4 |
+| PROYECTOS/ALTIVA/Imagne de Alejandra prieto.jpg | PROYECTOS/ALTIVA/fotos/alejandra-prieto.webp |
+| PROYECTOS/ALTIVA/PORTADA ALTIVA.png | PROYECTOS/ALTIVA/portada-altiva.webp |
+| PROYECTOS/ALTIVA/Presentacion DISEÑO III (8).png | PROYECTOS/ALTIVA/mockups/caja-organizadora.webp |
+| PROYECTOS/ALTIVA/Presentacion DISEÑO III (9).png | PROYECTOS/ALTIVA/mockups/difusor-sobre-libro.webp |
+| PROYECTOS/ALTIVA/Presentacion DISEÑO III (10).png | PROYECTOS/ALTIVA/mockups/portatraje.webp |
+| PROYECTOS/ALTIVA/Presentacion DISEÑO III (11).png | PROYECTOS/ALTIVA/mockups/tubos-packaging.webp |
+| PROYECTOS/ALTIVA/Presentacion DISEÑO III (13).png | PROYECTOS/ALTIVA/presentacion/eslogan-altiva.webp |
+| PROYECTOS/ALTIVA/Recurso 2logo.svg | PROYECTOS/ALTIVA/logos/logo-altiva.svg |
+| PROYECTOS/ALTIVA/Recurso 5Isologo funda.svg | PROYECTOS/ALTIVA/logos/isologo-funda.svg |
+| PROYECTOS/ALTIVA/Recurso 7logo funda.svg | PROYECTOS/ALTIVA/logos/logo-funda.svg |
+| PORTADAS/portadas-proyectos/PORTADA ALTIVA.png | PORTADAS/portadas-proyectos/portada-altiva.webp |
+| PORTADAS/portadas-proyectos/PORTADA BACON.jpg | PORTADAS/portadas-proyectos/portada-bacon.webp |
+| PORTADAS/portadas-proyectos/PORTADA JERE INMOBILIARIA.jpg | PORTADAS/portadas-proyectos/portada-jere-inmobiliaria.webp |

@@ -378,8 +378,6 @@
     .pjx-bar { height: 34px; background: #2a2a2a; }
 
   </style>
-  <link rel="stylesheet" href="theme.css">
-  <script src="theme.js"></script>
 </head>
 <body>
 
@@ -1006,7 +1004,7 @@
       function set(o) { box.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); }
       btn.addEventListener('click', function () { set(!box.classList.contains('open')); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-      document.addEventListener('click', function (e) { if (innerWidth <= 900 && !box.contains(e.target)) set(false); });
+      document.addEventListener('click', function (e) { if (box.classList.contains('open') && !box.contains(e.target)) set(false); });
       function target(l) { try { return document.querySelector(l.getAttribute('href')); } catch (e) { return null; } }
       var tick = false;
       function spy() {
