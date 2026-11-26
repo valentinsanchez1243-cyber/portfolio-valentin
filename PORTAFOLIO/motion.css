@@ -93,7 +93,7 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 .pjx:not(.open) .pjx-list{overflow:visible!important;max-height:none!important}
 
 /* ===== Mi trabajo en acción: contenido + secuencia caben en una pantalla ===== */
-#previews{--bh:clamp(250px,calc(100vh - 330px),430px)}
+#previews{--bh:clamp(280px,calc(100vh - 300px),470px)}
 @media(min-width:1001px){
   #previews .ptabs.stage .ptab-body{height:var(--bh)!important;min-height:0!important;padding:40px 20px 14px!important;overflow:hidden;box-sizing:border-box;justify-content:center}
   #previews .ptabs.stage .ptab-body .sec-inner{max-height:100%;width:100%}
@@ -105,41 +105,16 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 .ind-cta+.ind-cta{margin-left:0}
 .ind-cta:hover{background:#fff;color:#000;border-color:#fff}
 
-/* Edición de video: abanico de clips */
+/* Edición de video: todos los clips en abanico */
 @media(min-width:1001px){
-  #previews #ptab-videos .reel-group{align-items:center;justify-content:center;gap:0}
-  #previews #ptab-videos .reel-frame{--rh:clamp(200px,calc(var(--bh) - 150px),300px);height:var(--rh);width:calc(var(--rh)*.49);margin:0 -16px;transition:transform .8s var(--ease-calm),box-shadow .8s}
-  #previews #ptab-videos .reel-frame:nth-child(1){transform:rotate(-6deg) translateY(14px);z-index:1}
-  #previews #ptab-videos .reel-frame:nth-child(2){transform:scale(1.07);z-index:3}
-  #previews #ptab-videos .reel-frame:nth-child(3){transform:rotate(6deg) translateY(14px);z-index:1}
-  #previews #ptab-videos .reel-group:hover .reel-frame{transform:none;margin:0 6px}
-  #previews #ptab-videos .reel-group{transition:gap .6s}
+  #previews #ptab-videos .reel-stage{display:flex!important;justify-content:center;align-items:center;flex-wrap:nowrap;width:100%;padding:8px 0}
+  #previews #ptab-videos .reel-group{display:contents!important}
+  #previews #ptab-videos .reel-nav{display:none!important}
+  #previews #ptab-videos .reel-frame{flex:0 0 calc((100% + (var(--n,10) - 1) * 24px) / var(--n,10));width:auto;height:auto;aspect-ratio:138/282;margin:0 -12px;
+    transform:rotate(calc((var(--k,0) - (var(--n,10) - 1)/2) * 1.7deg)) translateY(calc(var(--d,0) * 6px));z-index:var(--z,1);transition:transform .7s var(--ease-calm),box-shadow .7s}
+  #previews #ptab-videos .reel-frame:hover{transform:translateY(-12px) scale(1.1);z-index:99}
 }
-
-/* ===== divisores entre secciones: línea técnica que se dibuja ===== */
-.m-div{--ac:var(--rb,var(--r,#fff));display:flex;align-items:center;gap:16px;max-width:1400px;margin:0 auto;padding:clamp(18px,3vw,34px) clamp(20px,5vw,64px);box-sizing:border-box;position:relative;z-index:2}
-.m-d-no{font:500 .58rem/1 'Outfit',sans-serif;font-style:normal;letter-spacing:3px;color:rgba(255,255,255,.4);opacity:0;transform:translateY(6px);transition:opacity .9s var(--ease-calm) .5s,transform .9s var(--ease-calm) .5s}
-.m-d-no:first-child{color:var(--ac)}
-.m-div.m-in .m-d-no{opacity:1;transform:none}
-.m-d-line{position:relative;flex:1;height:9px;transform:scaleX(0);transform-origin:0 50%;transition:transform 1.7s var(--ease-calm);overflow:hidden;
-  background:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,.2)) 0 4px/100% 1px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 1px,transparent 1px 28px) 0 0/100% 4px no-repeat,repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 1px,transparent 1px 28px) 0 5px/100% 4px no-repeat}
-.m-div.m-in .m-d-line{transform:scaleX(1)}
-.m-d-line::after{content:'';position:absolute;top:3px;left:0;width:90px;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transform:translateX(-100px)}
-.m-div.m-in .m-d-line::after{opacity:1;animation:mScan 3.6s var(--ease-calm) 1.2s infinite}
-@keyframes mScan{0%{transform:translateX(-100px)}55%,100%{transform:translateX(calc(100vw))}}
-@media(prefers-reduced-motion:reduce){.m-d-line,.m-d-no{transform:none;opacity:1;transition:none}.m-d-line::after{display:none}}
-
-/* banda clara por proyecto (color propio) */
-.m-tint{--tint:color-mix(in srgb,var(--rb,#888) 14%,#fbf9f5);position:relative;background:var(--tint);color:#16130f;box-shadow:0 0 0 100vmax var(--tint);clip-path:inset(0 -100vmax);margin-top:clamp(40px,7vw,100px)!important;margin-bottom:clamp(40px,7vw,100px)!important}
-#marca.m-tint{--tint:#FDF4E7}
-.m-tint .section-title,.m-tint h1,.m-tint h2,.m-tint h3,.m-tint h4{color:#16130f!important}
-.m-tint .section-title em,.m-tint h2 em{color:color-mix(in srgb,var(--rb,#888) 65%,#000)!important}
-.m-tint .section-subtitle,.m-tint .alx-k{color:color-mix(in srgb,var(--rb,#888) 55%,#3a3128)!important}
-.m-tint p,.m-tint li,.m-tint .section-desc,.m-tint span:not(.software-name),.m-tint dd,.m-tint dt{color:#40382f!important}
-.m-tint a:not(.cta2):not(.btn){color:#16130f}
-#cursor.dark{background:#16130f!important}.trail.dark{background:#16130f!important}
-@supports (animation-timeline:scroll()){
-  @keyframes mBan{from{background-position-y:25%}to{background-position-y:75%}}
-  .hero-banner{animation-name:mBan!important;animation-duration:1ms;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:scroll(root block);animation-range:0 90vh}
+@media(min-width:1001px){
+  #previews #ptab-videos .vid-inner,#previews #ptab-videos .reel-stage{max-width:none!important;width:100%!important;overflow:visible!important}
+  #previews #ptab-videos .reel-stage{padding:18px 0 30px!important}
 }
-.m-tint strong,.m-tint b{color:#16130f!important}
