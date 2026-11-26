@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentín Sánchez | Portafolio</title>
+  <title>Valentín Sánchez | Portfolio</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -4151,6 +4151,24 @@ adding: 30px 24px !important; }
       .tl-head::before { content: ''; position: absolute; top: -1px; left: -8px; width: 14px; height: 12px; background: #ff3b30; clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%); }
     }
     @media (max-width: 1000px) { .tl-bar, .tl-ruler, .tl-head { display: none !important; } }
+    /* === v6: pantalla = monitor de programa (marco, marcas de esquina, REC, contenido centrado) === */
+    @media (min-width: 1001px) {
+      .ptabs.stage .ptab-body { min-height: 500px; display: flex; flex-direction: column; justify-content: center; padding-top: 58px !important; border: 1px solid #2b2b2b; border-radius: 4px; background: #070707 !important; box-shadow: 0 0 0 6px #111, 0 0 0 7px #2a2a2a, 0 30px 80px rgba(0,0,0,.6); overflow: hidden;
+        background-image: linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)) !important;
+        background-size: 26px 2px, 2px 26px, 26px 2px, 2px 26px, 26px 2px, 2px 26px, 26px 2px, 2px 26px !important;
+        background-position: 18px 46px, 18px 46px, calc(100% - 18px) 46px, calc(100% - 18px) 46px, 18px calc(100% - 18px), 18px calc(100% - 18px), calc(100% - 18px) calc(100% - 18px), calc(100% - 18px) calc(100% - 18px) !important;
+        background-repeat: no-repeat !important; }
+      .ptabs.stage .ptab-body::before { content: '● REC   PROGRAMA'; position: absolute; left: 0; right: 0; top: 0; height: 34px; display: flex; align-items: center; padding: 0 18px; background: #141414; border-bottom: 1px solid #2b2b2b; font: 500 .66rem/1 'Outfit', sans-serif; letter-spacing: 3px; color: #8d8d8d; z-index: 2; }
+      #ptab-branding .ptab-body::before { content: '● REC   PROGRAMA · MARCA'; } #ptab-videos .ptab-body::before { content: '● REC   PROGRAMA · VIDEO'; }
+      #ptab-web .ptab-body::before { content: '● REC   PROGRAMA · WEB'; } #ptab-community .ptab-body::before { content: '● REC   PROGRAMA · SOCIAL'; }
+      #ptab-indumentaria .ptab-body::before { content: '● REC   PROGRAMA · MODA'; }
+      .ptabs.stage .ptab-body::after { font-size: 6rem; right: 34px; bottom: -6px; opacity: .6; }
+    }
+    /* v6: dispositivos más lindos (pantalla 16:9 del video, marco metálico, brillo) */
+    #previews .dev-lap-screen { aspect-ratio: 16 / 9; border: 6px solid #0a0a0c; border-bottom-width: 8px; border-radius: 12px 12px 2px 2px; box-shadow: 0 0 0 2px #9d9da6, 0 0 0 3px #3b3b41, 0 34px 80px rgba(0,0,0,.7); }
+    #previews .dev-lap-screen:not(.is-empty)::after { content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,0) 38%); }
+    #previews .dev-lap-base { height: 13px; background: linear-gradient(#e4e4ea, #a4a4ad 55%, #70707a); box-shadow: 0 22px 36px rgba(0,0,0,.55), inset 0 1px 0 #fff; }
+    #previews .dev-phone { width: 22%; border: 5px solid #0a0a0c; border-radius: 22px; box-shadow: 0 0 0 2px #a9a9b2, 0 0 0 3px #3b3b41, 0 28px 56px rgba(0,0,0,.7); }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
 </head>
@@ -4234,7 +4252,7 @@ adding: 30px 24px !important; }
     <div class="sbt rv">
       <div class="sl">Sobre mí</div>
       <h2 class="st">INTEGRACIÓN<br><em>CREATIVA</em></h2>
-      <p>Soy Valentín Gabriel Sánchez, tengo 22 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería
+      <p>Soy Valentín Sánchez Gabriel, tengo 23 años y soy de Córdoba, Argentina. Estudié hasta 3er año de Ingeniería
         Electrónica en la UTN, carrera que me dio una base técnica y analítica muy sólida. Hoy estoy enfocado en el
         diseño gráfico y la producción audiovisual, estudiando Diseño Gráfico y Publicidad en la Universidad Empresarial
         Siglo 21.
@@ -4706,9 +4724,9 @@ adding: 30px 24px !important; }
                 </div>
                 <div class="web-stage" data-web-panel="altiva">
                   <div class="dev-lap">
-                    <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio-v3.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio-v3.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
-                    <div class="dev-phone"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-phone"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular-v3.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular-v3.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar sitio</a><a href="altiva.html">Ver proyecto</a></div>
                 </div>
