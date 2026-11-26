@@ -335,41 +335,52 @@
     .pj-index .pj-index-list a:focus-visible { outline: 2px solid var(--pjc); outline-offset: 3px; }
     @media (max-width: 768px) { .pj-index .pj-index-list { grid-template-columns: 1fr !important; gap: 10px !important; } .pj-index .pj-index-list a { padding: 14px 16px; } }
 
-    /* ===== ÍNDICE DEL PROYECTO · panel lateral plegable ===== */
+    /* ===== ÍNDICE DEL PROYECTO · panel de capas plegable ===== */
     html:root, html:root body { overflow-x: clip !important; }
-    .pjx { position: fixed; left: 8px; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; top: 50%; transform: translateY(-50%); z-index: 90; font-family: 'Outfit', sans-serif; }
+    .pjx { --pa: var(--r, var(--ac, #4aa8ff)); position: fixed; left: 8px; top: 50%; transform: translateY(-50%); z-index: 90; font-family: 'Outfit', sans-serif; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
     .pjx.show { opacity: 1; visibility: visible; }
-    .pjx-panel { width: 52px; padding: 8px; border-radius: 18px; background: rgba(12,12,14,.82); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); overflow: hidden; transition: width .28s cubic-bezier(.2,.8,.2,1); box-shadow: 0 10px 40px rgba(0,0,0,.45); }
-    .pjx.open .pjx-panel { width: 252px; }
-    .pjx-top { display: flex; align-items: center; gap: 10px; height: 40px; }
-    .pjx-toggle { flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); color: #fff; display: grid; place-items: center; cursor: pointer; transition: background .2s; }
-    .pjx-toggle:hover { background: rgba(255,255,255,.14); }
-    .pjx-toggle:focus-visible, .pjx-list a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-    .pjx-toggle svg { width: 18px; height: 18px; transition: transform .28s; }
-    .pjx.open .pjx-toggle svg { transform: rotate(180deg); }
-    .pjx-label { font-size: .68rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.55); white-space: nowrap; opacity: 0; transition: opacity .2s; }
+    .pjx-panel { width: 56px; border-radius: 14px; background: rgba(20,20,22,.9); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); overflow: hidden; transition: width .28s cubic-bezier(.2,.8,.2,1); box-shadow: 0 14px 44px rgba(0,0,0,.5); }
+    .pjx.open .pjx-panel { width: 268px; }
+    .pjx-top { display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 8px 0 8px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .pjx-toggle { flex: 0 0 38px; width: 38px; height: 38px; margin-left: -8px; border: 0; background: transparent; color: rgba(255,255,255,.8); display: grid; place-items: center; cursor: pointer; transition: background .2s; }
+    .pjx-toggle:hover { background: rgba(255,255,255,.1); color: #fff; }
+    .pjx-toggle:focus-visible, .pjx-list a:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+    .pjx-toggle svg { width: 17px; height: 17px; }
+    .pjx-label { flex: 1; font-size: .68rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.85); white-space: nowrap; opacity: 0; transition: opacity .2s; }
+    .pjx-label small { color: rgba(255,255,255,.4); letter-spacing: 1px; margin-left: 6px; }
     .pjx.open .pjx-label { opacity: 1; }
-    .pjx-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 2px; position: relative; }
-    .pjx-list a { display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 0 0 10px; border-radius: 12px; color: rgba(255,255,255,.62); text-decoration: none; white-space: nowrap; transition: background .2s, color .2s; }
-    .pjx-list a:hover { background: rgba(255,255,255,.07); color: #fff; }
-    .pjx-list b { flex: 0 0 20px; font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: .82rem; letter-spacing: 1px; font-variant-numeric: tabular-nums; }
-    .pjx-list span { font-size: .88rem; font-weight: 500; opacity: 0; transition: opacity .2s; overflow: hidden; text-overflow: ellipsis; }
+    .pjx-list { list-style: none; margin: 0; padding: 6px 0; display: flex; flex-direction: column; }
+    .pjx-list li { position: relative; }
+    .pjx-list a { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 12px 0 8px; color: rgba(255,255,255,.7); text-decoration: none; white-space: nowrap; border-top: 1px solid rgba(255,255,255,.04); transition: background .18s, color .18s; }
+    .pjx-list li:first-child a { border-top: 0; }
+    .pjx-list a:hover { background: rgba(255,255,255,.06); color: #fff; }
+    .pjx-eye { display: none; flex: 0 0 18px; width: 18px; height: 18px; font-style: normal; color: rgba(255,255,255,.25); transition: color .2s; }
+    .pjx-eye svg { width: 18px; height: 18px; display: block; }
+    .pjx-list a.vis .pjx-eye { color: rgba(255,255,255,.8); }
+    .pjx.open .pjx-eye { display: block; }
+    .pjx-th { flex: 0 0 38px; width: 38px; height: 38px; border-radius: 4px; display: grid; place-items: center; font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: .9rem; letter-spacing: 1px; color: #fff; border: 1px solid rgba(255,255,255,.18); background-color: #2a2a2e; background-image: linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%), linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%); background-size: 10px 10px; background-position: 0 0, 5px 5px; margin-left: 2px; }
+    .pjx-list span { font-size: .86rem; font-weight: 500; opacity: 0; transition: opacity .2s; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
     .pjx.open .pjx-list span { opacity: 1; }
-    .pjx-list a.is-active { background: rgba(255,255,255,.12); color: #fff; box-shadow: inset 3px 0 0 var(--r, var(--ac, #e63946)); }
-    .pjx-prog { height: 2px; margin: 8px 6px 2px; background: rgba(255,255,255,.12); border-radius: 2px; overflow: hidden; }
-    .pjx-prog i { display: block; height: 100%; width: 100%; background: var(--r, var(--ac, #e63946)); transform-origin: left; transform: scaleX(0); }
+    .pjx-list a.is-active { background: color-mix(in srgb, var(--pa) 24%, #1a1a1d); color: #fff; }
+    .pjx-list a.is-active .pjx-th { border-color: var(--pa); box-shadow: 0 0 0 1px var(--pa); }
+    .pjx-foot { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-top: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); font-size: .66rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); white-space: nowrap; }
+    .pjx-prog { flex: 1; height: 3px; background: rgba(255,255,255,.12); border-radius: 3px; overflow: hidden; }
+    .pjx-prog i { display: block; height: 100%; width: 100%; background: var(--pa); transform-origin: left; transform: scaleX(0); }
+    .pjx-cnt { opacity: 0; width: 0; overflow: hidden; transition: opacity .2s; }
+    .pjx.open .pjx-cnt { opacity: 1; width: auto; }
+    .pjx:not(.open) .pjx-foot { padding: 8px 8px; }
     @media (max-width: 900px) {
       .pjx { left: 10px; top: auto; bottom: 14px; transform: none; }
-      .pjx-panel { width: 48px; padding: 4px; border-radius: 16px; }
-      .pjx-top { height: 40px; }
-      .pjx.open .pjx-panel { width: min(280px, calc(100vw - 20px)); }
-      .pjx-list, .pjx-prog { display: none; }
-      .pjx.open .pjx-list, .pjx.open .pjx-prog { display: flex; }
-      .pjx.open .pjx-prog { display: block; }
-      .pjx .pjx-list { margin-top: 6px; }
-      .pjx-list a { height: 48px; }
+      .pjx-panel { width: 46px; }
+      .pjx.open .pjx-panel { width: min(290px, calc(100vw - 20px)); }
+      .pjx:not(.open) .pjx-list, .pjx:not(.open) .pjx-foot { display: none; }
+      .pjx-top { padding: 0 8px; border-bottom: 0; }
+      .pjx.open .pjx-top { border-bottom: 1px solid rgba(255,255,255,.08); }
+      .pjx-toggle { margin-left: -9px; flex-basis: 46px; width: 46px; height: 42px; }
+      .pjx-top { height: 42px; }
+      .pjx-list a { height: 54px; }
     }
-    @media (prefers-reduced-motion: reduce) { .pjx-panel, .pjx-toggle svg, .pjx-label, .pjx-list span { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .pjx-panel, .pjx-label, .pjx-list span, .pjx-cnt { transition: none; } }
   </style>
 </head>
 <body>
@@ -434,7 +445,7 @@
         </div>
         <div class="software-used">
           <span class="software-used-label">— SOFTWARE UTILIZADO</span>
-          <div class="software-used-icons"><div class="software-item"><div class="software-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Ps"><rect x="1.5" y="1.5" width="45" height="45" rx="9" fill="#001E36" stroke="#31A8FF" stroke-width="2"/><text x="24" y="31.5" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="21" fill="#31A8FF" letter-spacing="-.5">Ps</text></svg></div><span>Photoshop</span></div><div class="software-item"><div class="software-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="CapCut"><rect x="1.5" y="1.5" width="45" height="45" rx="9" fill="#0b0b0b" stroke="#fff" stroke-opacity=".35" stroke-width="2"/><path d="M10 17.5 22 24 10 30.5z" fill="#fff"/><path d="M26 14h12L26.5 24 38 34H26L16.5 24z" fill="#fff" opacity=".92" transform="translate(-1 0)"/></svg></div><span>CapCut</span></div></div>
+          <div class="software-used-icons"><div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp" alt="Photoshop" loading="lazy"></div><span>Photoshop</span></div><div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp" alt="CapCut" loading="lazy"></div><span>CapCut</span></div></div>
           <span class="sw-extra">Trello · Google Drive</span>
         </div>
       </div>
@@ -447,7 +458,7 @@
     </div>
   </section>
 
-  <div class="pjx" role="navigation" aria-label="Índice del proyecto"><div class="pjx-panel"><div class="pjx-top"><button class="pjx-toggle" type="button" aria-expanded="false" aria-label="Abrir o cerrar índice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button><span class="pjx-label">Índice</span></div><ul class="pjx-list"><li><a href="#overview" title="Qué hice y con qué herramientas"><b>01</b><span>Resumen</span></a></li><li><a href="#contenido" title="Producto, campañas y humor"><b>02</b><span>Líneas de contenido</span></a></li><li><a href="#identidad" title="Colores, tipografías y tono"><b>03</b><span>Identidad y voz</span></a></li><li><a href="#proceso" title="Del calendario a la publicación"><b>04</b><span>Proceso</span></a></li></ul><div class="pjx-prog"><i></i></div></div></div>
+  <div class="pjx" role="navigation" aria-label="Índice del proyecto"><div class="pjx-panel"><div class="pjx-top"><button class="pjx-toggle" type="button" aria-expanded="false" aria-label="Abrir o cerrar capas del proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".5"/></svg></button><span class="pjx-label">Capas<small>4</small></span></div><ul class="pjx-list"><li><a href="#overview" title="Qué hice y con qué herramientas"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">01</b><span>Resumen</span></a></li><li><a href="#contenido" title="Producto, campañas y humor"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">02</b><span>Líneas de contenido</span></a></li><li><a href="#identidad" title="Colores, tipografías y tono"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">03</b><span>Identidad y voz</span></a></li><li><a href="#proceso" title="Del calendario a la publicación"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">04</b><span>Proceso</span></a></li></ul><div class="pjx-foot"><span class="pjx-cnt">Capa <b class="pjx-cur">1</b>/4</span><div class="pjx-prog"><i></i></div></div></div></div>
 
 
   <div class="motif-strip"></div>
@@ -679,6 +690,8 @@
         box.classList.toggle('show', scrollY > innerHeight * 0.55);
         var y = navH() + 80, cur = null;
         links.forEach(function (l) { var t = target(l); if (t && t.getBoundingClientRect().top <= y) cur = l; });
+        var cn = box.querySelector('.pjx-cur'); if (cn) cn.textContent = cur ? links.indexOf(cur) + 1 : 1;
+        links.forEach(function (l, i) { var t = target(l), nx = links[i + 1] && target(links[i + 1]), r1 = t ? t.getBoundingClientRect() : null, top = r1 ? r1.top : 1e9, bot = nx ? nx.getBoundingClientRect().top : (t ? r1.bottom : -1e9); l.classList.toggle('vis', top < innerHeight && bot > 0); });
         links.forEach(function (l) { var a = l === cur; l.classList.toggle('is-active', a); if (a) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
         var max = document.documentElement.scrollHeight - innerHeight;
         bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(3) + ')';
