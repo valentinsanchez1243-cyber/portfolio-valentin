@@ -3998,7 +3998,6 @@ adding: 30px 24px !important; }
   
   
   
-    .sw-logo { width: 100%; height: 100%; display: block; padding: 3px; box-sizing: border-box; }
   
     /* ===== MI TRABAJO EN ACCIÓN · Diseño web + celular real ===== */
     #ptab-web .ptab-hd::before { background: #10B981; }
@@ -4030,15 +4029,66 @@ adding: 30px 24px !important; }
     @media (max-width: 900px) { .web-stage { grid-template-columns: 1fr; gap: 36px; } .dev-phone { right: 0; } }
 
     /* Social manager dentro de un celular real */
-    #ptab-community .comm-panel { width: min(100%, 390px); margin: 6px auto 12px; padding: 34px 14px 20px; border: 10px solid #18181b; border-radius: 46px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
-    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 9px; left: 50%; width: 94px; height: 22px; margin-left: -47px; border-radius: 14px; background: #000; z-index: 3; }
+    #ptab-community .comm-panel { width: min(100%, 290px); margin: 6px auto 12px; padding: 28px 8px 16px; border: 8px solid #18181b; border-radius: 38px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
+    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 7px; left: 50%; width: 70px; height: 17px; margin-left: -35px; border-radius: 12px; background: #000; z-index: 3; }
     #ptab-community .comm-panel::after { content: ''; position: absolute; bottom: 7px; left: 50%; width: 110px; height: 4px; margin-left: -55px; border-radius: 4px; background: rgba(255,255,255,.55); }
     #ptab-community .comm-panel .feed-hdr { gap: 12px; }
     #ptab-community .comm-panel .feed-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 3px !important; }
     #ptab-community .comm-panel .fp { aspect-ratio: 1 / 1; min-height: 0; height: auto; }
-    #ptab-community .comm-panel { min-height: 600px; }
+    #ptab-community .comm-panel { min-height: 470px; }
     #ptab-community .comm-tabs { justify-content: center; flex-wrap: wrap; }
+
+    /* ===== MI TRABAJO EN ACCIÓN · escenario con pestañas ===== */
+    #ptab-branding { --tc: #FF0000; } #ptab-videos { --tc: #0EA5E9; } #ptab-web { --tc: #10B981; }
+    #ptab-community { --tc: #FFD700; } #ptab-indumentaria { --tc: #8B5CF6; }
+    #previews .ptabs.stage { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; border: 0; border-radius: 0; overflow: visible; }
+    .ptabs.stage .ptab { display: contents; }
+    .ptabs.stage .ptab-hd { grid-row: 1; height: 74px; padding: 0 14px 0 22px; gap: 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(255,255,255,.03) !important; }
+    .ptabs.stage .ptab-hd::before { width: 4px !important; }
+    .ptabs.stage .ptab-hd::after, .ptabs.stage .ptab-hd-bar, .ptabs.stage .ptab-arrow, .ptabs.stage .ptab-hd-bg { display: none !important; }
+    .ptabs.stage .ptab-icon { transform: scale(.8); margin: 0 -2px 0 0; }
+    .ptabs.stage .ptab-idx { display: none; }
+    .ptabs.stage .ptab-name { font-size: .86rem; letter-spacing: 1.5px; line-height: 1.15; white-space: normal; min-width: 0; }
+    .ptabs.stage .ptab-hd:hover { border-color: color-mix(in srgb, var(--tc) 60%, transparent); }
+    .ptabs.stage .ptab.is-open .ptab-hd { border-color: var(--tc); background: color-mix(in srgb, var(--tc) 12%, #0b0b0d) !important; box-shadow: 0 0 0 1px var(--tc) inset; }
+    .ptabs.stage .ptab-hd:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .ptabs.stage .ptab-body-wrap { grid-column: 1 / -1; grid-row: 2; display: none; }
+    .ptabs.stage .ptab.is-open .ptab-body-wrap { display: block; }
+    .ptabs.stage .ptab-body { margin-top: 6px; border: 1px solid rgba(255,255,255,.08); border-radius: 22px; overflow: hidden;
+      background: radial-gradient(ellipse 70% 60% at 50% 105%, color-mix(in srgb, var(--tc) 22%, transparent), transparent 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px) 0 0 / 22px 22px, #0b0b0d; }
+    .ptabs.stage .sec-inner { padding: 34px 32px 38px; }
+    @media (max-width: 1000px) {
+      #previews .ptabs.stage { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
+      .ptabs.stage .ptab-hd { grid-row: auto; flex: 1 1 calc(33.33% - 8px); height: 60px !important; padding: 0 10px 0 16px; }
+      .ptabs.stage .ptab-icon { display: none; }
+      .ptabs.stage .ptab-body-wrap { order: 10; flex: 0 0 100%; }
+    }
+    @media (max-width: 560px) {
+      .ptabs.stage .ptab-hd { flex-basis: calc(50% - 8px); height: 52px !important; }
+      .ptabs.stage .ptab-name { font-size: .78rem !important; letter-spacing: 1px !important; }
+      .ptabs.stage .sec-inner { padding: 22px 12px 26px; }
+    }
+
+    /* Edición de video · celular chico */
+    #ptab-videos .reel-frame { width: 138px; height: 282px; border: 6px solid #18181b; border-radius: 28px; box-shadow: 0 22px 44px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.12); }
+    #ptab-videos .reel-frame::before { content: ''; position: absolute; top: 5px; left: 50%; width: 38px; height: 10px; margin-left: -19px; border-radius: 8px; background: #000; z-index: 4; }
+    #ptab-videos .reel-group { gap: 22px; }
+
+    /* Diseño web · pestañas ALTIVA / KORD3, sin texto */
+    .web-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 22px; }
+    .wtab { min-height: 44px; padding: 0 24px; font-family: 'Fjalla One', sans-serif; font-size: .95rem; letter-spacing: 3px; color: rgba(255,255,255,.7); background: transparent; border: 1px solid rgba(255,255,255,.18); border-radius: 100px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+    .wtab:hover { border-color: #10B981; color: #fff; }
+    .wtab.is-on { background: #10B981; border-color: #10B981; color: #04120d; }
+    .wtab:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    .web-stage { display: block; max-width: 760px; margin: 0 auto; padding: 8px 4% 8px 0; }
+    .web-stage[hidden] { display: none; }
+    .web-cta { justify-content: center; margin-top: 26px; }
+    .dev-lap-screen.is-empty, .dev-phone.is-empty { display: grid; place-items: center; background: linear-gradient(135deg, #111 0%, #1b1b1f 100%); }
+    .dev-lap-screen.is-empty::after, .dev-phone.is-empty::after { content: attr(data-label); font-family: 'Fjalla One', sans-serif; letter-spacing: 6px; color: rgba(255,255,255,.35); font-size: 1.6rem; }
+    .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
+  <link rel="stylesheet" href="theme.css">
+  <script src="theme.js"></script>
 </head>
 
 <body>
@@ -4135,7 +4185,8 @@ adding: 30px 24px !important; }
         <div class="skill-group">
           <div class="sl">SOFTWARE QUE MANEJO</div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Photoshop"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ps</text></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp"
+                alt="Photoshop" loading="lazy"></span>
             <span class="skill-name">Photoshop</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4143,7 +4194,8 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Illustrator"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ai</text></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp"
+                alt="Illustrator" loading="lazy"></span>
             <span class="skill-name">Illustrator</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4151,7 +4203,8 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="CapCut"><path d="M4 17.5 20 24 4 30.5z" fill="#ff3b3b"/><path d="M24 8h14L25 24l13 16H24L12 24z" fill="#ff3b3b" fill-opacity=".92"/></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp"
+                alt="CapCut" loading="lazy"></span>
             <span class="skill-name">CapCut</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4159,7 +4212,8 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Premiere Pro"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Pr</text></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/premiere.webp"
+                alt="Premiere Pro" loading="lazy"></span>
             <span class="skill-name">Premiere Pro</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="75"></div>
@@ -4167,7 +4221,8 @@ adding: 30px 24px !important; }
             <span class="skill-pct">75%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Notion"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><path d="M15 34V14l18 20V14" fill="none" stroke="#ff3b3b" stroke-width="4" stroke-linejoin="round" stroke-linecap="square"/></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/notion.webp"
+                alt="Notion" loading="lazy"></span>
             <span class="skill-name">Notion</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4178,7 +4233,8 @@ adding: 30px 24px !important; }
         <div class="skill-group">
           <div class="sl">EN APRENDIZAJE</div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="After Effects"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ae</text></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp"
+                alt="After Effects" loading="lazy"></span>
             <span class="skill-name">After Effects</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="50"></div>
@@ -4186,7 +4242,8 @@ adding: 30px 24px !important; }
             <span class="skill-pct">50%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="InDesign"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Id</text></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/Id-_1_.webp"
+                alt="InDesign" loading="lazy"></span>
             <span class="skill-name">InDesign</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="20"></div>
@@ -4194,7 +4251,9 @@ adding: 30px 24px !important; }
             <span class="skill-pct">20%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Diseño UX/UI"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><rect x="9" y="10" width="30" height="5" rx="2" fill="#ff3b3b"/><rect x="9" y="19" width="12" height="19" rx="2.5" fill="none" stroke="#ff3b3b" stroke-width="2.4"/><rect x="25" y="19" width="14" height="8" rx="2.5" fill="none" stroke="#ff3b3b" stroke-width="2.4"/><path d="M27 30l9 3.5-3.6 1.6-1.6 3.6z" fill="#ff3b3b"/></svg></span>
+            <span class="skill-icon"><img
+                src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/disenyo-ux-ui.webp" alt="Diseño UX/UI"
+                loading="lazy"></span>
             <span class="skill-name">Diseño UX/UI · Coderhouse</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="60"></div>
@@ -4203,7 +4262,7 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 38 57" role="img" aria-label="Figma"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#ff3b3b"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#ff3b3b" fill-opacity=".55"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff3b3b" fill-opacity=".8"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff3b3b" fill-opacity=".65"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#ff3b3b" fill-opacity=".9"/></svg></span>
+            <span class="skill-icon"><svg viewBox="0 0 38 57" width="26" height="26" role="img" aria-label="Figma"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#ff3b3b" fill-opacity="1"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#ff3b3b" fill-opacity=".55"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff3b3b" fill-opacity=".8"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff3b3b" fill-opacity=".65"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#ff3b3b" fill-opacity=".9"/></svg></span>
             <span class="skill-name">Figma</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="40"></div>
@@ -4212,7 +4271,8 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Blender"><circle cx="30" cy="29" r="12" fill="none" stroke="#ff3b3b" stroke-width="4.2"/><circle cx="30" cy="29" r="5" fill="#ff3b3b"/><path d="M4 32h13M12 24.5l15-11M14 18l11-8" fill="none" stroke="#ff3b3b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/blender.webp"
+                alt="Blender Modelado 3D" loading="lazy"></span>
             <span class="skill-name">Blender Modelado 3D</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="40"></div>
@@ -4221,7 +4281,9 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            
+            <span class="skill-icon"><img
+                src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/proyectmanager.webp" alt="Project Manager"
+                loading="lazy"></span>
             <span class="skill-name">PROJECT MANAGER & ACCOUNT MANAGER</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="30"></div>
@@ -4270,7 +4332,7 @@ adding: 30px 24px !important; }
   <section id="previews">
     <div class="sl rv">Quick Look</div>
     <h2 class="st rv">MI <em>TRABAJO</em> EN ACCIÓN</h2>
-    <p class="prev-hint rv">Pasá el cursor por cada área para explorar</p>
+    <p class="prev-hint rv">Elegí un área para verla en dispositivos reales</p>
 
     <div class="ptabs" id="previewTabs">
 
@@ -4574,19 +4636,25 @@ adding: 30px 24px !important; }
           <div class="ptab-body-wrap">
             <div class="ptab-body">
               <div class="sec-inner web-inner">
-                <div class="web-stage">
+                <div class="web-tabs" role="tablist" aria-label="Proyectos web">
+                  <button type="button" class="wtab is-on" role="tab" aria-selected="true" data-web="altiva">ALTIVA</button>
+                  <button type="button" class="wtab" role="tab" aria-selected="false" data-web="kord3">KORD3</button>
+                </div>
+                <div class="web-stage" data-web-panel="altiva">
                   <div class="dev-lap">
                     <div class="dev-lap-screen"><img src="img/altiva-escritorio.webp" alt="Sitio web de ALTIVA en computadora" loading="lazy"></div>
                     <div class="dev-lap-base"></div>
                     <div class="dev-phone"><img src="img/altiva-celular.webp" alt="Sitio web de ALTIVA en celular" loading="lazy"></div>
                   </div>
-                  <div class="web-info">
-                    <span class="web-k">Proyecto</span>
-                    <h3>ALTIVA</h3>
-                    <p>Sitio completo diseñado y programado para un atelier sin local: escenas 3D mientras se scrollea, colección por cápsulas, “Tu cuenta” y contacto por WhatsApp. Prototipo navegable en Figma con 12 pantallas de computadora y celular.</p>
-                    <div class="web-tags"><span>Sitio 3D</span><span>Prototipo Figma</span><span>Computadora + celular</span></div>
-                    <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar el sitio en vivo</a><a href="altiva.html">Ver el proyecto</a></div>
+                  <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar sitio</a><a href="altiva.html">Ver proyecto</a></div>
+                </div>
+                <div class="web-stage" data-web-panel="kord3" hidden>
+                  <div class="dev-lap">
+                    <div class="dev-lap-screen" data-label="KORD3"><img src="img/kord3-escritorio.webp" alt="Sitio web de KORD3 en computadora" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"></div>
+                    <div class="dev-lap-base"></div>
+                    <div class="dev-phone" data-label="K3"><img src="img/kord3-celular.webp" alt="Sitio web de KORD3 en celular" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"></div>
                   </div>
+                  <div class="web-cta"><a href="kord3.html">Ver proyecto</a></div>
                 </div>
               </div>
             </div>
@@ -6462,5 +6530,54 @@ adding: 30px 24px !important; }
 
 
 
+
+  <script>
+    /* Mi trabajo en acción: pestañas con escenario */
+    (function () {
+      var c = document.getElementById('previewTabs');
+      if (!c) return;
+      c.classList.add('stage');
+      var tabs = Array.prototype.slice.call(c.querySelectorAll('.ptab'));
+      ['mouseenter', 'mouseleave'].forEach(function (t) {
+        c.addEventListener(t, function (e) { if (e.target !== c && e.target.closest && e.target.closest('.ptab')) e.stopImmediatePropagation(); }, true);
+      });
+      function lazy(tab) {
+        tab.querySelectorAll('iframe[data-src]').forEach(function (el) { el.src = el.getAttribute('data-src'); el.removeAttribute('data-src'); });
+        tab.querySelectorAll('[data-bg]').forEach(function (el) { el.style.backgroundImage = "url('" + el.getAttribute('data-bg') + "')"; el.removeAttribute('data-bg'); });
+        var ag = tab.querySelector('.reel-group.rg-active');
+        if (ag) ag.querySelectorAll('video[data-src]').forEach(function (v) { v.src = v.getAttribute('data-src'); v.removeAttribute('data-src'); v.load(); });
+        if (ag) ag.querySelectorAll('.pv').forEach(function (v) { if (v.src) v.play().catch(function () {}); });
+      }
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-open', on);
+          var hd = t.querySelector('.ptab-hd'); if (hd) hd.setAttribute('aria-selected', on ? 'true' : 'false');
+          if (!on) t.querySelectorAll('.pv').forEach(function (v) { v.pause(); });
+        });
+        lazy(tab);
+      }
+      tabs.forEach(function (t) {
+        var hd = t.querySelector('.ptab-hd');
+        hd.setAttribute('role', 'tab'); hd.setAttribute('tabindex', '0');
+        hd.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(t); } });
+      });
+      c.addEventListener('click', function (e) {
+        var hd = e.target.closest('.ptab-hd');
+        if (!hd) return;
+        e.stopImmediatePropagation(); e.preventDefault();
+        select(hd.parentNode);
+      }, true);
+      select(tabs[0]);
+      /* Diseño web: ALTIVA / KORD3 */
+      var wt = c.querySelectorAll('.wtab');
+      wt.forEach(function (b) {
+        b.addEventListener('click', function () {
+          wt.forEach(function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+          c.querySelectorAll('[data-web-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-web-panel') !== b.getAttribute('data-web'); });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
