@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentín Sánchez — Diseñador · Editor · Productor</title>
+  <title>Valentín Sánchez</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -4100,6 +4100,31 @@ adding: 30px 24px !important; }
     #ptab-community .comm-panel { width: min(100%, 236px); border-width: 6px; border-radius: 30px; min-height: 380px; padding: 24px 6px 12px; }
     #ptab-community .comm-panel .feed-info .feed-bio { display: none; }
     @media (max-width: 560px) { #previews .wtab, #previews .ctab { padding: 0 14px; font-size: .85rem; letter-spacing: 1.5px; } }
+
+    /* === Mi trabajo en acción · v4: SALA DE CONTROL (índice grande a la izquierda + pantalla) === */
+    @media (min-width: 1001px) {
+      #previews .ptabs.stage { grid-template-columns: 330px minmax(0, 1fr); grid-template-rows: repeat(5, auto); gap: 0 34px; align-items: stretch; counter-reset: pt; }
+      #ptab-branding .ptab-hd { grid-row: 1 !important; } #ptab-videos .ptab-hd { grid-row: 2 !important; } #ptab-web .ptab-hd { grid-row: 3 !important; }
+      #ptab-community .ptab-hd { grid-row: 4 !important; } #ptab-indumentaria .ptab-hd { grid-row: 5 !important; }
+      .ptabs.stage .ptab-hd { grid-column: 1; height: auto; min-height: 96px; padding: 14px 6px 14px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.14); border-radius: 0; background: transparent !important; gap: 16px; position: relative; transition: padding .25s, color .25s; align-items: center; }
+      .ptabs.stage .ptab-hd::before { display: none !important; }
+      .ptabs.stage .ptab-idx { display: block; font-family: 'Outfit', sans-serif; font-size: .78rem; letter-spacing: 3px; color: var(--tc); order: -1; align-self: flex-start; padding-top: 10px; }
+      .ptabs.stage .ptab-icon { display: none; }
+      .ptabs.stage .ptab-name { font-family: 'Fjalla One', sans-serif; font-size: 1.85rem !important; letter-spacing: 1px !important; line-height: 1.02; color: rgba(255,255,255,.42); transition: color .25s, transform .25s; }
+      .ptabs.stage .ptab-hd::after { display: block !important; content: '→'; position: absolute; right: 4px; top: 50%; transform: translate(-14px, -50%); opacity: 0; color: var(--tc); font-size: 1.6rem; transition: .25s; border: 0; background: none; width: auto; height: auto; }
+      .ptabs.stage .ptab-hd:hover { border-color: rgba(255,255,255,.14); padding-left: 10px; }
+      .ptabs.stage .ptab-hd:hover .ptab-name { color: #fff; }
+      .ptabs.stage .ptab-hd:hover::after { opacity: 1; transform: translate(0, -50%); }
+      .ptabs.stage .ptab.is-open .ptab-hd { background: transparent !important; box-shadow: none; border-bottom-color: var(--tc); padding-left: 16px; }
+      .ptabs.stage .ptab.is-open .ptab-name { color: var(--tc); }
+      .ptabs.stage .ptab.is-open .ptab-hd::after { opacity: 1; transform: translate(0, -50%); }
+      .ptabs.stage .ptab-body-wrap { grid-column: 2; grid-row: 1 / span 5; }
+      .ptabs.stage .ptab-body { margin-top: 0; min-height: 560px; position: relative; }
+      .ptabs.stage .ptab-body::after { position: absolute; right: 22px; bottom: -14px; font-family: 'Fjalla One', sans-serif; font-size: 9rem; line-height: 1; letter-spacing: 4px; color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--tc) 38%, transparent); pointer-events: none; z-index: 0; }
+      #ptab-branding .ptab-body::after { content: 'MARCA'; } #ptab-videos .ptab-body::after { content: 'VIDEO'; } #ptab-web .ptab-body::after { content: 'WEB'; }
+      #ptab-community .ptab-body::after { content: 'SOCIAL'; } #ptab-indumentaria .ptab-body::after { content: 'MODA'; }
+      .ptabs.stage .ptab-body > * { position: relative; z-index: 1; }
+    }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
 </head>
@@ -4345,7 +4370,7 @@ adding: 30px 24px !important; }
   <section id="previews">
     <div class="sl rv">Quick Look</div>
     <h2 class="st rv">MI <em>TRABAJO</em> EN ACCIÓN</h2>
-    <p class="prev-hint rv">Elegí un área para verla en dispositivos reales</p>
+    <p class="prev-hint rv">Elegí un trabajo del índice y mirá cómo se ve en pantalla</p>
 
     <div class="ptabs" id="previewTabs">
 
@@ -4655,17 +4680,17 @@ adding: 30px 24px !important; }
                 </div>
                 <div class="web-stage" data-web-panel="altiva">
                   <div class="dev-lap">
-                    <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
-                    <div class="dev-phone"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-phone"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar sitio</a><a href="altiva.html">Ver proyecto</a></div>
                 </div>
                 <div class="web-stage" data-web-panel="kord3" hidden>
                   <div class="dev-lap">
-                    <div class="dev-lap-screen" data-label="KORD3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-escritorio.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-lap-screen" data-label="KORD3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-escritorio.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
-                    <div class="dev-phone" data-label="K3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-celular.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
+                    <div class="dev-phone" data-label="K3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-celular.mp4?v=2" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="kord3.html">Ver proyecto</a></div>
                 </div>

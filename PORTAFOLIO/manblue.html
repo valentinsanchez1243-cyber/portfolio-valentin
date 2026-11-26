@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Man Blue FC — Valentín Sánchez</title>
+  <title>Valentín Sánchez</title>
   <meta name="description" content="Case study de Social Manager / Redes Sociales y branding para Man Blue FC. Desarrollo de identidad, cobertura en tiempo real y gestión estratégica de redes sociales.">
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="project-base.css">
@@ -385,7 +385,7 @@
     .pjx-bar { height: 34px; background: #2a2a2a; }
 
   </style>
-</head>
+<style>.meta2{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;margin:18px 0;font-family:'Outfit',sans-serif;font-size:.88rem}.meta2 dt{letter-spacing:3px;text-transform:uppercase;font-size:.68rem;color:var(--rb,var(--g,#FFD700));padding-top:2px}.meta2 dd{color:#d6d6d6;margin:0}</style></head>
 <body>
 
   <div id="cursor"></div>
@@ -456,7 +456,7 @@
           <span class="tag">Instagram Strategy</span>
         </div>
 
-        <div class="software-used">
+        <dl class="meta2"><dt>Cliente</dt><dd>Man Blue FC</dd><dt>Mi rol</dt><dd>Social manager y diseño de contenido para redes</dd></dl><div class="software-used">
           <span class="software-used-label">— SOFTWARE UTILIZADO</span>
           <div class="software-used-icons">
             <div class="software-item"><div class="software-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp" alt="Illustrator" loading="lazy"></div><span>Illustrator</span></div>
@@ -564,7 +564,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('video').forEach(v => {
       v.setAttribute('autoplay', '');
-      v.setAttribute('muted', '');
+      v.setAttribute('muted', ''); v.muted = true; v.defaultMuted = true;
       v.setAttribute('loop', '');
       v.setAttribute('playsinline', '');
       v.setAttribute('preload', 'none');
