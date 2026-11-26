@@ -4085,6 +4085,21 @@ adding: 30px 24px !important; }
     .web-cta { justify-content: center; margin-top: 26px; }
     .dev-lap-screen.is-empty, .dev-phone.is-empty { display: grid; place-items: center; background: linear-gradient(135deg, #111 0%, #1b1b1f 100%); }
     .dev-lap-screen.is-empty::after, .dev-phone.is-empty::after { content: attr(data-label); font-family: 'Fjalla One', sans-serif; letter-spacing: 6px; color: rgba(255,255,255,.35); font-size: 1.6rem; }
+
+    /* === Mi trabajo en acción · v3: conmutadores grandes + dispositivos chicos === */
+    #previews .web-tabs, #previews .comm-tabs { display: flex; width: fit-content; max-width: 100%; gap: 0; padding: 6px; margin: 0 auto 26px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.22); border-radius: 100px; box-shadow: 0 10px 30px rgba(0,0,0,.4); position: relative; }
+    #previews .wtab, #previews .ctab { min-height: 52px; padding: 0 30px; font-family: 'Fjalla One', sans-serif; font-size: 1.05rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.75); background: transparent; border: 0; border-radius: 100px; cursor: pointer; transition: background .2s, color .2s, transform .2s; white-space: nowrap; }
+    #previews .wtab:hover, #previews .ctab:hover { color: #fff; background: rgba(255,255,255,.08); }
+    #previews .wtab.is-on { background: #10B981; color: #04120d; box-shadow: 0 0 22px rgba(16,185,129,.55); }
+    #previews .ctab.ctab-on { background: #FFD700; color: #111; border: 0; box-shadow: 0 0 22px rgba(255,215,0,.45); }
+    #previews .web-stage { max-width: 470px; padding: 0 6% 0 0; }
+    #previews .dev-phone { width: 21%; border-width: 5px; border-radius: 18px; }
+    #previews .dev-lap-screen { border-width: 7px; border-bottom-width: 9px; }
+    #previews .dev-vid { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    #previews .web-cta { margin-top: 18px; }
+    #ptab-community .comm-panel { width: min(100%, 236px); border-width: 6px; border-radius: 30px; min-height: 380px; padding: 24px 6px 12px; }
+    #ptab-community .comm-panel .feed-info .feed-bio { display: none; }
+    @media (max-width: 560px) { #previews .wtab, #previews .ctab { padding: 0 14px; font-size: .85rem; letter-spacing: 1.5px; } }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
 </head>
@@ -4640,17 +4655,17 @@ adding: 30px 24px !important; }
                 </div>
                 <div class="web-stage" data-web-panel="altiva">
                   <div class="dev-lap">
-                    <div class="dev-lap-screen"><img src="img/altiva-escritorio.webp" alt="Sitio web de ALTIVA en computadora" loading="lazy"></div>
+                    <div class="dev-lap-screen"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
-                    <div class="dev-phone"><img src="img/altiva-celular.webp" alt="Sitio web de ALTIVA en celular" loading="lazy"></div>
+                    <div class="dev-phone"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar sitio</a><a href="altiva.html">Ver proyecto</a></div>
                 </div>
                 <div class="web-stage" data-web-panel="kord3" hidden>
                   <div class="dev-lap">
-                    <div class="dev-lap-screen" data-label="KORD3"><img src="img/kord3-escritorio.webp" alt="Sitio web de KORD3 en computadora" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"></div>
+                    <div class="dev-lap-screen" data-label="KORD3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-escritorio.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-escritorio.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                     <div class="dev-lap-base"></div>
-                    <div class="dev-phone" data-label="K3"><img src="img/kord3-celular.webp" alt="Sitio web de KORD3 en celular" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"></div>
+                    <div class="dev-phone" data-label="K3"><video data-src="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/video/tienda-celular.mp4" poster="https://valentin-cdn.b-cdn.net/PROYECTOS/KORD3/posters/tienda-celular.webp" muted playsinline loop preload="none" class="dev-vid"></video></div>
                   </div>
                   <div class="web-cta"><a href="kord3.html">Ver proyecto</a></div>
                 </div>
@@ -6577,5 +6592,18 @@ adding: 30px 24px !important; }
       });
     })();
   </script>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('#ptab-web .dev-vid'));
+  function vis(v){return v.offsetParent!==null&&v.getBoundingClientRect().height>0;}
+  function tick(){vids.forEach(function(v){
+    var r=v.getBoundingClientRect(),on=vis(v)&&r.top<innerHeight&&r.bottom>0;
+    if(on){ if(v.dataset.src){v.src=v.dataset.src;v.removeAttribute('data-src');} var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+    else if(!v.paused){v.pause();}
+  });}
+  addEventListener('scroll',tick,{passive:true});addEventListener('click',function(){setTimeout(tick,450);});
+  setInterval(tick,1200);
+})();
+</script>
 </body>
 </html>
