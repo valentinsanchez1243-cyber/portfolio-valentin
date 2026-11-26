@@ -4028,14 +4028,6 @@ adding: 30px 24px !important; }
     .web-cta a:hover { background: #fff; border-color: #fff; color: #000; }
     @media (max-width: 900px) { .web-stage { grid-template-columns: 1fr; gap: 36px; } .dev-phone { right: 0; } }
 
-    /* Social manager dentro de un celular real */
-    #ptab-community .comm-panel { width: min(100%, 390px); margin: 6px auto 12px; padding: 34px 14px 20px; border: 10px solid #18181b; border-radius: 46px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
-    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 9px; left: 50%; width: 94px; height: 22px; margin-left: -47px; border-radius: 14px; background: #000; z-index: 3; }
-    #ptab-community .comm-panel::after { content: ''; position: absolute; bottom: 7px; left: 50%; width: 110px; height: 4px; margin-left: -55px; border-radius: 4px; background: rgba(255,255,255,.55); }
-    #ptab-community .comm-panel .feed-hdr { gap: 12px; }
-    #ptab-community .comm-panel .feed-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 3px !important; }
-    #ptab-community .comm-panel .fp { aspect-ratio: 1 / 1; min-height: 0; height: auto; }
-    #ptab-community .comm-panel { min-height: 600px; }
     #ptab-community .comm-tabs { justify-content: center; flex-wrap: wrap; }
 
     #ptab-branding { --tc: #FF0000; } #ptab-videos { --tc: #0EA5E9; } #ptab-web { --tc: #10B981; }
@@ -4663,7 +4655,12 @@ adding: 30px 24px !important; }
         <div class="ptab-body-wrap">
           <div class="ptab-body">
             <div class="sec-inner comm-inner">
-              <div class="comm-duo">
+              <div class="comm-tabs">
+                <button class="ctab ctab-on" onclick="switchComm(this,'jere')">Jeremías Gigy</button>
+                <button class="ctab" onclick="switchComm(this,'manblue')">Man Blue FC</button>
+                <button class="ctab" onclick="switchComm(this,'energia')">Energía Fitness</button>
+              </div>
+              <div class="comm-wrap">
               <div class="comm-panel cpanel-on" id="comm-jere">
                 <div class="feed-hdr">
                   <div class="feed-ring" style="background:linear-gradient(45deg,#C9A86A,#7a5c2a)">
@@ -4676,8 +4673,9 @@ adding: 30px 24px !important; }
                     <span class="feed-bio">Inmobiliaria · Reels, carruseles e historias</span>
                   </div>
                   <div class="feed-stats">
-                    <div class="fst"><span class="fst-n">29</span><span class="fst-l">Piezas/mes</span></div>
-                    <div class="fst"><span class="fst-n">3</span><span class="fst-l">Formatos</span></div>
+                    <div class="fst"><span class="fst-n">29</span><span class="fst-l">Posts</span></div>
+                    <div class="fst"><span class="fst-n">180</span><span class="fst-l">Seguidores</span></div>
+                    <div class="fst"><span class="fst-n">+60%</span><span class="fst-l">Alcance</span></div>
                   </div>
                 </div>
                 <div class="feed-grid">
@@ -4711,7 +4709,7 @@ adding: 30px 24px !important; }
                 </div>
               </div>
 
-              <div class="comm-panel cpanel-on" id="comm-manblue">
+              <div class="comm-panel" id="comm-manblue">
                 <div class="feed-hdr">
                   <div class="feed-ring" style="background:linear-gradient(45deg,#1D4ED8,#1E40AF)">
                     <div class="feed-av"
@@ -4759,7 +4757,7 @@ adding: 30px 24px !important; }
                 </div>
               </div>
 
-              <div class="comm-panel cpanel-on" id="comm-energia">
+              <div class="comm-panel" id="comm-energia">
                 <div class="feed-hdr">
                   <div class="feed-ring">
                     <div class="feed-av"
