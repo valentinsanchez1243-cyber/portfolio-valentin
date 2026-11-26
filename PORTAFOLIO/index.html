@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentín Sánchez</title>
+  <title>Valentín Sánchez | Portafolio</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;700&display=swap"
     rel="stylesheet">
@@ -4125,6 +4125,32 @@ adding: 30px 24px !important; }
       #ptab-community .ptab-body::after { content: 'SOCIAL'; } #ptab-indumentaria .ptab-body::after { content: 'MODA'; }
       .ptabs.stage .ptab-body > * { position: relative; z-index: 1; }
     }
+    /* === Mi trabajo en acción · v5: LÍNEA DE TIEMPO (secuencia tipo Premiere, playhead que recorre los clips) === */
+    @media (min-width: 1001px) {
+      #previews .ptabs.stage { position: relative; grid-template-columns: 1.15fr 1.35fr 1fr 1.25fr .85fr; grid-template-rows: auto auto auto auto; gap: 0; counter-reset: pt; }
+      .ptabs.stage .ptab-body-wrap { grid-column: 1 / -1 !important; grid-row: 1 !important; }
+      .ptabs.stage .ptab-body { min-height: 540px; }
+      .tl-bar { grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: space-between; align-items: center; margin-top: 26px; padding: 9px 14px; background: #1b1b1b; border: 1px solid #2c2c2c; border-bottom: 0; border-radius: 6px 6px 0 0; font-family: 'Outfit', sans-serif; font-size: .68rem; letter-spacing: 3px; color: #8d8d8d; text-transform: uppercase; }
+      .tl-bar b { color: #fff; font-weight: 500; }
+      .tl-bar .tl-tc { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; color: #ff5a4d; letter-spacing: 2px; font-size: .8rem; }
+      .tl-ruler { grid-column: 1 / -1; grid-row: 3; position: relative; height: 26px; background: #161616; border: 1px solid #2c2c2c; border-top: 0; border-bottom: 0; background-image: repeating-linear-gradient(90deg, #444 0 1px, transparent 1px 22px), repeating-linear-gradient(90deg, #666 0 1px, transparent 1px 110px); background-size: 100% 6px, 100% 12px; background-position: 0 100%, 0 100%; background-repeat: repeat-x; display: flex; justify-content: space-between; align-items: flex-start; padding: 3px 8px 0; font: .58rem/1 ui-monospace, Consolas, monospace; color: #777; letter-spacing: 1px; overflow: hidden; }
+      #previews .ptabs.stage .ptab-hd { grid-column: auto; grid-row: 4 !important; height: 70px; min-height: 70px; padding: 0 16px; margin: 0; border: 0; border-top: 3px solid var(--tc); border-radius: 0; gap: 12px; align-items: center; background: color-mix(in srgb, var(--tc) 16%, #121212) !important; box-shadow: inset -1px 0 0 #0b0b0b, inset 1px 0 0 rgba(255,255,255,.04); overflow: hidden; transition: background .25s, filter .25s; }
+      #ptab-branding .ptab-hd { grid-column: 1 !important; } #ptab-videos .ptab-hd { grid-column: 2 !important; } #ptab-web .ptab-hd { grid-column: 3 !important; }
+      #ptab-community .ptab-hd { grid-column: 4 !important; } #ptab-indumentaria .ptab-hd { grid-column: 5 !important; }
+      .ptabs.stage .ptab-hd::before { display: none !important; }
+      .ptabs.stage .ptab-hd::after { display: block !important; content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; opacity: .32; border: 0; background: repeating-linear-gradient(90deg, var(--tc) 0 2px, transparent 2px 5px); -webkit-mask: linear-gradient(to top, #000, transparent); mask: linear-gradient(to top, #000, transparent); transform: none !important; width: auto; }
+      .ptabs.stage .ptab-hd:hover { padding-left: 16px; filter: brightness(1.25); }
+      .ptabs.stage .ptab-idx { order: -1; align-self: center; padding: 0; font-size: .64rem; letter-spacing: 2px; color: var(--tc); opacity: .9; }
+      .ptabs.stage .ptab-name { font-size: 1.2rem !important; line-height: 1.05; letter-spacing: 1px !important; color: rgba(255,255,255,.55); position: relative; z-index: 1; }
+      .ptabs.stage .ptab-hd:hover .ptab-name { color: #fff; }
+      .ptabs.stage .ptab.is-open .ptab-hd { background: color-mix(in srgb, var(--tc) 34%, #141414) !important; border-bottom: 0; padding-left: 16px; filter: none; box-shadow: inset 0 0 0 1px var(--tc); }
+      .ptabs.stage .ptab.is-open .ptab-name { color: #fff; }
+      .ptabs.stage .ptab.is-open .ptab-hd::after { opacity: .55; }
+      .tl-head { position: absolute; z-index: 5; width: 0; pointer-events: none; border-left: 2px solid #ff3b30; box-shadow: 0 0 12px rgba(255,59,48,.7); transition: left .55s cubic-bezier(.2,.8,.2,1); }
+      .tl-head.live { transition: none; }
+      .tl-head::before { content: ''; position: absolute; top: -1px; left: -8px; width: 14px; height: 12px; background: #ff3b30; clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%); }
+    }
+    @media (max-width: 1000px) { .tl-bar, .tl-ruler, .tl-head { display: none !important; } }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
 </head>
@@ -4370,7 +4396,7 @@ adding: 30px 24px !important; }
   <section id="previews">
     <div class="sl rv">Quick Look</div>
     <h2 class="st rv">MI <em>TRABAJO</em> EN ACCIÓN</h2>
-    <p class="prev-hint rv">Elegí un trabajo del índice y mirá cómo se ve en pantalla</p>
+    <p class="prev-hint rv">Tocá un clip de la línea de tiempo y mirá cómo se ve en pantalla</p>
 
     <div class="ptabs" id="previewTabs">
 
@@ -6628,6 +6654,42 @@ adding: 30px 24px !important; }
   });}
   addEventListener('scroll',tick,{passive:true});addEventListener('click',function(){setTimeout(tick,450);});
   setInterval(tick,1200);
+})();
+</script>
+<script>
+(function(){
+  var box=document.getElementById('previewTabs'); if(!box) return;
+  var hds=[].slice.call(box.querySelectorAll('.ptab-hd')); if(hds.length<2) return;
+  var mq=window.matchMedia('(min-width:1001px)');
+  var bar=document.createElement('div'); bar.className='tl-bar'; bar.innerHTML='<span>▶ <b>Secuencia 01</b> · Mi trabajo en acción</span><span class="tl-tc">00:00:00:00</span>';
+  var ruler=document.createElement('div'); ruler.className='tl-ruler'; for(var i=0;i<=10;i++){var t=document.createElement('span');t.textContent='00:00:'+(i*6<10?'0':'')+(i*6);ruler.appendChild(t);}
+  var head=document.createElement('div'); head.className='tl-head';
+  box.appendChild(bar); box.appendChild(ruler); box.appendChild(head);
+  var tc=bar.querySelector('.tl-tc'), DUR=9000, auto=true, raf=0, t0=0, cur=0, inView=false;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(rm) auto=false;
+  function openIdx(){ for(var i=0;i<hds.length;i++){ if(hds[i].parentNode.classList.contains('is-open')) return i; } return 0; }
+  function place(frac){
+    if(!mq.matches) return; var h=hds[cur], top=ruler.offsetTop, hh=h.offsetTop+h.offsetHeight-top;
+    head.style.top=top+'px'; head.style.height=hh+'px';
+    head.style.left=(h.offsetLeft+h.offsetWidth*frac)+'px';
+    var secs=(cur*DUR/1000)+frac*DUR/1000; var f=Math.floor((secs%1)*25);
+    tc.textContent='00:00:'+('0'+Math.floor(secs)).slice(-2)+':'+('0'+f).slice(-2);
+  }
+  function loop(ts){
+    if(!auto||!inView||!mq.matches){raf=0;return;}
+    if(!t0) t0=ts; var fr=(ts-t0)/DUR;
+    if(fr>=1){ t0=0; var n=(cur+1)%hds.length; hds[n].click(); return; }
+    head.classList.add('live'); place(fr); raf=requestAnimationFrame(loop);
+  }
+  function sync(){ cur=openIdx(); t0=0; head.classList.remove('live'); place(0); if(auto&&inView&&!raf) raf=requestAnimationFrame(loop); }
+  hds.forEach(function(h){ h.addEventListener('click',function(e){ if(e.isTrusted){ auto=false; cancelAnimationFrame(raf); raf=0; } setTimeout(sync,30); setTimeout(sync,400); }); });
+  if(window.MutationObserver){ var mo=new MutationObserver(function(){ if(openIdx()!==cur) sync(); }); hds.forEach(function(h){ mo.observe(h.parentNode,{attributes:true,attributeFilter:['class']}); }); }
+  var wrap=box.querySelector('.ptab-body-wrap'); box.addEventListener('mouseenter',function(e){},{passive:true});
+  [].forEach.call(box.querySelectorAll('.ptab-body-wrap'),function(w){ w.addEventListener('pointerdown',function(){ auto=false; },{passive:true}); });
+  if('IntersectionObserver' in window) new IntersectionObserver(function(en){ inView=en[0].isIntersecting; if(inView&&auto&&!raf){t0=0;raf=requestAnimationFrame(loop);} },{threshold:.35}).observe(box);
+  window.addEventListener('resize',function(){ place(0); });
+  mq.addEventListener&&mq.addEventListener('change',sync);
+  setTimeout(sync,200);
 })();
 </script>
 </body>
