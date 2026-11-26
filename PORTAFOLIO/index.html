@@ -3974,22 +3974,19 @@ adding: 30px 24px !important; }
     #proyectos-carousel .pg-arrow:hover { background: #fff; color: #080808; border-color: #fff; }
     #proyectos-carousel .pg-arrow:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
-    #proyectos-carousel .rg { --w: 270px; --h: 370px; --gap: 22px; position: relative; height: calc(var(--h) + 40px); overflow: hidden; touch-action: pan-y; cursor: grab; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%); }
-    #proyectos-carousel .rg.is-drag { cursor: grabbing; }
-    #proyectos-carousel .rg-stage { position: absolute; left: 0; top: 20px; display: flex; gap: var(--gap); height: var(--h); will-change: transform; }
-    #proyectos-carousel .rg-item { flex: 0 0 var(--w); width: var(--w); height: var(--h); }
-    #proyectos-carousel .rg-item .pc { position: relative; width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; display: block; border-radius: 20px; user-select: none; -webkit-user-drag: none; animation: pcFloat 6s ease-in-out infinite; animation-delay: calc(var(--i) * -1.1s); }
-    #proyectos-carousel .rg-item .pc img { -webkit-user-drag: none; }
-    #proyectos-carousel .rg.is-drag .pc { pointer-events: none; }
-    @keyframes pcFloat { 0%, 100% { transform: translate3d(0, 8px, 0); } 50% { transform: translate3d(0, -10px, 0); } }
-    #proyectos-carousel .pg-row[data-n="1"] .rg { cursor: default; -webkit-mask-image: none; mask-image: none; }
-    #proyectos-carousel .pg-row[data-n="1"] .rg-stage { position: relative; justify-content: flex-start; }
-
+    #proyectos-carousel .rg { --w: 300px; --h: 400px; --gap: 20px; position: relative; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding: 18px 2px 20px; margin-top: 6px; }
+    #proyectos-carousel .rg::-webkit-scrollbar { display: none; }
+    #proyectos-carousel .rg-stage { display: flex; gap: var(--gap); width: max-content; }
+    #proyectos-carousel .rg-item { flex: 0 0 var(--w); width: var(--w); height: var(--h); scroll-snap-align: start; }
+    #proyectos-carousel .rg-item .pc { position: relative; display: block; width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; border-radius: 18px; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+    #proyectos-carousel .rg-item .pc:hover, #proyectos-carousel .rg-item .pc:focus-visible { transform: translateY(-8px); }
+    #proyectos-carousel .pg-row[data-static] .pg-ctl .pg-arrow { display: none; }
     @media (max-width: 768px) {
-      #proyectos-carousel .pgx { padding: 0 12px !important; gap: 18px; display: flex !important; }
-      #proyectos-carousel .rg { --w: 200px; --h: 280px; --gap: 14px; }
+      #proyectos-carousel .pgx { padding: 0 12px !important; gap: 22px; display: flex !important; }
+      #proyectos-carousel .rg { --w: 62vw; --h: 82vw; --gap: 12px; max-height: none; padding-left: 8px; }
+      #proyectos-carousel .rg-item { scroll-snap-align: center; }
       #proyectos-carousel .rg-item .pc { border-radius: 16px !important; aspect-ratio: auto !important; height: 100% !important; }
-      #proyectos-carousel .rg-item .pn { font-size: 1.1rem !important; }
+      #proyectos-carousel .rg-item .pn { font-size: 1.15rem !important; }
       #proyectos-carousel .rg-item .pt { font-size: .56rem !important; }
       #proyectos-carousel .rg-item .po { padding: 14px !important; }
       #proyectos-carousel .pg-category { font-size: 1.05rem !important; letter-spacing: 2px !important; padding: 0 !important; margin: 0 !important; }
@@ -3997,12 +3994,50 @@ adding: 30px 24px !important; }
       #proyectos-carousel .pg-arrow { width: 40px; height: 40px; }
       #proyectos-carousel .pg-head { padding: 0 8px 12px; }
     }
-    @media (prefers-reduced-motion: reduce) { #proyectos-carousel .rg-item .pc { animation: none; } }
 
   
   
   
     .sw-logo { width: 100%; height: 100%; display: block; padding: 3px; box-sizing: border-box; }
+  
+    /* ===== MI TRABAJO EN ACCIÓN · Diseño web + celular real ===== */
+    #ptab-web .ptab-hd::before { background: #10B981; }
+    #ptab-web .ptab-hd { background: rgba(16,185,129,.04); }
+    #ptab-web .ptab-hd:hover, #ptab-web.is-open .ptab-hd { background: rgba(16,185,129,.10); }
+    #ptab-web .ptab-hd-bg { background: linear-gradient(90deg, rgba(16,185,129,.12) 0%, transparent 60%); }
+    #ptab-web .ptab-icon svg { stroke: #10B981; }
+    #ptab-web.is-open .ptab-name { color: #10B981; }
+    #ptab-web.is-open .ptab-arrow { border-color: rgba(16,185,129,.5); color: #10B981; background: rgba(16,185,129,.08); }
+    .web-stage { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; padding: 8px 0 24px; }
+    .dev-lap { position: relative; padding: 0 0 34px; }
+    .dev-lap-screen { position: relative; aspect-ratio: 16 / 10; border: 10px solid #18181b; border-bottom-width: 12px; border-radius: 16px 16px 2px 2px; background: #000; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,.55); }
+    .dev-lap-screen::before { content: ''; position: absolute; top: -6px; left: 50%; width: 5px; height: 5px; margin-left: -2px; border-radius: 50%; background: #333; z-index: 2; }
+    .dev-lap-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .dev-lap-base { position: relative; height: 15px; width: 112%; margin: 0 0 0 -6%; border-radius: 0 0 18px 18px; background: linear-gradient(#d8d8de, #8b8b93 70%, #6d6d74); box-shadow: 0 18px 30px rgba(0,0,0,.5); }
+    .dev-lap-base::after { content: ''; position: absolute; left: 50%; top: 0; width: 18%; height: 5px; margin-left: -9%; border-radius: 0 0 8px 8px; background: rgba(0,0,0,.3); }
+    .dev-phone { position: absolute; right: -4%; bottom: 0; width: 24%; aspect-ratio: 9 / 19; border: 7px solid #18181b; border-radius: 26px; background: #000; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.14); }
+    .dev-phone::before { content: ''; position: absolute; top: 6px; left: 50%; width: 30%; height: 7px; margin-left: -15%; border-radius: 6px; background: #000; z-index: 2; }
+    .dev-phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .web-info .web-k { font-size: .66rem; letter-spacing: 4px; text-transform: uppercase; color: #10B981; }
+    .web-info h3 { font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: 3px; margin: 6px 0 12px; color: #fff; }
+    .web-info p { color: rgba(240,240,240,.78); line-height: 1.7; font-size: .95rem; max-width: 460px; }
+    .web-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+    .web-tags span { font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; padding: 6px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 100px; color: rgba(255,255,255,.75); }
+    .web-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .web-cta a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; font-size: .7rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; border: 1px solid #10B981; color: #10B981; transition: background .2s, color .2s; }
+    .web-cta a:first-child { background: #10B981; color: #04120d; }
+    .web-cta a:hover { background: #fff; border-color: #fff; color: #000; }
+    @media (max-width: 900px) { .web-stage { grid-template-columns: 1fr; gap: 36px; } .dev-phone { right: 0; } }
+
+    /* Social manager dentro de un celular real */
+    #ptab-community .comm-panel { width: min(100%, 390px); margin: 6px auto 12px; padding: 34px 14px 20px; border: 10px solid #18181b; border-radius: 46px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
+    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 9px; left: 50%; width: 94px; height: 22px; margin-left: -47px; border-radius: 14px; background: #000; z-index: 3; }
+    #ptab-community .comm-panel::after { content: ''; position: absolute; bottom: 7px; left: 50%; width: 110px; height: 4px; margin-left: -55px; border-radius: 4px; background: rgba(255,255,255,.55); }
+    #ptab-community .comm-panel .feed-hdr { gap: 12px; }
+    #ptab-community .comm-panel .feed-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 3px !important; }
+    #ptab-community .comm-panel .fp { aspect-ratio: 1 / 1; min-height: 0; height: auto; }
+    #ptab-community .comm-panel { min-height: 600px; }
+    #ptab-community .comm-tabs { justify-content: center; flex-wrap: wrap; }
   </style>
 </head>
 
@@ -4100,8 +4135,7 @@ adding: 30px 24px !important; }
         <div class="skill-group">
           <div class="sl">SOFTWARE QUE MANEJO</div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/photoshop.webp"
-                alt="Photoshop" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Photoshop"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ps</text></svg></span>
             <span class="skill-name">Photoshop</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4109,8 +4143,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/illustrator.webp"
-                alt="Illustrator" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Illustrator"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ai</text></svg></span>
             <span class="skill-name">Illustrator</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4118,8 +4151,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/capcut.webp"
-                alt="CapCut" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="CapCut"><path d="M4 17.5 20 24 4 30.5z" fill="#ff3b3b"/><path d="M24 8h14L25 24l13 16H24L12 24z" fill="#ff3b3b" fill-opacity=".92"/></svg></span>
             <span class="skill-name">CapCut</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4127,8 +4159,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">90%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/premiere.webp"
-                alt="Premiere Pro" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Premiere Pro"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Pr</text></svg></span>
             <span class="skill-name">Premiere Pro</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="75"></div>
@@ -4136,8 +4167,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">75%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/notion.webp"
-                alt="Notion" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Notion"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><path d="M15 34V14l18 20V14" fill="none" stroke="#ff3b3b" stroke-width="4" stroke-linejoin="round" stroke-linecap="square"/></svg></span>
             <span class="skill-name">Notion</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="90"></div>
@@ -4148,8 +4178,7 @@ adding: 30px 24px !important; }
         <div class="skill-group">
           <div class="sl">EN APRENDIZAJE</div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/aftereffects.webp"
-                alt="After Effects" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="After Effects"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Ae</text></svg></span>
             <span class="skill-name">After Effects</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="50"></div>
@@ -4157,8 +4186,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">50%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/Id-_1_.webp"
-                alt="InDesign" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="InDesign"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><text x="24" y="32" text-anchor="middle" font-family="Outfit,Arial,sans-serif" font-weight="700" font-size="22" fill="#ff3b3b" letter-spacing="-.6">Id</text></svg></span>
             <span class="skill-name">InDesign</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="20"></div>
@@ -4166,9 +4194,7 @@ adding: 30px 24px !important; }
             <span class="skill-pct">20%</span>
           </div>
           <div class="skill-item">
-            <span class="skill-icon"><img
-                src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/disenyo-ux-ui.webp" alt="Diseño UX/UI"
-                loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Diseño UX/UI"><rect x="2" y="2" width="44" height="44" rx="9" fill="#2a0707" stroke="#ff3b3b" stroke-width="2.6"/><rect x="9" y="10" width="30" height="5" rx="2" fill="#ff3b3b"/><rect x="9" y="19" width="12" height="19" rx="2.5" fill="none" stroke="#ff3b3b" stroke-width="2.4"/><rect x="25" y="19" width="14" height="8" rx="2.5" fill="none" stroke="#ff3b3b" stroke-width="2.4"/><path d="M27 30l9 3.5-3.6 1.6-1.6 3.6z" fill="#ff3b3b"/></svg></span>
             <span class="skill-name">Diseño UX/UI · Coderhouse</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="60"></div>
@@ -4177,7 +4203,7 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            <span class="skill-icon"><svg viewBox="0 0 38 57" width="26" height="26" role="img" aria-label="Figma"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#ff3b3b" fill-opacity="1"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#ff3b3b" fill-opacity=".55"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff3b3b" fill-opacity=".8"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff3b3b" fill-opacity=".65"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#ff3b3b" fill-opacity=".9"/></svg></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 38 57" role="img" aria-label="Figma"><path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#ff3b3b"/><path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#ff3b3b" fill-opacity=".55"/><path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff3b3b" fill-opacity=".8"/><path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff3b3b" fill-opacity=".65"/><path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#ff3b3b" fill-opacity=".9"/></svg></span>
             <span class="skill-name">Figma</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="40"></div>
@@ -4186,8 +4212,7 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            <span class="skill-icon"><img src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/blender.webp"
-                alt="Blender Modelado 3D" loading="lazy"></span>
+            <span class="skill-icon"><svg class="sw-logo" viewBox="0 0 48 48" role="img" aria-label="Blender"><circle cx="30" cy="29" r="12" fill="none" stroke="#ff3b3b" stroke-width="4.2"/><circle cx="30" cy="29" r="5" fill="#ff3b3b"/><path d="M4 32h13M12 24.5l15-11M14 18l11-8" fill="none" stroke="#ff3b3b" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="skill-name">Blender Modelado 3D</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="40"></div>
@@ -4196,9 +4221,7 @@ adding: 30px 24px !important; }
           </div>
 
           <div class="skill-item">
-            <span class="skill-icon"><img
-                src="https://valentin-cdn.b-cdn.net/PORTADAS/logos-software/proyectmanager.webp" alt="Project Manager"
-                loading="lazy"></span>
+            
             <span class="skill-name">PROJECT MANAGER & ACCOUNT MANAGER</span>
             <div class="skill-bar">
               <div class="skill-fill" data-pct="30"></div>
@@ -4538,7 +4561,39 @@ adding: 30px 24px !important; }
         </div>
       </div>
 
-      <!-- ===== 03 SOCIAL MANAGER / REDES SOCIALES ===== -->
+      <!-- ===== 03 DISEÑO WEB ===== -->
+        <div class="ptab" id="ptab-web">
+          <div class="ptab-hd">
+            <div class="ptab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M2 20h20M9 16v4M15 16v4" /></svg></div>
+            <span class="ptab-idx">03</span>
+            <div class="ptab-hd-bar"></div>
+            <span class="ptab-name">DISEÑO WEB</span>
+            <span class="ptab-arrow">↓</span>
+            <div class="ptab-hd-bg"></div>
+          </div>
+          <div class="ptab-body-wrap">
+            <div class="ptab-body">
+              <div class="sec-inner web-inner">
+                <div class="web-stage">
+                  <div class="dev-lap">
+                    <div class="dev-lap-screen"><img src="img/altiva-escritorio.webp" alt="Sitio web de ALTIVA en computadora" loading="lazy"></div>
+                    <div class="dev-lap-base"></div>
+                    <div class="dev-phone"><img src="img/altiva-celular.webp" alt="Sitio web de ALTIVA en celular" loading="lazy"></div>
+                  </div>
+                  <div class="web-info">
+                    <span class="web-k">Proyecto</span>
+                    <h3>ALTIVA</h3>
+                    <p>Sitio completo diseñado y programado para un atelier sin local: escenas 3D mientras se scrollea, colección por cápsulas, “Tu cuenta” y contacto por WhatsApp. Prototipo navegable en Figma con 12 pantallas de computadora y celular.</p>
+                    <div class="web-tags"><span>Sitio 3D</span><span>Prototipo Figma</span><span>Computadora + celular</span></div>
+                    <div class="web-cta"><a href="https://altiva-web-one.vercel.app" target="_blank" rel="noopener">Visitar el sitio en vivo</a><a href="altiva.html">Ver el proyecto</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 04 SOCIAL MANAGER / REDES SOCIALES ===== -->
       <div class="ptab" id="ptab-community">
         <div class="ptab-hd">
           <div class="ptab-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
@@ -4548,7 +4603,7 @@ adding: 30px 24px !important; }
               <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg></div>
-          <span class="ptab-idx">03</span>
+          <span class="ptab-idx">04</span>
           <div class="ptab-hd-bar"></div>
           <span class="ptab-name">SOCIAL MANAGER / REDES SOCIALES</span>
           <span class="ptab-arrow">↓</span>
@@ -4719,7 +4774,7 @@ adding: 30px 24px !important; }
               <path
                 d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z" />
             </svg></div>
-          <span class="ptab-idx">04</span>
+          <span class="ptab-idx">05</span>
           <div class="ptab-hd-bar"></div>
           <span class="ptab-name">INDUMENTARIA</span>
           <span class="ptab-arrow">↓</span>
@@ -4914,7 +4969,7 @@ adding: 30px 24px !important; }
       <div class="pg-row reveal" data-ring data-n="4" data-slots="8">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">01</span><h3 class="pg-category">BRANDING / IDENTIDAD DE MARCA</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 04</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">04 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -4974,68 +5029,14 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:4">
-<a tabindex="-1" aria-hidden="true" href="woldi.html" class="pc cw">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-WOLDI.webp" alt="WOLDI">
         </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">WOLDI</div>
-          <div class="pd">Branding · Naming · Sistema Visual</div>
-          <div class="pk"><span>Branding</span><span>Naming</span><span>Sistema visual</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="kord3.html" class="pc ck">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-KORD3.webp" alt="KORD3">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">KORD3</div>
-          <div class="pd">Branding, dirección visual e indumentaria propia.</div>
-          <div class="pk"><span>Branding</span><span>Dirección visual</span><span>Indumentaria</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:6">
-<a tabindex="-1" aria-hidden="true" href="opero.html" class="pc co">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-OPERO.webp" alt="Opero">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Opero</div>
-          <div class="pd">Branding estratégico y manual de marca profesional.</div>
-          <div class="pk"><span>Branding estratégico</span><span>Manual de marca</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:7">
-<a tabindex="-1" aria-hidden="true" href="altiva.html" class="pc caltiva">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">ALTIVA</div>
-          <div class="pd">Identidad de marca para una diseñadora de alta costura de Córdoba.</div>
-          <div class="pk"><span>Identidad</span><span>Manual de marca</span><span>Naming</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
       <div class="pg-row reveal" data-ring data-n="3" data-slots="6">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">02</span><h3 class="pg-category">PUBLICIDAD / CAMPAÑAS</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 03</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">03 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -5083,56 +5084,14 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:3">
-<a tabindex="-1" aria-hidden="true" href="jetsmart.html" class="pc cjet">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20JETSMART.webp" alt="JetSMART — Tu algún día, Rally Creativo 2026">
         </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">JetSMART</div>
-          <div class="pd">Concepto, dirección de arte y reel para el Rally Creativo 2026: Buenos Aires–Medellín en 24 horas.</div>
-          <div class="pk"><span>Concepto</span><span>Dirección de arte</span><span>Reel</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:4">
-<a tabindex="-1" aria-hidden="true" href="vans.html" class="pc cvans">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/portada-vans.webp" alt="Vans 60 Años — Rally Creativo 2025">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Vans · 60 Años</div>
-          <div class="pd">Concepto de campaña y dirección de arte para el Rally Creativo 2025.</div>
-          <div class="pk"><span>Concepto de campaña</span><span>Dirección de arte</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="nutre3d.html" class="pc cnutre">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20NUTRI%203D.webp" alt="Nutre3D — Verdura imperfecta, Hackatón 2026">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Nutre3D</div>
-          <div class="pd">Identidad visual y contenido para redes de una investigación universitaria sobre alimentos impresos en 3D.</div>
-          <div class="pk"><span>Identidad visual</span><span>Contenido para redes</span><span>Video</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
       <div class="pg-row reveal" data-ring data-n="4" data-slots="8">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">03</span><h3 class="pg-category">EDICIÓN DE VIDEOS</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 04</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">04 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -5192,68 +5151,14 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:4">
-<a tabindex="-1" aria-hidden="true" href="jeregigy.html" class="pc cjere">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ARRIBAS</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Jere Gigy × Arribas</div>
-          <div class="pd">Reels con jump cuts, drone, subtítulos de marca y placa final.</div>
-          <div class="pk"><span>Reels</span><span>Drone</span><span>Subtítulos</span></div>
-          <div class="pb">Ver proyecto completo →</div>
         </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="lluviaconsol.html" class="pc cl">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-LLLUEVE-CON-SOL.webp" alt="Llueve con Sol">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">LLUEVE CON SOL</div>
-          <div class="pd">Edición de Video · Diseño de Contenido</div>
-          <div class="pk"><span>Edición de video</span><span>Diseño de contenido</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:6">
-<a tabindex="-1" aria-hidden="true" href="agency.html" class="pc ca">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-AGENCIA.webp" alt="Agency Luxury">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Agency Luxury</div>
-          <div class="pd">Ads, edición de video y contenido orientado a performance.</div>
-          <div class="pk"><span>Ads</span><span>Edición de video</span><span>Performance</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:7">
-<a tabindex="-1" aria-hidden="true" href="home.html" class="pc ch">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-HOME.webp" alt="Home Improvement">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Home Improvement</div>
-          <div class="pd">Ads y contenido estratégico para el mercado de EE.UU. con IA.</div>
-          <div class="pk"><span>Ads</span><span>Contenido estratégico</span><span>IA</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
       <div class="pg-row reveal" data-ring data-n="2" data-slots="6">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">04</span><h3 class="pg-category">DISEÑO WEB</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 02</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">02 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -5285,66 +5190,14 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:2">
-<a tabindex="-1" aria-hidden="true" href="altiva.html" class="pc caltiva">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">ALTIVA</div>
-          <div class="pd">Sitio web con escenas 3D del packaging y prototipo en Figma.</div>
-          <div class="pk"><span>Sitio 3D</span><span>Prototipo Figma</span><span>Contacto por WhatsApp</span></div>
-          <div class="pb">Ver proyecto completo →</div>
         </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:3">
-<a tabindex="-1" aria-hidden="true" href="kord3.html" class="pc ck">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-KORD3.webp" alt="KORD3">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">KORD3</div>
-          <div class="pd">Diseño y desarrollo de la web de la marca.</div>
-          <div class="pk"><span>Diseño web</span><span>Identidad de marca</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:4">
-<a tabindex="-1" aria-hidden="true" href="altiva.html" class="pc caltiva">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">ALTIVA</div>
-          <div class="pd">Sitio web con escenas 3D del packaging y prototipo en Figma.</div>
-          <div class="pk"><span>Sitio 3D</span><span>Prototipo Figma</span><span>Contacto por WhatsApp</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="kord3.html" class="pc ck">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-KORD3.webp" alt="KORD3">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">KORD3</div>
-          <div class="pd">Diseño y desarrollo de la web de la marca.</div>
-          <div class="pk"><span>Diseño web</span><span>Identidad de marca</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
       <div class="pg-row reveal" data-ring data-n="5" data-slots="10">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">05</span><h3 class="pg-category">SOCIAL MANAGER / REDES SOCIALES</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 05</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">05 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -5416,80 +5269,14 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="jeregigy.html" class="pc cjere">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ARRIBAS</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Jere Gigy × Arribas</div>
-          <div class="pd">Marca personal en Instagram para un asesor inmobiliario.</div>
-          <div class="pk"><span>Reels</span><span>Carruseles</span><span>Historias</span></div>
-          <div class="pb">Ver proyecto completo →</div>
         </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:6">
-<a tabindex="-1" aria-hidden="true" href="bacon.html" class="pc cbacon">
-        <div class="pcb"><div class="pcb-ph" aria-hidden="true">BACON</div></div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Bacon</div>
-          <div class="pd">Community management, diseño y edición para una hamburguesería de Córdoba.</div>
-          <div class="pk"><span>Calendario mensual</span><span>Reels</span><span>Diseño</span><span>Copywriting</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:7">
-<a tabindex="-1" aria-hidden="true" href="manblue.html" class="pc cmb">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA%20MAN%20BLUE.webp" alt="Man Blue FC">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Man Blue FC</div>
-          <div class="pd">Community management, matchday y cobertura en tiempo real.</div>
-          <div class="pk"><span>Community management</span><span>Match day</span><span>Tiempo real</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:8">
-<a tabindex="-1" aria-hidden="true" href="energia.html" class="pc ce">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-ENERGIA.webp" alt="Energía Fitness">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Energía Fitness</div>
-          <div class="pd">Rebranding, relanzamiento y producción audiovisual integral.</div>
-          <div class="pk"><span>Rebranding</span><span>Relanzamiento</span><span>Producción audiovisual</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:9">
-<a tabindex="-1" aria-hidden="true" href="natan.html" class="pc cn2">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-NATAN.webp" alt="Natan Barber">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Natan Barber</div>
-          <div class="pd">Branding completo y producción con fuerte identidad cultural.</div>
-          <div class="pk"><span>Branding</span><span>Producción</span><span>Packaging</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
       <div class="pg-row reveal" data-ring data-n="2" data-slots="6">
         <div class="pg-head">
           <div class="pg-title"><span class="pg-idx">06</span><h3 class="pg-category">DISEÑO EDITORIAL</h3></div>
-          <div class="pg-ctl"><span class="pg-count" aria-live="off">01 / 02</span>
+          <div class="pg-ctl"><span class="pg-count" aria-live="off">02 proyectos</span>
             <button class="pg-arrow" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
             <button class="pg-arrow" type="button" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
         </div>
@@ -5523,63 +5310,7 @@ adding: 30px 24px !important; }
         </div>
       </a>
         </div>
-        <div class="rg-item" style="--i:2">
-<a tabindex="-1" aria-hidden="true" href="revista.html" class="pc cfel">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-FELINA%20EDITORIAL.webp" alt="Revista Pluma Felina — Casa Editorial Felina">
         </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Revista Pluma Felina</div>
-          <div class="pd">Fotonovela editorial para Casa Editorial Felina: maquetación en InDesign y revista digital hojeable.</div>
-          <div class="pk"><span>Maquetación InDesign</span><span>Revista digital</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:3">
-<a tabindex="-1" aria-hidden="true" href="mafalda.html" class="pc cmaf">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg" alt="Mafalda — Diseño Editorial">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Mafalda</div>
-          <div class="pd">Historieta maquetada en InDesign: retícula, tipografía y narrativa secuencial.</div>
-          <div class="pk"><span>Maquetación</span><span>Retícula</span><span>Tipografía</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:4">
-<a tabindex="-1" aria-hidden="true" href="revista.html" class="pc cfel">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PORTADAS/portadas-proyectos/PORTADA-FELINA%20EDITORIAL.webp" alt="Revista Pluma Felina — Casa Editorial Felina">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Revista Pluma Felina</div>
-          <div class="pd">Fotonovela editorial para Casa Editorial Felina: maquetación en InDesign y revista digital hojeable.</div>
-          <div class="pk"><span>Maquetación InDesign</span><span>Revista digital</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-        <div class="rg-item" style="--i:5">
-<a tabindex="-1" aria-hidden="true" href="mafalda.html" class="pc cmaf">
-        <div class="pcb">
-          <img src="https://valentin-cdn.b-cdn.net/PROYECTOS/MAFALDA/1.PORTADA%20MAFALDA.jpg" alt="Mafalda — Diseño Editorial">
-        </div>
-        <div class="po">
-          <div class="pt">Proyecto</div>
-          <div class="pn">Mafalda</div>
-          <div class="pd">Historieta maquetada en InDesign: retícula, tipografía y narrativa secuencial.</div>
-          <div class="pk"><span>Maquetación</span><span>Retícula</span><span>Tipografía</span></div>
-          <div class="pb">Ver proyecto completo →</div>
-        </div>
-      </a>
-        </div>
-          </div>
         </div>
       </div>
 
@@ -6709,79 +6440,21 @@ adding: 30px 24px !important; }
     })();
   </script>
   <script>
-    /* ===== PROYECTOS · CARRIL FLOTANTE EN LÍNEA (desplazamiento lento continuo) ===== */
+    /* ===== PROYECTOS · carril estático con flechas y arrastre ===== */
     (function () {
-      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var SPEED = 24;                      /* px por segundo: lento */
-      var rows = [];
-      document.querySelectorAll('#proyectos-carousel [data-ring]').forEach(function (row) {
-        var n = +row.dataset.n, rg = row.querySelector('.rg'), stage = row.querySelector('.rg-stage');
-        var originals = [].slice.call(stage.children).filter(function (el) { return !el.querySelector('a[aria-hidden="true"]'); });
-        stage.innerHTML = ''; originals.forEach(function (el) { stage.appendChild(el); });
-        if (n < 2) return;
-        var count = row.querySelector('.pg-count');
-        var r = { rg: rg, stage: stage, n: n, off: 0, vel: 0, drag: false, hover: false, vis: false, tween: null, last: -1, period: 0, step: 0 };
-        function build() {
-          [].slice.call(stage.children).slice(n).forEach(function (el) { el.remove(); });
-          var cs = getComputedStyle(rg), w = parseFloat(cs.getPropertyValue('--w')), g = parseFloat(cs.getPropertyValue('--gap'));
-          r.step = w + g; r.period = n * r.step;
-          var need = Math.ceil(rg.clientWidth / r.step) + n + 1, k = 0;
-          while (stage.children.length < need) {
-            var c = originals[k % n].cloneNode(true); k++;
-            var a = c.querySelector('a'); if (a) { a.setAttribute('tabindex', '-1'); a.setAttribute('aria-hidden', 'true'); }
-            c.style.setProperty('--i', stage.children.length); stage.appendChild(c);
-          }
-        }
-        r.apply = function () {
-          r.off = ((r.off % r.period) + r.period) % r.period;
-          stage.style.transform = 'translate3d(' + (-r.off).toFixed(1) + 'px,0,0)';
-          var idx = Math.round(r.off / r.step) % n;
-          if (idx !== r.last) { r.last = idx; if (count) count.textContent = ('0' + (idx + 1)).slice(-2) + ' / ' + ('0' + n).slice(-2); }
-        };
-        build(); r.apply();
-        addEventListener('resize', function () { build(); r.apply(); });
-        row.querySelectorAll('.pg-arrow').forEach(function (b) {
-          b.addEventListener('click', function () {
-            var dir = +b.dataset.dir, from = r.off;
-            r.tween = { t0: performance.now(), dur: 650, from: from, to: (Math.round(from / r.step) + dir) * r.step }; r.vel = 0;
-          });
-        });
-        var sx = 0, so = 0, lx = 0, lt = 0, moved = false;
-        rg.addEventListener('pointerdown', function (e) {
-          if (e.pointerType === 'mouse' && e.button !== 0) return;
-          r.drag = true; moved = false; sx = lx = e.clientX; so = r.off; lt = performance.now(); r.vel = 0; r.tween = null;
-        });
-        addEventListener('pointermove', function (e) {
-          if (!r.drag) return; var dx = e.clientX - sx;
-          if (!moved && Math.abs(dx) > 6) { moved = true; rg.classList.add('is-drag'); }
-          if (moved) { var t = performance.now(); r.vel = -((e.clientX - lx) / Math.max(1, t - lt)) * 1000; lx = e.clientX; lt = t; r.off = so - dx; }
-        });
-        addEventListener('pointerup', function () { if (!r.drag) return; r.drag = false; rg.classList.remove('is-drag'); });
+      document.querySelectorAll('#proyectos-carousel .pg-row').forEach(function (row) {
+        var rg = row.querySelector('.rg'); if (!rg) return;
+        var btns = row.querySelectorAll('.pg-arrow');
+        function step() { var it = rg.querySelector('.rg-item'); return it ? it.getBoundingClientRect().width + 20 : 300; }
+        function check() { if (rg.scrollWidth <= rg.clientWidth + 4) row.setAttribute('data-static', ''); else row.removeAttribute('data-static'); }
+        check(); addEventListener('resize', check);
+        btns.forEach(function (b) { b.addEventListener('click', function () { rg.scrollBy({ left: step() * (+b.dataset.dir), behavior: 'smooth' }); }); });
+        var down = false, sx = 0, sl = 0, moved = false;
+        rg.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' || e.button !== 0) return; down = true; moved = false; sx = e.clientX; sl = rg.scrollLeft; });
+        addEventListener('pointermove', function (e) { if (!down) return; var dx = e.clientX - sx; if (Math.abs(dx) > 6) { moved = true; rg.style.scrollSnapType = 'none'; rg.style.cursor = 'grabbing'; } if (moved) rg.scrollLeft = sl - dx; });
+        addEventListener('pointerup', function () { if (!down) return; down = false; rg.style.cursor = ''; rg.style.scrollSnapType = ''; });
         rg.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
-        row.addEventListener('mouseenter', function () { r.hover = true; });
-        row.addEventListener('mouseleave', function () { r.hover = false; });
-        rg.addEventListener('focusin', function () { r.hover = true; });
-        rg.addEventListener('focusout', function () { r.hover = false; });
-        new IntersectionObserver(function (en) { r.vis = en[0].isIntersecting; }, { rootMargin: '80px' }).observe(row);
-        rows.push(r);
       });
-      var prev = performance.now();
-      function frame(now) {
-        var dt = Math.min(0.05, (now - prev) / 1000); prev = now;
-        for (var i = 0; i < rows.length; i++) {
-          var r = rows[i]; if (!r.vis) continue;
-          if (r.tween) {
-            var k = Math.min(1, (now - r.tween.t0) / r.tween.dur), e = 1 - Math.pow(1 - k, 3);
-            r.off = r.tween.from + (r.tween.to - r.tween.from) * e; if (k >= 1) r.tween = null;
-          } else if (!r.drag) {
-            if (Math.abs(r.vel) > 20) { r.off += r.vel * dt; r.vel *= Math.pow(0.05, dt); }
-            else if (!reduce && !r.hover) r.off += SPEED * dt;
-          }
-          r.apply();
-        }
-        requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
     })();
   </script>
 

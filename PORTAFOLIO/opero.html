@@ -230,52 +230,69 @@
     .pj-index .pj-index-list a:focus-visible { outline: 2px solid var(--pjc); outline-offset: 3px; }
     @media (max-width: 768px) { .pj-index .pj-index-list { grid-template-columns: 1fr !important; gap: 10px !important; } .pj-index .pj-index-list a { padding: 14px 16px; } }
 
-    /* ===== ÍNDICE DEL PROYECTO · panel de capas plegable ===== */
+    /* ===== ÍNDICE DEL PROYECTO · panel de capas (estilo Photoshop) ===== */
     html:root, html:root body { overflow-x: clip !important; }
-    .pjx { --pa: var(--r, var(--ac, #4aa8ff)); position: fixed; left: 8px; top: 50%; transform: translateY(-50%); z-index: 90; font-family: 'Outfit', sans-serif; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+    .pjx { position: fixed; left: 8px; top: 50%; transform: translateY(-50%); z-index: 90; font-family: 'Inter', 'Outfit', sans-serif; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; --ps-sel: #2d5a8e; --ps-bg: #2b2b2b; --ps-bar: #232323; --ps-line: #1a1a1a; --ps-tx: #c8c8c8; }
     .pjx.show { opacity: 1; visibility: visible; }
-    .pjx-panel { width: 56px; border-radius: 14px; background: rgba(20,20,22,.9); border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); overflow: hidden; transition: width .28s cubic-bezier(.2,.8,.2,1); box-shadow: 0 14px 44px rgba(0,0,0,.5); }
-    .pjx.open .pjx-panel { width: 268px; }
-    .pjx-top { display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 8px 0 8px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
-    .pjx-toggle { flex: 0 0 38px; width: 38px; height: 38px; margin-left: -8px; border: 0; background: transparent; color: rgba(255,255,255,.8); display: grid; place-items: center; cursor: pointer; transition: background .2s; }
-    .pjx-toggle:hover { background: rgba(255,255,255,.1); color: #fff; }
-    .pjx-toggle:focus-visible, .pjx-list a:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+    .pjx-panel { width: 58px; border-radius: 10px; background: var(--ps-bg); border: 1px solid #000; outline: 1px solid rgba(255,255,255,.1); overflow: hidden; transition: width .28s cubic-bezier(.2,.8,.2,1); box-shadow: 0 18px 50px rgba(0,0,0,.6); color: var(--ps-tx); }
+    .pjx.open .pjx-panel { width: 292px; }
+    .pjx svg { width: 15px; height: 15px; display: block; }
+    .pjx-tabs { display: flex; align-items: stretch; height: 34px; background: var(--ps-bar); border-bottom: 1px solid var(--ps-line); }
+    .pjx-toggle { flex: 0 0 56px; width: 56px; border: 0; background: transparent; color: #d8d8d8; display: grid; place-items: center; cursor: pointer; }
+    .pjx.open .pjx-toggle { flex-basis: 36px; width: 36px; border-right: 1px solid var(--ps-line); }
+    .pjx-toggle:hover { background: #333; color: #fff; }
+    .pjx-toggle:focus-visible, .pjx-list a:focus-visible { outline: 2px solid #6ea8ff; outline-offset: -2px; }
     .pjx-toggle svg { width: 17px; height: 17px; }
-    .pjx-label { flex: 1; font-size: .68rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.85); white-space: nowrap; opacity: 0; transition: opacity .2s; }
-    .pjx-label small { color: rgba(255,255,255,.4); letter-spacing: 1px; margin-left: 6px; }
-    .pjx.open .pjx-label { opacity: 1; }
-    .pjx-list { list-style: none; margin: 0; padding: 6px 0; display: flex; flex-direction: column; }
-    .pjx-list li { position: relative; }
-    .pjx-list a { display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 12px 0 8px; color: rgba(255,255,255,.7); text-decoration: none; white-space: nowrap; border-top: 1px solid rgba(255,255,255,.04); transition: background .18s, color .18s; }
-    .pjx-list li:first-child a { border-top: 0; }
-    .pjx-list a:hover { background: rgba(255,255,255,.06); color: #fff; }
-    .pjx-eye { display: none; flex: 0 0 18px; width: 18px; height: 18px; font-style: normal; color: rgba(255,255,255,.25); transition: color .2s; }
-    .pjx-eye svg { width: 18px; height: 18px; display: block; }
-    .pjx-list a.vis .pjx-eye { color: rgba(255,255,255,.8); }
+    .pjx-tab { display: none; align-items: center; padding: 0 12px; font-size: .72rem; color: #8d8d8d; border-right: 1px solid var(--ps-line); white-space: nowrap; }
+    .pjx-tab.on { color: #fff; background: var(--ps-bg); box-shadow: inset 0 2px 0 #6ea8ff; }
+    .pjx.open .pjx-tab { display: flex; }
+    .pjx-menu { display: none; margin-left: auto; align-items: center; padding: 0 10px; color: #9a9a9a; }
+    .pjx.open .pjx-menu { display: flex; }
+    .pjx-ctl { display: none; flex-direction: column; gap: 6px; padding: 8px 8px 6px; border-bottom: 1px solid var(--ps-line); font-size: .68rem; color: #a8a8a8; }
+    .pjx.open .pjx-ctl { display: flex; }
+    .pjx-row { display: flex; align-items: center; gap: 6px; }
+    .pjx-sel { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 6px; height: 22px; padding: 0 6px; background: #1f1f1f; border: 1px solid #141414; border-radius: 3px; color: #d6d6d6; }
+    .pjx-sel svg { width: 10px; height: 10px; opacity: .7; }
+    .pjx-sel.s svg:first-child { width: 12px; height: 12px; opacity: .8; }
+    .pjx-ibtn { width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid #141414; background: #333; border-radius: 3px; color: #cfcfcf; }
+    .pjx-ibtn svg { width: 12px; height: 12px; }
+    .pjx-ibtn.on { background: #454545; }
+    .pjx-op { display: flex; align-items: center; gap: 6px; flex: 1; }
+    .pjx-op label { white-space: nowrap; }
+    .pjx-slide { position: relative; flex: 1; height: 4px; background: linear-gradient(90deg, #111, #555); border-radius: 3px; }
+    .pjx-slide i { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #e6e6e6; box-shadow: 0 0 0 1px #000; }
+    .pjx-pct { min-width: 30px; text-align: right; color: #e6e6e6; font-variant-numeric: tabular-nums; }
+    .pjx-list { list-style: none; margin: 0; padding: 0; background: var(--ps-bg); }
+    .pjx-list li { border-bottom: 1px solid var(--ps-line); }
+    .pjx-list a { display: flex; align-items: center; gap: 8px; height: 54px; padding: 0 8px 0 10px; color: var(--ps-tx); text-decoration: none; white-space: nowrap; background: #313131; }
+    .pjx-list a:hover { background: #3a3a3a; }
+    .pjx-list a.is-active { background: var(--ps-sel); color: #fff; }
+    .pjx-eye { display: none; flex: 0 0 16px; width: 16px; height: 16px; color: #5d5d5d; font-style: normal; }
+    .pjx-list a.vis .pjx-eye { color: #e8e8e8; }
     .pjx.open .pjx-eye { display: block; }
-    .pjx-th { flex: 0 0 38px; width: 38px; height: 38px; border-radius: 4px; display: grid; place-items: center; font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: .9rem; letter-spacing: 1px; color: #fff; border: 1px solid rgba(255,255,255,.18); background-color: #2a2a2e; background-image: linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%), linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%); background-size: 10px 10px; background-position: 0 0, 5px 5px; margin-left: 2px; }
-    .pjx-list span { font-size: .86rem; font-weight: 500; opacity: 0; transition: opacity .2s; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
-    .pjx.open .pjx-list span { opacity: 1; }
-    .pjx-list a.is-active { background: color-mix(in srgb, var(--pa) 24%, #1a1a1d); color: #fff; }
-    .pjx-list a.is-active .pjx-th { border-color: var(--pa); box-shadow: 0 0 0 1px var(--pa); }
-    .pjx-foot { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-top: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03); font-size: .66rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); white-space: nowrap; }
-    .pjx-prog { flex: 1; height: 3px; background: rgba(255,255,255,.12); border-radius: 3px; overflow: hidden; }
-    .pjx-prog i { display: block; height: 100%; width: 100%; background: var(--pa); transform-origin: left; transform: scaleX(0); }
-    .pjx-cnt { opacity: 0; width: 0; overflow: hidden; transition: opacity .2s; }
-    .pjx.open .pjx-cnt { opacity: 1; width: auto; }
-    .pjx:not(.open) .pjx-foot { padding: 8px 8px; }
+    .pjx-th { flex: 0 0 40px; width: 40px; height: 40px; margin-left: 0; border-radius: 2px; display: grid; place-items: center; font-family: 'Fjalla One', sans-serif; font-weight: 400; font-size: .9rem; letter-spacing: 1px; color: #fff; border: 1px solid #0d0d0d; background-color: #3d3d3d; background-image: linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%), linear-gradient(45deg, rgba(255,255,255,.07) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.07) 75%); background-size: 10px 10px; background-position: 0 0, 5px 5px; }
+    .pjx:not(.open) .pjx-list a { justify-content: center; padding: 0; }
+    .pjx-list a.is-active .pjx-th { border-color: #fff; }
+    .pjx-nm { flex: 1; min-width: 0; display: none; font-size: .78rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
+    .pjx.open .pjx-nm { display: block; }
+    .pjx-lk { display: none; width: 12px; height: 12px; color: #8a8a8a; opacity: .9; }
+    .pjx.open .pjx-lk { display: block; }
+    .pjx-lk svg { width: 12px; height: 12px; }
+    .pjx-bar { display: none; align-items: center; justify-content: space-between; height: 32px; padding: 0 10px; background: var(--ps-bar); border-top: 1px solid var(--ps-line); color: #b0b0b0; }
+    .pjx.open .pjx-bar { display: flex; }
+    .pjx-bar svg { width: 15px; height: 15px; }
+    .pjx-bar .fx { font: italic 700 .72rem/1 Georgia, serif; }
     @media (max-width: 900px) {
       .pjx { left: 10px; top: auto; bottom: 14px; transform: none; }
       .pjx-panel { width: 46px; }
-      .pjx.open .pjx-panel { width: min(290px, calc(100vw - 20px)); }
-      .pjx:not(.open) .pjx-list, .pjx:not(.open) .pjx-foot { display: none; }
-      .pjx-top { padding: 0 8px; border-bottom: 0; }
-      .pjx.open .pjx-top { border-bottom: 1px solid rgba(255,255,255,.08); }
-      .pjx-toggle { margin-left: -9px; flex-basis: 46px; width: 46px; height: 42px; }
-      .pjx-top { height: 42px; }
-      .pjx-list a { height: 54px; }
+      .pjx-toggle { flex-basis: 46px; width: 46px; height: 42px; }
+      .pjx-tabs { height: 42px; }
+      .pjx.open .pjx-panel { width: min(310px, calc(100vw - 20px)); }
+      .pjx:not(.open) .pjx-list, .pjx:not(.open) .pjx-ctl { display: none; }
+      .pjx.open .pjx-toggle { flex-basis: 42px; width: 42px; }
+      .pjx-list a { height: 56px; }
     }
-    @media (prefers-reduced-motion: reduce) { .pjx-panel, .pjx-label, .pjx-list span, .pjx-cnt { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .pjx-panel { transition: none; } }
   </style>
 </head>
 <body>
@@ -360,7 +377,7 @@
     </div>
   </section>
 
-  <div class="pjx" role="navigation" aria-label="Índice del proyecto"><div class="pjx-panel"><div class="pjx-top"><button class="pjx-toggle" type="button" aria-expanded="false" aria-label="Abrir o cerrar capas del proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".5"/></svg></button><span class="pjx-label">Capas<small>2</small></span></div><ul class="pjx-list"><li><a href="#branding" title="Identidad visual estratégica"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">01</b><span>Identidad Visual</span></a></li><li><a href="#manual" title="Manual de marca en PDF"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">02</b><span>Manual De Marca</span></a></li></ul><div class="pjx-foot"><span class="pjx-cnt">Capa <b class="pjx-cur">1</b>/2</span><div class="pjx-prog"><i></i></div></div></div></div>
+  <div class="pjx" role="navigation" aria-label="Índice del proyecto"><div class="pjx-panel"><div class="pjx-tabs"><button class="pjx-toggle" type="button" aria-expanded="false" aria-label="Abrir o cerrar capas del proyecto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".5"/></svg></button><span class="pjx-tab on">Capas</span><span class="pjx-tab" aria-hidden="true">Canales</span><span class="pjx-tab" aria-hidden="true">Trazados</span><span class="pjx-menu" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M4 7h16M4 12h16M4 17h16"/></svg></span></div><div class="pjx-ctl" aria-hidden="true"><div class="pjx-row"><span class="pjx-sel s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg><span>Tipo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></span><span class="pjx-ibtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><rect x="4" y="4" width="16" height="16" rx="2"/></svg></span><span class="pjx-ibtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="12" r="8"/></svg></span><span class="pjx-ibtn">T</span><span class="pjx-ibtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 5h14v14H5z"/></svg></span></div><div class="pjx-row"><span class="pjx-sel"><span>Normal</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></span><span class="pjx-op"><label>Opacidad:</label><span class="pjx-slide"><i></i></span><span class="pjx-pct">0%</span></span></div></div><ul class="pjx-list"><li><a href="#branding" title="Identidad visual estratégica"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">01</b><span class="pjx-nm">Identidad Visual</span><span class="pjx-lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></a></li><li><a href="#manual" title="Manual de marca en PDF"><em class="pjx-eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg></em><b class="pjx-th">02</b><span class="pjx-nm">Manual De Marca</span></a></li></ul><div class="pjx-bar" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span><b class="fx">fx</b></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4.5"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></span></div></div></div>
 
 
   <section class="section rv" id="branding">
@@ -591,16 +608,16 @@
     })();
   </script>
   <script>
-    /* índice del proyecto: panel lateral plegable + scroll-spy */
+    /* índice del proyecto: panel de capas plegable + scroll-spy */
     (function () {
       var box = document.querySelector('.pjx'); if (!box) return;
-      var btn = box.querySelector('.pjx-toggle'), bar = box.querySelector('.pjx-prog i');
+      var btn = box.querySelector('.pjx-toggle'), knob = box.querySelector('.pjx-slide i'), pct = box.querySelector('.pjx-pct');
       var links = [].slice.call(box.querySelectorAll('.pjx-list a')), navEl = document.querySelector('nav');
       function navH() { return navEl ? navEl.offsetHeight : 0; }
       function set(o) { box.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); }
       btn.addEventListener('click', function () { set(!box.classList.contains('open')); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-      document.addEventListener('click', function (e) { if (window.innerWidth <= 900 && !box.contains(e.target)) set(false); });
+      document.addEventListener('click', function (e) { if (innerWidth <= 900 && !box.contains(e.target)) set(false); });
       function target(l) { try { return document.querySelector(l.getAttribute('href')); } catch (e) { return null; } }
       var tick = false;
       function spy() {
@@ -608,18 +625,20 @@
         box.classList.toggle('show', scrollY > innerHeight * 0.55);
         var y = navH() + 80, cur = null;
         links.forEach(function (l) { var t = target(l); if (t && t.getBoundingClientRect().top <= y) cur = l; });
-        var cn = box.querySelector('.pjx-cur'); if (cn) cn.textContent = cur ? links.indexOf(cur) + 1 : 1;
-        links.forEach(function (l, i) { var t = target(l), nx = links[i + 1] && target(links[i + 1]), r1 = t ? t.getBoundingClientRect() : null, top = r1 ? r1.top : 1e9, bot = nx ? nx.getBoundingClientRect().top : (t ? r1.bottom : -1e9); l.classList.toggle('vis', top < innerHeight && bot > 0); });
-        links.forEach(function (l) { var a = l === cur; l.classList.toggle('is-active', a); if (a) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
-        var max = document.documentElement.scrollHeight - innerHeight;
-        bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(3) + ')';
+        links.forEach(function (l, i) {
+          var t = target(l), nx = links[i + 1] && target(links[i + 1]), top = t ? t.getBoundingClientRect().top : 1e9, bot = nx ? nx.getBoundingClientRect().top : (t ? t.getBoundingClientRect().bottom : -1e9);
+          l.classList.toggle('vis', top < innerHeight && bot > 0);
+          var a = l === cur; l.classList.toggle('is-active', a); if (a) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current');
+        });
+        var max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
+        if (knob) knob.style.left = (p * 100).toFixed(1) + '%'; if (pct) pct.textContent = Math.round(p * 100) + '%';
       }
-      window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(spy); } }, { passive: true });
+      addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(spy); } }, { passive: true });
       links.forEach(function (l) {
         l.addEventListener('click', function (e) {
           var t = target(l); if (!t) return; e.preventDefault();
-          window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - navH() - 12, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-          if (window.innerWidth <= 900) set(false);
+          scrollTo({ top: t.getBoundingClientRect().top + scrollY - navH() - 12, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+          if (innerWidth <= 900) set(false);
         });
       });
       spy();
