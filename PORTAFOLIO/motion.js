@@ -5,14 +5,15 @@
   if(reduce)return;
   root.classList.add('js-m');
   // cortina
+  var home=/(^|\/)(index\.html)?$/.test(location.pathname);
   var wipe=d.createElement('div');wipe.className='m-wipe';
   function ready(fn){d.readyState!=='loading'?fn():d.addEventListener('DOMContentLoaded',fn)}
   ready(function(){
-    d.body.appendChild(wipe);
-    requestAnimationFrame(function(){requestAnimationFrame(function(){wipe.classList.add('is-open')})});
+    if(home){d.body.appendChild(wipe);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){wipe.classList.add('is-open')})});setTimeout(function(){wipe.remove()},1200)}
     mark();observe();
   });
-  addEventListener('pageshow',function(e){if(e.persisted){wipe.className='m-wipe is-open'}});
+  
   // objetivos de entrada
   var SEL=[
     '.section-subtitle','.section-title','.section-desc','.overview-text > *','.meta2','.tag-list','.software-used',
@@ -47,25 +48,4 @@
     d.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
   }
 
-  // cursor oscuro sobre bandas claras
-  ready(function(){
-    var c=d.getElementById('cursor');if(!c)return;
-    var x=0,y=0;
-    function tone(){var el=d.elementFromPoint(x,y),dk=!!(el&&el.closest&&el.closest('.m-tint'));c.classList.toggle('dark',dk);d.querySelectorAll('.trail').forEach(function(t){t.classList.toggle('dark',dk)})}
-    addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;tone()},{passive:true});
-    addEventListener('scroll',tone,{passive:true});
-  });
-
-  // salir de la página con cortina
-  d.addEventListener('click',function(e){
-    var a=e.target.closest&&e.target.closest('a[href]');
-    if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
-    if(a.target&&a.target!=='_self')return;
-    var u;try{u=new URL(a.href,location.href)}catch(_){return}
-    if(u.origin!==location.origin||!/\.html$|\/$/.test(u.pathname)||u.pathname===location.pathname)return;
-    e.preventDefault();
-    wipe.className='m-wipe is-ready';void wipe.offsetWidth;
-    wipe.className='m-wipe is-closing is-covering';
-    setTimeout(function(){location.href=u.href},560);
-  });
 })();

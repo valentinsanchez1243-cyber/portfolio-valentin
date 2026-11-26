@@ -4029,50 +4029,17 @@ adding: 30px 24px !important; }
     @media (max-width: 900px) { .web-stage { grid-template-columns: 1fr; gap: 36px; } .dev-phone { right: 0; } }
 
     /* Social manager dentro de un celular real */
-    #ptab-community .comm-panel { width: min(100%, 290px); margin: 6px auto 12px; padding: 28px 8px 16px; border: 8px solid #18181b; border-radius: 38px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
-    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 7px; left: 50%; width: 70px; height: 17px; margin-left: -35px; border-radius: 12px; background: #000; z-index: 3; }
+    #ptab-community .comm-panel { width: min(100%, 390px); margin: 6px auto 12px; padding: 34px 14px 20px; border: 10px solid #18181b; border-radius: 46px; background: #0a0a0c; box-shadow: 0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14); position: relative; overflow: hidden; }
+    #ptab-community .comm-panel::before { content: ''; position: absolute; top: 9px; left: 50%; width: 94px; height: 22px; margin-left: -47px; border-radius: 14px; background: #000; z-index: 3; }
     #ptab-community .comm-panel::after { content: ''; position: absolute; bottom: 7px; left: 50%; width: 110px; height: 4px; margin-left: -55px; border-radius: 4px; background: rgba(255,255,255,.55); }
     #ptab-community .comm-panel .feed-hdr { gap: 12px; }
     #ptab-community .comm-panel .feed-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 3px !important; }
     #ptab-community .comm-panel .fp { aspect-ratio: 1 / 1; min-height: 0; height: auto; }
-    #ptab-community .comm-panel { min-height: 470px; }
+    #ptab-community .comm-panel { min-height: 600px; }
     #ptab-community .comm-tabs { justify-content: center; flex-wrap: wrap; }
 
-    /* ===== MI TRABAJO EN ACCIÓN · escenario con pestañas ===== */
     #ptab-branding { --tc: #FF0000; } #ptab-videos { --tc: #0EA5E9; } #ptab-web { --tc: #10B981; }
     #ptab-community { --tc: #FFD700; } #ptab-indumentaria { --tc: #8B5CF6; }
-    #previews .ptabs.stage { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; border: 0; border-radius: 0; overflow: visible; }
-    .ptabs.stage .ptab { display: contents; }
-    .ptabs.stage .ptab-hd { grid-row: 1; height: 74px; padding: 0 14px 0 22px; gap: 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(255,255,255,.03) !important; }
-    .ptabs.stage .ptab-hd::before { width: 4px !important; }
-    .ptabs.stage .ptab-hd::after, .ptabs.stage .ptab-hd-bar, .ptabs.stage .ptab-arrow, .ptabs.stage .ptab-hd-bg { display: none !important; }
-    .ptabs.stage .ptab-icon { transform: scale(.8); margin: 0 -2px 0 0; }
-    .ptabs.stage .ptab-idx { display: none; }
-    .ptabs.stage .ptab-name { font-size: .86rem; letter-spacing: 1.5px; line-height: 1.15; white-space: normal; min-width: 0; }
-    .ptabs.stage .ptab-hd:hover { border-color: color-mix(in srgb, var(--tc) 60%, transparent); }
-    .ptabs.stage .ptab.is-open .ptab-hd { border-color: var(--tc); background: color-mix(in srgb, var(--tc) 12%, #0b0b0d) !important; box-shadow: 0 0 0 1px var(--tc) inset; }
-    .ptabs.stage .ptab-hd:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-    .ptabs.stage .ptab-body-wrap { grid-column: 1 / -1; grid-row: 2; display: none; }
-    .ptabs.stage .ptab.is-open .ptab-body-wrap { display: block; }
-    .ptabs.stage .ptab-body { margin-top: 6px; border: 1px solid rgba(255,255,255,.08); border-radius: 22px; overflow: hidden;
-      background: radial-gradient(ellipse 70% 60% at 50% 105%, color-mix(in srgb, var(--tc) 22%, transparent), transparent 70%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.2px) 0 0 / 22px 22px, #0b0b0d; }
-    .ptabs.stage .sec-inner { padding: 34px 32px 38px; }
-    @media (max-width: 1000px) {
-      #previews .ptabs.stage { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
-      .ptabs.stage .ptab-hd { grid-row: auto; flex: 1 1 calc(33.33% - 8px); height: 60px !important; padding: 0 10px 0 16px; }
-      .ptabs.stage .ptab-icon { display: none; }
-      .ptabs.stage .ptab-body-wrap { order: 10; flex: 0 0 100%; }
-    }
-    @media (max-width: 560px) {
-      .ptabs.stage .ptab-hd { flex-basis: calc(50% - 8px); height: 52px !important; }
-      .ptabs.stage .ptab-name { font-size: .78rem !important; letter-spacing: 1px !important; }
-      .ptabs.stage .sec-inner { padding: 22px 12px 26px; }
-    }
-
-    /* Edición de video · celular chico */
-    #ptab-videos .reel-frame { width: 138px; height: 282px; border: 6px solid #18181b; border-radius: 28px; box-shadow: 0 22px 44px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.12); }
-    #ptab-videos .reel-frame::before { content: ''; position: absolute; top: 5px; left: 50%; width: 38px; height: 10px; margin-left: -19px; border-radius: 8px; background: #000; z-index: 4; }
-    #ptab-videos .reel-group { gap: 22px; }
 
     /* Diseño web · pestañas ALTIVA / KORD3, sin texto */
     .web-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 22px; }
@@ -4086,84 +4053,18 @@ adding: 30px 24px !important; }
     .dev-lap-screen.is-empty, .dev-phone.is-empty { display: grid; place-items: center; background: linear-gradient(135deg, #111 0%, #1b1b1f 100%); }
     .dev-lap-screen.is-empty::after, .dev-phone.is-empty::after { content: attr(data-label); font-family: 'Fjalla One', sans-serif; letter-spacing: 6px; color: rgba(255,255,255,.35); font-size: 1.6rem; }
 
+
     /* === Mi trabajo en acción · v3: conmutadores grandes + dispositivos chicos === */
     #previews .web-tabs, #previews .comm-tabs { display: flex; width: fit-content; max-width: 100%; gap: 0; padding: 6px; margin: 0 auto 26px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.22); border-radius: 100px; box-shadow: 0 10px 30px rgba(0,0,0,.4); position: relative; }
-    #previews .wtab, #previews .ctab { min-height: 52px; padding: 0 30px; font-family: 'Fjalla One', sans-serif; font-size: 1.05rem; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.75); background: transparent; border: 0; border-radius: 100px; cursor: pointer; transition: background .2s, color .2s, transform .2s; white-space: nowrap; }
-    #previews .wtab:hover, #previews .ctab:hover { color: #fff; background: rgba(255,255,255,.08); }
     #previews .wtab.is-on { background: #10B981; color: #04120d; box-shadow: 0 0 22px rgba(16,185,129,.55); }
-    #previews .ctab.ctab-on { background: #FFD700; color: #111; border: 0; box-shadow: 0 0 22px rgba(255,215,0,.45); }
     #previews .web-stage { max-width: 470px; padding: 0 6% 0 0; }
     #previews .dev-phone { width: 21%; border-width: 5px; border-radius: 18px; }
     #previews .dev-lap-screen { border-width: 7px; border-bottom-width: 9px; }
     #previews .dev-vid { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
     #previews .web-cta { margin-top: 18px; }
-    #ptab-community .comm-panel { width: min(100%, 236px); border-width: 6px; border-radius: 30px; min-height: 380px; padding: 24px 6px 12px; }
-    #ptab-community .comm-panel .feed-info .feed-bio { display: none; }
     @media (max-width: 560px) { #previews .wtab, #previews .ctab { padding: 0 14px; font-size: .85rem; letter-spacing: 1.5px; } }
 
-    /* === Mi trabajo en acción · v4: SALA DE CONTROL (índice grande a la izquierda + pantalla) === */
-    @media (min-width: 1001px) {
-      #previews .ptabs.stage { grid-template-columns: 330px minmax(0, 1fr); grid-template-rows: repeat(5, auto); gap: 0 34px; align-items: stretch; counter-reset: pt; }
-      #ptab-branding .ptab-hd { grid-row: 1 !important; } #ptab-videos .ptab-hd { grid-row: 2 !important; } #ptab-web .ptab-hd { grid-row: 3 !important; }
-      #ptab-community .ptab-hd { grid-row: 4 !important; } #ptab-indumentaria .ptab-hd { grid-row: 5 !important; }
-      .ptabs.stage .ptab-hd { grid-column: 1; height: auto; min-height: 96px; padding: 14px 6px 14px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.14); border-radius: 0; background: transparent !important; gap: 16px; position: relative; transition: padding .25s, color .25s; align-items: center; }
-      .ptabs.stage .ptab-hd::before { display: none !important; }
-      .ptabs.stage .ptab-idx { display: block; font-family: 'Outfit', sans-serif; font-size: .78rem; letter-spacing: 3px; color: var(--tc); order: -1; align-self: flex-start; padding-top: 10px; }
-      .ptabs.stage .ptab-icon { display: none; }
-      .ptabs.stage .ptab-name { font-family: 'Fjalla One', sans-serif; font-size: 1.85rem !important; letter-spacing: 1px !important; line-height: 1.02; color: rgba(255,255,255,.42); transition: color .25s, transform .25s; }
-      .ptabs.stage .ptab-hd::after { display: block !important; content: '→'; position: absolute; right: 4px; top: 50%; transform: translate(-14px, -50%); opacity: 0; color: var(--tc); font-size: 1.6rem; transition: .25s; border: 0; background: none; width: auto; height: auto; }
-      .ptabs.stage .ptab-hd:hover { border-color: rgba(255,255,255,.14); padding-left: 10px; }
-      .ptabs.stage .ptab-hd:hover .ptab-name { color: #fff; }
-      .ptabs.stage .ptab-hd:hover::after { opacity: 1; transform: translate(0, -50%); }
-      .ptabs.stage .ptab.is-open .ptab-hd { background: transparent !important; box-shadow: none; border-bottom-color: var(--tc); padding-left: 16px; }
-      .ptabs.stage .ptab.is-open .ptab-name { color: var(--tc); }
-      .ptabs.stage .ptab.is-open .ptab-hd::after { opacity: 1; transform: translate(0, -50%); }
-      .ptabs.stage .ptab-body-wrap { grid-column: 2; grid-row: 1 / span 5; }
-      .ptabs.stage .ptab-body { margin-top: 0; min-height: 560px; position: relative; }
-      .ptabs.stage .ptab-body::after { position: absolute; right: 22px; bottom: -14px; font-family: 'Fjalla One', sans-serif; font-size: 9rem; line-height: 1; letter-spacing: 4px; color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--tc) 38%, transparent); pointer-events: none; z-index: 0; }
-      #ptab-branding .ptab-body::after { content: 'MARCA'; } #ptab-videos .ptab-body::after { content: 'VIDEO'; } #ptab-web .ptab-body::after { content: 'WEB'; }
-      #ptab-community .ptab-body::after { content: 'SOCIAL'; } #ptab-indumentaria .ptab-body::after { content: 'MODA'; }
-      .ptabs.stage .ptab-body > * { position: relative; z-index: 1; }
-    }
-    /* === Mi trabajo en acción · v5: LÍNEA DE TIEMPO (secuencia tipo Premiere, playhead que recorre los clips) === */
-    @media (min-width: 1001px) {
-      #previews .ptabs.stage { position: relative; grid-template-columns: 1.15fr 1.35fr 1fr 1.25fr .85fr; grid-template-rows: auto auto auto auto; gap: 0; counter-reset: pt; }
-      .ptabs.stage .ptab-body-wrap { grid-column: 1 / -1 !important; grid-row: 1 !important; }
-      .ptabs.stage .ptab-body { min-height: 540px; }
-      .tl-bar { grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: space-between; align-items: center; margin-top: 26px; padding: 9px 14px; background: #1b1b1b; border: 1px solid #2c2c2c; border-bottom: 0; border-radius: 6px 6px 0 0; font-family: 'Outfit', sans-serif; font-size: .68rem; letter-spacing: 3px; color: #8d8d8d; text-transform: uppercase; }
-      .tl-bar b { color: #fff; font-weight: 500; }
-      .tl-bar .tl-tc { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; color: #ff5a4d; letter-spacing: 2px; font-size: .8rem; }
-      .tl-ruler { grid-column: 1 / -1; grid-row: 3; position: relative; height: 26px; background: #161616; border: 1px solid #2c2c2c; border-top: 0; border-bottom: 0; background-image: repeating-linear-gradient(90deg, #444 0 1px, transparent 1px 22px), repeating-linear-gradient(90deg, #666 0 1px, transparent 1px 110px); background-size: 100% 6px, 100% 12px; background-position: 0 100%, 0 100%; background-repeat: repeat-x; display: flex; justify-content: space-between; align-items: flex-start; padding: 3px 8px 0; font: .58rem/1 ui-monospace, Consolas, monospace; color: #777; letter-spacing: 1px; overflow: hidden; }
-      #previews .ptabs.stage .ptab-hd { grid-column: auto; grid-row: 4 !important; height: 70px; min-height: 70px; padding: 0 16px; margin: 0; border: 0; border-top: 3px solid var(--tc); border-radius: 0; gap: 12px; align-items: center; background: color-mix(in srgb, var(--tc) 16%, #121212) !important; box-shadow: inset -1px 0 0 #0b0b0b, inset 1px 0 0 rgba(255,255,255,.04); overflow: hidden; transition: background .25s, filter .25s; }
-      #ptab-branding .ptab-hd { grid-column: 1 !important; } #ptab-videos .ptab-hd { grid-column: 2 !important; } #ptab-web .ptab-hd { grid-column: 3 !important; }
-      #ptab-community .ptab-hd { grid-column: 4 !important; } #ptab-indumentaria .ptab-hd { grid-column: 5 !important; }
-      .ptabs.stage .ptab-hd::before { display: none !important; }
-      .ptabs.stage .ptab-hd::after { display: block !important; content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; opacity: .32; border: 0; background: repeating-linear-gradient(90deg, var(--tc) 0 2px, transparent 2px 5px); -webkit-mask: linear-gradient(to top, #000, transparent); mask: linear-gradient(to top, #000, transparent); transform: none !important; width: auto; }
-      .ptabs.stage .ptab-hd:hover { padding-left: 16px; filter: brightness(1.25); }
-      .ptabs.stage .ptab-idx { order: -1; align-self: center; padding: 0; font-size: .64rem; letter-spacing: 2px; color: var(--tc); opacity: .9; }
-      .ptabs.stage .ptab-name { font-size: 1.2rem !important; line-height: 1.05; letter-spacing: 1px !important; color: rgba(255,255,255,.55); position: relative; z-index: 1; }
-      .ptabs.stage .ptab-hd:hover .ptab-name { color: #fff; }
-      .ptabs.stage .ptab.is-open .ptab-hd { background: color-mix(in srgb, var(--tc) 34%, #141414) !important; border-bottom: 0; padding-left: 16px; filter: none; box-shadow: inset 0 0 0 1px var(--tc); }
-      .ptabs.stage .ptab.is-open .ptab-name { color: #fff; }
-      .ptabs.stage .ptab.is-open .ptab-hd::after { opacity: .55; }
-      .tl-head { position: absolute; z-index: 5; width: 0; pointer-events: none; border-left: 2px solid #ff3b30; box-shadow: 0 0 12px rgba(255,59,48,.7); transition: left .55s cubic-bezier(.2,.8,.2,1); }
-      .tl-head.live { transition: none; }
-      .tl-head::before { content: ''; position: absolute; top: -1px; left: -8px; width: 14px; height: 12px; background: #ff3b30; clip-path: polygon(0 0, 100% 0, 100% 55%, 50% 100%, 0 55%); }
-    }
-    @media (max-width: 1000px) { .tl-bar, .tl-ruler, .tl-head { display: none !important; } }
-    /* === v6: pantalla = monitor de programa (marco, marcas de esquina, REC, contenido centrado) === */
-    @media (min-width: 1001px) {
-      .ptabs.stage .ptab-body { min-height: 500px; display: flex; flex-direction: column; justify-content: center; padding-top: 58px !important; border: 1px solid #2b2b2b; border-radius: 4px; background: #070707 !important; box-shadow: 0 0 0 6px #111, 0 0 0 7px #2a2a2a, 0 30px 80px rgba(0,0,0,.6); overflow: hidden;
-        background-image: linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)), linear-gradient(var(--tc),var(--tc)) !important;
-        background-size: 26px 2px, 2px 26px, 26px 2px, 2px 26px, 26px 2px, 2px 26px, 26px 2px, 2px 26px !important;
-        background-position: 18px 46px, 18px 46px, calc(100% - 18px) 46px, calc(100% - 18px) 46px, 18px calc(100% - 18px), 18px calc(100% - 18px), calc(100% - 18px) calc(100% - 18px), calc(100% - 18px) calc(100% - 18px) !important;
-        background-repeat: no-repeat !important; }
-      .ptabs.stage .ptab-body::before { content: '● REC   PROGRAMA'; position: absolute; left: 0; right: 0; top: 0; height: 34px; display: flex; align-items: center; padding: 0 18px; background: #141414; border-bottom: 1px solid #2b2b2b; font: 500 .66rem/1 'Outfit', sans-serif; letter-spacing: 3px; color: #8d8d8d; z-index: 2; }
-      #ptab-branding .ptab-body::before { content: '● REC   PROGRAMA · MARCA'; } #ptab-videos .ptab-body::before { content: '● REC   PROGRAMA · VIDEO'; }
-      #ptab-web .ptab-body::before { content: '● REC   PROGRAMA · WEB'; } #ptab-community .ptab-body::before { content: '● REC   PROGRAMA · SOCIAL'; }
-      #ptab-indumentaria .ptab-body::before { content: '● REC   PROGRAMA · MODA'; }
-      .ptabs.stage .ptab-body::after { font-size: 6rem; right: 34px; bottom: -6px; opacity: .6; }
-    }
+
     /* v6: dispositivos más lindos (pantalla 16:9 del video, marco metálico, brillo) */
     #previews .dev-lap-screen { aspect-ratio: 16 / 9; border: 6px solid #0a0a0c; border-bottom-width: 8px; border-radius: 12px 12px 2px 2px; box-shadow: 0 0 0 2px #9d9da6, 0 0 0 3px #3b3b41, 0 34px 80px rgba(0,0,0,.7); }
     #previews .dev-lap-screen:not(.is-empty)::after { content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,0) 38%); }
@@ -6624,54 +6525,6 @@ adding: 30px 24px !important; }
 
 
 
-  <script>
-    /* Mi trabajo en acción: pestañas con escenario */
-    (function () {
-      var c = document.getElementById('previewTabs');
-      if (!c) return;
-      c.classList.add('stage');
-      var tabs = Array.prototype.slice.call(c.querySelectorAll('.ptab'));
-      ['mouseenter', 'mouseleave'].forEach(function (t) {
-        c.addEventListener(t, function (e) { if (e.target !== c && e.target.closest && e.target.closest('.ptab')) e.stopImmediatePropagation(); }, true);
-      });
-      function lazy(tab) {
-        tab.querySelectorAll('iframe[data-src]').forEach(function (el) { el.src = el.getAttribute('data-src'); el.removeAttribute('data-src'); });
-        tab.querySelectorAll('[data-bg]').forEach(function (el) { el.style.backgroundImage = "url('" + el.getAttribute('data-bg') + "')"; el.removeAttribute('data-bg'); });
-        var ag = tab.querySelector('.reel-group.rg-active');
-        if (ag) ag.querySelectorAll('video[data-src]').forEach(function (v) { v.src = v.getAttribute('data-src'); v.removeAttribute('data-src'); v.load(); });
-        if (ag) ag.querySelectorAll('.pv').forEach(function (v) { if (v.src) v.play().catch(function () {}); });
-      }
-      function select(tab) {
-        tabs.forEach(function (t) {
-          var on = t === tab;
-          t.classList.toggle('is-open', on);
-          var hd = t.querySelector('.ptab-hd'); if (hd) hd.setAttribute('aria-selected', on ? 'true' : 'false');
-          if (!on) t.querySelectorAll('.pv').forEach(function (v) { v.pause(); });
-        });
-        lazy(tab);
-      }
-      tabs.forEach(function (t) {
-        var hd = t.querySelector('.ptab-hd');
-        hd.setAttribute('role', 'tab'); hd.setAttribute('tabindex', '0');
-        hd.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(t); } });
-      });
-      c.addEventListener('click', function (e) {
-        var hd = e.target.closest('.ptab-hd');
-        if (!hd) return;
-        e.stopImmediatePropagation(); e.preventDefault();
-        select(hd.parentNode);
-      }, true);
-      select(tabs[0]);
-      /* Diseño web: ALTIVA / KORD3 */
-      var wt = c.querySelectorAll('.wtab');
-      wt.forEach(function (b) {
-        b.addEventListener('click', function () {
-          wt.forEach(function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
-          c.querySelectorAll('[data-web-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-web-panel') !== b.getAttribute('data-web'); });
-        });
-      });
-    })();
-  </script>
 <script>
 (function(){
   var vids=[].slice.call(document.querySelectorAll('#ptab-web .dev-vid'));
@@ -6685,41 +6538,6 @@ adding: 30px 24px !important; }
   setInterval(tick,1200);
 })();
 </script>
-<script>
-(function(){
-  var box=document.getElementById('previewTabs'); if(!box) return;
-  var hds=[].slice.call(box.querySelectorAll('.ptab-hd')); if(hds.length<2) return;
-  var mq=window.matchMedia('(min-width:1001px)');
-  var bar=document.createElement('div'); bar.className='tl-bar'; bar.innerHTML='<span>▶ <b>Secuencia 01</b> · Mi trabajo en acción</span><span class="tl-tc">00:00:00:00</span>';
-  var ruler=document.createElement('div'); ruler.className='tl-ruler'; for(var i=0;i<=10;i++){var t=document.createElement('span');t.textContent='00:00:'+(i*6<10?'0':'')+(i*6);ruler.appendChild(t);}
-  var head=document.createElement('div'); head.className='tl-head';
-  box.appendChild(bar); box.appendChild(ruler); box.appendChild(head);
-  var tc=bar.querySelector('.tl-tc'), DUR=9000, auto=true, raf=0, t0=0, cur=0, inView=false;
-  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(rm) auto=false;
-  function openIdx(){ for(var i=0;i<hds.length;i++){ if(hds[i].parentNode.classList.contains('is-open')) return i; } return 0; }
-  function place(frac){
-    if(!mq.matches) return; var h=hds[cur], top=ruler.offsetTop, hh=h.offsetTop+h.offsetHeight-top;
-    head.style.top=top+'px'; head.style.height=hh+'px';
-    head.style.left=(h.offsetLeft+h.offsetWidth*frac)+'px';
-    var secs=(cur*DUR/1000)+frac*DUR/1000; var f=Math.floor((secs%1)*25);
-    tc.textContent='00:00:'+('0'+Math.floor(secs)).slice(-2)+':'+('0'+f).slice(-2);
-  }
-  function loop(ts){
-    if(!auto||!inView||!mq.matches){raf=0;return;}
-    if(!t0) t0=ts; var fr=(ts-t0)/DUR;
-    if(fr>=1){ t0=0; var n=(cur+1)%hds.length; hds[n].click(); return; }
-    head.classList.add('live'); place(fr); raf=requestAnimationFrame(loop);
-  }
-  function sync(){ cur=openIdx(); t0=0; head.classList.remove('live'); place(0); if(auto&&inView&&!raf) raf=requestAnimationFrame(loop); }
-  hds.forEach(function(h){ h.addEventListener('click',function(e){ if(e.isTrusted){ auto=false; cancelAnimationFrame(raf); raf=0; } setTimeout(sync,30); setTimeout(sync,400); }); });
-  if(window.MutationObserver){ var mo=new MutationObserver(function(){ if(openIdx()!==cur) sync(); }); hds.forEach(function(h){ mo.observe(h.parentNode,{attributes:true,attributeFilter:['class']}); }); }
-  var wrap=box.querySelector('.ptab-body-wrap'); box.addEventListener('mouseenter',function(e){},{passive:true});
-  [].forEach.call(box.querySelectorAll('.ptab-body-wrap'),function(w){ w.addEventListener('pointerdown',function(){ auto=false; },{passive:true}); });
-  if('IntersectionObserver' in window) new IntersectionObserver(function(en){ inView=en[0].isIntersecting; if(inView&&auto&&!raf){t0=0;raf=requestAnimationFrame(loop);} },{threshold:.35}).observe(box);
-  window.addEventListener('resize',function(){ place(0); });
-  mq.addEventListener&&mq.addEventListener('change',sync);
-  setTimeout(sync,200);
-})();
-</script>
+
 </body>
 </html>
