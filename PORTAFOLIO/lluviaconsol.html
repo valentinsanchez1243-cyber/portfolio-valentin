@@ -184,7 +184,21 @@
   
     p { text-align: justify; }
     #bg-particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; }
-    </style>
+    
+    /* ===== ÍNDICE DEL PROYECTO (qué contiene) ===== */
+    .pj-index { --pjc: var(--ac, color-mix(in srgb, var(--rb, #fff) 55%, #fff)); }
+    .pj-index .pj-index-label { color: var(--pjc); }
+    .pj-index .pj-index-list { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px !important; list-style: none; padding: 0; }
+    .pj-index .pj-index-list a { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "n t ar" "n d ar"; column-gap: 16px; row-gap: 3px; align-items: center; width: 100%; min-height: 72px; padding: 16px 20px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: rgba(255,255,255,.025); text-decoration: none; transition: border-color .3s ease, transform .3s ease, background .3s ease; }
+    .pj-index .pj-index-list a:hover { border-color: var(--pjc); background: rgba(255,255,255,.05); transform: translateY(-3px); color: var(--w); }
+    .pj-index .pj-n { grid-area: n; font-family: 'Fjalla One', sans-serif; font-size: 1.9rem; line-height: 1; color: var(--pjc); min-width: 2.2ch; }
+    .pj-index .pj-t { grid-area: t; font-family: 'Fjalla One', sans-serif; font-size: 1.1rem; letter-spacing: 2px; line-height: 1.15; color: #fff; }
+    .pj-index .pj-d { grid-area: d; font-family: 'Outfit', sans-serif; font-size: .74rem; letter-spacing: .4px; line-height: 1.4; color: #b4b4b4; }
+    .pj-index .pj-ar { grid-area: ar; font-family: 'Outfit', sans-serif; color: var(--pjc); transition: transform .3s ease; }
+    .pj-index .pj-index-list a:hover .pj-ar { transform: translateX(5px); }
+    .pj-index .pj-index-list a:focus-visible { outline: 2px solid var(--pjc); outline-offset: 3px; }
+    @media (max-width: 768px) { .pj-index .pj-index-list { grid-template-columns: 1fr !important; gap: 10px !important; } .pj-index .pj-index-list a { padding: 14px 16px; } }
+  </style>
 </head>
 <body>
 
@@ -262,10 +276,10 @@
         </div>
       </div>
       <div class="pj-index rv">
-        <span class="pj-index-label">&#8212; &#205;NDICE</span>
-        <ul class="pj-index-list">
-          <li><a href="#reels">REELS &amp; VIDEOS</a></li>
-        </ul>
+      <span class="pj-index-label">— ÍNDICE · QUÉ HAY EN ESTE PROYECTO</span>
+      <ul class="pj-index-list">
+        <li><a href="#reels"><span class="pj-n">01</span><span class="pj-t">REELS &amp; VIDEOS</span><span class="pj-d">Reels y videos editados</span><span class="pj-ar" aria-hidden="true">→</span></a></li>
+      </ul>
       </div>
     </div>
   </section>

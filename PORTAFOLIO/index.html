@@ -1510,6 +1510,24 @@ p,
     .cjet .pt, .cjet .pn, .cjet .pb { color: var(--jet); }
     .pc.cjet { border-color: rgba(77,148,255,0.45); }
     .cjet:hover { border-color: rgba(77,148,255,0.9) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(77,148,255,0.3) !important; }
+
+    /* ── Chips de contenido en las tarjetas + tarjetas sin portada ── */
+    .pk { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
+    .pk span { font-family: 'Outfit', sans-serif; font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; color: rgba(255,255,255,.88); background: rgba(0,0,0,.4); }
+    .pcb-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'Fjalla One', sans-serif; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: 6px; text-transform: uppercase; text-align: center; line-height: 1; }
+    .caltiva .pcb-ph { background: linear-gradient(135deg, #152028 0%, #152028 40%, #311D13 100%); color: rgba(253,244,231,.2); }
+    .cbacon .pcb-ph { background: linear-gradient(135deg, #0b0b0b 0%, #0b0b0b 50%, #3a2f05 100%); color: rgba(255,199,44,.24); }
+    .cjere .pcb-ph { background: linear-gradient(135deg, #2F2F2F 0%, #6E0E1C 55%, #CC3300 100%); color: rgba(255,255,255,.2); }
+    .caltiva .pt, .caltiva .pn, .caltiva .pb { color: #FDF4E7; }
+    .cbacon .pt, .cbacon .pn, .cbacon .pb { color: #FFC72C; }
+    .cjere .pt, .cjere .pn, .cjere .pb { color: #E04A1F; }
+    .pc.caltiva { border-color: rgba(253,244,231,.35); }
+    .pc.cbacon { border-color: rgba(255,199,44,.45); }
+    .pc.cjere { border-color: rgba(224,74,31,.5); }
+    .caltiva:hover { border-color: rgba(253,244,231,.8) !important; box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 60px rgba(253,244,231,.15) !important; }
+    .cbacon:hover { border-color: rgba(255,199,44,.9) !important; box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 60px rgba(255,199,44,.25) !important; }
+    .cjere:hover { border-color: rgba(224,74,31,.9) !important; box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 60px rgba(224,74,31,.3) !important; }
+    @media (max-width: 768px) { .pk { display: none !important; } .pcb-ph { font-size: 1.6rem; letter-spacing: 3px; } }
     .cvans:hover { border-color: rgba(255,255,255,0.7) !important; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255,255,255,0.18) !important; }
 
     .pc.square-card {
@@ -4848,6 +4866,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">WOLDI</div>
           <div class="pd">Branding · Naming · Sistema Visual</div>
+          <div class="pk"><span>Branding</span><span>Naming</span><span>Sistema visual</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4861,6 +4880,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">KORD3</div>
           <div class="pd">Branding, dirección visual e indumentaria propia.</div>
+          <div class="pk"><span>Branding</span><span>Dirección visual</span><span>Indumentaria</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4874,12 +4894,52 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Opero</div>
           <div class="pd">Branding estratégico y manual de marca profesional.</div>
+          <div class="pk"><span>Branding estratégico</span><span>Manual de marca</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ALTIVA (branding) -->
+      <a href="altiva.html" class="pc tilt-card reveal caltiva">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">ALTIVA</div>
+          <div class="pd">Identidad de marca para una diseñadora de alta costura de Córdoba.</div>
+          <div class="pk"><span>Identidad</span><span>Manual de marca</span><span>Naming</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- ── PACKAGING ────────────────────────────────────── -->
+      <div class="pg-category">— PACKAGING</div>
+
+      <!-- ALTIVA (packaging) -->
+      <a href="altiva.html" class="pc tilt-card reveal caltiva">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">ALTIVA</div>
+          <div class="pd">Sistema de tres envases con prototipos a escala 1:1.</div>
+          <div class="pk"><span>3 envases</span><span>Prototipos 1:1</span><span>Piezas gráficas</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
 
       <!-- ── DISEÑO WEB ───────────────────────────────────── -->
       <div class="pg-category">— DISEÑO WEB</div>
+
+      <!-- ALTIVA (web) -->
+      <a href="altiva.html" class="pc tilt-card reveal caltiva">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ALTIVA</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">ALTIVA</div>
+          <div class="pd">Sitio web con escenas 3D del packaging y prototipo en Figma.</div>
+          <div class="pk"><span>Sitio 3D</span><span>Prototipo Figma</span><span>Contacto por WhatsApp</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
 
       <!-- KORD3 (web) -->
       <a href="kord3.html" class="pc tilt-card reveal ck">
@@ -4890,6 +4950,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">KORD3</div>
           <div class="pd">Diseño y desarrollo de la web de la marca.</div>
+          <div class="pk"><span>Diseño web</span><span>Identidad de marca</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4906,6 +4967,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">JetSMART</div>
           <div class="pd">Concepto, dirección de arte y reel para el Rally Creativo 2026: Buenos Aires–Medellín en 24 horas.</div>
+          <div class="pk"><span>Concepto</span><span>Dirección de arte</span><span>Reel</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4919,6 +4981,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Vans · 60 Años</div>
           <div class="pd">Concepto de campaña y dirección de arte para el Rally Creativo 2025.</div>
+          <div class="pk"><span>Concepto de campaña</span><span>Dirección de arte</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4932,12 +4995,25 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Nutre3D</div>
           <div class="pd">Identidad visual y contenido para redes de una investigación universitaria sobre alimentos impresos en 3D.</div>
+          <div class="pk"><span>Identidad visual</span><span>Contenido para redes</span><span>Video</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
 
       <!-- ── EDICIÓN DE VIDEOS ───────────────────────────── -->
       <div class="pg-category">— EDICIÓN DE VIDEOS</div>
+
+      <!-- Jere Gigy × Arribas (video) -->
+      <a href="jeregigy.html" class="pc tilt-card reveal cjere">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ARRIBAS</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Jere Gigy × Arribas</div>
+          <div class="pd">Reels con jump cuts, drone, subtítulos de marca y placa final.</div>
+          <div class="pk"><span>Reels</span><span>Drone</span><span>Subtítulos</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
 
       <!-- LLUEVE CON SOL -->
       <a href="lluviaconsol.html" class="pc tilt-card reveal cl">
@@ -4948,6 +5024,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">LLUEVE CON SOL</div>
           <div class="pd">Edición de Video · Diseño de Contenido</div>
+          <div class="pk"><span>Edición de video</span><span>Diseño de contenido</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4961,6 +5038,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Agency Luxury</div>
           <div class="pd">Ads, edición de video y contenido orientado a performance.</div>
+          <div class="pk"><span>Ads</span><span>Edición de video</span><span>Performance</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -4974,12 +5052,37 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Home Improvement</div>
           <div class="pd">Ads y contenido estratégico para el mercado de EE.UU. con IA.</div>
+          <div class="pk"><span>Ads</span><span>Contenido estratégico</span><span>IA</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
 
       <!-- ── SOCIAL MANAGER / REDES SOCIALES ─────────── -->
       <div class="pg-category">— SOCIAL MANAGER / REDES SOCIALES</div>
+
+      <!-- Jere Gigy × Arribas (social) -->
+      <a href="jeregigy.html" class="pc tilt-card reveal cjere">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">ARRIBAS</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Jere Gigy × Arribas</div>
+          <div class="pd">Marca personal en Instagram para un asesor inmobiliario.</div>
+          <div class="pk"><span>Reels</span><span>Carruseles</span><span>Historias</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
+
+      <!-- Bacon -->
+      <a href="bacon.html" class="pc tilt-card reveal cbacon">
+        <div class="pcb"><div class="pcb-ph" aria-hidden="true">BACON</div></div>
+        <div class="po">
+          <div class="pt">Proyecto</div>
+          <div class="pn">Bacon</div>
+          <div class="pd">Community management, diseño y edición para una hamburguesería de Córdoba.</div>
+          <div class="pk"><span>Calendario mensual</span><span>Reels</span><span>Diseño</span><span>Copywriting</span></div>
+          <div class="pb">Ver proyecto completo →</div>
+        </div>
+      </a>
 
       <!-- Man Blue FC -->
       <a href="manblue.html" class="pc tilt-card reveal cmb">
@@ -4990,6 +5093,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Man Blue FC</div>
           <div class="pd">Community management, matchday y cobertura en tiempo real.</div>
+          <div class="pk"><span>Community management</span><span>Match day</span><span>Tiempo real</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5003,6 +5107,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Energía Fitness</div>
           <div class="pd">Rebranding, relanzamiento y producción audiovisual integral.</div>
+          <div class="pk"><span>Rebranding</span><span>Relanzamiento</span><span>Producción audiovisual</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5016,6 +5121,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Natan Barber</div>
           <div class="pd">Branding completo y producción con fuerte identidad cultural.</div>
+          <div class="pk"><span>Branding</span><span>Producción</span><span>Packaging</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5032,6 +5138,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Revista Pluma Felina</div>
           <div class="pd">Fotonovela editorial para Casa Editorial Felina: maquetación en InDesign y revista digital hojeable.</div>
+          <div class="pk"><span>Maquetación InDesign</span><span>Revista digital</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5045,6 +5152,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">Mafalda</div>
           <div class="pd">Historieta maquetada en InDesign: retícula, tipografía y narrativa secuencial.</div>
+          <div class="pk"><span>Maquetación</span><span>Retícula</span><span>Tipografía</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5061,6 +5169,7 @@ adding: 30px 24px !important; }
           <div class="pt">Proyecto</div>
           <div class="pn">MF Sports</div>
           <div class="pd">Diseño de indumentaria deportiva y presentaciones profesionales.</div>
+          <div class="pk"><span>Indumentaria deportiva</span><span>Presentaciones</span></div>
           <div class="pb">Ver proyecto completo →</div>
         </div>
       </a>
@@ -5138,6 +5247,30 @@ adding: 30px 24px !important; }
         </div>
         <div class="svtg"><span class="svt">CAMISETAS</span><span class="svt">BUZOS</span><span
             class="svt">DEPORTIVA</span><span class="svt">SPONSORS</span></div>
+      </div>
+
+      <!-- 06 -->
+      <div class="svi rv">
+        <div class="svnum">06</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Packaging</div>
+          </div>
+          <div class="svd" style="color: #666; font-size: 0.85rem;">Sistemas de envases pensados desde el uso y la producción real: estructura, materiales, terminaciones y prototipos a escala 1:1.</div>
+        </div>
+        <div class="svtg"><span class="svt">ENVASES</span><span class="svt">PROTOTIPOS 1:1</span><span class="svt">ETIQUETAS</span><span class="svt">PIEZAS GRÁFICAS</span></div>
+      </div>
+
+      <!-- 07 -->
+      <div class="svi rv">
+        <div class="svnum">07</div>
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="svn">Diseño Web</div>
+          </div>
+          <div class="svd" style="color: #666; font-size: 0.85rem;">Sitios a medida para marcas: del prototipo en Figma al desarrollo en HTML, CSS y JavaScript, con escenas 3D y versión pensada aparte para celular.</div>
+        </div>
+        <div class="svtg"><span class="svt">UX / UI</span><span class="svt">FIGMA</span><span class="svt">DESARROLLO</span><span class="svt">3D</span></div>
       </div>
     </div>
   </section>
