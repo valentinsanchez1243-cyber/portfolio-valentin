@@ -213,3 +213,7 @@ Los originales siguen en Bunny; podés borrarlos a mano cuando quieras.
 | PORTADAS/portadas-proyectos/PORTADA ALTIVA.png | PORTADAS/portadas-proyectos/portada-altiva.webp |
 | PORTADAS/portadas-proyectos/PORTADA BACON.jpg | PORTADAS/portadas-proyectos/portada-bacon.webp |
 | PORTADAS/portadas-proyectos/PORTADA JERE INMOBILIARIA.jpg | PORTADAS/portadas-proyectos/portada-jere-inmobiliaria.webp |
+
+## Videos grabados del sitio
+- PROYECTOS/ALTIVA/video/sitio-celular.mp4, sitio-escritorio.mp4 (+ posters/)
+- PROYECTOS/KORD3/video/tienda-celular.mp4, tienda-escritorio.mp4 (+ posters/)

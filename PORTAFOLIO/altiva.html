@@ -447,6 +447,25 @@
 document.addEventListener('DOMContentLoaded',function(){var vs=document.querySelectorAll('.gx-phone video');
 vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(o){if(o!==v)o.pause()})})});});
 </script>
+
+<style>
+/* maquetas de contenido real */
+.mx-fr{width:100%;border-radius:12px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,.12)}
+.mx-fr img,.mx-fr video{width:100%;height:100%;object-fit:cover;display:block}
+.mx-fr.ct img{object-fit:contain}
+.mx-ph{width:100%;border-radius:24px;border:5px solid #17171a;overflow:hidden;background:#000;box-shadow:0 14px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.mx-ph video,.mx-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.mx-dev{display:flex;gap:30px;align-items:flex-end;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.mx-lap{width:min(560px,100%)}
+.mx-lap .scr{aspect-ratio:16/10;border:7px solid #17171a;border-bottom-width:9px;border-radius:12px 12px 0 0;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.mx-lap .scr video{width:100%;height:100%;object-fit:cover;display:block}
+.mx-lap .base{height:13px;background:linear-gradient(#34343a,#101012);border-radius:0 0 16px 16px;margin:0 -3%;box-shadow:0 18px 30px rgba(0,0,0,.5)}
+.mx-pho{width:170px}.piezas-layout .mx-dev{flex-wrap:nowrap;gap:18px}.piezas-layout .mx-lap{width:auto;flex:1 1 0;min-width:0}.piezas-layout .mx-pho{width:112px;flex:none}.mx-fr.cr{background:#FDF4E7}.mx-fr.cr img{object-fit:contain;padding:14px;box-sizing:border-box}
+.mx-cap{font-family:'Outfit',sans-serif;font-size:.8rem;letter-spacing:1px;text-align:center;color:#b9b9b9;margin-top:10px}
+.mx-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.mx-trio .mx-fr{aspect-ratio:1/1}
+@media(max-width:768px){.mx-dev{gap:20px}.mx-pho{width:140px}}
+</style>
 </head>
 <body>
 
@@ -521,7 +540,7 @@ vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(
         </div>
       </div>
       <div class="grid-vans-side">
-        <div class="ph" style="aspect-ratio:4 / 3;"><b>Portada · Altiva</b><span>Logo crema sobre fondo azul con flores</span></div>
+        <div class="mx-fr ct" style="aspect-ratio:4/3"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/portada-altiva.webp" alt="Portada de ALTIVA" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
@@ -537,17 +556,17 @@ vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(
     <p class="section-desc" style="max-width:760px;">Organizamos los envases por tipo de prenda, no por evento: con tres formatos se cubren novias, quinceañeras, egresadas y accesorios. Todo se puede producir de forma artesanal, porque Alejandra tiene que poder hacerlo sola.</p>
     <div class="cards3">
       <div class="cardx">
-        <div class="ph" style="aspect-ratio:4 / 5;"><b>Foto · Funda + baúl</b><span>Prototipo 1:1</span></div>
+        <div class="mx-fr" style="aspect-ratio:4/5"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/portatraje.webp" alt="Funda de lienzo con ventana" loading="lazy" decoding="async"></div>
         <span class="kick">Grande</span><h3>Funda + baúl</h3>
         <p>Para novias, 15 y egresadas. Funda de lienzo crudo con ventana y baúl de pana que queda en casa como guardado.</p>
       </div>
       <div class="cardx">
-        <div class="ph" style="aspect-ratio:4 / 5;"><b>Foto · Book</b><span>Prototipo 1:1</span></div>
+        <div class="mx-fr" style="aspect-ratio:4/5"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/difusor-sobre-libro.webp" alt="Caja con forma de libro" loading="lazy" decoding="async"></div>
         <span class="kick">Mediano</span><h3>Book</h3>
         <p>Caja con forma de libro para corsets y prendas que se pliegan. Después de la entrega se vuelve libro de mesa.</p>
       </div>
       <div class="cardx">
-        <div class="ph" style="aspect-ratio:4 / 5;"><b>Foto · Tubos</b><span>Prototipo 1:1</span></div>
+        <div class="mx-fr" style="aspect-ratio:4/5"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/tubos-packaging.webp" alt="Tubos de packaging" loading="lazy" decoding="async"></div>
         <span class="kick">Chicos</span><h3>Tubos</h3>
         <p>Tres tubos para accesorios de autor: clutchs, tiaras, cinturones, guantes y broches. Para guardar y exhibir.</p>
       </div>
@@ -566,11 +585,8 @@ vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(
         </div>
       </div>
       <div class="grid-vans-side" style="flex-basis:560px;">
-        <div class="duo-shots">
-          <img src="img/altiva-escritorio.webp" alt="Inicio del sitio de ALTIVA en computadora" loading="lazy" style="aspect-ratio:16 / 10;width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid rgba(255,255,255,.15);">
-          <img src="img/altiva-celular.webp" alt="Inicio del sitio de ALTIVA en celular" loading="lazy" style="aspect-ratio:9 / 19;width:100%;object-fit:cover;object-position:top;border-radius:14px;border:1px solid rgba(255,255,255,.15);">
-        </div>
-        <div class="ph" style="aspect-ratio:16 / 9;"><b>Video · Cómo se usa el sitio</b><span>Recorrido corto: scroll 3D, colección, “Tu cuenta” y contacto por WhatsApp</span></div>
+        <div class="mx-dev"><div class="mx-lap"><div class="scr"><video preload="none" controls playsinline loop poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-escritorio.webp" src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-escritorio.mp4" muted></video></div><div class="base"></div><div class="mx-cap">Escritorio</div></div><div class="mx-pho"><div class="mx-ph" style="aspect-ratio:9/19.5"><video preload="none" controls playsinline loop poster="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/posters/sitio-celular.webp" src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/video/sitio-celular.mp4" muted></video></div><div class="mx-cap">Celular</div></div></div>
+        
       </div>
     </div>
   </section>
@@ -587,25 +603,13 @@ vs.forEach(function(v){v.addEventListener('play',function(){vs.forEach(function(
         <div class="notice">Proyecto académico en equipo de seis: Ana Basaldúa, Tomás Bertona, Juana Menigale, María Magdalena Núñez, Valentín Sánchez y Enzo Saliva. Profesor: Lic. Esp. Sebastián Aguirre. Investigación, naming, identidad, manual de marca y diseño del sistema de envases se hicieron en equipo.</div>
       </div>
       <div class="proyecto-col">
-        <div class="section-subtitle">— IDENTIDAD</div>
-        <div class="specimen">
-          <div><small>Títulos</small><em style="font-family:'Fjalla One',sans-serif;letter-spacing:2px;">ALTIVA</em></div>
-          <div><small>Textos</small><em style="font-family:'Outfit',sans-serif;font-size:1.3rem;">Century Gothic</em></div>
-        </div>
-        <div class="swatches">
-          <div class="sw"><i style="background:#311D13"></i><span>Chocolate<br>#311D13</span></div>
-          <div class="sw"><i style="background:#FDF4E7"></i><span>Crema<br>#FDF4E7</span></div>
-          <div class="sw"><i style="background:#324548"></i><span>Verde grisáceo<br>#324548</span></div>
-          <div class="sw"><i style="background:#152028"></i><span>Azul noche<br>#152028</span></div>
-          <div class="sw"><i style="background:#B5B6C0"></i><span>Gris<br>#B5B6C0</span></div>
-        </div>
-        <div style="margin-top:22px;"><div class="ph" style="aspect-ratio:297 / 420;max-height:520px;"><b>Lámina A3 de síntesis</b><span>Concepto, identidad, envases y piezas gráficas</span></div></div>
+        <div class="section-subtitle">— LA MARCA</div>
+        <div class="mx-fr ct" style="aspect-ratio:16/10"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/presentacion/eslogan-altiva.webp" alt="Eslogan de ALTIVA" loading="lazy"></div><div class="mx-trio"><div class="mx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/caja-organizadora.webp" alt="Caja organizadora" loading="lazy"></div><div class="mx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/fotos/alejandra-prieto.webp" alt="Alejandra Prieto" loading="lazy"></div><div class="mx-fr cr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/isologo-funda.svg" alt="Isologo" loading="lazy"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="gx-sec rv" id="piezas"><div class="section-subtitle">— MARCA</div><h2 class="section-title">Piezas de <em>ALTIVA</em></h2><div class="gx-grid gx-wide"><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/caja-organizadora.webp" alt="Mockup · Caja organizadora" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Caja organizadora</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/difusor-sobre-libro.webp" alt="Mockup · Difusor sobre libro" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Difusor sobre libro</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/portatraje.webp" alt="Mockup · Portatraje" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Portatraje</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/mockups/tubos-packaging.webp" alt="Mockup · Tubos de packaging" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Mockup · Tubos de packaging</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/presentacion/eslogan-altiva.webp" alt="Presentación · Eslogan" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Presentación · Eslogan</figcaption></figure><figure class="gx-img"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/fotos/alejandra-prieto.webp" alt="Alejandra Prieto" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Alejandra Prieto</figcaption></figure></div><div class="gx-sub">LOGOS</div><div class="gx-grid"><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/logo-altiva.svg" alt="Logo ALTIVA" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Logo ALTIVA</figcaption></figure><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/isologo-funda.svg" alt="Isologo funda" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Isologo funda</figcaption></figure><figure class="gx-img gx-logo"><div class="gx-fr"><img src="https://valentin-cdn.b-cdn.net/PROYECTOS/ALTIVA/logos/logo-funda.svg" alt="Logo funda" loading="lazy" decoding="async"></div><figcaption class="gx-cap">Logo funda</figcaption></figure></div></section>
-<footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+  <footer style="padding: 60px 64px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
     <div style="font-family: 'Fjalla One', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--w);">VALENTÍN SÁNCHEZ<span style="color:var(--ac)">.</span></div>
     <div style="font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--g); letter-spacing: 1px;">© 2026 · Córdoba, AR</div>
   </footer>
