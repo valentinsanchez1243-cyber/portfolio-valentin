@@ -69,3 +69,32 @@ html.js-m [data-m="img"].m-in{transform:none;clip-path:inset(0)}
 .ind-cta{margin-left:auto;font:500 .6rem/1 'Outfit',sans-serif;letter-spacing:2px;text-transform:uppercase;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:8px 14px;transition:background .4s,color .4s,border-color .4s}
 .ind-cta+.ind-cta{margin-left:0}
 .ind-cta:hover{background:#fff;color:#000;border-color:#fff}
+
+/* ===== MOBILE · capa minimalista (solo ≤768px; escritorio intacto) ===== */
+@media(max-width:768px){
+  html{-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  /* Cintas: de rojo gritón a línea fina oscura */
+  .mw{background:#0a0a0a!important;border-block:1px solid rgba(255,255,255,.1);padding:12px 0!important}
+  .mw .mi{color:rgba(255,255,255,.62)!important;font-size:.78rem!important;letter-spacing:3px}
+  .mw .md{color:#ff2a2a!important}
+  /* Stats: grilla 2x2 sobria en vez de bloque rojo */
+  .sb{display:grid!important;background:#0b0b0b!important;padding:40px 22px!important;grid-template-columns:1fr 1fr!important;gap:28px 0;border-block:1px solid rgba(255,255,255,.08)}
+  .sb .si{padding:0 10px!important;border:0!important}
+  .sb .si:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)!important}
+  .sb .sn{font-size:clamp(40px,12vw,54px)!important;color:#fff}
+  .sb .sl2{font-size:.62rem!important;letter-spacing:2.5px!important;color:rgba(255,255,255,.5)!important;line-height:1.5}
+  /* Contacto: el mail entra completo */
+  #contacto span[style*="border-bottom"]{font-size:clamp(.8rem,4.4vw,1.4rem)!important;white-space:nowrap;display:inline-block;max-width:100%;letter-spacing:0!important}
+  #contacto a,#contacto button{min-height:48px}
+  /* Targets táctiles y lectura */
+  button,.bo,.bp,[role=button],.ptab-hd,.comm-tabs button{min-height:44px}
+  p{line-height:1.7}
+  /* Menos ruido decorativo en celular */
+  .hero-banner,.m-noise,[class*=cursor],[class*=spotlight]{display:none!important}
+  *{-webkit-tap-highlight-color:transparent}
+  #ptab-community .comm-tabs{border-radius:0!important;background:none!important;border:0!important;padding:0!important;gap:8px!important}
+  #ptab-community .comm-tabs .ctab{border-radius:100px!important;padding:11px 16px!important;min-height:44px;font-size:.62rem!important;letter-spacing:1.5px!important}
+  #previews .web-cta a,#previews .web-cta button{letter-spacing:1.5px!important;font-size:.6rem!important;padding:12px 10px!important;white-space:nowrap;text-align:center}
+  img,video{max-width:100%}
+}

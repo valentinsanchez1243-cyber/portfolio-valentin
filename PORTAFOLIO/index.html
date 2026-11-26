@@ -4064,8 +4064,8 @@ adding: 30px 24px !important; }
     #previews .dev-phone { width: 22%; border: 5px solid #0a0a0c; border-radius: 22px; box-shadow: 0 0 0 2px #a9a9b2, 0 0 0 3px #3b3b41, 0 28px 56px rgba(0,0,0,.7); }
     .dev-phone.is-empty::after { font-size: .9rem; letter-spacing: 3px; }
   </style>
-<link rel="stylesheet" href="motion.css">
-<script defer src="motion.js"></script>
+<link rel="stylesheet" href="motion.css?v=1795728571">
+<script defer src="motion.js?v=1795728571"></script>
 </head>
 
 <body>
@@ -6432,14 +6432,7 @@ adding: 30px 24px !important; }
         });
       }
 
-      tabs.forEach(function (tab) {
-        var hd = tab.querySelector('.ptab-hd');
-        hd.addEventListener('mouseenter', function () { if (!isMob()) openTab(tab); });
-        tab.addEventListener('mouseleave', function () { if (!isMob()) closeAll(); });
-        hd.addEventListener('click', function () {
-          if (isMob()) { tab.classList.contains('is-open') ? closeAll() : openTab(tab); }
-        });
-      });
+      /* handlers de tabs: ya los registra el bloque anterior (evitaba doble toggle en celular) */
 
       /* ---- REEL CAROUSEL ---- */
       var reelIdx = 0;
